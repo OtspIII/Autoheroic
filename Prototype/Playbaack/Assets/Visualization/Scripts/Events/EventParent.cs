@@ -7,6 +7,7 @@ public class EventParent : MonoBehaviour {
 	protected EventController Manager;
 	public float TimerMax;
 	protected float Timer;
+	protected ClassController ActiveChar = null;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,8 @@ public class EventParent : MonoBehaviour {
 	}
 
 	virtual public void End(){
+		if (ActiveChar != null)
+			Manager.NameTextOff();
 	}
 
 	virtual public bool StillRunning(){
@@ -36,6 +39,10 @@ public class EventParent : MonoBehaviour {
 
 	virtual public void Begin(List<string> data){
 		Timer = TimerMax;
+		if (Manager.CharacterReference.ContainsKey(data[0])){
+			ActiveChar = Manager.CharacterReference[data[0]];
+			Manager.NameTextOn(ActiveChar.Name);
+		}
 	}
 
 	//Here's a list of types of Events and the data they want:

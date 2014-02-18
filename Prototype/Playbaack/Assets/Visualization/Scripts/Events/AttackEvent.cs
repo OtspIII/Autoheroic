@@ -14,8 +14,7 @@ public class AttackEvent : EventParent {
 	public override void Begin (System.Collections.Generic.List<string> data)
 	{
 		base.Begin(data);
-		ClassController who = Manager.CharacterReference[data[0]];
-		who.DoAnimation(AM.Actions.Attack);
+		ActiveChar.DoAnimation(AM.Actions.Attack);
 		//Timer = TimerMax;
 	}
 

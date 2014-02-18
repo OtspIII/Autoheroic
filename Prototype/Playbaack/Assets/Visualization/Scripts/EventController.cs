@@ -17,10 +17,12 @@ public class EventController : MonoBehaviour {
 	Dictionary<GEventType,EventParent> Events = new Dictionary<GEventType, EventParent>();
 	EventParent CurrentEvent = null;
 	List<GameEvent> EventStack = new List<GameEvent>();
+	TextMesh NameText;
 
 
 	// Use this for initialization
 	void Start () {
+		NameText = (TextMesh)GameObject.Find("Name").GetComponent("TextMesh");
 	}
 	
 	// Update is called once per frame
@@ -155,5 +157,13 @@ public class EventController : MonoBehaviour {
 		Characters.Remove(who);
 		CharacterReference.Remove(who.UniqueName);
 		who.gameObject.transform.position = new Vector3(9999,9999,9999);
+	}
+
+	public void NameTextOn(string text){
+		NameText.text = text;
+	}
+
+	public void NameTextOff(){
+		NameText.text = "";
 	}
 }

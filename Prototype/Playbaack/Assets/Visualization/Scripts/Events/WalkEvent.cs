@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class WalkEvent : EventParent {
-
-	ClassController ActiveChar;
+	
 	Vector2 EndLocation;
 	Vector2 StartLocation;
 
@@ -16,9 +15,7 @@ public class WalkEvent : EventParent {
 	public override void Begin (System.Collections.Generic.List<string> data)
 	{
 		base.Begin(data);
-		ClassController who = Manager.CharacterReference[data[0]];;
 		Vector2 whereE = new Vector2(float.Parse(data[1]),float.Parse(data[2]));
-		ActiveChar = who;
 		EndLocation = whereE;
 		StartLocation = new Vector2(ActiveChar.transform.position.x,ActiveChar.transform.position.z);
 		ActiveChar.DoAnimation(AM.Actions.Walk);
@@ -34,6 +31,7 @@ public class WalkEvent : EventParent {
 	}
 
 	public override void End (){
+		base.End();
 		ActiveChar.gameObject.transform.position = new Vector3(EndLocation.x,0.5f,EndLocation.y);
 	}
 }
