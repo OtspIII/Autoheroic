@@ -10,33 +10,26 @@
 using System;
 namespace AM
 {
-	public enum TTerrain
-	{
-		Grass = 1,
-		Desert = 2
-	}
-
-	public enum CharClass
-	{
-		Knight,
-		Archer,
-		Mage
-	}
-
-	public enum Actions
-	{
-		Walk,
-		Attack,
-		TakeDamage,
-		Die
-	}
-
-	public enum GEventType
-	{
-		Walk,
-		Attack,
-		TakeDamage,
-		Die
-	}
+//	public enum TTerrain
+//	{
+//		Grass = 1,
+//		Desert = 2
+//	}
+//
+//	public enum CharClass
+//	{
+//		Knight,
+//		Archer,
+//		Mage
+//	}
+//
+//	public enum Actions
+//	{
+//		Walk,
+//		Attack,
+//		TakeDamage,
+//		Die
+//	}
+//
 }
 

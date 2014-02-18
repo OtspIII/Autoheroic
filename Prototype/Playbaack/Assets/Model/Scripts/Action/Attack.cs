@@ -13,11 +13,11 @@ namespace Cub.Action
 
 		public override void Body(EventController con)
         {
-			con.QueueEvent(new AM.GameEvent(AM.GEventType.Attack,new List<string>{Target[0].UName}));
+			con.QueueEvent(new AM.GameEvent(Cub.Type.GEventType.Attack,new List<string>{Target[0].UName}));
             Debug.Log("Attack: " + this.Target[0].Class + ">" + this.Target[1].Class);
             bool kill = this.Target[1].Damage(2);
 			if (kill){
-				con.QueueEvent(new AM.GameEvent(AM.GEventType.Die,new List<string>{Target[1].UName}));
+				con.QueueEvent(new AM.GameEvent(Cub.Type.GEventType.Die,new List<string>{Target[1].UName}));
 			}
         }
     }

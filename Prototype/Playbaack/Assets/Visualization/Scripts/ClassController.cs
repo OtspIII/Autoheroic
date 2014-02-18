@@ -6,7 +6,7 @@ public class ClassController : MonoBehaviour {
 
 	public string Name;
 	public string UniqueName;
-	public CharClass Class;
+	public Cub.Type.Class Class;
 	GameObject deathSpray;
 	public GameObject DeathSpray {get{return deathSpray;}}
 	public GameObject DeathSprayClass;
@@ -26,16 +26,16 @@ public class ClassController : MonoBehaviour {
 		UniqueName = who.UniqueName;
 	}
 	
-	public void DoAnimation(Actions act){
+	public void DoAnimation(Cub.Type.Anim act){
 		switch (act)
 		{
-		case Actions.Walk:
+		case Cub.Type.Anim.Walk:
 		{
 //			particleSystem.startColor = Color.blue;
 //			particleSystem.Emit(10);
 			break;
 		}
-		case Actions.Attack:
+		case Cub.Type.Anim.Attack:
 		{
 			particleSystem.startColor = Color.white;
 			particleSystem.Emit(10);

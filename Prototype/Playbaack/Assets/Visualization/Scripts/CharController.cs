@@ -18,10 +18,10 @@ public class CharController
 {
 		public string Name;
 		public string UniqueName;
-		public CharClass Class;
+		public Cub.Type.Class Class;
 		public Vector2 Location;
 	
-		public CharController (string name,string uname, CharClass cl, Vector2 loc)
+		public CharController (string name,string uname, Cub.Type.Class cl, Vector2 loc)
 		{
 			Name = name;
 			UniqueName = uname;

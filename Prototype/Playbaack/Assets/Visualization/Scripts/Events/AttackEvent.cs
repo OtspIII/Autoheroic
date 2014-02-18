@@ -14,7 +14,7 @@ public class AttackEvent : EventParent {
 	public override void Begin (System.Collections.Generic.List<string> data)
 	{
 		base.Begin(data);
-		ActiveChar.DoAnimation(AM.Actions.Attack);
+		ActiveChar.DoAnimation(Cub.Type.Anim.Attack);
 		//Timer = TimerMax;
 	}
 

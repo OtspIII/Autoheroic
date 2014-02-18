@@ -33,7 +33,7 @@ namespace Cub.Action
             int Index = UnityEngine.Random.Range(0, L.Count - 1);
 
             Cub.Main.Move(this.Target[0], L[Index]);
-			con.QueueEvent(new AM.GameEvent(AM.GEventType.Walk,new List<string>{
+			con.QueueEvent(new AM.GameEvent(Cub.Type.GEventType.Walk,new List<string>{
 				Target[0].UName,L[Index].x.ToString(),L[Index].y.ToString()}));
             Debug.Log("Move: " + this.Target[0].Class + ">" + L[Index].ToString());
         }

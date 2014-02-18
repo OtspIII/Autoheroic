@@ -18,7 +18,7 @@ public class WalkEvent : EventParent {
 		Vector2 whereE = new Vector2(float.Parse(data[1]),float.Parse(data[2]));
 		EndLocation = whereE;
 		StartLocation = new Vector2(ActiveChar.transform.position.x,ActiveChar.transform.position.z);
-		ActiveChar.DoAnimation(AM.Actions.Walk);
+		ActiveChar.DoAnimation(Cub.Type.Anim.Walk);
 	}
 
 	public override void Continue (){

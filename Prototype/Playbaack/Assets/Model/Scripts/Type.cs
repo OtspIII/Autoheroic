@@ -60,4 +60,22 @@ namespace Cub.Type
         Archer,
         Mage
     }
+
+	public enum GEventType
+	{
+		None,
+		Walk,
+		Attack,
+		TakeDamage,
+		Die
+	}
+
+	public enum Anim{
+		None,
+		Walk,
+		Attack,
+		TakeDamage,
+		Die
+	}
+
 }

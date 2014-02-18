@@ -16,13 +16,13 @@ namespace AM
 {
 public class GameEvent
 {
-		public GEventType Type;
+		public Cub.Type.GEventType Type;
 		public List<string> Data;
 //		public ClassController MainChar;
 //		public Vector2 Where1;
 		//public Vector2 Where2;
 
-		public GameEvent (GEventType type, List<string> data)
+		public GameEvent (Cub.Type.GEventType type, List<string> data)
 		{
 			Type = type;
 			Data = data;

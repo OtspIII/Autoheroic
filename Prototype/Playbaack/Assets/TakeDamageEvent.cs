@@ -14,6 +14,6 @@ public class TakeDamageEvent : EventParent {
 		base.Begin(data);
 		ClassController who = Manager.CharacterReference[data[0]];
 		int dam = int.Parse(data[1]);
-		who.DoAnimation(AM.Actions.Attack);
+		who.DoAnimation(Cub.Type.Anim.Attack);
 	}
 }

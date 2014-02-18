@@ -23,6 +23,16 @@ public class EventParent : MonoBehaviour {
 	
 	}
 
+	virtual public void Begin(List<string> data){
+		Timer = TimerMax;
+		if (data.Count == 0) Debug.Log("0 Length Data");
+		//Debug.Log(Manager.CharacterReference.ContainsKey(data[0]));
+		if (Manager.CharacterReference.ContainsKey(data[0])){
+			ActiveChar = Manager.CharacterReference[data[0]];
+			Manager.NameTextOn(ActiveChar.Name);
+		}
+	}
+
 	virtual public void Continue(){
 		Timer -= Time.deltaTime;
 	}
@@ -35,14 +45,6 @@ public class EventParent : MonoBehaviour {
 	virtual public bool StillRunning(){
 		if (Timer > 0) return true;
 		return false;
-	}
-
-	virtual public void Begin(List<string> data){
-		Timer = TimerMax;
-		if (Manager.CharacterReference.ContainsKey(data[0])){
-			ActiveChar = Manager.CharacterReference[data[0]];
-			Manager.NameTextOn(ActiveChar.Name);
-		}
 	}
 
 	//Here's a list of types of Events and the data they want:

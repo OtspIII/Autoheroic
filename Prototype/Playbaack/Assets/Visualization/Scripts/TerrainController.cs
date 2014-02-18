@@ -5,7 +5,7 @@ using AM;
 public class TerrainController : MonoBehaviour {
 
 	public string Name;
-	public TTerrain TerrainType;
+	public Cub.Type.Terrain TerrainType;
 
 	// Use this for initialization
 	void Start () {

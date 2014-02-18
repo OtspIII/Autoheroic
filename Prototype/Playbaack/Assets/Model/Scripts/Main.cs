@@ -52,17 +52,17 @@ namespace Cub
 				switch (man.Class){
 				case Cub.Type.Class.Archer:
 				{
-					SD.AddCharacter(man.Name,Unique_Names[man],AM.CharClass.Archer,Info_Position[man]);
+					SD.AddCharacter(man.Name,Unique_Names[man],Cub.Type.Class.Archer,Info_Position[man]);
 					break;
 				}
 				case Cub.Type.Class.Knight:
 				{
-					SD.AddCharacter(man.Name,Unique_Names[man],AM.CharClass.Knight,Info_Position[man]);
+					SD.AddCharacter(man.Name,Unique_Names[man],Cub.Type.Class.Knight,Info_Position[man]);
 					break;
 				}
 				case Cub.Type.Class.Mage:
 				{
-					SD.AddCharacter(man.Name,Unique_Names[man],AM.CharClass.Mage,Info_Position[man]);
+					SD.AddCharacter(man.Name,Unique_Names[man],Cub.Type.Class.Mage,Info_Position[man]);
 					break;
 				}
 				}

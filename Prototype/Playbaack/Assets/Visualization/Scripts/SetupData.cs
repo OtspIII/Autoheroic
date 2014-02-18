@@ -6,7 +6,7 @@ using Cub;
 
 public class SetupData : MonoBehaviour {
 
-	public TTerrain[,] TerrainMap;
+	public Cub.Type.Terrain[,] TerrainMap;
 	public List<CharController> Characters = new List<CharController>();
 
 
@@ -20,20 +20,20 @@ public class SetupData : MonoBehaviour {
 	
 	}
 
-	public void AddCharacter(string name, string unique, CharClass cls, Vector2 where){
+	public void AddCharacter(string name, string unique, Cub.Type.Class cls, Vector2 where){
 		Characters.Add(new CharController(name,unique, cls,where));
 	}
 
 	public void StageData(){
 		Cub.Type.Terrain[][] map = Library.Stage_Terrain;
 
-		TerrainMap = new TTerrain[map.Length,map[0].Length];
+		TerrainMap = new Cub.Type.Terrain[map.Length,map[0].Length];
 		for (int y = 0; y < map.Length;y++){
 			for (int x = 0; x < map[0].Length;x++){
 				if (map[y][x] == Cub.Type.Terrain.Desert)
-					TerrainMap[y,x] = TTerrain.Desert;
+					TerrainMap[y,x] = Cub.Type.Terrain.Desert;
 				else
-					TerrainMap[y,x] = TTerrain.Grass;
+					TerrainMap[y,x] = Cub.Type.Terrain.Grass;
 			}
 		}
 
@@ -55,18 +55,18 @@ public class SetupData : MonoBehaviour {
 	}
 
 	void TestFill(){
-		TerrainMap = new TTerrain[10,10];
+		TerrainMap = new Cub.Type.Terrain[10,10];
 		for (int y = 0; y < TerrainMap.GetLength(0);y++){
 			for (int x = 0; x < TerrainMap.GetLength(1);x++){
 				if (Random.Range(0,2) == 1)
-					TerrainMap[y,x] = TTerrain.Desert;
+					TerrainMap[y,x] = Cub.Type.Terrain.Desert;
 				else
-					TerrainMap[y,x] = TTerrain.Grass;
+					TerrainMap[y,x] = Cub.Type.Terrain.Grass;
 			}
 		}
 
 
-		Characters.Add(new CharController("Jim","Jim1", CharClass.Knight,new Vector2(0,0)));
-		Characters.Add(new CharController("John", "John2", CharClass.Knight,new Vector2(9,9)));
+		Characters.Add(new CharController("Jim","Jim1", Cub.Type.Class.Knight,new Vector2(0,0)));
+		Characters.Add(new CharController("John", "John2", Cub.Type.Class.Knight,new Vector2(9,9)));
 	}
 }

@@ -7,15 +7,15 @@ public class EventController : MonoBehaviour {
 
 
 //	public IDictionary<string,GameObject> Classes;
-	Dictionary<CharClass,ClassController> ClassReference = new Dictionary<CharClass, ClassController>();
+	Dictionary<Cub.Type.Class,ClassController> ClassReference = new Dictionary<Cub.Type.Class, ClassController>();
 	public List<GameObject> Classes;
-	Dictionary<TTerrain,TerrainController> TerrainReference = new Dictionary<TTerrain, TerrainController>();
+	Dictionary<Cub.Type.Terrain,TerrainController> TerrainReference = new Dictionary<Cub.Type.Terrain, TerrainController>();
 	public List<GameObject> Terrains;
 	TerrainController[,] TerrainMap;
 	List<ClassController> Characters = new List<ClassController>();
 	public Dictionary<string,ClassController> CharacterReference = new Dictionary<string, ClassController>();
-	Dictionary<GEventType,EventParent> Events = new Dictionary<GEventType, EventParent>();
-	EventParent CurrentEvent = null;
+	Dictionary<Cub.Type.GEventType,EventParent> Events = new Dictionary<Cub.Type.GEventType, EventParent>();
+	public EventParent CurrentEvent = null;
 	List<GameEvent> EventStack = new List<GameEvent>();
 	TextMesh NameText;
 	//public EMInterface Interface;
@@ -77,6 +77,7 @@ public class EventController : MonoBehaviour {
 			ClassController cl = null;
 			Debug.Log(c.Name);
 			if (ClassReference.ContainsKey(c.Class)){
+				Debug.Log("X");
 				GameObject go = (GameObject)Instantiate(GetClass(c.Class).gameObject,
 				   new Vector3(c.Location.x, 0.5f, c.Location.y), Quaternion.identity);
 				ClassController cc = (ClassController)go.GetComponent("ClassController");
@@ -101,26 +102,26 @@ public class EventController : MonoBehaviour {
 			TerrainController cont = (TerrainController)c.GetComponent("TerrainController");
 			TerrainReference.Add(cont.TerrainType, cont);
 		}
-		Events.Add(GEventType.Walk,(EventParent)GetComponent("WalkEvent"));
-		Events.Add(GEventType.Attack,(EventParent)GetComponent("AttackEvent"));
-		Events.Add(GEventType.TakeDamage,(EventParent)GetComponent("TakeDamageEvent"));
-		Events.Add(GEventType.Die,(EventParent)GetComponent("DeathEvent"));
+		Events.Add(Cub.Type.GEventType.Walk,(EventParent)GetComponent("WalkEvent"));
+		Events.Add(Cub.Type.GEventType.Attack,(EventParent)GetComponent("AttackEvent"));
+		Events.Add(Cub.Type.GEventType.TakeDamage,(EventParent)GetComponent("TakeDamageEvent"));
+		Events.Add(Cub.Type.GEventType.Die,(EventParent)GetComponent("DeathEvent"));
 	}
 
-	ClassController GetClass(CharClass c){
+	ClassController GetClass(Cub.Type.Class c){
 		if (ClassReference.ContainsKey(c))
 			return ClassReference[c];
 		return null;
 	}
 
-	TerrainController GetTerrain(TTerrain name){
+	TerrainController GetTerrain(Cub.Type.Terrain name){
 		if (TerrainReference.ContainsKey(name))
 			return TerrainReference[name];
 		Debug.Log("UHOH: " + name);
 		return null;
 	}
 
-	EventParent GetEvent(GEventType name){
+	EventParent GetEvent(Cub.Type.GEventType name){
 		if (Events.ContainsKey(name))
 			return Events[name];
 		return null;
