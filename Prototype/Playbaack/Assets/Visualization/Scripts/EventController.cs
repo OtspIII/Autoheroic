@@ -18,15 +18,21 @@ public class EventController : MonoBehaviour {
 	EventParent CurrentEvent = null;
 	List<GameEvent> EventStack = new List<GameEvent>();
 	TextMesh NameText;
+	//public EMInterface Interface;
+	Cub.Main Model;
 
 
 	// Use this for initialization
 	void Start () {
 		NameText = (TextMesh)GameObject.Find("Name").GetComponent("TextMesh");
+		Model = new Cub.Main(this);
+		Model.Awake();
+		Model.Start();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Model.Go();
 		if (CurrentEvent != null){
 			if (CurrentEvent.StillRunning()){
 				CurrentEvent.Continue();
@@ -36,20 +42,20 @@ public class EventController : MonoBehaviour {
 				GotoNextEvent();
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
-			QueueEvent(new GameEvent(GEventType.Walk,new List<string>{randomGuy.UniqueName,
-				Random.Range(0,10).ToString(),Random.Range(0,10).ToString()}));
-			  //randomGuy, new Vector2(Random.Range(0,10),Random.Range(0,10))));
-		}
-		if (Input.GetKeyDown(KeyCode.Z)){
-			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
-			QueueEvent(new GameEvent(GEventType.Attack,new List<string>{randomGuy.UniqueName}));
-		}
-		if (Input.GetKeyDown(KeyCode.X)){
-			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
-			QueueEvent(new GameEvent(GEventType.Die,new List<string>{randomGuy.UniqueName}));
-		}
+//		if (Input.GetKeyDown(KeyCode.Space)) {
+//			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+//			QueueEvent(new GameEvent(GEventType.Walk,new List<string>{randomGuy.UniqueName,
+//				Random.Range(0,10).ToString(),Random.Range(0,10).ToString()}));
+//			  //randomGuy, new Vector2(Random.Range(0,10),Random.Range(0,10))));
+//		}
+//		if (Input.GetKeyDown(KeyCode.Z)){
+//			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+//			QueueEvent(new GameEvent(GEventType.Attack,new List<string>{randomGuy.UniqueName}));
+//		}
+//		if (Input.GetKeyDown(KeyCode.X)){
+//			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+//			QueueEvent(new GameEvent(GEventType.Die,new List<string>{randomGuy.UniqueName}));
+//		}
 	}
 
 	public void Setup(SetupData data){
@@ -57,6 +63,7 @@ public class EventController : MonoBehaviour {
 		
 		//These will be largely asked for as strings, so let's set up some easy ways to convert those strings into objects.
 		SetupRefs();
+		Debug.Log(data.TerrainMap);
 		TerrainMap = new TerrainController[data.TerrainMap.GetLength(0),data.TerrainMap.GetLength(1)];
 		for (int i = 0; i < data.TerrainMap.GetLength(0); i++)
 			for (int j = 0; j < data.TerrainMap.GetLength(1); j++){
@@ -68,6 +75,7 @@ public class EventController : MonoBehaviour {
 		foreach (CharController c in data.Characters){
 			//n++;
 			ClassController cl = null;
+			Debug.Log(c.Name);
 			if (ClassReference.ContainsKey(c.Class)){
 				GameObject go = (GameObject)Instantiate(GetClass(c.Class).gameObject,
 				   new Vector3(c.Location.x, 0.5f, c.Location.y), Quaternion.identity);
@@ -76,7 +84,6 @@ public class EventController : MonoBehaviour {
 				Characters.Add(cc);
 				//cc.UniqueName = cc.Name + n;
 				CharacterReference.Add(cc.UniqueName,cc);
-				Debug.Log(cc.UniqueName);
 			}
 		}
 	}

@@ -19,7 +19,8 @@ namespace AM
 	public enum CharClass
 	{
 		Knight,
-		Archer
+		Archer,
+		Mage
 	}
 
 	public enum Actions

@@ -31,8 +31,8 @@ public class ClassController : MonoBehaviour {
 		{
 		case Actions.Walk:
 		{
-			particleSystem.startColor = Color.blue;
-			particleSystem.Emit(10);
+//			particleSystem.startColor = Color.blue;
+//			particleSystem.Emit(10);
 			break;
 		}
 		case Actions.Attack:
