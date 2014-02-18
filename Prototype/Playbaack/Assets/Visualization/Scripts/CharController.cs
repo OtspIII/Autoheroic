@@ -17,12 +17,14 @@ namespace AM
 public class CharController
 {
 		public string Name;
+		public string UniqueName;
 		public CharClass Class;
 		public Vector2 Location;
 	
-		public CharController (string name, CharClass cl, Vector2 loc)
+		public CharController (string name,string uname, CharClass cl, Vector2 loc)
 		{
-			Name = Name;
+			Name = name;
+			UniqueName = uname;
 			Class = cl;
 			Location = loc;	
 		}

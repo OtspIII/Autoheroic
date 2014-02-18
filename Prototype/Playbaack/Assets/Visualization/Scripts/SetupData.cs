@@ -30,7 +30,7 @@ public class SetupData : MonoBehaviour {
 					TerrainMap[y,x] = TTerrain.Grass;
 			}
 		}
-		Characters.Add(new CharController("Jim", CharClass.Knight,new Vector2(0,0)));
-		Characters.Add(new CharController("John", CharClass.Knight,new Vector2(9,9)));
+		Characters.Add(new CharController("Jim","Jim1", CharClass.Knight,new Vector2(0,0)));
+		Characters.Add(new CharController("John", "John2", CharClass.Knight,new Vector2(9,9)));
 	}
 }

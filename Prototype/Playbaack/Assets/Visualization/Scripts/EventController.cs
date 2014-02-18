@@ -13,6 +13,7 @@ public class EventController : MonoBehaviour {
 	public List<GameObject> Terrains;
 	TerrainController[,] TerrainMap;
 	List<ClassController> Characters = new List<ClassController>();
+	public Dictionary<string,ClassController> CharacterReference = new Dictionary<string, ClassController>();
 	Dictionary<GEventType,EventParent> Events = new Dictionary<GEventType, EventParent>();
 	EventParent CurrentEvent = null;
 	List<GameEvent> EventStack = new List<GameEvent>();
@@ -29,14 +30,24 @@ public class EventController : MonoBehaviour {
 				CurrentEvent.Continue();
 			}
 			else{
+				CurrentEvent.End();
 				GotoNextEvent();
 			}
 		}
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			QueueEvent(new GameEvent(GEventType.Walk,Characters[Random.Range(0,Characters.Count)]));
+			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+			QueueEvent(new GameEvent(GEventType.Walk,new List<string>{randomGuy.UniqueName,
+				Random.Range(0,10).ToString(),Random.Range(0,10).ToString()}));
+			  //randomGuy, new Vector2(Random.Range(0,10),Random.Range(0,10))));
 		}
-		if (Input.GetKeyDown(KeyCode.Z))
-			QueueEvent(new GameEvent(GEventType.Attack,Characters[Random.Range(0,Characters.Count)]));
+		if (Input.GetKeyDown(KeyCode.Z)){
+			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+			QueueEvent(new GameEvent(GEventType.Attack,new List<string>{randomGuy.UniqueName}));
+		}
+		if (Input.GetKeyDown(KeyCode.X)){
+			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+			QueueEvent(new GameEvent(GEventType.Die,new List<string>{randomGuy.UniqueName}));
+		}
 	}
 
 	public void Setup(SetupData data){
@@ -48,16 +59,22 @@ public class EventController : MonoBehaviour {
 		for (int i = 0; i < data.TerrainMap.GetLength(0); i++)
 			for (int j = 0; j < data.TerrainMap.GetLength(1); j++){
 			TerrainController tt = GetTerrain(data.TerrainMap[i,j]);
-			Debug.Log(tt + " / " + data.TerrainMap[i,j]);
 			GameObject go =	(GameObject)Instantiate(tt.gameObject, new Vector3(i, 0, j), Quaternion.identity);
 			TerrainMap[i,j] = (TerrainController)go.GetComponent("TerrainController");
 		}
+		//int n = Random.Range(0,999999);
 		foreach (CharController c in data.Characters){
+			//n++;
 			ClassController cl = null;
 			if (ClassReference.ContainsKey(c.Class)){
 				GameObject go = (GameObject)Instantiate(GetClass(c.Class).gameObject,
 				   new Vector3(c.Location.x, 0.5f, c.Location.y), Quaternion.identity);
-				Characters.Add((ClassController)go.GetComponent("ClassController"));
+				ClassController cc = (ClassController)go.GetComponent("ClassController");
+				cc.ImprintFrom(c);
+				Characters.Add(cc);
+				//cc.UniqueName = cc.Name + n;
+				CharacterReference.Add(cc.UniqueName,cc);
+				Debug.Log(cc.UniqueName);
 			}
 		}
 	}
@@ -77,6 +94,8 @@ public class EventController : MonoBehaviour {
 		}
 		Events.Add(GEventType.Walk,(EventParent)GetComponent("WalkEvent"));
 		Events.Add(GEventType.Attack,(EventParent)GetComponent("AttackEvent"));
+		Events.Add(GEventType.TakeDamage,(EventParent)GetComponent("TakeDamageEvent"));
+		Events.Add(GEventType.Die,(EventParent)GetComponent("DeathEvent"));
 	}
 
 	ClassController GetClass(CharClass c){
@@ -109,19 +128,20 @@ public class EventController : MonoBehaviour {
 		if (manager == null) 
 			return;
 		CurrentEvent = manager;
-		switch (e.Type)
-		{
-		case GEventType.Walk:
-		{
-			((WalkEvent)manager).Begin(e.MainChar);
-			break;
-		}
-		case GEventType.Attack:
-		{
-			((AttackEvent)manager).Begin(e.MainChar);
-			break;
-		}
-		}
+		manager.Begin(e.Data);
+//		switch (e.Type)
+//		{
+//		case GEventType.Walk:
+//		{
+//			((WalkEvent)manager).Begin(e.Data);
+//			break;
+//		}
+//		case GEventType.Attack:
+//		{
+//			((AttackEvent)manager).Begin(e.MainChar);
+//			break;
+//		}
+//		}
 	}
 
 	void GotoNextEvent(){
@@ -129,5 +149,11 @@ public class EventController : MonoBehaviour {
 		EventStack.RemoveAt(0);
 		if (EventStack.Count > 0)
 			StartEvent(EventStack[0]);
+	}
+
+	public void RemoveCharacter(ClassController who){
+		Characters.Remove(who);
+		CharacterReference.Remove(who.UniqueName);
+		who.gameObject.transform.position = new Vector3(9999,9999,9999);
 	}
 }

@@ -8,19 +8,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using UnityEngine;
+using System.Collections.Generic;
+
+
 namespace AM
 {
 public class GameEvent
 {
 		public GEventType Type;
-		public string Data;
-		public ClassController MainChar;
+		public List<string> Data;
+//		public ClassController MainChar;
+//		public Vector2 Where1;
+		//public Vector2 Where2;
 
-		public GameEvent (GEventType type, ClassController mainChar)
+		public GameEvent (GEventType type, List<string> data)
 		{
 			Type = type;
-			MainChar = mainChar;
+			Data = data;
+			//MainChar = mainChar;
 		}
+
+//		public GameEvent (GEventType type, ClassController mainChar, Vector2 where1)
+//		{
+//			Type = type;
+//			MainChar = mainChar;
+//			Where1 = where1;
+//			//Where2 = where2;
+//		}
 
 }
 }

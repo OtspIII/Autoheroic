@@ -3,32 +3,20 @@ using System.Collections;
 
 public class AttackEvent : EventParent {
 
-	float TimerMax = 0.5f;
-	float Timer;
+
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
-	public void Begin(ClassController who){
-		who.DoAnimation(AM.Actions.Attack);
-		Timer = TimerMax;
+		Initialize();
 	}
 
-	public override void Continue ()
+	//This wants {string Character.UniqueName}
+	public override void Begin (System.Collections.Generic.List<string> data)
 	{
-		Timer -= Time.deltaTime;
-	}
-
-	public override bool StillRunning (){
-		if (Timer > 0) return true;
-		return false;
+		base.Begin(data);
+		ClassController who = Manager.CharacterReference[data[0]];
+		who.DoAnimation(AM.Actions.Attack);
+		//Timer = TimerMax;
 	}
 
 }
