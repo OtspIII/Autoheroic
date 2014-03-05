@@ -32,7 +32,8 @@ namespace Assets.Scripts.Interface
 
         public TempArmyBuilder()
         {
-            StageSize = new Cub.Position2(Library.Stage_Terrain.Count(), Library.Stage_Terrain[0].Count());
+            //StageSize = new Cub.Position2(Library.Stage_Terrain.Count(), Library.Stage_Terrain[0].Count());
+            StageSize = new Cub.Position2(10,10);
             RedArmy.Add(new Character(Cub.Class.None, 0, 0));
             RedArmy.Add(new Character(Cub.Class.None, 0, 0));
             RedArmy.Add(new Character(Cub.Class.None, 0, 0));
@@ -55,7 +56,7 @@ namespace Assets.Scripts.Interface
         void BuildRedArmy()
         {
             //Alright, name your team here.
-            RedTeam.SetName("Fluffy Cloud");
+            RedTeam.SetName("Fluffy Cloud", "Elyse");
             //Place your characters in your starting zone.
             //A '1' will place RedOne, 2 -> RedTwo, and so on.
             //Any characters not placed will not be hired.
@@ -94,7 +95,7 @@ namespace Assets.Scripts.Interface
         void BuildBlueArmy()
         {
             //Alright, name your team here.
-            BlueTeam.SetName("Alec's Team");
+            BlueTeam.SetName("Alec's Team", "Alec");
             //Place your characters in your starting zone.
             //A '1' will place BlueOne, 2 -> BlueTwo, and so on.
             //Any characters not placed will not be hired.

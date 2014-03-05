@@ -4,12 +4,16 @@ using Cub.View;
 
 public class InterfaceController : MonoBehaviour {
 
-    public bool InterfaceComplete = false;
-    public SetupData Data { get; private set; }
+    public TeamPickerController TeamPicker;
+    public TeamEditorController TeamEditor;
+    public GameObject CharacterPicker;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+        Cub.Tool.Main.Initiation(true);
+        TeamPicker = (TeamPickerController)GameObject.Find("Team Picker Menu").GetComponent("TeamPickerController");
+        TeamEditor = (TeamEditorController)GameObject.Find("Team Editor Menu").GetComponent("TeamEditorController");
+        TeamEditor.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -17,13 +21,4 @@ public class InterfaceController : MonoBehaviour {
 	
 	}
 
-    void OnGUI()
-    {
-        GUI.Box(new Rect(100, 100, 500, 100), "YO");
-    }
-
-    public void Setup(EventController manager, SetupData data)
-    {
-        Data = data;
-    }
 }

@@ -7,6 +7,7 @@ namespace Cub.Tool
     {
         public System.Guid ID { get; private set; }
         public string Name { get; set; }
+        public string Owner_Name { get; set; }
         private List<Cub.Tool.Character> List_Character { get; set; }
         public List<Cub.Score> ScoreThings { get; private set; }
         public int TotalValue = 0;
@@ -14,7 +15,8 @@ namespace Cub.Tool
 
         public Team()
         {
-            Name = "<GENERIC NAME>";
+            Name = "-Empty-";
+            Owner_Name = "";
             this.ID = System.Guid.NewGuid();
             this.List_Character = new List<Character>();
             ScoreThings = new List<Score>();
@@ -47,9 +49,10 @@ namespace Cub.Tool
             return CL;
         }
 
-        public void SetName(string n)
+        public void SetName(string n, string on)
         {
             Name = n;
+            Owner_Name = on;
         }
 
         public void AddScore(string name, int value)

@@ -52,17 +52,17 @@ namespace Cub.View
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (InterfaceTestMode && InterfaceController != null && InterfaceController.InterfaceComplete)
-                    {
-                        Setup(InterfaceController.Data);
-                        Destroy(InterfaceController.gameObject);
-                        InterfacePhaseOver = true;
-                    }
-                    else if (!InterfaceTestMode)
-                    {
+                    //if (InterfaceTestMode && InterfaceController != null && InterfaceController.InterfaceComplete)
+                    //{
+                    //    Setup(InterfaceController.Data);
+                    //    Destroy(InterfaceController.gameObject);
+                    //    InterfacePhaseOver = true;
+                    //}
+                    //else if (!InterfaceTestMode)
+                    //{
                         Cub.Tool.Main.Initiation(false);
                         Setup(ForgeSetupData());
-                    }
+                    //}
                 }
                 return;
             }
@@ -125,7 +125,7 @@ namespace Cub.View
             SData.StageData();
             InterfaceController = (InterfaceController)((GameObject)Instantiate(InterfaceControllerType, Vector3.zero, Quaternion.identity))
                 .GetComponent("InterfaceController");
-            InterfaceController.Setup(this, SData);
+            //InterfaceController.Setup(this, SData);
         }
 
         public void Setup(SetupData data)
