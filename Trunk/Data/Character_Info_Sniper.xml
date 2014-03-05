@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Character_Info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Class>Sniper</Class>
+  <Range>5</Range>
+  <MHP>2</MHP>
+  <Speed>2</Speed>
+  <Value>100</Value>
+  <List_Tactic>
+     <Tactic>
+      <T>Enemy</T>
+      <C>
+        <Condition>Any</Condition>
+      </C>
+      <A>Snipe</A>
+    </Tactic>
+     <Tactic>
+      <T>Enemy</T>
+      <C>
+        <Condition>Any</Condition>
+      </C>
+      <A>Attack</A>
+    </Tactic>
+    <Tactic>
+      <T>Self</T>
+      <C>
+        <Condition>Any</Condition>
+      </C>
+      <A>Follow_Enemy</A>
+    </Tactic>
+  </List_Tactic>
+</Character_Info>
