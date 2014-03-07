@@ -30,6 +30,11 @@ namespace Cub.View
             }
         }
 
+        public static void Yo()
+        {
+            Trigger = true;
+        }
+
         public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
         {
             return Dictionary_Character_Model[_C];

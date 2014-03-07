@@ -7,19 +7,31 @@
   <Value>100</Value>
   <List_Tactic>
      <Tactic>
-      <C>Any</C>
+      <T>Enemy</T>
+      <C>
+        <Condition>Any</Condition>
+      </C>
       <A>Attack</A>
     </Tactic>
     <Tactic>
-      <C>Is_Hurt</C>
+      <T>Enemy</T>
+      <C>
+        <Condition>Is_Hurt</Condition>
+      </C>
       <A>Heal</A>
     </Tactic>
     <Tactic>
-      <C>Is_Hurt</C>
+      <T>Self</T>
+      <C>
+        <Condition>Is_Hurt</Condition>
+      </C>
       <A>Follow_Ally</A>
     </Tactic>
     <Tactic>
-      <C>Any</C>
+      <T>Self</T>
+      <C>
+        <Condition>Any</Condition>
+      </C>
       <A>Follow_Enemy</A>
     </Tactic>
   </List_Tactic>
