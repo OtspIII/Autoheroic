@@ -53,6 +53,7 @@ public class CharacterButtonController : MonoBehaviour {
         }
         else
         {
+            Who = null;
             Name.text = "-Empty-";
             Class.text = "--";
             Cost.text = "0pts";

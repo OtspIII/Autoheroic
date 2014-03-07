@@ -59,13 +59,27 @@ public class CharEditorManager : MonoBehaviour {
 
     public void Imprint(Cub.Tool.Character who)
     {
-        Name.value = who.Name;
-        Class.text = who.Info.Class.ToString();
-        Cost.text = who.Value.ToString() + "pts";
-        HP.text = who.Info.MHP.ToString();
-        Range.text = who.Info.Range.ToString();
-        Speed.text = who.Info.Speed.ToString();
-        foreach (TacticBoxController tbc in Tactics)
-            tbc.Imprint(who);
+        if (who != null)
+        {
+            Name.value = who.Name;
+            Class.text = who.Info.Class.ToString();
+            Cost.text = who.Value.ToString() + "pts";
+            HP.text = who.Info.MHP.ToString();
+            Range.text = who.Info.Range.ToString();
+            Speed.text = who.Info.Speed.ToString();
+            foreach (TacticBoxController tbc in Tactics)
+                tbc.Imprint(who);
+        }
+        else
+        {
+            Name.value = "---";
+            Class.text = "";
+            Cost.text = "";
+            HP.text = "-";
+            Range.text = "-";
+            Speed.text = "-";
+            foreach (TacticBoxController tbc in Tactics)
+                tbc.Imprint(null);
+        }
     }
 }

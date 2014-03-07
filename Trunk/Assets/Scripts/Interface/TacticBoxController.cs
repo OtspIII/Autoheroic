@@ -42,12 +42,18 @@ public class TacticBoxController : MonoBehaviour {
 
     public void Imprint(Cub.Tool.Character who)
     {
-        Debug.Log("A");
         NumLabel.text = (Number + 1).ToString();
-        if (who.Tactics.Count <= Number)
-            return;
-        Tactic = who.Tactics[Number];
-        ActionDesc.text = Cub.Tool.Library.Get_Action(Tactic.A).Description;
-        ConditionDesc.text = Cub.Tool.Library.Get_Condition(Tactic.C).Description;
+        if (who != null && who.Tactics.Count > Number)
+        {
+            Tactic = who.Tactics[Number];
+            ActionDesc.text = Cub.Tool.Library.Get_Action(Tactic.A).Description;
+            ConditionDesc.text = Cub.Tool.Library.Get_Condition(Tactic.C).Description;
+        }
+        else
+        {
+            Tactic = null;
+            ActionDesc.text = "";
+            ConditionDesc.text = "";
+        }
     }
 }

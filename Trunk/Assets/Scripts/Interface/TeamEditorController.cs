@@ -60,5 +60,19 @@ public class TeamEditorController : MonoBehaviour {
         foreach (Transform child in CharList.transform)
             if (child.gameObject.name == "CharacterBox")
                 ((CharacterButtonController)child.gameObject.GetComponent("CharacterButtonController")).Imprint(chars);
+        CharEditor.Imprint(null);
+    }
+
+    public void CloseWindow()
+    {
+        IC.TeamPicker.gameObject.SetActive(true);
+        IC.TeamEditor.gameObject.SetActive(false);
+    }
+
+    public void SaveButton()
+    {
+        Debug.Log("SAVE STUFF");
+        IC.TeamPicker.gameObject.SetActive(true);
+        IC.TeamEditor.gameObject.SetActive(false);
     }
 }
