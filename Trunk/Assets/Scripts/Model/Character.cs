@@ -277,44 +277,6 @@ namespace Cub.Tool
         public void SetClass(Cub.Class _Class)
         {
             this.Info = Library.Get_Character_Info(_Class);
-            //switch (_Class)
-            //{
-            //    case Cub.Class.None:
-            //        {
-            //            this.Info = Library.Character_Info_None;
-            //            break;
-            //        }
-            //    case Cub.Class.Soldier:
-            //        {
-            //            this.Info = Library.Character_Info_Soldier;
-            //            break;
-            //        }
-            //    case Cub.Class.Skirmisher:
-            //        {
-            //            this.Info = Library.Character_Info_Skirmisher;
-            //            break;
-            //        }
-            //    case Cub.Class.Rocket:
-            //        {
-            //            this.Info = Library.Character_Info_Rocket;
-            //            break;
-            //        }
-            //    case Cub.Class.Jerk:
-            //        {
-            //            this.Info = Library.Character_Info_Jerk;
-            //            break;
-            //        }
-            //    case Cub.Class.Guard:
-            //        {
-            //            this.Info = Library.Character_Info_Guard;
-            //            break;
-            //        }
-            //    case Cub.Class.Commander:
-            //        {
-            //            this.Info = Library.Character_Info_Commander;
-            //            break;
-            //        }
-            //}
             this.Stat.HP = this.Info.MHP;
         }
 
@@ -337,9 +299,9 @@ namespace Cub.Tool
             return r;
         }
 
-        public void BuyTactic(Cub.Target target, Cub.Condition condition, Cub.Action action)
+        public void BuyTactic(Cub.Condition condition, Cub.Action action)
         {
-            Bought_Tactic.Add(new Tactic(target, condition, action));
+            Bought_Tactic.Add(new Tactic(condition, action));
         }
 
         List<Cub.Tool.Tactic> FindTactics()

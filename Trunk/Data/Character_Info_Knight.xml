@@ -7,24 +7,15 @@
   <Value>100</Value>
   <List_Tactic>    
     <Tactic>
-      <T>Enemy</T>
-      <C>
-        <Condition>Any</Condition>
-      </C>
+      <C>Any</C>
       <A>Attack</A>
     </Tactic>
     <Tactic>
-      <T>Self</T>
-      <C>
-        <Condition>Any</Condition>
-      </C>
+      <C>Any</C>
       <A>Charge</A>
     </Tactic>
     <Tactic>
-      <T>Self</T>
-      <C>
-        <Condition>Any</Condition>
-      </C>
+      <C>Any</C>
       <A>Follow_Enemy</A>
     </Tactic>
   </List_Tactic>
