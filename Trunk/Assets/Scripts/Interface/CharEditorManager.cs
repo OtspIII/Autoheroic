@@ -36,9 +36,18 @@ public class CharEditorManager : MonoBehaviour {
                 case "SpeedReadout":
                     Speed = (UILabel)child.gameObject.GetComponent("UILabel");
                     break;
-                case "AI Panel":
-                    Tactics.Add((TacticBoxController)child.gameObject.GetComponent("TacticBoxController"));
+                case "Tactics List":
+                    foreach (Transform tac in child.gameObject.transform)
+                    {
+                        if (tac.gameObject.name == "AI Panel")
+                            Tactics.Add((TacticBoxController)tac.gameObject.GetComponent("TacticBoxController"));
+                    }
                     break;
+
+
+                //case "AI Panel":
+                //    Tactics.Add((TacticBoxController)child.gameObject.GetComponent("TacticBoxController"));
+                //    break;
             }
         }
     }
