@@ -9,6 +9,8 @@ namespace Cub.Tool.Condition
     {
         public Any()
         {
+            Name = "None";
+            Description = "";
             this.ConditionType = Cub.Condition.Any;
         }
 

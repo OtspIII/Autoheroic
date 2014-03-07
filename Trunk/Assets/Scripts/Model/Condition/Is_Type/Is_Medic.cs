@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Medic()
         {
+            Name = "Is A Medic";
+            Description = "...if they are a Medic.";
             ConditionType = Cub.Condition.Is_Medic;
             TypeOfUnit = Class.Medic;
         }

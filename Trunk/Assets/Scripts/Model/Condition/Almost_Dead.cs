@@ -11,6 +11,8 @@ namespace Cub.Tool.Condition
 
         public Almost_Dead()
         {
+            Name = "Almost Dead";
+            Description = "...if I can kill them in one attack.";
             ConditionType = Cub.Condition.Almost_Dead;
         }
 

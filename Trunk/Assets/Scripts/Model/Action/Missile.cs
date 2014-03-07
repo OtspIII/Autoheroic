@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     class Missile : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Missile"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -17,6 +15,8 @@ namespace Cub.Tool.Action
 
         public Missile()
         {
+            Name = "Missile";
+            Description = "I will fire a rocket at the first enemy I see within 5 squares, doing 3 damage to them and anyone next to them";
             ActionType = Cub.Action.Missile;
         }
 

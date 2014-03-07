@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     public class Follow_Enemy : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Follow Ally"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -19,6 +17,8 @@ namespace Cub.Tool.Action
 
         public Follow_Enemy()
         {
+            Name = "Follow Enemy";
+            Description = "I will advance towards an enemy";
             ActionType = Cub.Action.Follow_Enemy;
         }
 

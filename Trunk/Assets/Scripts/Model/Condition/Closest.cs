@@ -9,6 +9,8 @@ namespace Cub.Tool.Condition
     {
         public Closest()
         {
+            Name = "Closest";
+            Description = "...if they’re the closest to me.";
             ConditionType = Cub.Condition.Closest;
         }
 

@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     public class Explore : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Explorer"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -19,6 +17,8 @@ namespace Cub.Tool.Action
 
         public Explore()
         {
+            Name = "Explore";
+            Description = "I will wander randomly";
             ActionType = Cub.Action.Explore;
         }
 

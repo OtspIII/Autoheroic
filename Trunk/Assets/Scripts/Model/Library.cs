@@ -40,6 +40,7 @@ namespace Cub.Tool
                 Dictionary_Condition[Cub.Condition.Is_Hurt] = new Cub.Tool.Condition.Is_Hurt();
                 Dictionary_Condition[Cub.Condition.I_Am_Alone] = new Cub.Tool.Condition.I_Am_Alone();
                 Dictionary_Condition[Cub.Condition.They_Are_Alone] = new Cub.Tool.Condition.They_Are_Alone();
+                Dictionary_Condition[Cub.Condition.Closest] = new Cub.Tool.Condition.Closest();
 
                 Dictionary_Action = new Dictionary<Cub.Action, Cub.Tool.Action.Base>();
                 Dictionary_Action[Cub.Action.Attack] = new Cub.Tool.Action.Attack();

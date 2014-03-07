@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     class Snipe : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Snipe"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -17,6 +15,8 @@ namespace Cub.Tool.Action
 
         public Snipe()
         {
+            Name = "Snipe";
+            Description = "I will snipe the first enemy I see within 6 squares for 8 damage";
             ActionType = Cub.Action.Snipe;
         }
 

@@ -11,6 +11,8 @@ namespace Cub.Tool.Condition
 
         public They_Are_Alone()
         {
+            Name = "They Are Alone";
+            Description = "...if they’re the only one on their team left alive.";
             ConditionType = Cub.Condition.They_Are_Alone;
         }
 

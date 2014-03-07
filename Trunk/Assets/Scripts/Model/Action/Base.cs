@@ -5,7 +5,8 @@ namespace Cub.Tool.Action
 {
     public abstract class Base
     {
-        public abstract string Name { get; }
+        public string Name;
+        public string Description;
         public Cub.Action ActionType { get; protected set; }
 
         public abstract int Turn_Casting { get; }

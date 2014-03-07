@@ -9,6 +9,8 @@ namespace Cub.Tool.Condition
     public abstract class Base
     {
         public Cub.Condition ConditionType;
+        public string Name;
+        public string Description;
 
         public Base()
         {

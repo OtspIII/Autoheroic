@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     public class Attack : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Attack"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 1; } }
 
@@ -20,6 +18,8 @@ namespace Cub.Tool.Action
         public Attack()
         {
             ActionType = Cub.Action.Attack;
+            Name = "Attack";
+            Description = "I will attack an enemy within my range for 2 damage";
         }
 
         public override List<object> Confirm(Character who)

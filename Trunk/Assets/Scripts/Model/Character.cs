@@ -109,16 +109,13 @@ namespace Cub.Tool
                 if (a == null) Debug.Log("ERROR: " + T.A);
                 List<object> Data = a.Confirm(this);
                 if (Data == null) continue;
-                foreach (Cub.Condition con in T.C)
+                if (T.C != Cub.Condition.None)
                 {
-                    if (con == Cub.Condition.None) 
-                        continue;
-                    Condition.Base c = Library.Get_Condition(con);
-                    if (c == null) Debug.Log("ERROR: " + con);
+                    Condition.Base c = Library.Get_Condition(T.C);
+                    if (c == null) Debug.Log("ERROR: " + T.C);
                     Data = c.Confirm(this, Data);
-                    if (Data == null) break;
+                    if (Data == null) continue;
                 }
-                if (Data == null) continue;
                 return a.Body(this, Data);
             }
             return new List<View.GameEvent>();
@@ -340,7 +337,7 @@ namespace Cub.Tool
             return r;
         }
 
-        public void BuyTactic(Cub.Target target, List<Cub.Condition> condition, Cub.Action action)
+        public void BuyTactic(Cub.Target target, Cub.Condition condition, Cub.Action action)
         {
             Bought_Tactic.Add(new Tactic(target, condition, action));
         }

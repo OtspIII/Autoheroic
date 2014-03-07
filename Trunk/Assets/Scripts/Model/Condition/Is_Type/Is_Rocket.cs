@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Rocket()
         {
+            Name = "Is A Rocket-Man";
+            Description = "...if they are a Rocket-Man.";
             ConditionType = Cub.Condition.Is_Rocket;
             TypeOfUnit = Class.Rocket;
         }

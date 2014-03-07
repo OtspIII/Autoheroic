@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Sniper()
         {
+            Name = "Is A Sniper";
+            Description = "...if they are a Sniper.";
             ConditionType = Cub.Condition.Is_Sniper;
             TypeOfUnit = Class.Sniper;
         }

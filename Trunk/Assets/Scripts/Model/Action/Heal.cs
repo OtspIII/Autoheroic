@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     class Heal : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Heal"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -17,6 +15,8 @@ namespace Cub.Tool.Action
 
         public Heal()
         {
+            Name = "Heal";
+            Description = "I will heal an ally for 1HP";
             ActionType = Cub.Action.Heal;
         }
 

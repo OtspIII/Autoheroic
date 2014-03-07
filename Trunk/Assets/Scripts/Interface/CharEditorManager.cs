@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CharEditorManager : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class CharEditorManager : MonoBehaviour {
     UILabel HP;
     UILabel Range;
     UILabel Speed;
+    List<TacticBoxController> Tactics = new List<TacticBoxController>();
     
     void Awake()
     {
@@ -34,6 +36,9 @@ public class CharEditorManager : MonoBehaviour {
                 case "SpeedReadout":
                     Speed = (UILabel)child.gameObject.GetComponent("UILabel");
                     break;
+                case "AI Panel":
+                    Tactics.Add((TacticBoxController)child.gameObject.GetComponent("TacticBoxController"));
+                    break;
             }
         }
     }
@@ -51,5 +56,7 @@ public class CharEditorManager : MonoBehaviour {
         HP.text = who.Info.MHP.ToString();
         Range.text = who.Info.Range.ToString();
         Speed.text = who.Info.Speed.ToString();
+        foreach (TacticBoxController tbc in Tactics)
+            tbc.Imprint(who);
     }
 }

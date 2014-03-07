@@ -8,6 +8,8 @@ namespace Cub.Tool.Condition
     {
         public Adjacent_2()
         {
+            Name = "Two Adjacent";
+            Description = "...if it can hit at least two enemies.";
             ConditionType = Cub.Condition.Adjacent_2;
         }
 

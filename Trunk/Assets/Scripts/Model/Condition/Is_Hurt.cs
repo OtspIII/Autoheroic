@@ -11,6 +11,8 @@ namespace Cub.Tool.Condition
 
         public Is_Hurt()
         {
+            Name = "Is Hurt";
+            Description = "...if they’ve been hurt.";
             ConditionType = Cub.Condition.Is_Hurt;
         }
 

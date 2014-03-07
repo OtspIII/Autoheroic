@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Jerk()
         {
+            Name = "Is A Jerk";
+            Description = "...if they are a Jerk.";
             ConditionType = Cub.Condition.Is_Jerk;
             TypeOfUnit = Class.Jerk;
         }

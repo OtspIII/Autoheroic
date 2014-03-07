@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Soldier()
         {
+            Name = "Is A Soldier";
+            Description = "...if they are a Soldier.";
             ConditionType = Cub.Condition.Adjacent_2;
             TypeOfUnit = Class.Soldier;
         }

@@ -10,6 +10,8 @@ namespace Cub.Tool.Condition
 
         public Is_Knight()
         {
+            Name = "Is A Knight";
+            Description = "...if they are a Knight.";
             ConditionType = Cub.Condition.Is_Knight;
             TypeOfUnit = Class.Knight;
         }

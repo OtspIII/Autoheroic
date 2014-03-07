@@ -7,8 +7,6 @@ namespace Cub.Tool.Action
 {
     public class Charge : Cub.Tool.Action.Base
     {
-        public override string Name { get { return "Charge"; } }
-
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
@@ -19,6 +17,8 @@ namespace Cub.Tool.Action
 
         public Charge()
         {
+            Name = "Charge";
+            Description = "I will charge at and attack an enemy within my move range";
             ActionType = Cub.Action.Charge;
         }
 
