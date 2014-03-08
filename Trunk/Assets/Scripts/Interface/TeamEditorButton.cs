@@ -6,7 +6,7 @@ public class TeamEditorButton : MonoBehaviour {
 
     Cub.Tool.Team Team = null;
     InterfaceController IC;
-    public int TeamNum;
+    int TeamNum;
     string TeamName = "-Empty-";
     string OwnerName = "";
     UILabel Num;
@@ -15,8 +15,19 @@ public class TeamEditorButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+    public void Setup(int num)
+    {
         IC = (InterfaceController)GameObject.Find("UI Root").GetComponent("InterfaceController");
-        foreach (Transform child in transform){
+        foreach (Transform child in transform)
+        {
             switch (child.gameObject.name)
             {
                 case "Player Name":
@@ -30,16 +41,12 @@ public class TeamEditorButton : MonoBehaviour {
                     break;
             }
         }
+        TeamNum = num;
         Team = LoadTeam(TeamNum);
         OwnerName = Team.Owner_Name;
         TeamName = Team.Name;
         UpdateNames();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 
     public void PickTeam()
     {
@@ -57,8 +64,7 @@ public class TeamEditorButton : MonoBehaviour {
 
     Cub.Tool.Team LoadTeam(int num)
     {
-        Assets.Scripts.Interface.TempArmyBuilder tab = new Assets.Scripts.Interface.TempArmyBuilder();
-        List<Cub.Tool.Team> teams = new List<Cub.Tool.Team> { tab.RedTeam, tab.BlueTeam };
+        List<Cub.Tool.Team> teams = IC.TeamPicker.Teams;
         if (num >= teams.Count) 
             return new Cub.Tool.Team();
         return teams[num];
