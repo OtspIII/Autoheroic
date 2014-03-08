@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TeamEditorController : MonoBehaviour {
 
@@ -8,8 +9,11 @@ public class TeamEditorController : MonoBehaviour {
     UIInput OwnerName;
     UILabel NumChars;
     UILabel TotalPts;
+    UIGrid CLGrid;
     public CharEditorManager CharEditor;
     GameObject CharList;
+    public GameObject CharButtonType;
+    List<CharacterButtonController> CButtons = new List<CharacterButtonController>();
 
     Cub.Tool.Team Team = null;
 
@@ -35,6 +39,7 @@ public class TeamEditorController : MonoBehaviour {
                     break;
                 case "Char List":
                     CharList = child.gameObject;
+                    CLGrid = (UIGrid)CharList.gameObject.GetComponentInChildren(System.Type.GetType("UIGrid"));
                     break;
                 case "Char Editor":
                     CharEditor = (CharEditorManager)child.gameObject.GetComponent("CharEditorManager");
@@ -57,9 +62,19 @@ public class TeamEditorController : MonoBehaviour {
         NumChars.text = chars.Count.ToString() + " Characters";
         int pts = Team.TotalValue;
         TotalPts.text = pts.ToString() + "pts (" + (1000 - pts).ToString() + "pts left)";
-        foreach (Transform child in CharList.transform)
-            if (child.gameObject.name == "CharacterBox")
-                ((CharacterButtonController)child.gameObject.GetComponent("CharacterButtonController")).Imprint(chars);
+        int n = 0;
+        foreach (Cub.Tool.Character c in chars)
+        {
+            CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
+            CButtons.Add(cbc);
+            cbc.Imprint(n, c);
+            n++;
+        }
+        CLGrid.Reposition();
+        //Find Grid
+        //foreach (Transform child in CharList.transform)
+        //    if (child.gameObject.name == "CharacterBox")
+        //        ((CharacterButtonController)child.gameObject.GetComponent("CharacterButtonController")).Imprint(chars);
         CharEditor.Imprint(null);
     }
 

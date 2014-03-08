@@ -6,7 +6,7 @@ public class CharacterButtonController : MonoBehaviour {
 
     InterfaceController IC;
     Cub.Tool.Character Who = null;
-    public int Number;
+    int Number;
     UILabel NumTxt;
     UILabel Name;
     UILabel Class;
@@ -41,11 +41,12 @@ public class CharacterButtonController : MonoBehaviour {
 	}
 
 
-    public void Imprint(List<Cub.Tool.Character> chars)
+    public void Imprint(int num, Cub.Tool.Character who)
     {
-        if (chars.Count > Number)
+        Number = num;
+        NumTxt.text = (Number + 1).ToString();
+        if (who != null)
         {
-            Cub.Tool.Character who = chars[Number];
             Who = who;
             Name.text = who.Name;
             Class.text = who.Info.Class.ToString();
