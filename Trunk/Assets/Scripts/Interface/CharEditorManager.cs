@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Cub.Tool;
 
 public class CharEditorManager : MonoBehaviour {
 
@@ -10,7 +11,9 @@ public class CharEditorManager : MonoBehaviour {
     UILabel HP;
     UILabel Range;
     UILabel Speed;
+    UIGrid Grid;
     List<TacticBoxController> Tactics = new List<TacticBoxController>();
+    public GameObject TacticBoxType;
     
     void Awake()
     {
@@ -37,11 +40,11 @@ public class CharEditorManager : MonoBehaviour {
                     Speed = (UILabel)child.gameObject.GetComponent("UILabel");
                     break;
                 case "Tactics List":
-                    foreach (Transform tac in child.gameObject.transform)
-                    {
-                        if (tac.gameObject.name == "AI Panel")
-                            Tactics.Add((TacticBoxController)tac.gameObject.GetComponent("TacticBoxController"));
-                    }
+                    //foreach (Transform tac in child.gameObject.transform)
+                    //{
+                    //    if (tac.gameObject.name == "AI Panel")
+                    //        Tactics.Add((TacticBoxController)tac.gameObject.GetComponent("TacticBoxController"));
+                    //}
                     break;
 
 
@@ -50,6 +53,7 @@ public class CharEditorManager : MonoBehaviour {
                 //    break;
             }
         }
+        Grid = (UIGrid)gameObject.GetComponentInChildren(System.Type.GetType("UIGrid"));
     }
 	
 	// Update is called once per frame
@@ -59,6 +63,9 @@ public class CharEditorManager : MonoBehaviour {
 
     public void Imprint(Cub.Tool.Character who)
     {
+        foreach (Transform tran in Grid.transform)
+            if (tran.gameObject.name == "AI Panel(Clone)")
+                DestroyObject(tran.gameObject);
         if (who != null)
         {
             Name.value = who.Name;
@@ -67,8 +74,14 @@ public class CharEditorManager : MonoBehaviour {
             HP.text = who.Info.MHP.ToString();
             Range.text = who.Info.Range.ToString();
             Speed.text = who.Info.Speed.ToString();
-            foreach (TacticBoxController tbc in Tactics)
-                tbc.Imprint(who);
+            int n = 0;
+            foreach (Tactic tac in who.Tactics)
+            {
+                TacticBoxController tbc = (TacticBoxController)NGUITools.AddChild(Grid.gameObject, TacticBoxType).GetComponent("TacticBoxController");
+                Tactics.Add(tbc);
+                tbc.Imprint(n, who);
+                n++;
+            }
         }
         else
         {
@@ -78,8 +91,8 @@ public class CharEditorManager : MonoBehaviour {
             HP.text = "-";
             Range.text = "-";
             Speed.text = "-";
-            foreach (TacticBoxController tbc in Tactics)
-                tbc.Imprint(null);
         }
+        Grid.repositionNow = true;
+        //Grid.Reposition();
     }
 }

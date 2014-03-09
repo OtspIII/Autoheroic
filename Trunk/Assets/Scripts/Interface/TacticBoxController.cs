@@ -40,8 +40,9 @@ public class TacticBoxController : MonoBehaviour {
 	
 	}
 
-    public void Imprint(Cub.Tool.Character who)
+    public void Imprint(int n, Cub.Tool.Character who)
     {
+        Number = n;
         NumLabel.text = (Number + 1).ToString();
         if (who != null && who.Tactics.Count > Number)
         {
