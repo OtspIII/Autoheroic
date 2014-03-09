@@ -19,7 +19,10 @@ namespace Cub.Tool.Action
         {
             Name = "Follow Enemy";
             Description = "I will advance towards an enemy";
+            SpecialAbility = false;
             ActionType = Cub.Action.Follow_Enemy;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

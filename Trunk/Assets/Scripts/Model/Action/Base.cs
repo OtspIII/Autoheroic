@@ -8,6 +8,8 @@ namespace Cub.Tool.Action
         public string Name;
         public string Description;
         public Cub.Action ActionType { get; protected set; }
+        public bool SpecialAbility;
+        public List<Cub.ConditionGenre> ValidConditions = new List<ConditionGenre>();
 
         public abstract int Turn_Casting { get; }
         public abstract int Turn_Cooldown { get; }

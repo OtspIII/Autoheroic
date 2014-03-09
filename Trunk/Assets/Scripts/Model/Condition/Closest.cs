@@ -12,6 +12,7 @@ namespace Cub.Tool.Condition
             Name = "Closest";
             Description = "...if they’re the closest to me.";
             ConditionType = Cub.Condition.Closest;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

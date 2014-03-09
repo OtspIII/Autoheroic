@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Description = "...if they are a Medic.";
             ConditionType = Cub.Condition.Is_Medic;
             TypeOfUnit = Class.Medic;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
     }
 }

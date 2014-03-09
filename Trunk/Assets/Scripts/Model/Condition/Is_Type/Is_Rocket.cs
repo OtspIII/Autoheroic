@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Description = "...if they are a Rocket-Man.";
             ConditionType = Cub.Condition.Is_Rocket;
             TypeOfUnit = Class.Rocket;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
     }
 }

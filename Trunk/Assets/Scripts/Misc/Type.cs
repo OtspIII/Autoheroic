@@ -117,6 +117,14 @@ namespace Cub
         Cheer
     }
 
+    public enum ConditionGenre
+    {
+        Generic,
+        Character,
+        Location,
+        Missile
+    }
+
     public struct Position2
     {
         public int X;

@@ -19,7 +19,10 @@ namespace Cub.Tool.Action
         {
             Name = "Follow Ally";
             Description = "I will follow/go to an ally";
+            SpecialAbility = false;
             ActionType = Cub.Action.Follow_Ally;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

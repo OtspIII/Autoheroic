@@ -19,7 +19,10 @@ namespace Cub.Tool.Action
         {
             ActionType = Cub.Action.Attack;
             Name = "Attack";
+            SpecialAbility = false;
             Description = "I will attack an enemy within my range for 2 damage";
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

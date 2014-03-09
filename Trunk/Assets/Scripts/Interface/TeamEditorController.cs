@@ -55,6 +55,9 @@ public class TeamEditorController : MonoBehaviour {
 
     public void ImprintTeam(Cub.Tool.Team team)
     {
+        foreach (Transform tran in CLGrid.transform)
+            if (tran.gameObject.name == "CharacterBox(Clone)")
+                DestroyObject(tran.gameObject);
         Team = team;
         TeamName.value = Team.Name;
         OwnerName.value = Team.Owner_Name;
@@ -75,7 +78,8 @@ public class TeamEditorController : MonoBehaviour {
         //foreach (Transform child in CharList.transform)
         //    if (child.gameObject.name == "CharacterBox")
         //        ((CharacterButtonController)child.gameObject.GetComponent("CharacterButtonController")).Imprint(chars);
-        CharEditor.Imprint(null);
+        //CharEditor.Imprint(null);
+        CLGrid.repositionNow = true;
     }
 
     public void CloseWindow()

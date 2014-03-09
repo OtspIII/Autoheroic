@@ -17,7 +17,10 @@ namespace Cub.Tool.Action
         {
             Name = "Snipe";
             Description = "I will snipe the first enemy I see within 6 squares for 8 damage";
+            SpecialAbility = true;
             ActionType = Cub.Action.Snipe;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

@@ -17,7 +17,10 @@ namespace Cub.Tool.Action
         {
             Name = "Heal";
             Description = "I will heal an ally for 1HP";
+            SpecialAbility = true;
             ActionType = Cub.Action.Heal;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

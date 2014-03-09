@@ -17,7 +17,11 @@ namespace Cub.Tool.Action
         {
             Name = "Missile";
             Description = "I will fire a rocket at the first enemy I see within 5 squares, doing 3 damage to them and anyone next to them";
+            SpecialAbility = true;
             ActionType = Cub.Action.Missile;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
+            ValidConditions.Add(Cub.ConditionGenre.Missile);
         }
 
         public override List<object> Confirm(Character who)

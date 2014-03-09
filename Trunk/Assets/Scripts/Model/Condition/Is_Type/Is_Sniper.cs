@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Description = "...if they are a Sniper.";
             ConditionType = Cub.Condition.Is_Sniper;
             TypeOfUnit = Class.Sniper;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
     }
 }

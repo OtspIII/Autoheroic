@@ -11,9 +11,10 @@ namespace Cub.Tool.Condition
 
         public I_Am_Alone()
         {
-            Name = "They Are Alone";
+            Name = "I Am Alone";
             Description = "...if I’m the only one on my team left alive.";
             ConditionType = Cub.Condition.I_Am_Alone;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

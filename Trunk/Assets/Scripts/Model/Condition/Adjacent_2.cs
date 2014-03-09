@@ -11,6 +11,7 @@ namespace Cub.Tool.Condition
             Name = "Two Adjacent";
             Description = "...if it can hit at least two enemies.";
             ConditionType = Cub.Condition.Adjacent_2;
+            ConditionGenre = Cub.ConditionGenre.Missile;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

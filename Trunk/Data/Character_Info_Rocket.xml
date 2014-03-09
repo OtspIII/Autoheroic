@@ -5,6 +5,9 @@
   <MHP>2</MHP>
   <Speed>2</Speed>
   <Value>100</Value>
+  <List_Special_Ability>
+    <Action>Missile</Action>
+  </List_Special_Ability>
   <List_Tactic>
     <Tactic>
       <C>Adjacent_2</C>

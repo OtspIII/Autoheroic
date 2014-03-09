@@ -5,6 +5,9 @@
   <MHP>5</MHP>
   <Speed>4</Speed>
   <Value>100</Value>
+  <List_Special_Ability>
+    <Action>Charge</Action>
+  </List_Special_Ability>
   <List_Tactic>    
     <Tactic>
       <C>Any</C>

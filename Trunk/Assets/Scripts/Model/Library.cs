@@ -9,6 +9,8 @@ namespace Cub.Tool
 
         private static Dictionary<Cub.Condition, Cub.Tool.Condition.Base> Dictionary_Condition { get; set; }
         private static Dictionary<Cub.Action, Cub.Tool.Action.Base> Dictionary_Action { get; set; }
+        private static Dictionary<string, Cub.Condition> Condition_Strings { get; set; }
+        private static Dictionary<string, Cub.Action> Action_Strings { get; set; }
         private static Dictionary<Cub.Class, Cub.Tool.Character_Info> Dictionary_Class_Info { get; set; }
 
         public static Cub.Terrain[][] Stage_Terrain { get; set; }
@@ -52,6 +54,13 @@ namespace Cub.Tool
                 Dictionary_Action[Cub.Action.Follow_Ally] = new Cub.Tool.Action.Follow_Ally();
                 Dictionary_Action[Cub.Action.Follow_Enemy] = new Cub.Tool.Action.Follow_Enemy();
 
+                Action_Strings = new Dictionary<string, Cub.Action>();
+                foreach (Cub.Tool.Action.Base act in Dictionary_Action.Values)
+                    Action_Strings.Add(act.Name, act.ActionType);
+                Condition_Strings = new Dictionary<string, Cub.Condition>();
+                foreach (Cub.Tool.Condition.Base con in Dictionary_Condition.Values)
+                    Condition_Strings.Add(con.Name, con.ConditionType);
+
                 Cub.Tool.Library.Stage_Terrain = Xml.Deserialize(typeof(Cub.Terrain[][]), "Data/Stage_Terrain.xml") as Cub.Terrain[][];
                 Cub.Tool.Library.Stage_Unit = Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
 
@@ -81,6 +90,46 @@ namespace Cub.Tool
                 return Dictionary_Class_Info[_Class];
             else
                 return null;
+        }
+
+        public static List<Cub.Tool.Action.Base> List_Actions()
+        {
+            return List_Actions(Cub.Class.None);
+        }
+        public static List<Cub.Tool.Action.Base> List_Actions(Cub.Class c)
+        {
+            List<Cub.Tool.Action.Base> r = new List<Action.Base>();
+            foreach (Cub.Tool.Action.Base act in Dictionary_Action.Values)
+                if (!act.SpecialAbility || Get_Character_Info(c).List_Special_Ability.Contains(act.ActionType))
+                    r.Add(act);
+            return r;
+        }
+
+        public static List<Cub.Tool.Condition.Base> List_Conditions()
+        {
+            return List_Conditions(Cub.Action.None);
+        }
+        public static List<Cub.Tool.Condition.Base> List_Conditions(Cub.Action a)
+        {
+            List<Cub.Tool.Condition.Base> r = new List<Condition.Base>();
+            foreach (Cub.Tool.Condition.Base con in Dictionary_Condition.Values)
+                if (Cub.Tool.Library.Get_Action(a).ValidConditions.Contains(con.ConditionGenre))
+                    r.Add(con);
+            return r;
+        }
+
+        public static Cub.Action String_Action(string str)
+        {
+            if (Action_Strings.ContainsKey(str))
+                return Action_Strings[str];
+            return Cub.Action.None;
+        }
+
+        public static Cub.Condition String_Condition(string str)
+        {
+            if (Condition_Strings.ContainsKey(str))
+                return Condition_Strings[str];
+            return Cub.Condition.None;
         }
     }
 

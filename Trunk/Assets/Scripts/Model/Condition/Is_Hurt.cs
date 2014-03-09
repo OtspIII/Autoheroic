@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Name = "Is Hurt";
             Description = "...if they’ve been hurt.";
             ConditionType = Cub.Condition.Is_Hurt;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

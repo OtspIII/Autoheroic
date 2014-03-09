@@ -11,6 +11,7 @@ namespace Cub.Tool.Condition
         public Cub.Condition ConditionType;
         public string Name;
         public string Description;
+        public Cub.ConditionGenre ConditionGenre;
 
         public Base()
         {

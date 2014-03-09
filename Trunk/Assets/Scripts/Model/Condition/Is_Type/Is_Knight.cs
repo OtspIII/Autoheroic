@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Description = "...if they are a Knight.";
             ConditionType = Cub.Condition.Is_Knight;
             TypeOfUnit = Class.Knight;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
     }
 }

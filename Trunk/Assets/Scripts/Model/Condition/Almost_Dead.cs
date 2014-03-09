@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Name = "Almost Dead";
             Description = "...if I can kill them in one attack.";
             ConditionType = Cub.Condition.Almost_Dead;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

@@ -12,6 +12,7 @@ namespace Cub.Tool.Condition
             Name = "None";
             Description = "";
             this.ConditionType = Cub.Condition.Any;
+            ConditionGenre = Cub.ConditionGenre.Generic;
         }
 
         public override List<object> Confirm(Character who, List<object> data)

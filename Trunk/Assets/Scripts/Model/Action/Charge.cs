@@ -19,7 +19,12 @@ namespace Cub.Tool.Action
         {
             Name = "Charge";
             Description = "I will charge at and attack an enemy within my move range";
+            SpecialAbility = true;
             ActionType = Cub.Action.Charge;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Character);
         }
 
         public override List<object> Confirm(Character who)

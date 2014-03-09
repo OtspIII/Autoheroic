@@ -13,6 +13,7 @@ namespace Cub.Tool
         public int Speed { get; private set; }
         public int Value { get; private set; }
         public List<Cub.Tool.Tactic> List_Tactic { get; private set; }
+        public List<Cub.Action> List_Special_Ability { get; private set; }
     }
 
     public class Character_Stat
@@ -30,6 +31,7 @@ namespace Cub.Tool
         public Character_Info Info { get; private set; }
         public Character_Stat Stat { get; private set; }
         public List<Cub.Tool.Tactic> Bought_Tactic = new List<Tactic>();
+        public List<Cub.Tool.Tactic> Free_Tactic = new List<Tactic>();
         public List<Cub.Tool.Tactic> Tactics { get { return FindTactics(); } }
         public int Value { get { return FindValue(); } }
         public List<Cub.Action> ExhaustedActions = new List<Cub.Action>();
@@ -278,6 +280,12 @@ namespace Cub.Tool
         {
             this.Info = Library.Get_Character_Info(_Class);
             this.Stat.HP = this.Info.MHP;
+            foreach (Cub.Tool.Tactic tac in this.Info.List_Tactic)
+            {
+                Tactic t = new Tactic(tac.C, tac.A, tac.Data);
+                t.Free = true;
+                this.Free_Tactic.Add(t);
+            }
         }
 
         public void SetLocation(Cub.Position2 where)
@@ -308,7 +316,7 @@ namespace Cub.Tool
         {
             List<Cub.Tool.Tactic> r = new List<Tactic>();
             r.AddRange(Bought_Tactic);
-            r.AddRange(Info.List_Tactic);
+            r.AddRange(Free_Tactic);
             return r;
         }
 
@@ -316,7 +324,6 @@ namespace Cub.Tool
         {
             return Info.Value;
         }
-
     }
 
 }

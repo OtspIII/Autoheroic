@@ -19,7 +19,10 @@ namespace Cub.Tool.Action
         {
             Name = "Explore";
             Description = "I will wander randomly";
+            SpecialAbility = false;
             ActionType = Cub.Action.Explore;
+            ValidConditions.Add(Cub.ConditionGenre.Generic);
+            ValidConditions.Add(Cub.ConditionGenre.Location);
         }
 
         public override List<object> Confirm(Character who)

@@ -14,6 +14,7 @@ namespace Cub.Tool.Condition
             Description = "...if they are a Jerk.";
             ConditionType = Cub.Condition.Is_Jerk;
             TypeOfUnit = Class.Jerk;
+            ConditionGenre = Cub.ConditionGenre.Character;
         }
     }
 }

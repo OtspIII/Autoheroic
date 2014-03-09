@@ -11,7 +11,7 @@ namespace Cub.Tool.Condition
 
         public Is_Type()
         {
-            ConditionType = Cub.Condition.Adjacent_2;
+            
         }
 
         public override List<object> Confirm(Character who, List<object> data)
