@@ -14,6 +14,7 @@ public class CharEditorManager : MonoBehaviour {
     UIGrid Grid;
     List<TacticBoxController> Tactics = new List<TacticBoxController>();
     public GameObject TacticBoxType;
+    Cub.Tool.Character Who;
     
     void Awake()
     {
@@ -66,8 +67,10 @@ public class CharEditorManager : MonoBehaviour {
         foreach (Transform tran in Grid.transform)
             if (tran.gameObject.name == "AI Panel(Clone)")
                 DestroyObject(tran.gameObject);
+        Tactics = new List<TacticBoxController>();
         if (who != null)
         {
+            Who = who;
             Name.value = who.Name;
             Class.text = who.Info.Class.ToString();
             Cost.text = who.Value.ToString() + "pts";
@@ -79,12 +82,13 @@ public class CharEditorManager : MonoBehaviour {
             {
                 TacticBoxController tbc = (TacticBoxController)NGUITools.AddChild(Grid.gameObject, TacticBoxType).GetComponent("TacticBoxController");
                 Tactics.Add(tbc);
-                tbc.Imprint(n, who);
+                tbc.Imprint(n, who, who.Tactics[n]);
                 n++;
             }
         }
         else
         {
+            Who = null;
             Name.value = "---";
             Class.text = "";
             Cost.text = "";
@@ -94,5 +98,16 @@ public class CharEditorManager : MonoBehaviour {
         }
         Grid.repositionNow = true;
         //Grid.Reposition();
+    }
+
+    public void AddEmptyTactic()
+    {
+        if (Who == null) return;
+        TacticBoxController tbc = (TacticBoxController)NGUITools.AddChild(Grid.gameObject, TacticBoxType).GetComponent("TacticBoxController");
+        Tactics.Add(tbc);
+        Tactic tac = new Tactic(Cub.Condition.Any, Cub.Action.Explore, new List<object>());
+        Who.Bought_Tactic.Add(tac);
+        tbc.Imprint(Tactics.Count - 1, Who, tac);
+        Grid.repositionNow = true;
     }
 }

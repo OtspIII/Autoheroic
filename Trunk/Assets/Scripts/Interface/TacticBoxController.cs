@@ -49,13 +49,13 @@ public class TacticBoxController : MonoBehaviour {
 	
 	}
 
-    public void Imprint(int n, Cub.Tool.Character who)
+    public void Imprint(int n, Cub.Tool.Character who, Cub.Tool.Tactic tac)
     {
         Number = n;
         NumLabel.text = (Number + 1).ToString();
         if (who != null && who.Tactics.Count > Number)
         {
-            Tactic = who.Tactics[Number];
+            Tactic = tac;
             Cub.Action oldAct = Tactic.A;
             ActionList.items = new List<string>{};
             List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(who.Info.Class);
