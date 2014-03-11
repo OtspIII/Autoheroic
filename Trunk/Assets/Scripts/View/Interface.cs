@@ -7,11 +7,10 @@ namespace Cub.View
 {
     public static class Interface
     {
-        public static void Go(List<GameEvent> GEL)
+        public static void Initialization()
         {
-            
-            //Implementation
-            Cub.Tool.Main.Go();
+
         }
+        
     }
 }
