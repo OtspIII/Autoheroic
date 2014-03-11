@@ -26,7 +26,7 @@ namespace Cub.View.Event
 				Proj.transform.position = ActiveChar.transform.position;
 				Proj.transform.LookAt(Target.transform);
 			}
-			ActiveChar.DoAnimation(Cub.Animation.Attack);
+			ActiveChar.DoAnimation(Cub.Animation.Character_Attack_Range);
 			//Timer = TimerMax;
 		}
 		

@@ -35,7 +35,14 @@ namespace Cub.View
             {
                 GameObject Knight = GameObject.Find("Knight");
                 Animator A = Knight.GetComponent<Animator>();
-                
+                A.SetTrigger("Move");
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                GameObject Knight = GameObject.Find("Knight");
+                Animator A = Knight.GetComponent<Animator>();
+                A.SetTrigger("Idle");
             }
         }
     }

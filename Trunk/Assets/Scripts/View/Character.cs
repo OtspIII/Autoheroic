@@ -174,5 +174,11 @@ namespace Cub.View
                 G.renderer.material.color = C.Color;
             }
         }
+
+        public void Play_Animation(Cub.Animation _Animation)
+        {
+            Animator A = this.gameObject.GetComponent<Animator>();
+            A.SetTrigger(_Animation.ToString()); //This is not type-safe
+        }
     }
 }
