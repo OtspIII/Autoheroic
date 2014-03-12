@@ -43,22 +43,20 @@ public class TeamEditorButton : MonoBehaviour {
         }
         TeamNum = num;
         Team = LoadTeam(TeamNum);
-        OwnerName = Team.Owner_Name;
-        TeamName = Team.Name;
         UpdateNames();
     }
 
     public void PickTeam()
     {
         IC.TeamEditor.gameObject.SetActive(true);
-        IC.TeamEditor.ImprintTeam(Team);
+        IC.TeamEditor.ImprintTeam(Team,this);
         IC.TeamPicker.gameObject.SetActive(false);
     }
 
-    void UpdateNames()
+    public void UpdateNames()
     {
-        Owner.text = OwnerName;
-        Name.text = TeamName;
+        Owner.text = Team.Owner_Name;
+        Name.text = Team.Name;
         Num.text = "Team " + (TeamNum + 1).ToString();
     }
 

@@ -6,7 +6,7 @@ using Cub.Tool;
 public class CharEditorManager : MonoBehaviour {
 
     UIInput Name;
-    UILabel Class;
+    //UILabel Class;
     UILabel Cost;
     UILabel HP;
     UILabel Range;
@@ -14,7 +14,9 @@ public class CharEditorManager : MonoBehaviour {
     UIGrid Grid;
     List<TacticBoxController> Tactics = new List<TacticBoxController>();
     public GameObject TacticBoxType;
+    CharacterButtonController CharButton;
     Cub.Tool.Character Who;
+    UIPopupList ClassList;
     
     void Awake()
     {
@@ -25,8 +27,8 @@ public class CharEditorManager : MonoBehaviour {
                 case "Character Name":
                     Name = (UIInput)child.gameObject.GetComponent("UIInput");
                     break;
-                case "Class Name":
-                    Class = (UILabel)child.gameObject.GetComponent("UILabel");
+                case "Class List":
+                    ClassList = (UIPopupList)child.gameObject.GetComponent("UIPopupList");
                     break;
                 case "Points Total":
                     Cost = (UILabel)child.gameObject.GetComponent("UILabel");
@@ -62,8 +64,9 @@ public class CharEditorManager : MonoBehaviour {
 	
 	}
 
-    public void Imprint(Cub.Tool.Character who)
+    public void Imprint(Cub.Tool.Character who, CharacterButtonController button)
     {
+        CharButton = button;
         foreach (Transform tran in Grid.transform)
             if (tran.gameObject.name == "AI Panel(Clone)")
                 DestroyObject(tran.gameObject);
@@ -72,7 +75,12 @@ public class CharEditorManager : MonoBehaviour {
         {
             Who = who;
             Name.value = who.Name;
-            Class.text = who.Info.Class.ToString();
+            ClassList.value = who.Info.Class.ToString();
+            ClassList.items = new List<string> { };
+            foreach (Cub.Tool.Character_Info ci in Library.List_Classes())
+            {
+                //ClassList.items.Add(ci.)
+            }
             Cost.text = who.Value.ToString() + "pts";
             HP.text = who.Info.MHP.ToString();
             Range.text = who.Info.Range.ToString();
@@ -90,7 +98,7 @@ public class CharEditorManager : MonoBehaviour {
         {
             Who = null;
             Name.value = "---";
-            Class.text = "";
+            ClassList.value = "";
             Cost.text = "";
             HP.text = "-";
             Range.text = "-";
@@ -109,5 +117,12 @@ public class CharEditorManager : MonoBehaviour {
         Who.Bought_Tactic.Add(tac);
         tbc.Imprint(Tactics.Count - 1, Who, tac);
         Grid.repositionNow = true;
+    }
+
+    public void UpdateName()
+    {
+        if (Who == null) return;
+        Who.SetName(Name.value);
+        CharButton.Imprint(-1, Who);
     }
 }

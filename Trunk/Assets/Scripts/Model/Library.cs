@@ -118,6 +118,14 @@ namespace Cub.Tool
             return r;
         }
 
+        public static List<Cub.Tool.Character_Info> List_Classes()
+        {
+            List<Cub.Tool.Character_Info> r = new List<Cub.Tool.Character_Info>();
+            foreach (Cub.Tool.Character_Info cls in Dictionary_Class_Info.Values)
+                r.Add(cls);
+            return r;
+        }
+
         public static Cub.Action String_Action(string str)
         {
             if (Action_Strings.ContainsKey(str))

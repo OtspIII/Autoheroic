@@ -8,6 +8,7 @@ namespace Cub.Tool
     public class Character_Info
     {
         public Cub.Class Class { get; private set; }
+        public string Name { get; private set; }
         public int Range { get; private set; }
         public int MHP { get; private set; }
         public int Speed { get; private set; }

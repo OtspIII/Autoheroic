@@ -43,8 +43,11 @@ public class CharacterButtonController : MonoBehaviour {
 
     public void Imprint(int num, Cub.Tool.Character who)
     {
-        Number = num;
-        NumTxt.text = (Number + 1).ToString();
+        if (num != -1)
+        {
+            Number = num;
+            NumTxt.text = (Number + 1).ToString();
+        }
         if (who != null)
         {
             Who = who;
@@ -63,6 +66,6 @@ public class CharacterButtonController : MonoBehaviour {
 
     public void GetClicked()
     {
-        IC.TeamEditor.CharEditor.Imprint(Who);
+        IC.TeamEditor.CharEditor.Imprint(Who,this);
     }
 }

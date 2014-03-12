@@ -14,8 +14,8 @@ public class TeamEditorController : MonoBehaviour {
     GameObject CharList;
     public GameObject CharButtonType;
     List<CharacterButtonController> CButtons = new List<CharacterButtonController>();
-
     Cub.Tool.Team Team = null;
+    TeamEditorButton TeamButton = null;
 
 	// Use this for initialization
     void Awake()
@@ -53,8 +53,9 @@ public class TeamEditorController : MonoBehaviour {
 	
 	}
 
-    public void ImprintTeam(Cub.Tool.Team team)
+    public void ImprintTeam(Cub.Tool.Team team, TeamEditorButton button)
     {
+        TeamButton = button;
         foreach (Transform tran in CLGrid.transform)
             if (tran.gameObject.name == "CharacterBox(Clone)")
                 DestroyObject(tran.gameObject);
@@ -93,5 +94,22 @@ public class TeamEditorController : MonoBehaviour {
         Debug.Log("SAVE STUFF");
         IC.TeamPicker.gameObject.SetActive(true);
         IC.TeamEditor.gameObject.SetActive(false);
+    }
+
+    public void UpdateTeamName()
+    {
+        Team.Name = TeamName.value;
+        TeamButton.UpdateNames();
+    }
+
+    public void UpdateOwnerName()
+    {
+        Team.Owner_Name = OwnerName.value;
+        TeamButton.UpdateNames();
+    }
+
+    public void AddNewCharacter()
+    {
+        Debug.Log("A");
     }
 }
