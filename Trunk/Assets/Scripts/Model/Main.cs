@@ -6,12 +6,12 @@ namespace Cub.Tool
 {
     public static class Main
     {
-        public static Cub.View.SetupData SData { get; set; }
+        //public static Cub.View.SetupData SData { get; set; }
         public static List<Cub.Tool.Team> List_Team { get; set; }
 
         public static int Turn { get; private set; }
 
-        public static void Initiation(bool InterfaceTest)
+        public static void Initialization(bool InterfaceTest)
         {
             Cub.Tool.Library.Initialization();
 
@@ -47,9 +47,9 @@ namespace Cub.Tool
                         t.TotalValue += c.Value;                
         }
 
-        public static List<Cub.View.GameEvent> Go()
+        public static List<Cub.View.Eventon> Go()
         {
-            List<Cub.View.GameEvent> GEL = new List<View.GameEvent>();
+            List<Cub.View.Eventon> GEL = new List<View.Eventon>();
             //List<Cub.Model.Character> CL = List_Team[0].Return_List_Character();
             foreach (Team team in Cub.Tool.Main.List_Team)
             {
@@ -66,7 +66,7 @@ namespace Cub.Tool
                         C.Stat.Cooldown -= 1;
                         if (C.Stat.Cooldown <= 0)
                         {
-                            List<Cub.View.GameEvent> EL = C.Go();
+                            List<Cub.View.Eventon> EL = C.Go();
                             GEL.AddRange(EL);
                         }
                         Index++;
@@ -76,7 +76,7 @@ namespace Cub.Tool
             return GEL;
         }
 
-        public static void Dispose(Cub.Tool.Character C, List<Cub.View.GameEvent> events)
+        public static void Dispose(Cub.Tool.Character C, List<Cub.View.Eventon> events)
         {
             foreach (Team team in List_Team)
             {
@@ -104,10 +104,10 @@ namespace Cub.Tool
             return r;
         }
 
-        public static void GameEnds(List<Cub.View.GameEvent> events)
+        public static void GameEnds(List<Cub.View.Eventon> events)
         {
             Debug.Log("Game Over");
-            events.Add(new View.GameEvent(Event.GameOver, "Game Over!", new List<object>()));
+            events.Add(new View.Eventon(Event.Win, "Game Over!", new List<object>()));
             int highScore = -999999999;
             List<Team> winningTeams = new List<Team>();
             foreach (Team team in List_Team)

@@ -7,16 +7,25 @@ namespace Cub.View
     {
         public void Awake()
         {
+            Cub.Tool.Library.Initialization();
             Cub.View.Library.Initialization();
+
+            Cub.View.Runtime RT = GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>();
         }
 
         public void Start()
         {
-            GameObject Knight = Instantiate(Cub.View.Library.Get_Character(), Vector3.zero, Quaternion.identity) as GameObject;
-            Knight.name = "Knight";
-            Cub.View.Character C = Knight.GetComponent<Cub.View.Character>();
-            C.Initialize_Stat(Guid.NewGuid(), Class.Knight, 5, 5, new Position2(0, 0));
-            C.Initialize_Model();
+            Tool.Character C1 = new Tool.Character(Class.Knight, 0, 0);
+            Tool.Character C2 = new Tool.Character(Class.Knight, 0, 0);
+            
+            Cub.View.Runtime RT = GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>();
+
+            RT.Add_Character(C1);
+            RT.Add_Character(C2);
+
+            RT.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 4, 4 }));
+            RT.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C2.ID, 1, 5 }));
+            RT.Run_Eventon();
         }
 
         public void Update()
@@ -25,7 +34,7 @@ namespace Cub.View
             {
                 GameObject.Destroy(GameObject.Find("Knight"));
 
-                Cub.View.Library.Yo();
+                Cub.View.Library.Unlock();
                 Cub.View.Library.Initialization();
 
                 this.Start();

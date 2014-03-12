@@ -45,6 +45,7 @@ namespace Cub.View
 
     public class Character : MonoBehaviour
     {
+        public Material[] materials;
         public Character_Stat Stat { get; private set; }
         public Character_Model Model { get; private set; }
 
@@ -76,7 +77,7 @@ namespace Cub.View
             GameObject GO_Equipment_Left = GO_Hand_Left.transform.FindChild("Model/Equipment_Left").gameObject;
             GameObject GO_Equipment_Right = GO_Hand_Right.transform.FindChild("Model/Equipment_Right").gameObject;
 
-            GO_Body.transform.position = this.Model.Position_Body.ToVector3();
+            GO_Body.transform.localPosition = this.Model.Position_Body.ToVector3();
             GO_Head.transform.localPosition = this.Model.Position_Body.ToVector3() + this.Model.Position_Body_Head.ToVector3();
             GO_Hand_Left.transform.localPosition = this.Model.Position_Body.ToVector3() + this.Model.Position_Body_Hand_Left.ToVector3();
             GO_Hand_Right.transform.localPosition = this.Model.Position_Body.ToVector3() + this.Model.Position_Body_Hand_Right.ToVector3();
@@ -167,11 +168,13 @@ namespace Cub.View
             foreach (Cubon C in this.Model.Equipment_Right)
             {
                 GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                G.transform.parent = GO_Equipment_Right.transform.FindChild("Model").transform;
-                G.transform.localPosition = C.Position.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
+                Transform newTr = G.transform;
+                newTr.parent = GO_Equipment_Right.transform.FindChild("Model").transform;
+                newTr.localPosition = C.Position.ToVector3();
+                newTr.localScale = G.transform.lossyScale;
+                newTr.localRotation = Quaternion.identity;
                 G.renderer.material.color = C.Color;
+                //G.renderer.sharedMaterial = redMaterial;
             }
         }
 

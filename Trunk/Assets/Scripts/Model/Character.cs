@@ -78,15 +78,15 @@ namespace Cub.Tool
             this.Stat.Cooldown = 0;
         }
 
-        public bool Damage(int Amount, Character source, List<Cub.View.GameEvent> events)
+        public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events)
         {
             this.Stat.HP -= Amount;
-            events.Add(new View.GameEvent(Event.TakeDamage, Name + " <" + Amount.ToString() + " Damage>", 
+            events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>", 
                 new List<object> { ID, Amount}));
             if (this.Stat.HP <= 0)
             {
                 Debug.Log("Die: " + this.Name + " (" + this.Info.Class + ")");
-                events.Add(new View.GameEvent(Event.Die, "R.I.P. " + Name, new List<object> { ID }));
+                events.Add(new View.Eventon(Event.Die, "R.I.P. " + Name, new List<object> { ID }));
                 //Debug.Log(source.Name + " / " + source.Stat.Team);
                 //Debug.Log(source.Stat.Team.Name);
                 source.Stat.Team.AddScore("Kills", Value);
@@ -96,14 +96,14 @@ namespace Cub.Tool
             return false;
         }
 
-        public void Heal(int Amount, Character source, List<Cub.View.GameEvent> events)
+        public void Heal(int Amount, Character source, List<Cub.View.Eventon> events)
         {
             Amount = Mathf.Min(Amount, Info.MHP - Stat.HP);
             this.Stat.HP = Mathf.Min(this.Stat.HP + Amount,this.Info.MHP);
-            events.Add(new View.GameEvent(Event.BeHealed, Name + " [" + Amount + " Heal]", new List<object> { ID, Amount }));
+            events.Add(new View.Eventon(Event.Be_Healed, Name + " [" + Amount + " Heal]", new List<object> { ID, Amount }));
         }
 
-        public List<Cub.View.GameEvent> Go()
+        public List<Cub.View.Eventon> Go()
         {
             foreach (Tactic T in this.Tactics)
             {
@@ -121,7 +121,7 @@ namespace Cub.Tool
                 }
                 return a.Body(this, Data);
             }
-            return new List<View.GameEvent>();
+            return new List<View.Eventon>();
         }
 
         //public List<Cub.View.GameEvent> Goo()

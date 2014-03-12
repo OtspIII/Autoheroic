@@ -11,33 +11,20 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-
 namespace Cub.View
 {
-    public class GameEvent
+    public class Eventon
     {
         public Cub.Event Type;
-        public string Desc;
+        public string Description;
         public List<object> Data;
-        //		public ClassController MainChar;
-        //		public Vector2 Where1;
-        //public Vector2 Where2;
 
-        public GameEvent(Cub.Event type, string desc, List<object> data)
+        public Eventon(Cub.Event type, string desc, List<object> data)
         {
             Type = type;
-            Desc = desc;
+            Description = desc;
             Data = data;
-            //MainChar = mainChar;
         }
-
-        //		public GameEvent (GEventType type, ClassController mainChar, Vector2 where1)
-        //		{
-        //			Type = type;
-        //			MainChar = mainChar;
-        //			Where1 = where1;
-        //			//Where2 = where2;
-        //		}
 
     }
 }

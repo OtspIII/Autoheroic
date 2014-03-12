@@ -39,10 +39,10 @@ namespace Cub.Tool.Action
             return data;
         }
 
-        public override List<Cub.View.GameEvent> Body(Character who, List<object> data)
+        public override List<Cub.View.Eventon> Body(Character who, List<object> data)
         {
-            List<Cub.View.GameEvent> r = new List<Cub.View.GameEvent>();
-            if (data.Count == 0) return new List<View.GameEvent>();
+            List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
+            if (data.Count == 0) return new List<View.Eventon>();
             Character target = null;
             if (data.Count == 1)
                 target = (data[0] as Cub.Tool.Character);
@@ -51,7 +51,7 @@ namespace Cub.Tool.Action
             who.Stat.Cooldown += this.Turn_Cooldown;
             who.ExhaustedActions.Add(ActionType);
             Debug.Log("Snipe: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.GameEvent(Cub.Event.Snipe, who.Name + " <SNIPE> " + target.Name, new List<object>() { who.ID, target.ID }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Snipe, who.Name + " <SNIPE> " + target.Name, new List<object>() { who.ID, target.ID }));
             target.Damage(Damage, who, r);
             return r;
         }

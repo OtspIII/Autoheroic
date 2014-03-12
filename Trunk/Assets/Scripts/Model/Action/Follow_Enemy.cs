@@ -34,10 +34,10 @@ namespace Cub.Tool.Action
             return data;
         }
 
-        public override List<Cub.View.GameEvent> Body(Character who, List<object> data)
+        public override List<Cub.View.Eventon> Body(Character who, List<object> data)
         {
             who.Stat.Cooldown += this.Turn_Cooldown;
-            if (data.Count == 0) return new List<View.GameEvent>();
+            if (data.Count == 0) return new List<View.Eventon>();
             Character target;
             if (data.Count == 1)
                 target = (Character)data[0];
@@ -46,12 +46,12 @@ namespace Cub.Tool.Action
 
             List<Cub.Position2> path = Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
-            if (TravelDistance < 0) return new List<View.GameEvent>();
+            if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);
             Debug.Log("Follow: " + who.Name + " (" + who.Info.Class + ") >" + path[TravelDistance].ToString());
-            List<Cub.View.GameEvent> r = new List<Cub.View.GameEvent>();
+            List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++){
-                r.Add(new Cub.View.GameEvent(Cub.Event.Walk, who.Name + ": Following " + target.Name, new List<object>() { who.ID, path[n].X, path[n].Y }));
+                r.Add(new Cub.View.Eventon(Cub.Event.Move, who.Name + ": Following " + target.Name, new List<object>() { who.ID, path[n].X, path[n].Y }));
             }
             return r;
         }
