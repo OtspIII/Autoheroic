@@ -34,19 +34,38 @@ namespace Cub.View
         public List<Cub.Cubon> Equipment_Right { get; set; }
     }
 
+    public class Character_Stat
+    {
+        public System.Guid ID { get; set; }
+        public Cub.Class Class { get; set; }
+        public int MHP { get; set; }
+        public int HP { get; set; }
+        public Cub.Position2 Position { get; set; }
+    }
+
     public class Character : MonoBehaviour
     {
-        public Cub.Class Class; //Unfortunately Unity sucks sucks sucks (Trust me I can do more) at here thus I have to use member instead of Property to setup the parameter for the constructor
-        public Character_Model Model { get; set; }
+        public Character_Stat Stat { get; private set; }
+        public Character_Model Model { get; private set; }
 
-        public void Start()
+        public Character()
         {
-            Cubing();
+            this.Stat = new Character_Stat();
+            this.Model = new Character_Model();
         }
 
-        private void Cubing()
+        public void Initialize_Stat(Guid _ID, Cub.Class _Class, int _MHP, int _HP, Position2 _Position)
+        {            
+            this.Stat.ID = _ID;
+            this.Stat.Class = _Class;
+            this.Stat.MHP = _MHP;
+            this.Stat.HP = _HP;
+            this.Stat.Position = _Position;
+        }
+
+        public void Initialize_Model()
         {
-            this.Model = Library.Get_Character_Model(this.Class);
+            this.Model = Library.Get_Character_Model(this.Stat.Class);
 
             GameObject GO_Head = this.gameObject.transform.FindChild("Head").gameObject;
             GameObject GO_Body = this.gameObject.transform.FindChild("Body").gameObject;
@@ -154,6 +173,12 @@ namespace Cub.View
                 G.transform.localRotation = Quaternion.identity;
                 G.renderer.material.color = C.Color;
             }
+        }
+
+        public void Play_Animation(Cub.Animation _Animation)
+        {
+            Animator A = this.gameObject.GetComponent<Animator>();
+            A.SetTrigger(_Animation.ToString()); //This is not type-safe
         }
     }
 }

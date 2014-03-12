@@ -39,37 +39,37 @@ namespace Cub.View
         {
             switch (act)
             {
-                case Cub.Animation.Walk:
+                case Cub.Animation.Character_Move:
                     {
                         //			particleSystem.startColor = Color.blue;
                         //			particleSystem.Emit(10);
                         break;
                     }
-                case Cub.Animation.Attack:
+                case Cub.Animation.Character_Attack_Range:
                     {
                         particleSystem.startColor = Color.white;
                         particleSystem.Emit(10);
                         break;
                     }
-                case Cub.Animation.TakeDamage:
+                case Cub.Animation.Character_Be_Attacked:
                     {
                         particleSystem.startColor = Color.magenta;
                         particleSystem.Emit(5);
                         break;
                     }
-                case Cub.Animation.Heal:
+                case Cub.Animation.Character_Attack_Heal:
                     {
                         particleSystem.startColor = Color.yellow;
                         particleSystem.Emit(10);
                         break;
                     }
-                case Cub.Animation.BeHealed:
+                case Cub.Animation.Character_Be_Healed:
                     {
                         particleSystem.startColor = Color.green;
                         particleSystem.Emit(5);
                         break;
                     }
-                case Cub.Animation.Cheer:
+                case Cub.Animation.Character_Win:
                     {
                         particleSystem.startColor = Color.blue;
                         particleSystem.Emit(10);

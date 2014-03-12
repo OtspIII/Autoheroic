@@ -18,7 +18,7 @@ namespace Cub.View.Event
 		{
 			base.Begin(desc, data);
 			Target = Manager.CharacterReference[(System.Guid)data[1]];
-			ActiveChar.DoAnimation(Cub.Animation.Heal);
+			ActiveChar.DoAnimation(Cub.Animation.Character_Attack_Heal);
 			//Timer = TimerMax;
 		}
     }

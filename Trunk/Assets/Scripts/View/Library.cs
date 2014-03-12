@@ -10,21 +10,20 @@ namespace Cub.View
 
         private static GameObject Prefab_Cube { get; set; }
 
-        private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
+        private static GameObject Prefab_Character { get; set; }
 
-        private static Dictionary<Cub.Class, GameObject> Dictionary_Character { get; set; }
+        private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
 
         public static void Initialization()
         {
             if (Trigger)
             {
                 Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
+                Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
 
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
-                Dictionary_Character = new Dictionary<Class, GameObject>();
 
                 Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character[Class.Knight] = Resources.Load<GameObject>("Prefabs/Classes/Knight");
 
                 Trigger = false;
             }
@@ -45,9 +44,9 @@ namespace Cub.View
             return Prefab_Cube;
         }
 
-        public static GameObject Get_Character(Cub.Class _C)
+        public static GameObject Get_Character()
         {
-            return Dictionary_Character[_C];
+            return Prefab_Character;
         }
     }
 }

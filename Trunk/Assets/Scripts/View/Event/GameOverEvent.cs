@@ -16,7 +16,7 @@ namespace Cub.View.Event
 		{
 			base.Begin(desc, data);
             foreach (ClassController c in Manager.CharacterReference.Values)
-                c.DoAnimation(Cub.Animation.Cheer);
+                c.DoAnimation(Cub.Animation.Character_Win);
 		}
 
         public override void Continue()

@@ -24,7 +24,7 @@ namespace Cub.View.Event
             Vector2 whereE = new Vector2((int)data[1], (int)data[2]);
             EndLocation = whereE;
             StartLocation = new Vector2(ActiveChar.transform.position.x, ActiveChar.transform.position.z);
-            ActiveChar.DoAnimation(Cub.Animation.Walk);
+            ActiveChar.DoAnimation(Cub.Animation.Character_Move);
         }
 
         public override void Continue()

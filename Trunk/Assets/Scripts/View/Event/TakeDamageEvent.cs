@@ -18,7 +18,7 @@ namespace Cub.View.Event
         {
             base.Begin(desc, data);
             int dam = (int)data[1];
-            ActiveChar.DoAnimation(Cub.Animation.TakeDamage);
+            ActiveChar.DoAnimation(Cub.Animation.Character_Be_Attacked);
         }
     }
 }

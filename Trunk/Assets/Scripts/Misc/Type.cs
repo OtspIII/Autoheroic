@@ -107,14 +107,17 @@ namespace Cub
 
     public enum Animation
     {
-        None,
-        Walk,
-        Attack,
-        TakeDamage,
-        Heal,
-        BeHealed,
-        Die,
-        Cheer
+        Character_Idle,
+        Character_Move,
+        Character_Attack_Melee,
+        Character_Attack_Range,
+        Character_Attack_Snipe,
+        Character_Attack_Rocket,
+        Character_Attack_Heal,
+        Character_Be_Attacked,
+        Character_Be_Healed,
+        Character_Die,
+        Character_Win
     }
 
     public enum ConditionGenre
@@ -168,6 +171,11 @@ namespace Cub
         public Vector2 ToVector2()
         {
             return new Vector2(this.X, this.Y);
+        }
+
+        public Vector3 ToVector3()
+        {
+            return new Vector3(this.X, 0, this.Y);
         }
     }
 
