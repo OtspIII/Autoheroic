@@ -9,23 +9,23 @@ namespace Cub.View
         {
             Cub.Tool.Library.Initialization();
             Cub.View.Library.Initialization();
-
-            Cub.View.Runtime RT = GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>();
         }
 
         public void Start()
         {
             Tool.Character C1 = new Tool.Character(Class.Knight, 0, 0);
-            Tool.Character C2 = new Tool.Character(Class.Knight, 0, 0);
-            
-            Cub.View.Runtime RT = GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>();
 
-            RT.Add_Character(C1);
-            RT.Add_Character(C2);
+            Runtime.Add_Character(C1);
 
-            RT.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 4, 4 }));
-            RT.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C2.ID, 1, 5 }));
-            RT.Run_Eventon();
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 2, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 1, 1 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Die, "", new System.Collections.Generic.List<object>() { C1.ID }));
+
+            GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>().Run_Eventon();
         }
 
         public void Update()

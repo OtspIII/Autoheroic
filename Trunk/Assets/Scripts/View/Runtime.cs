@@ -6,9 +6,9 @@ namespace Cub.View
 {
     public class Runtime : MonoBehaviour
     {
-        private Dictionary<Guid, Cub.View.Character> Dictionary_Character { get; set; }
-        
-        private Queue<Eventon> Queue_Eventon { get; set; }
+        private static Dictionary<Guid, Cub.View.Character> Dictionary_Character { get; set; }
+
+        private static Queue<Eventon> Queue_Eventon { get; set; }
 
         public void Awake()
         {
@@ -16,7 +16,7 @@ namespace Cub.View
             Queue_Eventon = new Queue<Eventon>();
         }
 
-        public void Add_Character(Cub.Tool.Character _Character)
+        public static void Add_Character(Cub.Tool.Character _Character)
         {
             GameObject GO = GameObject.Instantiate(Cub.View.Library.Get_Character(), _Character.Stat.Position.ToVector3(), Quaternion.identity) as GameObject;
             Cub.View.Character C = GO.GetComponent<Cub.View.Character>();
@@ -25,22 +25,22 @@ namespace Cub.View
             Dictionary_Character[_Character.ID] = C;
         }
 
-        public void Remove_Character(Guid _ID)
+        public static void Remove_Character(Guid _ID)
         {
             Dictionary_Character.Remove(_ID);
         }
 
-        public Cub.View.Character Get_Character(Guid _ID)
+        public static Cub.View.Character Get_Character(Guid _ID)
         {
             return Dictionary_Character[_ID];
         }
 
-        public void Add_Eventon(Eventon _Eventon)
+        public static void Add_Eventon(Eventon _Eventon)
         {
             Queue_Eventon.Enqueue(_Eventon);
         }
 
-        public void Add_Eventon(List<Eventon> _Eventon)
+        public static void Add_Eventon(List<Eventon> _Eventon)
         {
             foreach (Eventon E in _Eventon)
             {

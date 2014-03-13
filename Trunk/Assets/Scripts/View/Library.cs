@@ -12,7 +12,7 @@ namespace Cub.View
         private static GameObject Prefab_Character { get; set; }
 
         private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
-        private static Dictionary<Cub.Event, Cub.View.Event_Processor.Base> Dictionary_Event_Processor { get; set; }
+        private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
 
         public static void Initialization()
         {
@@ -24,9 +24,11 @@ namespace Cub.View
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
                 Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
 
-                Dictionary_Event_Processor = new Dictionary<Cub.Event, Event_Processor.Base>();
-                Dictionary_Event_Processor[Cub.Event.Move] = new Cub.View.Event_Processor.Move();
-
+                Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
+                Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
+                Dictionary_Event[Cub.Event.Die] = new Cub.View.Event.Die();
+                Dictionary_Event[Cub.Event.Be_Attacked] = new Cub.View.Event.Be_Attacked();
+                
                 Trigger = false;
             }
         }
@@ -41,9 +43,9 @@ namespace Cub.View
             return Dictionary_Character_Model[_C];
         }
 
-        public static Cub.View.Event_Processor.Base Get_Event_Processor(Cub.Event _E)
+        public static Cub.View.Event.Base Get_Event_Processor(Cub.Event _E)
         {
-            return Dictionary_Event_Processor[_E];
+            return Dictionary_Event[_E];
         }
 
         public static GameObject Get_Cube()

@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
+using System.Text;
 
 namespace Cub.View.Event
 {
-    public class Attack_Heal:Base
+    public class Be_Healed : Base
     {
         public override float Process(List<object> _Data)
         {
-            return 0.0F;
+
+
+            return 2.0F;
         }
     }
 }

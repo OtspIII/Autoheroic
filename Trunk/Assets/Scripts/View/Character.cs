@@ -45,7 +45,6 @@ namespace Cub.View
 
     public class Character : MonoBehaviour
     {
-        public Material[] materials;
         public Character_Stat Stat { get; private set; }
         public Character_Model Model { get; private set; }
 
@@ -174,14 +173,7 @@ namespace Cub.View
                 newTr.localScale = G.transform.lossyScale;
                 newTr.localRotation = Quaternion.identity;
                 G.renderer.material.color = C.Color;
-                //G.renderer.sharedMaterial = redMaterial;
             }
-        }
-
-        public void Play_Animation(Cub.Animation _Animation)
-        {
-            Animator A = this.gameObject.GetComponent<Animator>();
-            A.SetTrigger(_Animation.ToString()); //This is not type-safe
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cub.View.Event_Processor
+namespace Cub.View.Event
 {
     public class Win : Base
     {
