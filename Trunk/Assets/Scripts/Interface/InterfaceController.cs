@@ -10,7 +10,7 @@ public class InterfaceController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        Cub.Tool.Main.Initiation(true);
+        Cub.Tool.Main.Initialization(true);
         TeamPicker = (TeamPickerController)GameObject.Find("Team Picker Menu").GetComponent("TeamPickerController");
         TeamEditor = (TeamEditorController)GameObject.Find("Team Editor Menu").GetComponent("TeamEditorController");
         TeamEditor.gameObject.SetActive(false);

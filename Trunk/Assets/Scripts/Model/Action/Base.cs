@@ -21,6 +21,6 @@ namespace Cub.Tool.Action
             return new List<object>();
         }
 
-        public abstract List<Cub.View.GameEvent> Body(Character who, List<object> data);
+        public abstract List<Cub.View.Eventon> Body(Character who, List<object> data);
     }
 }

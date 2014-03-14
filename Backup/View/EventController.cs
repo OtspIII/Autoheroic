@@ -16,14 +16,14 @@ namespace Cub.View
         public List<GameObject> Terrains;
         TerrainController[,] TerrainMap;
         List<ClassController> Characters = new List<ClassController>();
-		public Dictionary<System.Guid, ClassController> CharacterReference = new Dictionary<System.Guid, ClassController>();
-		public List<GameObject> Projectiles;
-		public Dictionary <string,GameObject> ProjectileReference = new Dictionary<string, GameObject>();
-		Dictionary<Cub.Event, EventParent> Events = new Dictionary<Cub.Event, EventParent>();
+        public Dictionary<System.Guid, ClassController> CharacterReference = new Dictionary<System.Guid, ClassController>();
+        public List<GameObject> Projectiles;
+        public Dictionary<string, GameObject> ProjectileReference = new Dictionary<string, GameObject>();
+        Dictionary<Cub.Event, EventParent> Events = new Dictionary<Cub.Event, EventParent>();
         public EventParent CurrentEvent = null;
-        List<GameEvent> EventStack = new List<GameEvent>();
+        List<Eventon> EventStack = new List<Eventon>();
         TextMesh NameText;
-		bool SetupComplete = false;
+        bool SetupComplete = false;
         List<string> Teams = new List<string>();
         public List<Material> TeamColors = new List<Material>();
         public GameObject InterfaceControllerType;
@@ -37,7 +37,7 @@ namespace Cub.View
         // Use this for initialization
         void Start()
         {
-            	NameText = (TextMesh)GameObject.Find("Name").GetComponent("TextMesh");
+            NameText = (TextMesh)GameObject.Find("Name").GetComponent("TextMesh");
         }
 
         // Update is called once per frame
@@ -45,7 +45,7 @@ namespace Cub.View
         {
             if (InterfaceTestMode && !SetupComplete)
             {
-                Cub.Tool.Main.Initiation(true);
+                Cub.Tool.Main.Initialization(true);
                 SetupInterfaceManager();
             }
             if (!SetupComplete || (InterfaceTestMode && !InterfacePhaseOver))
@@ -60,19 +60,20 @@ namespace Cub.View
                     //}
                     //else if (!InterfaceTestMode)
                     //{
-                        Cub.Tool.Main.Initiation(false);
-                        Setup(ForgeSetupData());
+                    Cub.Tool.Main.Initialization(false);
+                    Setup(ForgeSetupData());
                     //}
                 }
                 return;
             }
-            List<Cub.View.GameEvent> GEL = null;
-			//if (CurrentEvent == null)
-                GEL = Cub.Tool.Main.Go();
+            List<Cub.View.Eventon> GEL = null;
+            //if (CurrentEvent == null)
+            GEL = Cub.Tool.Main.Go();
             if (GEL != null)
-			    foreach (Cub.View.GameEvent e in GEL){
-				    QueueEvent(e);
-			    }
+                foreach (Cub.View.Eventon e in GEL)
+                {
+                    QueueEvent(e);
+                }
             if (CurrentEvent != null)
             {
                 if (CurrentEvent.StillRunning())
@@ -85,14 +86,14 @@ namespace Cub.View
                     GotoNextEvent();
                 }
             }
-//            if (Input.GetKeyDown(KeyCode.Space))
-//            {
+            //            if (Input.GetKeyDown(KeyCode.Space))
+            //            {
 
-                //			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
-                //			QueueEvent(new GameEvent(GEventType.Walk,new List<string>{randomGuy.UniqueName,
-                //				Random.Range(0,10).ToString(),Random.Range(0,10).ToString()}));
-                //			  //randomGuy, new Vector2(Random.Range(0,10),Random.Range(0,10))));
-//            }
+            //			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
+            //			QueueEvent(new GameEvent(GEventType.Walk,new List<string>{randomGuy.UniqueName,
+            //				Random.Range(0,10).ToString(),Random.Range(0,10).ToString()}));
+            //			  //randomGuy, new Vector2(Random.Range(0,10),Random.Range(0,10))));
+            //            }
             //		if (Input.GetKeyDown(KeyCode.Z)){
             //			ClassController randomGuy = Characters[Random.Range(0,Characters.Count)];
             //			QueueEvent(new GameEvent(GEventType.Attack,new List<string>{randomGuy.UniqueName}));
@@ -164,7 +165,7 @@ namespace Cub.View
                     ((MeshRenderer)go.GetComponent("MeshRenderer")).material = teamColor;
                 }
             }
-			SetupComplete = true;
+            SetupComplete = true;
         }
 
         void SetupRefs()
@@ -183,19 +184,20 @@ namespace Cub.View
                 TerrainController cont = (TerrainController)c.GetComponent("TerrainController");
                 TerrainReference.Add(cont.TerrainType, cont);
             }
-			foreach (GameObject p in Projectiles){
-				ProjectileReference.Add(p.name,
-				                        (GameObject)Instantiate(p,new Vector3(9999,1999,9999),Quaternion.identity));
-			}
-            Events.Add(Cub.Event.Walk, (EventParent)GetComponent("WalkEvent"));
-            Events.Add(Cub.Event.Attack, (EventParent)GetComponent("AttackEvent"));
-            Events.Add(Cub.Event.TakeDamage, (EventParent)GetComponent("TakeDamageEvent"));
+            foreach (GameObject p in Projectiles)
+            {
+                ProjectileReference.Add(p.name,
+                                        (GameObject)Instantiate(p, new Vector3(9999, 1999, 9999), Quaternion.identity));
+            }
+            Events.Add(Cub.Event.Move, (EventParent)GetComponent("WalkEvent"));
+            Events.Add(Cub.Event.Attack_Range, (EventParent)GetComponent("AttackEvent"));
+            Events.Add(Cub.Event.Be_Attacked, (EventParent)GetComponent("TakeDamageEvent"));
             Events.Add(Cub.Event.Die, (EventParent)GetComponent("DeathEvent"));
-            Events.Add(Cub.Event.Missile, (EventParent)GetComponent("MissileEvent"));
-            Events.Add(Cub.Event.Snipe, (EventParent)GetComponent("SnipeEvent"));
-            Events.Add(Cub.Event.Heal, (EventParent)GetComponent("HealEvent"));
-            Events.Add(Cub.Event.BeHealed, (EventParent)GetComponent("BeHealedEvent"));
-            Events.Add(Cub.Event.GameOver, (EventParent)GetComponent("GameOverEvent"));
+            Events.Add(Cub.Event.Attack_Rocket, (EventParent)GetComponent("MissileEvent"));
+            Events.Add(Cub.Event.Attack_Snipe, (EventParent)GetComponent("SnipeEvent"));
+            Events.Add(Cub.Event.Attack_Heal, (EventParent)GetComponent("HealEvent"));
+            Events.Add(Cub.Event.Be_Healed, (EventParent)GetComponent("BeHealedEvent"));
+            Events.Add(Cub.Event.Win, (EventParent)GetComponent("GameOverEvent"));
         }
 
         ClassController GetClass(Cub.Class c)
@@ -220,20 +222,20 @@ namespace Cub.View
             return null;
         }
 
-        public void QueueEvent(GameEvent e)
+        public void QueueEvent(Eventon e)
         {
             EventStack.Add(e);
             if (CurrentEvent == null)
                 StartEvent(EventStack[0]);
         }
 
-        public void StartEvent(GameEvent e)
+        public void StartEvent(Eventon e)
         {
             EventParent manager = GetEvent(e.Type);
             if (manager == null)
                 return;
             CurrentEvent = manager;
-            manager.Begin(e.Desc, e.Data);
+            manager.Begin(e.Description, e.Data);
             //		switch (e.Type)
             //		{
             //		case GEventType.Walk:

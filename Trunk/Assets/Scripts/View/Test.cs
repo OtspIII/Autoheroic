@@ -7,16 +7,25 @@ namespace Cub.View
     {
         public void Awake()
         {
+            Cub.Tool.Library.Initialization();
             Cub.View.Library.Initialization();
         }
 
         public void Start()
         {
-            GameObject Knight = Instantiate(Cub.View.Library.Get_Character(), Vector3.zero, Quaternion.identity) as GameObject;
-            Knight.name = "Knight";
-            Cub.View.Character C = Knight.GetComponent<Cub.View.Character>();
-            C.Initialize_Stat(Guid.NewGuid(), Class.Knight, 5, 5, new Position2(0, 0));
-            C.Initialize_Model();
+            Tool.Character C1 = new Tool.Character(Class.Knight, 0, 0);
+
+            Runtime.Add_Character(C1);
+
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 2, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 1, 1 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
+            Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Die, "", new System.Collections.Generic.List<object>() { C1.ID }));
+
+            GameObject.Find("Runtime").GetComponent<Cub.View.Runtime>().Run_Eventon();
         }
 
         public void Update()
@@ -25,7 +34,7 @@ namespace Cub.View
             {
                 GameObject.Destroy(GameObject.Find("Knight"));
 
-                Cub.View.Library.Yo();
+                Cub.View.Library.Unlock();
                 Cub.View.Library.Initialization();
 
                 this.Start();

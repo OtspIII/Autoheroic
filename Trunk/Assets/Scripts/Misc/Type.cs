@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cub
@@ -93,16 +94,17 @@ namespace Cub
 
     public enum Event
     {
-        None,
-        Walk,
-        Attack,
-        TakeDamage,
-        Missile,
-        Snipe,//
-        Heal,//
-        BeHealed,//
+        Idle,
+        Move,
         Die,
-        GameOver//
+        Win,
+        Attack_Range,
+        Attack_Melee,
+        Attack_Rocket,
+        Attack_Snipe,//
+        Attack_Heal,//
+        Be_Healed,//
+        Be_Attacked
     }
 
     public enum Animation
@@ -224,7 +226,7 @@ namespace Cub
             {
                 return false;
             }
-            
+
             if (this.X == ((Position3)obj).X && this.Y == ((Position3)obj).Y && this.Z == ((Position3)obj).Z)
                 return true;
             else
