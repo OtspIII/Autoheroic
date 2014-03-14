@@ -128,6 +128,11 @@ namespace Cub
         Missile
     }
 
+    public enum AIProfile
+    {
+        Warrior
+    }
+
     public struct Position2
     {
         public int X;

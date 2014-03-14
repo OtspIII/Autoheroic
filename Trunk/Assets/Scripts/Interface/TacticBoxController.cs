@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class TacticBoxController : MonoBehaviour {
 
     InterfaceController IC;
-    Cub.Tool.Tactic Tactic = null;
+    Cub.Tool.Character Who = null;
+    public Cub.Tool.Tactic Tactic = null;
     public int Number;
     UILabel NumLabel;
     UILabel ActionDesc;
@@ -13,6 +14,7 @@ public class TacticBoxController : MonoBehaviour {
     UILabel Between;
     UIPopupList ActionList;
     UIPopupList ConditionList;
+    UIButton DeleteButton;
 
 	// Use this for initialization
     void Awake()
@@ -40,6 +42,9 @@ public class TacticBoxController : MonoBehaviour {
                 case "Between Label":
                     Between = (UILabel)child.gameObject.GetComponent("UILabel");
                     break;
+                case "Tactic Remover":
+                    DeleteButton = (UIButton)child.gameObject.GetComponent("UIButton");
+                    break;
             }
         }
 	}
@@ -51,16 +56,27 @@ public class TacticBoxController : MonoBehaviour {
 
     public void Imprint(int n, Cub.Tool.Character who, Cub.Tool.Tactic tac)
     {
+        Who = who;
         Number = n;
         NumLabel.text = (Number + 1).ToString();
         if (who != null && who.Tactics.Count > Number)
         {
             Tactic = tac;
-            Cub.Action oldAct = Tactic.A;
-            ActionList.items = new List<string>{};
-            List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(who.Info.Class);
-            foreach (Cub.Tool.Action.Base act in acts)
-                ActionList.items.Add(act.Name);
+            ActionList.items = new List<string> { };
+            if (Tactic.Free)
+            {
+                ((UILabel)ActionList.gameObject.GetComponent("UILabel")).color = new Color(0.5f, 0.5f, 0.5f);
+                ((UILabel)ConditionList.gameObject.GetComponent("UILabel")).color = new Color(0.5f, 0.5f, 0.5f);
+                DeleteButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                Cub.Action oldAct = Tactic.A;
+                List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(who.Info.Class);
+                foreach (Cub.Tool.Action.Base act in acts)
+                    ActionList.items.Add(act.Name);
+                DeleteButton.gameObject.SetActive(true);
+            }
             ActionList.value = Cub.Tool.Library.Get_Action(Tactic.A).Name;
             ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;
         }
@@ -70,6 +86,25 @@ public class TacticBoxController : MonoBehaviour {
             ActionDesc.text = "";
             ConditionDesc.text = "";
         }
+    }
+
+    public void Refresh()
+    {
+        ActionList.items = new List<string> { };
+        List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(Who.Info.Class);
+        bool unlucky = true;
+        foreach (Cub.Tool.Action.Base act in acts)
+        {
+            ActionList.items.Add(act.Name);
+            if (act.ActionType == Tactic.A) unlucky = false;
+        }
+        if (unlucky)
+        {
+            Tactic.SetAction(Cub.Action.Attack);
+            Tactic.SetCondition(Cub.Condition.Any);
+        }
+        ActionList.value = Cub.Tool.Library.Get_Action(Tactic.A).Name;
+        ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;
     }
 
     public void NewActionSelected()
@@ -116,5 +151,31 @@ public class TacticBoxController : MonoBehaviour {
             //if (Tactic.C == Cub.Condition.None) return;
             SetCondition();
         }
+    }
+
+    public void RemoveTactic()
+    {
+        Who.Tactics.Remove(Tactic);
+        IC.TeamEditor.CharEditor.Refresh();
+    }
+
+    public void MoveTacticUp()
+    {
+        List<Cub.Tool.Tactic> tactics = Who.Tactics;
+        int placement = tactics.IndexOf(Tactic);
+        if (placement == 0) return;
+        tactics.RemoveAt(placement);
+        tactics.Insert(placement - 1, Tactic);
+        IC.TeamEditor.CharEditor.Refresh();
+    }
+
+    public void MoveTacticDown()
+    {
+        List<Cub.Tool.Tactic> tactics = Who.Tactics;
+        int placement = tactics.IndexOf(Tactic);
+        if (placement >= tactics.Count - 1) return;
+        tactics.RemoveAt(placement);
+        tactics.Insert(placement + 1, Tactic);
+        IC.TeamEditor.CharEditor.Refresh();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Cub;
 
 public class TeamEditorController : MonoBehaviour {
 
@@ -14,8 +15,9 @@ public class TeamEditorController : MonoBehaviour {
     GameObject CharList;
     public GameObject CharButtonType;
     List<CharacterButtonController> CButtons = new List<CharacterButtonController>();
-    Cub.Tool.Team Team = null;
+    public Cub.Tool.Team Team = null;
     TeamEditorButton TeamButton = null;
+    Dictionary<Position2, StartingPositionController> SPButtons = new Dictionary<Position2, StartingPositionController>();
 
 	// Use this for initialization
     void Awake()
@@ -43,6 +45,13 @@ public class TeamEditorController : MonoBehaviour {
                     break;
                 case "Char Editor":
                     CharEditor = (CharEditorManager)child.gameObject.GetComponent("CharEditorManager");
+                    break;
+                case "Dude Placer":
+                    foreach (Transform dudeB in child.transform)
+                    {
+                        StartingPositionController spc = (StartingPositionController)dudeB.gameObject.GetComponent("StartingPositionController");
+                        SPButtons.Add(new Position2(spc.X, spc.Y), spc);
+                    }
                     break;
             }
         }
@@ -81,6 +90,37 @@ public class TeamEditorController : MonoBehaviour {
         //        ((CharacterButtonController)child.gameObject.GetComponent("CharacterButtonController")).Imprint(chars);
         //CharEditor.Imprint(null);
         CLGrid.repositionNow = true;
+        foreach (StartingPositionController spc in SPButtons.Values)
+        {
+            spc.Imprint(null);
+        }
+        List<Cub.Tool.Character> unplaced = new List<Cub.Tool.Character>();
+        foreach (Cub.Tool.Character c in Team.Return_List_Character())
+        {
+            if (SPButtons.ContainsKey(c.Stat.Position))
+                SPButtons[c.Stat.Position].Imprint(c);
+            else
+                unplaced.Add(c);
+        }
+        foreach (Cub.Tool.Character c in unplaced)
+        {
+            bool placed = false;
+            foreach (StartingPositionController spc in SPButtons.Values)
+            {
+                if (spc.Who != null)
+                    continue;
+                spc.Imprint(c);
+                c.Stat.Position = new Position2(spc.X, spc.Y);
+                break;
+            }
+            if (placed) continue;
+        }
+        SPButtonColors(null);
+    }
+
+    public void Refresh()
+    {
+        ImprintTeam(Team, TeamButton);
     }
 
     public void CloseWindow()
@@ -94,6 +134,14 @@ public class TeamEditorController : MonoBehaviour {
         Debug.Log("SAVE STUFF");
         IC.TeamPicker.gameObject.SetActive(true);
         IC.TeamEditor.gameObject.SetActive(false);
+    }
+
+    public void DeleteButton()
+    {
+        IC.TeamPicker.gameObject.SetActive(true);
+        IC.TeamEditor.gameObject.SetActive(false);
+        IC.TeamPicker.Teams.Remove(Team);
+        IC.TeamPicker.BuildButtons();
     }
 
     public void UpdateTeamName()
@@ -110,6 +158,47 @@ public class TeamEditorController : MonoBehaviour {
 
     public void AddNewCharacter()
     {
-        Debug.Log("A");
+        if (Team == null) return;
+        CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
+        CButtons.Add(cbc);
+        Cub.Tool.Character cha = new Cub.Tool.Character(Cub.Class.Soldier, 0, 0);
+        Team.Add_Character(cha);
+        cbc.Imprint(CButtons.Count - 1,cha);
+        CLGrid.repositionNow = true;
+    }
+
+    public void RemoveCharacter()
+    {
+        Cub.Tool.Character who = CharEditor.Who;
+        Team.Remove_Character(who);
+        Refresh();
+    }
+
+    public void SPButtonClick(StartingPositionController spc)
+    {
+        Cub.Tool.Character who = IC.TeamEditor.CharEditor.Who;
+        if (SPButtons.ContainsKey(who.Stat.Position))
+            SPButtons[who.Stat.Position].Imprint(null);
+        spc.Imprint(IC.TeamEditor.CharEditor.Who);
+        who.Stat.Position = new Position2(spc.X, spc.Y);
+    }
+
+    public void SPButtonColors(Cub.Tool.Character who)
+    {
+        foreach (StartingPositionController spc in SPButtons.Values)
+        {
+            UIButton butt = (UIButton)spc.gameObject.GetComponent("UIButton");
+            UISprite spr = (UISprite)spc.gameObject.GetComponent("UISprite");
+            if (spc.Who == who && who != null)
+            {
+                butt.defaultColor = Color.red;
+                spr.color = Color.red;
+            }
+            else
+            {
+                butt.defaultColor = Color.white;
+                spr.color = Color.white;
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using Cub.Tool;
 
 public class CharEditorManager : MonoBehaviour {
 
+    InterfaceController IC;
     UIInput Name;
     //UILabel Class;
     UILabel Cost;
@@ -12,14 +13,15 @@ public class CharEditorManager : MonoBehaviour {
     UILabel Range;
     UILabel Speed;
     UIGrid Grid;
-    List<TacticBoxController> Tactics = new List<TacticBoxController>();
+    public List<TacticBoxController> Tactics = new List<TacticBoxController>();
     public GameObject TacticBoxType;
     CharacterButtonController CharButton;
-    Cub.Tool.Character Who;
+    public Cub.Tool.Character Who;
     UIPopupList ClassList;
     
     void Awake()
     {
+        IC = (InterfaceController)GameObject.Find("UI Root").GetComponent("InterfaceController");
         foreach (Transform child in transform)
         {
             switch (child.gameObject.name)
@@ -71,6 +73,7 @@ public class CharEditorManager : MonoBehaviour {
             if (tran.gameObject.name == "AI Panel(Clone)")
                 DestroyObject(tran.gameObject);
         Tactics = new List<TacticBoxController>();
+        IC.TeamEditor.SPButtonColors(who);
         if (who != null)
         {
             Who = who;
@@ -78,9 +81,8 @@ public class CharEditorManager : MonoBehaviour {
             ClassList.value = who.Info.Class.ToString();
             ClassList.items = new List<string> { };
             foreach (Cub.Tool.Character_Info ci in Library.List_Classes())
-            {
-                //ClassList.items.Add(ci.)
-            }
+                if (ci.Class != Cub.Class.None)
+                    ClassList.items.Add(ci.Class.ToString());
             Cost.text = who.Value.ToString() + "pts";
             HP.text = who.Info.MHP.ToString();
             Range.text = who.Info.Range.ToString();
@@ -108,13 +110,17 @@ public class CharEditorManager : MonoBehaviour {
         //Grid.Reposition();
     }
 
+    public void Refresh()
+    {
+        Imprint(Who, CharButton);
+    }
+
     public void AddEmptyTactic()
     {
         if (Who == null) return;
         TacticBoxController tbc = (TacticBoxController)NGUITools.AddChild(Grid.gameObject, TacticBoxType).GetComponent("TacticBoxController");
         Tactics.Add(tbc);
-        Tactic tac = new Tactic(Cub.Condition.Any, Cub.Action.Explore, new List<object>());
-        Who.Bought_Tactic.Add(tac);
+        Tactic tac = Who.BuyTactic(Cub.Condition.Any, Cub.Action.Explore);
         tbc.Imprint(Tactics.Count - 1, Who, tac);
         Grid.repositionNow = true;
     }
@@ -124,5 +130,17 @@ public class CharEditorManager : MonoBehaviour {
         if (Who == null) return;
         Who.SetName(Name.value);
         CharButton.Imprint(-1, Who);
+    }
+
+    public void UpdateClass()
+    {
+        if (Who == null) return;
+        string clss = ClassList.value;
+        Who.SetClass((Cub.Class)System.Enum.Parse(typeof(Cub.Class), clss));
+        CharButton.Imprint(-1, Who);
+        foreach (TacticBoxController tbc in Tactics)
+        {
+            tbc.Refresh();
+        }
     }
 }

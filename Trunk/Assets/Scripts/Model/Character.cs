@@ -8,12 +8,13 @@ namespace Cub.Tool
     public class Character_Info
     {
         public Cub.Class Class { get; private set; }
+        public Cub.AIProfile AIProfile { get; private set; }
         public string Name { get; private set; }
         public int Range { get; private set; }
         public int MHP { get; private set; }
         public int Speed { get; private set; }
         public int Value { get; private set; }
-        public List<Cub.Tool.Tactic> List_Tactic { get; private set; }
+        //public List<Cub.Tool.Tactic> List_Tactic { get; private set; }
         public List<Cub.Action> List_Special_Ability { get; private set; }
     }
 
@@ -31,9 +32,9 @@ namespace Cub.Tool
         public System.Guid ID { get; private set; }
         public Character_Info Info { get; private set; }
         public Character_Stat Stat { get; private set; }
-        public List<Cub.Tool.Tactic> Bought_Tactic = new List<Tactic>();
-        public List<Cub.Tool.Tactic> Free_Tactic = new List<Tactic>();
-        public List<Cub.Tool.Tactic> Tactics { get { return FindTactics(); } }
+        //public List<Cub.Tool.Tactic> Bought_Tactic = new List<Tactic>();
+        //public List<Cub.Tool.Tactic> Free_Tactic = new List<Tactic>();
+        public List<Cub.Tool.Tactic> Tactics = new List<Tactic>();
         public int Value { get { return FindValue(); } }
         public List<Cub.Action> ExhaustedActions = new List<Cub.Action>();
 
@@ -72,6 +73,8 @@ namespace Cub.Tool
             //        }
             //}
             SetClass(_Class);
+            List<Tactic> FreeAI = BuildAIProfile(this.Info.AIProfile);
+            this.Tactics.AddRange(FreeAI);
 
             SetLocation(_X, _Y);
 
@@ -281,12 +284,13 @@ namespace Cub.Tool
         {
             this.Info = Library.Get_Character_Info(_Class);
             this.Stat.HP = this.Info.MHP;
-            foreach (Cub.Tool.Tactic tac in this.Info.List_Tactic)
-            {
-                Tactic t = new Tactic(tac.C, tac.A, tac.Data);
-                t.Free = true;
-                this.Free_Tactic.Add(t);
-            }
+            
+            //foreach (Cub.Tool.Tactic tac in this.Info.List_Tactic)
+            //{
+            //    Tactic t = new Tactic(tac.C, tac.A, tac.Data);
+            //    t.Free = true;
+            //    this.Free_Tactic.Add(t);
+            //}
         }
 
         public void SetLocation(Cub.Position2 where)
@@ -308,22 +312,39 @@ namespace Cub.Tool
             return r;
         }
 
-        public void BuyTactic(Cub.Condition condition, Cub.Action action)
+        public Tactic BuyTactic(Cub.Condition condition, Cub.Action action)
         {
-            Bought_Tactic.Add(new Tactic(condition, action));
+            Tactic tac = new Tactic(condition, action);
+            Tactics.Add(tac);
+            return tac;
         }
 
-        List<Cub.Tool.Tactic> FindTactics()
-        {
-            List<Cub.Tool.Tactic> r = new List<Tactic>();
-            r.AddRange(Bought_Tactic);
-            r.AddRange(Free_Tactic);
-            return r;
-        }
+        //List<Cub.Tool.Tactic> FindTactics()
+        //{
+        //    List<Cub.Tool.Tactic> r = new List<Tactic>();
+        //    r.AddRange(Bought_Tactic);
+        //    r.AddRange(Free_Tactic);
+        //    return r;
+        //}
 
         int FindValue()
         {
             return Info.Value;
+        }
+
+        public List<Tactic> BuildAIProfile(Cub.AIProfile aip)
+        {
+            List<Tactic> r = new List<Tactic>();
+            switch (aip)
+            {
+                case AIProfile.Warrior:
+                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
+                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
+                    break;
+            }
+            foreach (Tactic t in r)
+                t.Free = true;
+            return r;
         }
     }
 

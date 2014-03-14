@@ -134,7 +134,6 @@ namespace Cub.View
 
             //These will be largely asked for as strings, so let's set up some easy ways to convert those strings into objects.
             SetupRefs();
-            //Debug.Log(data.TerrainMap);
             TerrainMap = new TerrainController[data.TerrainMap.GetLength(0), data.TerrainMap.GetLength(1)];
             for (int i = 0; i < data.TerrainMap.GetLength(0); i++)
                 for (int j = 0; j < data.TerrainMap.GetLength(1); j++)
@@ -148,7 +147,6 @@ namespace Cub.View
             {
                 //n++;
                 //ClassController cl = null;
-                //Debug.Log(c.Name);
                 if (ClassReference.ContainsKey(c.Class))
                 {
                     GameObject go = (GameObject)Instantiate(GetClass(c.Class).gameObject,
