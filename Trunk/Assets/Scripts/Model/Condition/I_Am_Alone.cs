@@ -19,7 +19,7 @@ namespace Cub.Tool.Condition
 
         public override List<object> Confirm(Character who, List<object> data)
         {
-            if (who.Stat.Team.Return_List_Character().Count <= 1)
+            if (who.Stat.GetTeam().Return_List_Character().Count <= 1)
                 return data;
             return null;
         }

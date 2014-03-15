@@ -28,7 +28,7 @@ namespace Cub.Tool.Action
         public override List<object> Confirm(Character who)
         {
             List<object> data = new List<object>();
-            foreach (Character friend in who.Stat.Team.Return_List_Character())
+            foreach (Character friend in who.Stat.GetTeam().Return_List_Character())
                 if (friend != who)
                     data.Add(friend);
             if (data.Count == 0) return null;

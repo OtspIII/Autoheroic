@@ -8,7 +8,7 @@ namespace Cub.Tool
         public System.Guid ID { get; private set; }
         public string Name { get; set; }
         public string Owner_Name { get; set; }
-        private List<Cub.Tool.Character> List_Character { get; set; }
+        public List<Cub.Tool.Character> List_Character { get; set; }
         public List<Cub.Score> ScoreThings { get; private set; }
         public int TotalValue = 0;
         public int Score { get { return FindScore(); } }
@@ -25,7 +25,7 @@ namespace Cub.Tool
         public void Add_Character(Cub.Tool.Character _C)
         {
             this.List_Character.Add(_C);
-            _C.Stat.Team = this;
+            _C.Stat.SetTeam(this);
         }
 
         public void Remove_Character(Cub.Tool.Character _C)

@@ -134,6 +134,7 @@ public class TeamEditorController : MonoBehaviour {
         Debug.Log("SAVE STUFF");
         IC.TeamPicker.gameObject.SetActive(true);
         IC.TeamEditor.gameObject.SetActive(false);
+        IC.TeamPicker.SaveTeams();
     }
 
     public void DeleteButton()

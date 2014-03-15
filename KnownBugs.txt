@@ -1,0 +1,3 @@
+Character number needs to reset between teams.
+Added characters need to show up on minimap.
+Delete doesn't work.

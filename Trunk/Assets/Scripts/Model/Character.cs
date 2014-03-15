@@ -23,7 +23,17 @@ namespace Cub.Tool
         public Cub.Position2 Position { get; set; }
         public int HP { get; set; }
         public int Cooldown { get; set; }
-        public Cub.Tool.Team Team { get; set; }
+        private Cub.Tool.Team Team { get; set; }
+
+        public Team GetTeam()
+        {
+            return this.Team;
+        }
+
+        public void SetTeam(Team t)
+        {
+            this.Team = t;
+        }
     }
 
     public class Character
@@ -92,7 +102,7 @@ namespace Cub.Tool
                 events.Add(new View.Eventon(Event.Die, "R.I.P. " + Name, new List<object> { ID }));
                 //Debug.Log(source.Name + " / " + source.Stat.Team);
                 //Debug.Log(source.Stat.Team.Name);
-                source.Stat.Team.AddScore("Kills", Value);
+                source.Stat.GetTeam().AddScore("Kills", Value);
                 Main.Dispose(this,events);
                 return true;
             }
@@ -307,7 +317,7 @@ namespace Cub.Tool
         {
             List<Character> r = new List<Character>();
             foreach (Team t in Cub.Tool.Main.List_Team)
-                if (t != Stat.Team)
+                if (t != Stat.GetTeam())
                     r.AddRange(t.Return_List_Character());
             return r;
         }

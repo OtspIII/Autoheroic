@@ -28,7 +28,7 @@ namespace Cub.Tool.Action
             if (who.ExhaustedActions.Contains(ActionType)) return null;
             List<object> data = new List<object>();
             bool anyone = false;
-            foreach (Character friend in who.Stat.Team.Return_List_Character())
+            foreach (Character friend in who.Stat.GetTeam().Return_List_Character())
                 if (Pathfinder.Distance(who.Stat.Position, friend.Stat.Position) <= Range)
                 {
                     data.Add(friend);
