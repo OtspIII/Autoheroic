@@ -24,6 +24,8 @@ namespace Cub.View.Event
                 B.enabled = true;
             }
 
+            Runtime.Remove_Character((Guid)_Data[0]);
+
             GameObject.Destroy(C.gameObject, 3.0F);
 
             return 0.0F;

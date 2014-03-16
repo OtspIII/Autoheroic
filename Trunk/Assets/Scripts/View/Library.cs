@@ -25,9 +25,17 @@ namespace Cub.View
                 Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
-                Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
-                Dictionary_Event[Cub.Event.Die] = new Cub.View.Event.Die();
+                Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
+                Dictionary_Event[Cub.Event.Attack_Melee] = new Cub.View.Event.Attack_Melee();
+                Dictionary_Event[Cub.Event.Attack_Range] = new Cub.View.Event.Attack_Range();
+                Dictionary_Event[Cub.Event.Attack_Rocket] = new Cub.View.Event.Attack_Rocket();
+                Dictionary_Event[Cub.Event.Attack_Snipe] = new Cub.View.Event.Attack_Snipe();
                 Dictionary_Event[Cub.Event.Be_Attacked] = new Cub.View.Event.Be_Attacked();
+                Dictionary_Event[Cub.Event.Be_Healed] = new Cub.View.Event.Be_Healed();
+                Dictionary_Event[Cub.Event.Die] = new Cub.View.Event.Die();
+                Dictionary_Event[Cub.Event.Idle] = new Cub.View.Event.Idle();
+                Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
+                Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
                 
                 Trigger = false;
             }

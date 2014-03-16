@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cub.View.Event
 {
-    public class Attack_Heal : Base
+    public class Idle : Base
     {
         public override float Process(List<object> _Data)
         {
