@@ -25,20 +25,22 @@
         <Name>Johnny One</Name>
         <ID>78b30dcc-724f-4598-a8c7-615b51dfd3c0</ID>
         <Info>
-          <Class>Jerk</Class>
+          <Class>Knight</Class>
           <AIProfile>Warrior</AIProfile>
-          <Range>4</Range>
-          <MHP>2</MHP>
-          <Speed>3</Speed>
-          <Value>50</Value>
-          <List_Special_Ability />
+          <Range>1</Range>
+          <MHP>5</MHP>
+          <Speed>4</Speed>
+          <Value>100</Value>
+          <List_Special_Ability>
+            <Action>Charge</Action>
+          </List_Special_Ability>
         </Info>
         <Stat>
           <Position>
             <X>1</X>
             <Y>0</Y>
           </Position>
-          <HP>2</HP>
+          <HP>5</HP>
           <Cooldown>0</Cooldown>
         </Stat>
       </Character>
@@ -189,74 +191,6 @@
             <Y>0</Y>
           </Position>
           <HP>2</HP>
-          <Cooldown>0</Cooldown>
-        </Stat>
-      </Character>
-      <Character>
-        <Tactics>
-          <Tactic>
-            <Free>true</Free>
-            <C>Any</C>
-            <A>Attack</A>
-          </Tactic>
-          <Tactic>
-            <Free>true</Free>
-            <C>Any</C>
-            <A>Follow_Enemy</A>
-          </Tactic>
-        </Tactics>
-        <ExhaustedActions />
-        <Name>John Smith</Name>
-        <ID>c4a09b91-5b53-4ee8-a5de-f39b6497bd8a</ID>
-        <Info>
-          <Class>Soldier</Class>
-          <AIProfile>Warrior</AIProfile>
-          <Range>5</Range>
-          <MHP>4</MHP>
-          <Speed>3</Speed>
-          <Value>100</Value>
-          <List_Special_Ability />
-        </Info>
-        <Stat>
-          <Position>
-            <X>5</X>
-            <Y>1</Y>
-          </Position>
-          <HP>4</HP>
-          <Cooldown>0</Cooldown>
-        </Stat>
-      </Character>
-      <Character>
-        <Tactics>
-          <Tactic>
-            <Free>true</Free>
-            <C>Any</C>
-            <A>Attack</A>
-          </Tactic>
-          <Tactic>
-            <Free>true</Free>
-            <C>Any</C>
-            <A>Follow_Enemy</A>
-          </Tactic>
-        </Tactics>
-        <ExhaustedActions />
-        <Name>John Smith</Name>
-        <ID>4693bfe1-b208-4ea9-bb6f-4891a3fdf32d</ID>
-        <Info>
-          <Class>Soldier</Class>
-          <AIProfile>Warrior</AIProfile>
-          <Range>5</Range>
-          <MHP>4</MHP>
-          <Speed>3</Speed>
-          <Value>100</Value>
-          <List_Special_Ability />
-        </Info>
-        <Stat>
-          <Position>
-            <X>3</X>
-            <Y>1</Y>
-          </Position>
-          <HP>4</HP>
           <Cooldown>0</Cooldown>
         </Stat>
       </Character>
@@ -470,11 +404,13 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />
@@ -504,11 +440,13 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />
@@ -538,11 +476,13 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />
@@ -572,11 +512,13 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />
@@ -606,11 +548,13 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />

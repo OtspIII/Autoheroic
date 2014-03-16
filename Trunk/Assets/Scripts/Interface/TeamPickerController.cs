@@ -42,8 +42,6 @@ public class TeamPickerController : MonoBehaviour {
 
     List<Team> LoadTeams()
     {
-        //Assets.Scripts.Interface.TempArmyBuilder tab = new Assets.Scripts.Interface.TempArmyBuilder();
-        //return new List<Team> { tab.RedTeam, tab.BlueTeam };
         string name = typeof(List<Team>).AssemblyQualifiedName;
         return (List<Team>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
     }
