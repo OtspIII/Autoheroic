@@ -19,10 +19,12 @@ namespace Cub.View
             if (Trigger)
             {
                 Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
+                Prefab_Cube.renderer.material = Resources.Load<Material>("Materials/Transparent");
+
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
 
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
-                Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();

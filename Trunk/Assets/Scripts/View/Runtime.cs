@@ -52,8 +52,6 @@ namespace Cub.View
         {
             if (Queue_Eventon.Count > 0)
             {
-                Debug.Log("Hey");
-
                 Eventon E = Queue_Eventon.Dequeue();
 
                 float Delay = Cub.View.Library.Get_Event_Processor(E.Type).Process(E.Data);
@@ -62,7 +60,8 @@ namespace Cub.View
             }
             else
             {
-               
+                Debug.Log("The game is over");
+                //No more Invoke
             }
         }
 
