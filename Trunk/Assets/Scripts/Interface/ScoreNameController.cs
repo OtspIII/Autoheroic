@@ -7,7 +7,7 @@ public class ScoreNameController : MonoBehaviour {
     UILabel OwnerName;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         foreach (Transform child in transform)
         {
             switch (child.gameObject.name)

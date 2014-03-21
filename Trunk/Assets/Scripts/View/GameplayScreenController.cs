@@ -27,6 +27,8 @@ public class GameplayScreenController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.LoadLevel("Main Menu");
         switch (CurrentMode)
         {
             case GameMode.TeamPick:
@@ -68,7 +70,8 @@ public class GameplayScreenController : MonoBehaviour {
 
     void PostGameUpdate()
     {
-
+        if (Input.GetKey(KeyCode.Return))
+            Application.LoadLevel("Main Menu");
     }
 
     public void SwitchModes(GameMode mode)

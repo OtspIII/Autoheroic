@@ -59,7 +59,8 @@ public class TeamEditorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.GetKeyDown(KeyCode.Escape))
+            CloseWindow();
 	}
 
     public void ImprintTeam(Cub.Tool.Team team, TeamEditorButton button)

@@ -37,7 +37,7 @@
         </Info>
         <Stat>
           <Position>
-            <X>4</X>
+            <X>1</X>
             <Y>1</Y>
           </Position>
           <HP>5</HP>
@@ -149,7 +149,7 @@
         </Info>
         <Stat>
           <Position>
-            <X>3</X>
+            <X>6</X>
             <Y>1</Y>
           </Position>
           <HP>5</HP>
@@ -572,6 +572,42 @@
         <Stat>
           <Position>
             <X>4</X>
+            <Y>0</Y>
+          </Position>
+          <HP>4</HP>
+          <Cooldown>0</Cooldown>
+        </Stat>
+      </Character>
+      <Character>
+        <Tactics>
+          <Tactic>
+            <Free>true</Free>
+            <C>Any</C>
+            <A>Attack</A>
+            <Data />
+          </Tactic>
+          <Tactic>
+            <Free>true</Free>
+            <C>Any</C>
+            <A>Follow_Enemy</A>
+            <Data />
+          </Tactic>
+        </Tactics>
+        <ExhaustedActions />
+        <Name>John Smith</Name>
+        <ID>7ec00bb0-7406-4a8b-9a26-f0988b285c5f</ID>
+        <Info>
+          <Class>Soldier</Class>
+          <AIProfile>Warrior</AIProfile>
+          <Range>5</Range>
+          <MHP>4</MHP>
+          <Speed>3</Speed>
+          <Value>100</Value>
+          <List_Special_Ability />
+        </Info>
+        <Stat>
+          <Position>
+            <X>5</X>
             <Y>0</Y>
           </Position>
           <HP>4</HP>

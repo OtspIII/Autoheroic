@@ -8,7 +8,7 @@ public class ScoreScoreController : MonoBehaviour {
     UILabel Total;
     
     // Use this for initialization
-	void Start () {
+	void Awake () {
         foreach (Transform child in transform)
         {
             switch (child.gameObject.name)

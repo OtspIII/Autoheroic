@@ -10,7 +10,7 @@ public class ScoreCardManager : MonoBehaviour {
     UILabel WinnerName;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         foreach (Transform child in transform)
         {
             switch (child.gameObject.name)
