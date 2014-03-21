@@ -164,12 +164,12 @@ namespace Assets.Scripts.Interface
                 }
         }
 
-        public Cub.Position2 TranslateStartPosition(int x, int y, Cub.Position2 spawnSize, bool red)
+        public Cub.Position2 TranslateStartPosition(int x, int y, Cub.Position2 spawnSize, bool teamOne)
         {
             Cub.Position2 r = new Cub.Position2(0, 0);
             int boost = (StageSize.Y - spawnSize.Y) / 2;
             boost = 2;
-            if (red)
+            if (teamOne)
                 r = new Cub.Position2(1 - x, (StageSize.Y - 1) - y - boost);
             else
                 r = new Cub.Position2((StageSize.X - 1) - (1 - x), y + boost);

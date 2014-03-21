@@ -1,3 +1,4 @@
 Character number needs to reset between teams.
 Added characters need to show up on minimap.
 Delete doesn't work.
+You can overwrite characters in the position placer.

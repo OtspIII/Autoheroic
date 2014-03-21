@@ -14,6 +14,8 @@ namespace Cub.View
         private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
 
+		private static Dictionary<Cub.Terrain,GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
+
         public static void Initialization()
         {
             if (Trigger)
@@ -21,8 +23,16 @@ namespace Cub.View
                 Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
 
+				Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
+				Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
+
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
                 Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+				Dictionary_Character_Model[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+				Dictionary_Character_Model[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+				Dictionary_Character_Model[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+				Dictionary_Character_Model[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+				Dictionary_Character_Model[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
@@ -46,13 +56,17 @@ namespace Cub.View
             Trigger = true;
         }
 
-        public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
-        {
-            return Dictionary_Character_Model[_C];
-        }
+		public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
+		{
+			return Dictionary_Character_Model[_C];
+		}
 
         public static Cub.View.Event.Base Get_Event_Processor(Cub.Event _E)
         {
+			if (_E == null)
+				Debug.Log("NULL E");
+			else if (!Dictionary_Event.ContainsKey(_E))
+				Debug.Log(_E.ToString());
             return Dictionary_Event[_E];
         }
 
@@ -61,9 +75,16 @@ namespace Cub.View
             return Prefab_Cube;
         }
 
-        public static GameObject Get_Character()
-        {
-            return Prefab_Character;
-        }
+		public static GameObject Get_Character()
+		{
+			return Prefab_Character;
+		}
+
+		public static GameObject Get_Terrain(Cub.Terrain t)
+		{
+			if (Dictionary_Terrain.ContainsKey(t))
+				return Dictionary_Terrain[t];
+			return null;
+		}
     }
 }

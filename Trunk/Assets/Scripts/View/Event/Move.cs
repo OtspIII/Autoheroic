@@ -17,7 +17,7 @@ namespace Cub.View.Event
 
             iTween.MoveTo(C.gameObject, new Vector3(X, 0, Z), 1.5F);
             
-            return 2.0F;
+            return 0.5F;
         }
     }
 }

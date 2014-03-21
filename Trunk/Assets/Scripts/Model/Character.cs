@@ -315,7 +315,7 @@ namespace Cub.Tool
 
         public List<Character> FindEnemies()
         {
-            List<Character> r = new List<Character>();
+			List<Character> r = new List<Character>();
             foreach (Team t in Cub.Tool.Main.List_Team)
                 if (t != Stat.GetTeam())
                     r.AddRange(t.Return_List_Character());

@@ -10,6 +10,8 @@ namespace Cub.View
 
         private static Queue<Eventon> Queue_Eventon { get; set; }
 
+        public GameplayScreenController GSC = null;
+
         public void Awake()
         {
             Dictionary_Character = new Dictionary<Guid, Cub.View.Character>();            
@@ -52,9 +54,9 @@ namespace Cub.View
         {
             if (Queue_Eventon.Count > 0)
             {
-                Debug.Log("Hey");
-
                 Eventon E = Queue_Eventon.Dequeue();
+
+				//Debug.Log("Eventon Start -- " + Queue_Eventon.Count.ToString() + " Eventons Queued");
 
                 float Delay = Cub.View.Library.Get_Event_Processor(E.Type).Process(E.Data);
 
@@ -62,7 +64,7 @@ namespace Cub.View
             }
             else
             {
-               
+                GSC.EndGame();
             }
         }
 

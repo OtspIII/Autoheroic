@@ -232,8 +232,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>9</X>
-            <Y>2</Y>
+            <X>1</X>
+            <Y>1</Y>
           </Position>
           <HP>4</HP>
           <Cooldown>0</Cooldown>
@@ -268,8 +268,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>9</X>
-            <Y>3</Y>
+            <X>2</X>
+            <Y>1</Y>
           </Position>
           <HP>4</HP>
           <Cooldown>0</Cooldown>
@@ -306,8 +306,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>9</X>
-            <Y>4</Y>
+            <X>3</X>
+            <Y>1</Y>
           </Position>
           <HP>2</HP>
           <Cooldown>0</Cooldown>
@@ -344,8 +344,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>9</X>
-            <Y>5</Y>
+            <X>5</X>
+            <Y>1</Y>
           </Position>
           <HP>2</HP>
           <Cooldown>0</Cooldown>
@@ -382,8 +382,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>9</X>
-            <Y>6</Y>
+            <X>6</X>
+            <Y>1</Y>
           </Position>
           <HP>2</HP>
           <Cooldown>0</Cooldown>

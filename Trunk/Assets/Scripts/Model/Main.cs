@@ -11,15 +11,13 @@ namespace Cub.Tool
 
         public static int Turn { get; private set; }
 
-        public static void Initialization(bool InterfaceTest)
+        public static void Initialization(Team teamOne, Team teamTwo)
         {
             Cub.Tool.Library.Initialization();
 
             Turn = 0;
 
-            List_Team = new List<Team>();
-            //List_Team.Add(new Team());
-
+            List_Team = new List<Team>{teamOne,teamTwo};
             //for (int i = 0; i < Cub.Model.Library.Stage_Terrain.Length; i++)
             //    for (int j = 0; j < Cub.Model.Library.Stage_Terrain[i].Length; j++)
             //        if (Cub.Model.Library.Stage_Unit[i][j] != Type.Class.None)
@@ -28,16 +26,6 @@ namespace Cub.Tool
             //            List_Team[0].Add_Character(C);
                         
             //        }
-            if (!InterfaceTest){
-                Assets.Scripts.Interface.TempArmyBuilder tab = new Assets.Scripts.Interface.TempArmyBuilder();
-                List_Team.Add(tab.RedTeam);
-                List_Team.Add(tab.BlueTeam);   
-            }
-            else
-            {
-                List_Team.Add(new Team());
-                List_Team.Add(new Team());
-            }
             //ForgeSetupData();
         }
 

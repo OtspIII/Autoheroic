@@ -5,9 +5,15 @@ using Cub.Tool;
 
 public class GameplayTeamPickerController : MonoBehaviour {
 
-    List<Cub.Tool.Team> Teams;
+    GameplayScreenController GSC;
+    //##----------------------------------Needs one per team selector!!!!!!
+    Team TeamOne = null;
+    Team TeamTwo = null;
+    List<Cub.Tool.Team> TeamsOne;
+    List<Cub.Tool.Team> TeamsTwo;
     List<UIPopupList> Selectors = new List<UIPopupList>();
-    Dictionary<string, Team> TeamDictionary = new Dictionary<string, Team>();
+    Dictionary<string, Team> TeamDictionaryOne = new Dictionary<string, Team>();
+    Dictionary<string, Team> TeamDictionaryTwo = new Dictionary<string, Team>();
     UIPopupList SelOne;
     UIPopupList SelTwo;
     UIButton ReadyOne;
@@ -18,7 +24,9 @@ public class GameplayTeamPickerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Teams = LoadTeams();
+        GSC = (GameplayScreenController)GameObject.Find("Scene Master").GetComponent("GameplayScreenController");
+        TeamsOne = LoadTeams();
+        TeamsTwo = LoadTeams();
         foreach (Transform child in transform)
         {
             switch (child.gameObject.name)
@@ -40,13 +48,22 @@ public class GameplayTeamPickerController : MonoBehaviour {
             }
         }
         List<string> teamNames = new List<string> { "-Select a Team-" };
-        foreach (Team t in Teams)
+        foreach (Team t in TeamsOne)
         {
             string name = t.Name;
             while (teamNames.Contains(name))
                 name += "+";
             teamNames.Add(name);
-            TeamDictionary.Add(name, t);
+            TeamDictionaryOne.Add(name, t);
+        }
+        teamNames = new List<string> { "-Select a Team-" };
+        foreach (Team t in TeamsTwo)
+        {
+            string name = t.Name;
+            while (teamNames.Contains(name))
+                name += "+";
+            teamNames.Add(name);
+            TeamDictionaryTwo.Add(name, t);
         }
         foreach (UIPopupList pop in Selectors)
         {
@@ -62,15 +79,22 @@ public class GameplayTeamPickerController : MonoBehaviour {
             TeamOneButton();
         if (T2Ready && SelTwo.value == SelTwo.items[0])
             TeamTwoButton();
-        if (T1Ready && T2Ready)
-            GameStart();
+        if (T1Ready && T2Ready && TeamOne != null && TeamTwo != null)
+        {
+            GameStarted = true;
+            GSC.StartGame(TeamOne, TeamTwo);
+        }
             
 	}
 
     List<Team> LoadTeams()
     {
         string name = typeof(List<Team>).AssemblyQualifiedName;
-        return (List<Team>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
+		List<Team> r = (List<Team>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
+		foreach (Team t in r)
+			foreach (Character c in t.List_Character)
+				c.Stat.SetTeam(t);
+		return r;
     }
 
     public void TeamOneButton()
@@ -103,9 +127,27 @@ public class GameplayTeamPickerController : MonoBehaviour {
         ((UISprite)ReadyTwo.GetComponent("UISprite")).color = ReadyTwo.defaultColor;
     }
 
-    void GameStart()
+    public void TeamOneSelect()
     {
-        GameStarted = true;
-        Debug.Log("Game Starts");
+        if (SelOne != null && TeamDictionaryOne.ContainsKey(SelOne.value))
+        {
+            TeamOne = TeamDictionaryOne[SelOne.value];
+        }
+        else
+        {
+            TeamOne = null;
+        }
+    }
+
+    public void TeamTwoSelect()
+    {
+        if (SelTwo != null && TeamDictionaryTwo.ContainsKey(SelTwo.value))
+        {
+            TeamTwo = TeamDictionaryTwo[SelTwo.value];
+        }
+        else
+        {
+            TeamTwo = null;
+        }
     }
 }
