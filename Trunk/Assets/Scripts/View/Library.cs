@@ -58,10 +58,7 @@ namespace Cub.View
             Trigger = true;
         }
 
-        public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
-        {
-            return Dictionary_Character_Model[_C];
-        }
+        
 		public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
 		{
 			return Dictionary_Character_Model[_C];
