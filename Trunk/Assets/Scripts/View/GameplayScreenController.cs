@@ -6,6 +6,7 @@ public class GameplayScreenController : MonoBehaviour {
 
     GameMode CurrentMode;
     GameplayTeamPickerController Tpc;
+    ScoreCardManager Scm;
     Cub.Tool.Team TeamOne = null;
     Cub.Tool.Team TeamTwo = null;
 	public Cub.View.Runtime RT;
@@ -17,6 +18,7 @@ public class GameplayScreenController : MonoBehaviour {
         StageSize = new Cub.Position2(10, 10);
         RT.GSC = this;
         Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
+        Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));
         SwitchModes(GameMode.TeamPick);
         Cub.View.Library.Initialization();
         Cub.Tool.Library.Initialization();
@@ -75,12 +77,14 @@ public class GameplayScreenController : MonoBehaviour {
         switch (mode)
         {
             case GameMode.TeamPick:
-                
+                Scm.gameObject.SetActive(false);
                 break;
             case GameMode.Gameplay:
+                Scm.gameObject.SetActive(false);
                 Tpc.gameObject.SetActive(false);
                 break;
             case GameMode.Postgame:
+                Scm.gameObject.SetActive(true);
                 Tpc.gameObject.SetActive(false);
                 break;
         }
@@ -90,7 +94,6 @@ public class GameplayScreenController : MonoBehaviour {
     {
 		TeamOne = T1;
         TeamTwo = T2;
-        Debug.Log("1: " + TeamOne.Name + " / 2: " + TeamTwo.Name);
         foreach (Cub.Tool.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
@@ -107,7 +110,9 @@ public class GameplayScreenController : MonoBehaviour {
 
     public void EndGame()
     {
-
+        SwitchModes(GameMode.Postgame);
+        Debug.Log("1: " + TeamOne.Name + " / 2: " + TeamTwo.Name);
+        Scm.Imprint(TeamOne, TeamTwo);
     }
 
     void BuildMap()

@@ -37,8 +37,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>1</X>
-            <Y>0</Y>
+            <X>4</X>
+            <Y>1</Y>
           </Position>
           <HP>5</HP>
           <Cooldown>0</Cooldown>
@@ -60,7 +60,7 @@
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>Court Mage Elizabeth Stuffyfluff</Name>
+        <Name>Court Mage Elizabeth Stuffyflu</Name>
         <ID>4f451837-e49d-4688-bbba-836af6366f0a</ID>
         <Info>
           <Class>Soldier</Class>
@@ -149,8 +149,8 @@
         </Info>
         <Stat>
           <Position>
-            <X>5</X>
-            <Y>0</Y>
+            <X>3</X>
+            <Y>1</Y>
           </Position>
           <HP>5</HP>
           <Cooldown>0</Cooldown>
@@ -187,7 +187,7 @@
         </Info>
         <Stat>
           <Position>
-            <X>6</X>
+            <X>4</X>
             <Y>0</Y>
           </Position>
           <HP>2</HP>
