@@ -21,13 +21,15 @@ namespace Cub.View
             if (Trigger)
             {
                 Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
+                Prefab_Cube.renderer.material = Resources.Load<Material>("Materials/Transparent");
+
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
 
 				Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
 				Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
 
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
-                Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
 				Dictionary_Character_Model[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
 				Dictionary_Character_Model[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
 				Dictionary_Character_Model[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Model_Character_Knight.xml") as Cub.View.Character_Model;
@@ -56,6 +58,10 @@ namespace Cub.View
             Trigger = true;
         }
 
+        public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
+        {
+            return Dictionary_Character_Model[_C];
+        }
 		public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
 		{
 			return Dictionary_Character_Model[_C];

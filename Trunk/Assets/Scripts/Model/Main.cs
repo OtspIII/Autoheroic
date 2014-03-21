@@ -13,7 +13,6 @@ namespace Cub.Tool
 
         public static void Initialization(Team teamOne, Team teamTwo)
         {
-            Cub.Tool.Library.Initialization();
 
             Turn = 0;
 

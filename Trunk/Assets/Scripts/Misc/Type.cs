@@ -4,12 +4,6 @@ using UnityEngine;
 
 namespace Cub
 {
-    public enum Cube
-    {
-        Steel = 1,
-        Carbon = 2
-    }
-
     public enum Team
     {
         Red,
@@ -105,21 +99,6 @@ namespace Cub
         Attack_Heal,//
         Be_Healed,//
         Be_Attacked
-    }
-
-    public enum Animation
-    {
-        Character_Idle,
-        Character_Move,
-        Character_Attack_Melee,
-        Character_Attack_Range,
-        Character_Attack_Snipe,
-        Character_Attack_Rocket,
-        Character_Attack_Heal,
-        Character_Be_Attacked,
-        Character_Be_Healed,
-        Character_Die,
-        Character_Win
     }
 
     public enum ConditionGenre
@@ -236,48 +215,6 @@ namespace Cub
         public Vector3 ToVector3()
         {
             return new Vector3(this.X, this.Y, this.Z);
-        }
-    }
-
-    public struct Cubon
-    {
-        public Color32 Color;
-        public Position3 Position;
-
-        public Cubon(Color32 _C, Position3 _P)
-        {
-            this.Color = _C;
-            this.Position = _P;
-        }
-
-        public static bool operator ==(Cubon A, Cubon B)
-        {
-            if (A.Position.Equals(B.Position) && A.Color.Equals(B.Color))
-                return true;
-            else
-                return false;
-        }
-
-        public static bool operator !=(Cubon A, Cubon B)
-        {
-            if (A.Position == B.Position && A.Color.Equals(B.Color))
-                return false;
-            else
-                return true;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override bool Equals(object obj)
-        {
-            Debug.Log(obj.GetType());
-            if (this.Position.Equals(((Cubon)obj).Position) && this.Color.Equals(((Cubon)obj).Color))
-                return true;
-            else
-                return false;
         }
     }
 }

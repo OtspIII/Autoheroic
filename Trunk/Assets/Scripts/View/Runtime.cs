@@ -65,6 +65,8 @@ namespace Cub.View
             else
             {
                 GSC.EndGame();
+                Debug.Log("The game is over");
+                //No more Invoke
             }
         }
 
