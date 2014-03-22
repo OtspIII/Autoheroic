@@ -44,18 +44,6 @@ public class CharEditorManager : MonoBehaviour {
                 case "SpeedReadout":
                     Speed = (UILabel)child.gameObject.GetComponent("UILabel");
                     break;
-                case "Tactics List":
-                    //foreach (Transform tac in child.gameObject.transform)
-                    //{
-                    //    if (tac.gameObject.name == "AI Panel")
-                    //        Tactics.Add((TacticBoxController)tac.gameObject.GetComponent("TacticBoxController"));
-                    //}
-                    break;
-
-
-                //case "AI Panel":
-                //    Tactics.Add((TacticBoxController)child.gameObject.GetComponent("TacticBoxController"));
-                //    break;
             }
         }
         Grid = (UIGrid)gameObject.GetComponentInChildren(System.Type.GetType("UIGrid"));
@@ -87,13 +75,13 @@ public class CharEditorManager : MonoBehaviour {
             HP.text = who.Info.MHP.ToString();
             Range.text = who.Info.Range.ToString();
             Speed.text = who.Info.Speed.ToString();
-            int n = 0;
-            foreach (Tactic tac in who.Tactics)
+            //int n = 0;
+            //foreach (Tactic tac in who.Tactics)
+            for (int n = 0; n < who.Tactics.Count; n++)
             {
                 TacticBoxController tbc = (TacticBoxController)NGUITools.AddChild(Grid.gameObject, TacticBoxType).GetComponent("TacticBoxController");
                 Tactics.Add(tbc);
                 tbc.Imprint(n, who, who.Tactics[n]);
-                n++;
             }
         }
         else

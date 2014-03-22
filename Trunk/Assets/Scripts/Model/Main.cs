@@ -11,60 +11,68 @@ namespace Cub.Tool
 
         public static int Turn { get; private set; }
 
+        static int TurnLimit = 10;
+
+        public static bool TimeOut = false;
+
+        public static List<Cub.Tool.Character> DeadCharacters { get; set; }
+
         public static void Initialization(Team teamOne, Team teamTwo)
         {
-
-            Turn = 0;
-
+            Turn = 1;
             List_Team = new List<Team>{teamOne,teamTwo};
-            //for (int i = 0; i < Cub.Model.Library.Stage_Terrain.Length; i++)
-            //    for (int j = 0; j < Cub.Model.Library.Stage_Terrain[i].Length; j++)
-            //        if (Cub.Model.Library.Stage_Unit[i][j] != Type.Class.None)
-            //        {
-            //            Cub.Model.Character C = new Cub.Model.Character(Cub.Model.Library.Stage_Unit[i][j], i, j);
-            //            List_Team[0].Add_Character(C);
-                        
-            //        }
-            //ForgeSetupData();
+            DeadCharacters = new List<Character>();
         }
 
         public static void StartGameplay(){
             foreach (Team t in List_Team)
                     foreach (Character c in t.Return_List_Character())
-                        t.TotalValue += c.Value;                
+                        t.TotalValue += c.Value;
         }
 
         public static List<Cub.View.Eventon> Go()
         {
+            Debug.Log("Turn " + Turn.ToString() + " Start");
             List<Cub.View.Eventon> GEL = new List<View.Eventon>();
-            //List<Cub.Model.Character> CL = List_Team[0].Return_List_Character();
-            foreach (Team team in Cub.Tool.Main.List_Team)
-            {
-                List<Cub.Tool.Character> CL = team.Return_List_Character();
-                if (GameStillRunning())
+            List<Cub.Tool.Character> CL = GenerateTurnOrder();
+            foreach (Cub.Tool.Character C in CL)
+                if (GameStillRunning() && !DeadCharacters.Contains(C))
                 {
-                    //We should build an action queue so not all actions take the same time. . .but not right now.
-                    Turn++;
-
-                    int Index = 0;
-                    while (Index < CL.Count)
+                    C.Stat.Cooldown -= 1;
+                    if (C.Stat.Cooldown <= 0)
                     {
-                        Cub.Tool.Character C = CL[Index];
-                        C.Stat.Cooldown -= 1;
-                        if (C.Stat.Cooldown <= 0)
-                        {
-                            List<Cub.View.Eventon> EL = C.Go();
-                            GEL.AddRange(EL);
-                        }
-                        Index++;
+                        List<Cub.View.Eventon> EL = C.Go();
+                        GEL.AddRange(EL);
                     }
                 }
+            Turn++;
+            if (Turn >= TurnLimit)
+            {
+                TimeOut = true;
+                GameEnds(GEL);
             }
             return GEL;
         }
 
+        private static List<Character> GenerateTurnOrder()
+        {
+            List<Character> r = new List<Character>();
+            List<Character> temp = new List<Character>();
+            foreach (Team t in List_Team)
+                foreach (Character c in t.List_Character)
+                    temp.Add(c);
+            while (temp.Count > 0)
+            {
+                Character c = temp[UnityEngine.Random.Range(0, temp.Count)];
+                temp.Remove(c);
+                r.Add(c);
+            }
+            return r;
+        }
+
         public static void Dispose(Cub.Tool.Character C, List<Cub.View.Eventon> events)
         {
+            DeadCharacters.Add(C);
             foreach (Team team in List_Team)
             {
                 team.Remove_Character(C);
@@ -77,6 +85,8 @@ namespace Cub.Tool
 
         public static bool GameStillRunning()
         {
+            if (Turn >= TurnLimit)
+                return false;
             foreach (Team team in List_Team)
                 if (team.Return_List_Character().Count == 0)
                     return false;
@@ -93,8 +103,12 @@ namespace Cub.Tool
 
         public static void GameEnds(List<Cub.View.Eventon> events)
         {
-            Debug.Log("Game Over");
-            events.Add(new View.Eventon(Event.Win, "Game Over!", new List<object>()));
+            Debug.Log("Game Over: Turn " + Turn.ToString());
+            if (TimeOut)
+            {
+                events.Add(new View.Eventon(Event.TimeOut, "Time Out!", new List<object>()));
+                Debug.Log("Game Times Out");
+            }
             int highScore = -999999999;
             List<Team> winningTeams = new List<Team>();
             foreach (Team team in List_Team)
@@ -115,10 +129,26 @@ namespace Cub.Tool
                     highScore = score;
                 }
             }
+            List<Guid> winners = new List<Guid>();
+            List<Guid> losers = new List<Guid>();
+            Team winTeam = null;
             if (winningTeams.Count == 1)
-                Debug.Log(winningTeams[0].Name + " Wins!");
+            {
+                winTeam = winningTeams[0];
+                Debug.Log(winTeam.Name + " Wins!");
+            }
             else
                 Debug.Log("TIE!");
+            foreach (Team t in List_Team)
+                foreach (Character c in t.List_Character)    
+                {
+                    if (t == winTeam)
+                        winners.Add(c.ID);
+                    else
+                        losers.Add(c.ID);
+                }
+            events.Add(new View.Eventon(Event.Win, "Game Over!", new List<object>{winners,losers}));
+            
         }
     }
 }

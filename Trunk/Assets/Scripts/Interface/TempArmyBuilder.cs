@@ -9,7 +9,7 @@ namespace Assets.Scripts.Interface
 {
     class TempArmyBuilder
     {
-        float Points = 500;
+        //float Points = 500;
 
         public Cub.Tool.Team RedTeam = new Team();
         public Cub.Tool.Team BlueTeam = new Team();

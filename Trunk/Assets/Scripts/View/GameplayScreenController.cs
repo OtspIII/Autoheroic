@@ -11,11 +11,11 @@ public class GameplayScreenController : MonoBehaviour {
     Cub.Tool.Team TeamTwo = null;
 	public Cub.View.Runtime RT;
     bool RTStarted = false;
-    Cub.Position2 StageSize;
+    //Cub.Position2 StageSize;
 
 	// Use this for initialization
 	void Start () {
-        StageSize = new Cub.Position2(10, 10);
+        //StageSize = new Cub.Position2(10, 10);
         RT.GSC = this;
         Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
         Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));

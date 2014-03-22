@@ -92,6 +92,7 @@ namespace Cub
         Move,
         Die,
         Win,
+        TimeOut,
         Attack_Range,
         Attack_Melee,
         Attack_Rocket,

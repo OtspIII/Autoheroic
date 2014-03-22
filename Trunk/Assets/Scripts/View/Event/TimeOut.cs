@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Cub.View.Event
 {
-    public class Win : Base
+    public class TimeOut : Base
     {
-        //_Data[0] is a list of GUIDs of the winners, [1] is a list of losers.
-
         public override float Process(List<object> _Data)
         {
             return 0.0F;

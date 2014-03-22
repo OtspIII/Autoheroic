@@ -11,7 +11,7 @@ public class TacticBoxController : MonoBehaviour {
     UILabel NumLabel;
     UILabel ActionDesc;
     UILabel ConditionDesc;
-    UILabel Between;
+    //UILabel Between;
     UIPopupList ActionList;
     UIPopupList ConditionList;
     UIButton DeleteButton;
@@ -39,9 +39,9 @@ public class TacticBoxController : MonoBehaviour {
                 case "Condition List":
                     ConditionList = (UIPopupList)child.gameObject.GetComponent("UIPopupList");
                     break;
-                case "Between Label":
-                    Between = (UILabel)child.gameObject.GetComponent("UILabel");
-                    break;
+                //case "Between Label":
+                //    Between = (UILabel)child.gameObject.GetComponent("UILabel");
+                //    break;
                 case "Tactic Remover":
                     DeleteButton = (UIButton)child.gameObject.GetComponent("UIButton");
                     break;
@@ -71,7 +71,7 @@ public class TacticBoxController : MonoBehaviour {
             }
             else
             {
-                Cub.Action oldAct = Tactic.A;
+                //Cub.Action oldAct = Tactic.A;
                 List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(who.Info.Class);
                 foreach (Cub.Tool.Action.Base act in acts)
                     ActionList.items.Add(act.Name);

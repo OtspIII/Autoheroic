@@ -48,6 +48,7 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Idle] = new Cub.View.Event.Idle();
                 Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
+                Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
                 
                 Trigger = false;
             }
@@ -66,9 +67,7 @@ namespace Cub.View
 
         public static Cub.View.Event.Base Get_Event_Processor(Cub.Event _E)
         {
-			if (_E == null)
-				Debug.Log("NULL E");
-			else if (!Dictionary_Event.ContainsKey(_E))
+			if (!Dictionary_Event.ContainsKey(_E))
 				Debug.Log(_E.ToString());
             return Dictionary_Event[_E];
         }

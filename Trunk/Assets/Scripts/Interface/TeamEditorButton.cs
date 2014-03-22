@@ -7,8 +7,8 @@ public class TeamEditorButton : MonoBehaviour {
     Cub.Tool.Team Team = null;
     InterfaceController IC;
     int TeamNum;
-    string TeamName = "-Empty-";
-    string OwnerName = "";
+    //string TeamName = "-Empty-";
+    //string OwnerName = "";
     UILabel Num;
     UILabel Name;
     UILabel Owner;

@@ -5,7 +5,7 @@ using Cub.Tool;
 
 public class TeamPickerController : MonoBehaviour {
 
-    InterfaceController IC;
+    //InterfaceController IC;
     UIGrid Grid;
     public List<Team> Teams = new List<Team>();
     List<TeamEditorButton> Buttons = new List<TeamEditorButton>();
@@ -13,7 +13,7 @@ public class TeamPickerController : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        IC = (InterfaceController)GameObject.Find("UI Root").GetComponent("InterfaceController");
+        //IC = (InterfaceController)GameObject.Find("UI Root").GetComponent("InterfaceController");
         Grid = (UIGrid)gameObject.GetComponentInChildren(System.Type.GetType("UIGrid"));
         Teams = LoadTeams();
         BuildButtons();
@@ -30,13 +30,13 @@ public class TeamPickerController : MonoBehaviour {
         foreach (Transform tran in Grid.transform)
             if (tran.gameObject.name == "Team Button(Clone)")
                 DestroyObject(tran.gameObject);
-        int n = 0;
-        foreach (Team team in Teams)
+        //int n = 0;
+        //foreach (Team team in Teams)
+        for (int n = 0; n < Teams.Count;n++)   
         {
             TeamEditorButton teb = (TeamEditorButton)NGUITools.AddChild(Grid.gameObject, TeamButtonType).GetComponent("TeamEditorButton");
             Buttons.Add(teb);
             teb.Setup(n);
-            n++;
         }
         Grid.repositionNow = true;
     }
