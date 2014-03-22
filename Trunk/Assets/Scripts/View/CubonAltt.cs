@@ -4,23 +4,23 @@ using UnityEngine;
 
 namespace Cub.View
 {
-    public class CubonAltt
+    public class Cubon
     {
         public CubeType CubeType { get; set; }
         public Position3 Position { get; set; }
 
-        public CubonAltt()
+        public Cubon()
         {
 
         }
 
-        public CubonAltt(CubeType _Color, Position3 _Position)
+        public Cubon(CubeType _Color, Position3 _Position)
         {
             this.CubeType = _Color;
             this.Position = _Position;
         }
 
-        public static bool operator ==(CubonAltt A, CubonAltt B)
+        public static bool operator ==(Cubon A, Cubon B)
         {
             if (A.CubeType.Equals(B.CubeType) && A.Position.Equals(B.Position))
                 return true;
@@ -28,7 +28,7 @@ namespace Cub.View
                 return false;
         }
 
-        public static bool operator !=(CubonAltt A, CubonAltt B)
+        public static bool operator !=(Cubon A, Cubon B)
         {
             if (A.CubeType.Equals(B.CubeType) && A.Position.Equals(B.Position))
                 return false;
@@ -38,7 +38,7 @@ namespace Cub.View
 
         public override bool Equals(object obj)
         {
-            if (this.CubeType.Equals(((CubonAltt)obj).CubeType) && this.Position.Equals(((CubonAltt)obj).Position))
+            if (this.CubeType.Equals(((Cubon)obj).CubeType) && this.Position.Equals(((Cubon)obj).Position))
                 return true;
             else
                 return false;

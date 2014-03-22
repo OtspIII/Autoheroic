@@ -19,8 +19,8 @@ public class CharacterEditorController : MonoBehaviour {
 
     //List<Cube> All_Cube;
 
-    Character_Model_Altt CM;
-    Character_Model_Altt CMT;
+    Character_Model CM;
+    Character_Model CMT;
 
     bool TeamOne = true;
 
@@ -71,7 +71,7 @@ public class CharacterEditorController : MonoBehaviour {
 
     public void SaveButton()
     {
-        CMT = new Character_Model_Altt();
+        CMT = new Character_Model();
         CMT.Class = CM.Class;
         CMT.Position_Body = CM.Position_Body;
         CMT.Position_Body_Head = CM.Position_Body_Head;
@@ -90,83 +90,83 @@ public class CharacterEditorController : MonoBehaviour {
         CMT.Rotation_Hand_Left_Equipment_Left = CM.Rotation_Hand_Left_Equipment_Left;
         CMT.Rotation_Hand_Right_Equipment_Right = CM.Rotation_Hand_Right_Equipment_Right;
 
-        List<CubonAltt> r = new List<CubonAltt>();
+        List<Cubon> r = new List<Cubon>();
         foreach (Transform child in GO_Head.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Head = r;
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Body.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Body = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Hand_Left.transform.FindChild("Model").transform)
         {
             if (child.name == "Equipment_Left")
                 continue;
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Hand_Left = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Hand_Right.transform.FindChild("Model").transform)
         {
             if (child.name == "Equipment_Right")
                 continue;
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Hand_Right = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Foot_Left.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Foot_Left = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Foot_Right.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Foot_Right = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Equipment_Left.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Equipment_Left = r;
 
-        r = new List<CubonAltt>();
+        r = new List<Cubon>();
         foreach (Transform child in GO_Equipment_Right.transform.FindChild("Model").transform)
         {
             Cube cube = ((Cube)child.GetComponent("Cube"));
-            r.Add(new CubonAltt(cube.CubeType, new 
+            r.Add(new Cubon(cube.CubeType, new 
                 Position3((int)child.transform.localPosition.x, (int)child.transform.localPosition.y, (int)child.transform.localPosition.z)));
         }
         CMT.Cubon_Equipment_Right = r;
 
 
-        Cub.Tool.Xml.Serialize(CMT, "Data/Temp/Character_Model_" + UIPL.value + ".xml");
+        Cub.Tool.Xml.Serialize(CMT, "Data/Character_Model_" + UIPL.value + ".xml");
 
         Debug.Log("SAVED!");
     }
@@ -201,8 +201,8 @@ public class CharacterEditorController : MonoBehaviour {
         All_GO.Add(GO_Equipment_Left);
         All_GO.Add(GO_Equipment_Right);
 
-        Character_Model_Altt Model = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model_Altt),
-            "Data/Temp/Character_Model_" + str + ".xml") as Cub.View.Character_Model_Altt;
+        Character_Model Model = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model),
+            "Data/Character_Model_" + str + ".xml") as Cub.View.Character_Model;
 
         CM = Model;
 
@@ -224,7 +224,7 @@ public class CharacterEditorController : MonoBehaviour {
         GO_Equipment_Left.transform.rotation = Quaternion.Euler(Model.Rotation_Hand_Left_Equipment_Left);
         GO_Equipment_Right.transform.rotation = Quaternion.Euler(Model.Rotation_Hand_Right_Equipment_Right);
 
-        foreach (CubonAltt C in Model.Cubon_Head)
+        foreach (Cubon C in Model.Cubon_Head)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -237,7 +237,7 @@ public class CharacterEditorController : MonoBehaviour {
             //All_Cube.Add(cube);  
         }
 
-        foreach (CubonAltt C in Model.Cubon_Body)
+        foreach (Cubon C in Model.Cubon_Body)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -250,7 +250,7 @@ public class CharacterEditorController : MonoBehaviour {
             //All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Hand_Left)
+        foreach (Cubon C in Model.Cubon_Hand_Left)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -263,7 +263,7 @@ public class CharacterEditorController : MonoBehaviour {
             //All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Hand_Right)
+        foreach (Cubon C in Model.Cubon_Hand_Right)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -276,7 +276,7 @@ public class CharacterEditorController : MonoBehaviour {
            // All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Foot_Left)
+        foreach (Cubon C in Model.Cubon_Foot_Left)
         {
            // Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -289,7 +289,7 @@ public class CharacterEditorController : MonoBehaviour {
             //All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Foot_Right)
+        foreach (Cubon C in Model.Cubon_Foot_Right)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -302,7 +302,7 @@ public class CharacterEditorController : MonoBehaviour {
             //All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Equipment_Left)
+        foreach (Cubon C in Model.Cubon_Equipment_Left)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
@@ -315,7 +315,7 @@ public class CharacterEditorController : MonoBehaviour {
            // All_Cube.Add(cube);
         }
 
-        foreach (CubonAltt C in Model.Cubon_Equipment_Right)
+        foreach (Cubon C in Model.Cubon_Equipment_Right)
         {
             //Material M = Cub.View.Library.Get_Cube(C.CubeType, TeamOne);
             GameObject G = Instantiate(Library.Get_Cube()) as GameObject;

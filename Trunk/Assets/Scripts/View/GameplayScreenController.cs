@@ -100,12 +100,12 @@ public class GameplayScreenController : MonoBehaviour {
         foreach (Cub.Tool.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
-			Cub.View.Runtime.Add_Character(c);
+			Cub.View.Runtime.Add_Character(c, true);
         }
         foreach (Cub.Tool.Character c in TeamTwo.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, false);
-			Cub.View.Runtime.Add_Character(c);
+			Cub.View.Runtime.Add_Character(c, false);
         }
         Cub.Tool.Main.Initialization(TeamOne, TeamTwo);
         SwitchModes(GameMode.Gameplay);
