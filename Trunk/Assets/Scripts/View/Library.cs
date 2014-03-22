@@ -13,6 +13,7 @@ namespace Cub.View
 
         private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
+        private static Dictionary<CubeType, Material> Dictionary_Cube { get; set; }
 
 		private static Dictionary<Cub.Terrain,GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
 
@@ -30,11 +31,11 @@ namespace Cub.View
 
                 Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
                 Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Jerk.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Medic.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Rocket.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Sniper.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Soldier.xml") as Cub.View.Character_Model;
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
@@ -49,6 +50,14 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
                 Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
+
+                Dictionary_Cube = new Dictionary<CubeType, Material>();
+                Dictionary_Cube.Add(CubeType.Black, (Material)Resources.Load<Material>("Prefabs/Cubes/Black"));
+                Dictionary_Cube.Add(CubeType.White, (Material)Resources.Load<Material>("Prefabs/Cubes/White"));
+                Dictionary_Cube.Add(CubeType.TeamColorOneA, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Red"));
+                Dictionary_Cube.Add(CubeType.TeamColorTwoA, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Orange"));
+                Dictionary_Cube.Add(CubeType.TeamColorOneB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Green"));
+                Dictionary_Cube.Add(CubeType.TeamColorTwoB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Blue"));
                 
                 Trigger = false;
             }
@@ -88,5 +97,26 @@ namespace Cub.View
 				return Dictionary_Terrain[t];
 			return null;
 		}
+
+        public static Material Get_Cube(CubeType ct, bool TeamOne)
+        {
+            if (ct == CubeType.TeamColorOne)
+            {
+                if (TeamOne)
+                    ct = CubeType.TeamColorOneA;
+                else
+                    ct = CubeType.TeamColorOneB;
+            }
+            if (ct == CubeType.TeamColorTwo)
+            {
+                if (TeamOne)
+                    ct = CubeType.TeamColorTwoA;
+                else
+                    ct = CubeType.TeamColorTwoB;
+            }
+            if (Dictionary_Cube.ContainsKey(ct))
+                return Dictionary_Cube[ct];
+            return null;
+        }
     }
 }
