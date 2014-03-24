@@ -7,10 +7,10 @@ namespace Cub.View
     {
         public void Awake()
         {
-            
+
             Cub.Tool.Library.Initialization();
             Cub.View.Library.Initialization();
-            
+
             /*
 
             Character_Model CM = new Character_Model();
@@ -50,11 +50,12 @@ namespace Cub.View
         }
 
         public void Start()
-        {   
+        {
             Tool.Character C1 = new Tool.Character(Class.Knight, 0, 0);
 
-            Runtime.Add_Character(C1,true);
+            Runtime.Add_Character(C1, true);
 
+            /*
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 2, 2 }));
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
@@ -62,14 +63,14 @@ namespace Cub.View
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Die, "", new System.Collections.Generic.List<object>() { C1.ID }));
-            
-            GameObject.Find("Runtime").SendMessage("Run_Eventon");
 
+            GameObject.Find("Runtime").SendMessage("Run_Eventon");
+            */
         }
 
         public void Update()
         {
-            
+
             if (Input.GetKeyDown(KeyCode.R))
             {
                 GameObject.Destroy(GameObject.Find("Character(Clone)"));

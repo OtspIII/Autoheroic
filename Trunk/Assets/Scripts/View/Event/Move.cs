@@ -15,6 +15,8 @@ namespace Cub.View.Event
             //Animator AF = C.gameObject.GetComponent<Animator>();            
             //AF.SetTrigger("Move");
 
+            C.transform.LookAt(new Vector3(X, 0, Z));
+
             iTween.MoveTo(C.gameObject, new Vector3(X, 0, Z), 1.5F);
             
             return 0.5F;

@@ -8,7 +8,11 @@ namespace Cub.View.Event
     {
         public override float Process(List<object> _Data)
         {
-            return 0.0F;
+            Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
+
+            C.gameObject.GetComponent<Animator>().SetTrigger("Attack_Snipe");
+
+            return 1.0F;
         }
     }
 }
