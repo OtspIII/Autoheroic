@@ -53,7 +53,7 @@ namespace Cub.View
         {   
             Tool.Character C1 = new Tool.Character(Class.Knight, 0, 0);
 
-            Runtime.Add_Character(C1);
+            Runtime.Add_Character(C1,true);
 
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Move, "", new System.Collections.Generic.List<object>() { C1.ID, 2, 2 }));
             Runtime.Add_Eventon(new Cub.View.Eventon(Cub.Event.Be_Attacked, "", new System.Collections.Generic.List<object>() { C1.ID, 2 }));

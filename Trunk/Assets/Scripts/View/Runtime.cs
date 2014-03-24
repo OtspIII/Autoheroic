@@ -18,11 +18,11 @@ namespace Cub.View
             Queue_Eventon = new Queue<Eventon>();
         }
 
-        public static void Add_Character(Cub.Tool.Character _Character)
+        public static void Add_Character(Cub.Tool.Character _Character, bool teamOne)
         {
             GameObject GO = GameObject.Instantiate(Cub.View.Library.Get_Character(), _Character.Stat.Position.ToVector3(), Quaternion.identity) as GameObject;
             Cub.View.Character C = GO.GetComponent<Cub.View.Character>();
-            C.Initialize_Stat(_Character.ID, _Character.Info.Class, _Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position);
+            C.Initialize_Stat(_Character.ID, _Character.Info.Class, _Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position, teamOne);
             C.Initialize_Model();
             Dictionary_Character[_Character.ID] = C;
         }
