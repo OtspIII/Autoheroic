@@ -36,37 +36,37 @@ namespace Cub.View
         public List<Cub.View.Cubon> Cubon_Equipment_Right { get; set; }
     }
 
-    public class Character_Model_Alt
-    {
-        public Cub.Class Class { get; set; }
+    //public class Character_Model_Alt
+    //{
+    //    public Cub.Class Class { get; set; }
 
-        public Vector3 Position_Body { get; set; }
-        public Vector3 Position_Body_Head { get; set; }
-        public Vector3 Position_Body_Hand_Left { get; set; }
-        public Vector3 Position_Body_Hand_Right { get; set; }
-        public Vector3 Position_Body_Foot_Left { get; set; }
-        public Vector3 Position_Body_Foot_Right { get; set; }
-        public Vector3 Position_Hand_Left_Equipment_Left { get; set; }
-        public Vector3 Position_Hand_Right_Equipment_Right { get; set; }
+    //    public Vector3 Position_Body { get; set; }
+    //    public Vector3 Position_Body_Head { get; set; }
+    //    public Vector3 Position_Body_Hand_Left { get; set; }
+    //    public Vector3 Position_Body_Hand_Right { get; set; }
+    //    public Vector3 Position_Body_Foot_Left { get; set; }
+    //    public Vector3 Position_Body_Foot_Right { get; set; }
+    //    public Vector3 Position_Hand_Left_Equipment_Left { get; set; }
+    //    public Vector3 Position_Hand_Right_Equipment_Right { get; set; }
 
-        public Vector3 Rotation_Body { get; set; }
-        public Vector3 Rotation_Body_Head { get; set; }
-        public Vector3 Rotation_Body_Hand_Left { get; set; }
-        public Vector3 Rotation_Body_Hand_Right { get; set; }
-        public Vector3 Rotation_Body_Foot_Left { get; set; }
-        public Vector3 Rotation_Body_Foot_Right { get; set; }
-        public Vector3 Rotation_Hand_Left_Equipment_Left { get; set; }
-        public Vector3 Rotation_Hand_Right_Equipment_Right { get; set; }
+    //    public Vector3 Rotation_Body { get; set; }
+    //    public Vector3 Rotation_Body_Head { get; set; }
+    //    public Vector3 Rotation_Body_Hand_Left { get; set; }
+    //    public Vector3 Rotation_Body_Hand_Right { get; set; }
+    //    public Vector3 Rotation_Body_Foot_Left { get; set; }
+    //    public Vector3 Rotation_Body_Foot_Right { get; set; }
+    //    public Vector3 Rotation_Hand_Left_Equipment_Left { get; set; }
+    //    public Vector3 Rotation_Hand_Right_Equipment_Right { get; set; }
 
-        public List<Cub.View.CubonAlt> Cubon_Head { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Body { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Hand_Left { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Hand_Right { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Foot_Left { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Foot_Right { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Equipment_Left { get; set; }
-        public List<Cub.View.CubonAlt> Cubon_Equipment_Right { get; set; }
-    }
+    //    public List<Cub.View.CubonAlt> Cubon_Head { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Body { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Hand_Left { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Hand_Right { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Foot_Left { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Foot_Right { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Equipment_Left { get; set; }
+    //    public List<Cub.View.CubonAlt> Cubon_Equipment_Right { get; set; }
+    //}
 
     //public class Character_Model_Altt
     //{
