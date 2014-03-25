@@ -26,7 +26,7 @@ namespace Cub.View.Event
                 A--;
             }
 
-            return 0.5F;
+            return 1.5F;
         }
     }
 }

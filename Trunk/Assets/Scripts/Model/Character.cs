@@ -94,8 +94,6 @@ namespace Cub.Tool
         public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events)
         {
             this.Stat.HP -= Amount;
-            events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>", 
-                new List<object> { ID, Amount}));
             if (this.Stat.HP <= 0)
             {
                 Debug.Log("Die: " + this.Name + " (" + this.Info.Class + ")");
@@ -106,6 +104,9 @@ namespace Cub.Tool
                 Main.Dispose(this,events);
                 return true;
             }
+            else
+                events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",
+                new List<object> { ID, Amount }));
             return false;
         }
 

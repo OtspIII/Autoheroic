@@ -28,7 +28,7 @@ namespace Cub.View.Event
 
             GameObject.Destroy(C.gameObject, 3.0F);
 
-            return 0.0F;
+            return 1.5F;
         }
     }
 }

@@ -22,11 +22,11 @@ namespace Cub.View.Event
 
             B.transform.position = C0.transform.position;
 
-            iTween.MoveTo(B, C1.transform.position, 1.0F);
+            iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
 
             GameObject.Destroy(B, 2.0F);
 
-            return 1.5F;
+            return 0.5F;
         }
     }
 }
