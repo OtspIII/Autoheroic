@@ -127,8 +127,9 @@ public class GameplayScreenController : MonoBehaviour {
 			{
 
 				GameObject t = Cub.View.Library.Get_Terrain(map[y][x]);
+                Debug.Log(t);
 				if (t != null)
-					Instantiate(t, new Vector3(x, 0, y), Quaternion.identity);
+					Instantiate(t, new Vector3(x, -0.5f, y), Quaternion.identity);
 			}
 		}
     }
