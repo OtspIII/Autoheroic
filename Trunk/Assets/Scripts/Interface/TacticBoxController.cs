@@ -92,16 +92,22 @@ public class TacticBoxController : MonoBehaviour {
     {
         ActionList.items = new List<string> { };
         List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(Who.Info.Class);
+        Debug.Log(acts.Count);
         bool unlucky = true;
         foreach (Cub.Tool.Action.Base act in acts)
         {
             ActionList.items.Add(act.Name);
-            if (act.ActionType == Tactic.A) unlucky = false;
+            if (act.ActionType == Tactic.A)
+                unlucky = false;
         }
         if (unlucky)
         {
-            Tactic.SetAction(Cub.Action.Attack);
-            Tactic.SetCondition(Cub.Condition.Any);
+            Cub.Action a = Cub.Action.Attack;
+            foreach (Cub.Action sp in Who.Info.List_Special_Ability)
+                a = sp;
+            Tactic.SetAction(a);
+            if (!Cub.Tool.Library.List_Conditions(a).Contains(Cub.Tool.Library.Get_Condition(Tactic.C)))
+                Tactic.SetCondition(Cub.Condition.Any);
         }
         ActionList.value = Cub.Tool.Library.Get_Action(Tactic.A).Name;
         ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;

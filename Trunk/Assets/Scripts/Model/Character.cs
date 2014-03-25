@@ -339,7 +339,11 @@ namespace Cub.Tool
 
         int FindValue()
         {
-            return Info.Value;
+            int r = Info.Value;
+            foreach (Tactic tac in Tactics)
+                if (!tac.Free)
+                    r += 10;
+            return r;
         }
 
         public List<Tactic> BuildAIProfile(Cub.AIProfile aip)

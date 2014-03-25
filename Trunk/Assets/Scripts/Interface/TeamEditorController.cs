@@ -10,6 +10,7 @@ public class TeamEditorController : MonoBehaviour {
     UIInput OwnerName;
     UILabel NumChars;
     UILabel TotalPts;
+    UILabel SaveButt;
     UIGrid CLGrid;
     public CharEditorManager CharEditor;
     GameObject CharList;
@@ -53,6 +54,9 @@ public class TeamEditorController : MonoBehaviour {
                         SPButtons.Add(new Position2(spc.X, spc.Y), spc);
                     }
                     break;
+                case "Save Button":
+                    SaveButt = (UILabel)child.gameObject.GetComponentInChildren(System.Type.GetType("UILabel"));
+                    break;
             }
         }
 	}
@@ -73,9 +77,7 @@ public class TeamEditorController : MonoBehaviour {
         TeamName.value = Team.Name;
         OwnerName.value = Team.Owner_Name;
         System.Collections.Generic.List<Cub.Tool.Character> chars = team.Return_List_Character();
-        NumChars.text = chars.Count.ToString() + " Characters";
-        int pts = Team.TotalValue;
-        TotalPts.text = pts.ToString() + "pts (" + (1000 - pts).ToString() + "pts left)";
+        PointsReadoutUpdate();
         int n = 0;
         CButtons = new List<CharacterButtonController>();
         foreach (Cub.Tool.Character c in chars)
@@ -133,7 +135,11 @@ public class TeamEditorController : MonoBehaviour {
 
     public void SaveButton()
     {
-        Debug.Log("SAVE STUFF");
+        if (Team.TotalValue > Cub.Tool.Library.PointCap)
+        {
+            Debug.Log("TRYING TO SAVE WHEN YOU SHOULDN'T");
+            //return;
+        }
         IC.TeamPicker.gameObject.SetActive(true);
         IC.TeamEditor.gameObject.SetActive(false);
         IC.TeamPicker.SaveTeams();
@@ -175,6 +181,7 @@ public class TeamEditorController : MonoBehaviour {
                 spc.Imprint(cha);
                 break;
             }
+        PointsReadoutUpdate();
     }
 
     public void RemoveCharacter()
@@ -211,5 +218,18 @@ public class TeamEditorController : MonoBehaviour {
                 spr.color = Color.white;
             }
         }
+    }
+
+    public void PointsReadoutUpdate()
+    {
+        System.Collections.Generic.List<Cub.Tool.Character> chars = Team.Return_List_Character();
+        NumChars.text = chars.Count.ToString() + " Characters";
+        int pts = Team.TotalValue;
+        TotalPts.text = pts.ToString() + "pts (" + (Cub.Tool.Library.PointCap - pts).ToString() + "pts left)";
+        Color col = Color.black;
+        if (pts > Cub.Tool.Library.PointCap)
+            col = Color.red;
+        TotalPts.color = col;
+        SaveButt.color = col;
     }
 }

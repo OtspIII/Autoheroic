@@ -10,7 +10,7 @@ namespace Cub.Tool
         public string Owner_Name { get; set; }
         public List<Cub.Tool.Character> List_Character { get; set; }
         public List<Cub.Score> ScoreThings { get; private set; }
-        public int TotalValue = 0;
+        public int TotalValue { get { return FindTValue(); } }
         public int Score { get { return FindScore(); } }
 
         public Team()
@@ -81,6 +81,14 @@ namespace Cub.Tool
             {
                 who.MakeUnique();
             }
+        }
+
+        int FindTValue()
+        {
+            int r = 0;
+            foreach (Character who in List_Character)
+                r += who.Value;
+            return r;
         }
     }
 

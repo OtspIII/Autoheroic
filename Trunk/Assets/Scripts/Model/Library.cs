@@ -8,6 +8,8 @@ namespace Cub.Tool
     {
         private static bool Trigger = true;
 
+        public static int PointCap = 600;
+
         private static Dictionary<Cub.Condition, Cub.Tool.Condition.Base> Dictionary_Condition { get; set; }
         private static Dictionary<Cub.Action, Cub.Tool.Action.Base> Dictionary_Action { get; set; }
         private static Dictionary<string, Cub.Condition> Condition_Strings { get; set; }

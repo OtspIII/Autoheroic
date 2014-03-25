@@ -25,9 +25,9 @@ namespace Cub.Tool
         }
 
         public static void StartGameplay(){
-            foreach (Team t in List_Team)
-                    foreach (Character c in t.Return_List_Character())
-                        t.TotalValue += c.Value;
+            //foreach (Team t in List_Team)
+            //        foreach (Character c in t.Return_List_Character())
+            //            t.TotalValue += c.Value;
         }
 
         public static List<Cub.View.Eventon> Go()

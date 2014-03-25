@@ -101,6 +101,7 @@ public class CharEditorManager : MonoBehaviour {
     public void Refresh()
     {
         Imprint(Who, CharButton);
+        IC.TeamEditor.PointsReadoutUpdate();
     }
 
     public void AddEmptyTactic()
@@ -111,6 +112,7 @@ public class CharEditorManager : MonoBehaviour {
         Tactic tac = Who.BuyTactic(Cub.Condition.Any, Cub.Action.Explore);
         tbc.Imprint(Tactics.Count - 1, Who, tac);
         Grid.repositionNow = true;
+        IC.TeamEditor.PointsReadoutUpdate();
     }
 
     public void UpdateName()
@@ -124,11 +126,20 @@ public class CharEditorManager : MonoBehaviour {
     {
         if (Who == null) return;
         string clss = ClassList.value;
-        Who.SetClass((Cub.Class)System.Enum.Parse(typeof(Cub.Class), clss));
+        Cub.Class newClass = (Cub.Class)System.Enum.Parse(typeof(Cub.Class), clss);
+        if (newClass == Who.Info.Class)
+            return;
+        Who.SetClass(newClass);
         CharButton.Imprint(-1, Who);
+        //foreach (Cub.Action act in Who.Info.List_Special_Ability)
+        //{
+        //    Tactic special = AddEmptyTactic();
+        //    special.SetAction(act);
+        //}
         foreach (TacticBoxController tbc in Tactics)
         {
             tbc.Refresh();
         }
+        IC.TeamEditor.PointsReadoutUpdate();
     }
 }
