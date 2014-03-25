@@ -83,14 +83,6 @@
   </Rotation_Hand_Right_Equipment_Right>
   <Cubon_Head>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>3</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
       <CubeType>Black</CubeType>
       <Position>
         <X>-2</X>
@@ -2013,200 +2005,7 @@
       </Position>
     </Cubon>
   </Cubon_Foot_Right>
-  <Cubon_Equipment_Left>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>-2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>-1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>0</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>0</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>0</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>White</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>-3</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>-3</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>-3</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>-2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>-2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-2</X>
-        <Y>-1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>-1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>-1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>2</X>
-        <Y>-1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-2</X>
-        <Y>0</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>2</X>
-        <Y>0</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-2</X>
-        <Y>1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>2</X>
-        <Y>1</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>-1</X>
-        <Y>2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>1</X>
-        <Y>2</Y>
-        <Z>0</Z>
-      </Position>
-    </Cubon>
-  </Cubon_Equipment_Left>
+  <Cubon_Equipment_Left />
   <Cubon_Equipment_Right>
     <Cubon>
       <CubeType>White</CubeType>
@@ -2219,7 +2018,7 @@
     <Cubon>
       <CubeType>White</CubeType>
       <Position>
-        <X>0</X>
+        <X>1</X>
         <Y>-1</Y>
         <Z>-2</Z>
       </Position>
@@ -2289,15 +2088,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
-      <Position>
-        <X>0</X>
-        <Y>-2</Y>
-        <Z>-2</Z>
-      </Position>
-    </Cubon>
-    <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>-1</Y>
@@ -2305,7 +2096,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>1</Y>
@@ -2313,7 +2104,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>-1</Y>
@@ -2321,7 +2112,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>1</Y>
@@ -2329,7 +2120,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>-1</Y>
@@ -2337,7 +2128,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>1</Y>
@@ -2345,7 +2136,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>-1</Y>
@@ -2353,7 +2144,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>Black</CubeType>
       <Position>
         <X>0</X>
         <Y>1</Y>
@@ -2361,7 +2152,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>White</CubeType>
       <Position>
         <X>0</X>
         <Y>-1</Y>
@@ -2369,7 +2160,7 @@
       </Position>
     </Cubon>
     <Cubon>
-      <CubeType>TeamColorOne</CubeType>
+      <CubeType>Black</CubeType>
       <Position>
         <X>0</X>
         <Y>1</Y>
@@ -2382,6 +2173,158 @@
         <X>0</X>
         <Y>0</Y>
         <Z>4</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>1</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>1</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>2</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>2</Y>
+        <Z>-4</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>2</Y>
+        <Z>-5</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>2</Y>
+        <Z>-6</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>2</Y>
+        <Z>-7</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>2</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>2</Y>
+        <Z>-4</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>2</Y>
+        <Z>-5</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>2</Y>
+        <Z>-6</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>2</Y>
+        <Z>-7</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>-1</Y>
+        <Z>-2</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>0</X>
+        <Y>-1</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>2</X>
+        <Y>-1</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>-1</Y>
+        <Z>-1</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>-1</Y>
+        <Z>-3</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>0</Y>
+        <Z>-7</Z>
+      </Position>
+    </Cubon>
+    <Cubon>
+      <CubeType>White</CubeType>
+      <Position>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>-7</Z>
       </Position>
     </Cubon>
   </Cubon_Equipment_Right>
