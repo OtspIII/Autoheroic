@@ -97,6 +97,8 @@ public class GameplayScreenController : MonoBehaviour {
     {
 		TeamOne = T1;
         TeamTwo = T2;
+        TeamOne.MakeUnique();
+        TeamTwo.MakeUnique();
         foreach (Cub.Tool.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
@@ -127,7 +129,6 @@ public class GameplayScreenController : MonoBehaviour {
 			{
 
 				GameObject t = Cub.View.Library.Get_Terrain(map[y][x]);
-                Debug.Log(t);
 				if (t != null)
 					Instantiate(t, new Vector3(x, -0.5f, y), Quaternion.identity);
 			}

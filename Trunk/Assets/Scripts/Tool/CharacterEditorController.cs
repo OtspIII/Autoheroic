@@ -69,8 +69,23 @@ public class CharacterEditorController : MonoBehaviour {
                 }
     }
 
+    public void RoundingButton()
+    {
+        foreach (GameObject go in All_GO)
+            foreach (Transform child in go.transform.FindChild("Model").transform)
+                if (child.name != "Equipment_Left" && child.name != "Equipment_Right")
+                {
+                    Vector3 pos = child.localPosition;
+                    Vector3 newPos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), Mathf.Round(pos.z));
+                    Debug.Log(newPos.x + " " + newPos.y + " " + newPos.z);
+                    child.localPosition = newPos;
+                    // .Set(newPos.x,newPos.y,newPos.z);
+                }
+    }
+
     public void SaveButton()
     {
+        RoundingButton();
         CMT = new Character_Model();
         CMT.Class = CM.Class;
         CMT.Position_Body = CM.Position_Body;

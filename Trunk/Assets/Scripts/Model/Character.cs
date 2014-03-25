@@ -356,6 +356,11 @@ namespace Cub.Tool
                 t.Free = true;
             return r;
         }
+
+        public void MakeUnique()
+        {
+            ID = System.Guid.NewGuid();
+        }
     }
 
 }

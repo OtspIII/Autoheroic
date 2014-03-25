@@ -77,6 +77,7 @@ public class TeamEditorController : MonoBehaviour {
         int pts = Team.TotalValue;
         TotalPts.text = pts.ToString() + "pts (" + (1000 - pts).ToString() + "pts left)";
         int n = 0;
+        CButtons = new List<CharacterButtonController>();
         foreach (Cub.Tool.Character c in chars)
         {
             CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
@@ -144,6 +145,7 @@ public class TeamEditorController : MonoBehaviour {
         IC.TeamEditor.gameObject.SetActive(false);
         IC.TeamPicker.Teams.Remove(Team);
         IC.TeamPicker.BuildButtons();
+        IC.TeamPicker.SaveTeams();
     }
 
     public void UpdateTeamName()
@@ -160,13 +162,19 @@ public class TeamEditorController : MonoBehaviour {
 
     public void AddNewCharacter()
     {
-        if (Team == null) return;
+        if (Team == null || Team.List_Character.Count >= 16) return;
         CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
         CButtons.Add(cbc);
         Cub.Tool.Character cha = new Cub.Tool.Character(Cub.Class.Soldier, 0, 0);
         Team.Add_Character(cha);
         cbc.Imprint(CButtons.Count - 1,cha);
         CLGrid.repositionNow = true;
+        foreach (StartingPositionController spc in SPButtons.Values)
+            if (spc.Who == null)
+            {
+                spc.Imprint(cha);
+                break;
+            }
     }
 
     public void RemoveCharacter()
@@ -178,6 +186,7 @@ public class TeamEditorController : MonoBehaviour {
 
     public void SPButtonClick(StartingPositionController spc)
     {
+        if (spc.Who != null) return;
         Cub.Tool.Character who = IC.TeamEditor.CharEditor.Who;
         if (SPButtons.ContainsKey(who.Stat.Position))
             SPButtons[who.Stat.Position].Imprint(null);

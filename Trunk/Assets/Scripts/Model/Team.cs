@@ -73,6 +73,15 @@ namespace Cub.Tool
                 r += st.Value;
             return r;
         }
+
+        public void MakeUnique()
+        {
+            ID = System.Guid.NewGuid();
+            foreach (Character who in List_Character)
+            {
+                who.MakeUnique();
+            }
+        }
     }
 
 }
