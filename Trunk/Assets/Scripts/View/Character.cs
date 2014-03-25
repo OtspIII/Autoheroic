@@ -267,5 +267,11 @@ namespace Cub.View
             }
 
         }
+
+        public AudioClip PlaySound(AudioClip sound)
+        {
+            audio.PlayOneShot(sound);
+            return sound;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Cub.View.Event
             {
                 B.enabled = true;
             }
-
+            C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
             Runtime.Remove_Character((Guid)_Data[0]);
 
             GameObject.Destroy(C.gameObject, 3.0F);

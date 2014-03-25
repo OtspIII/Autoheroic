@@ -12,8 +12,8 @@ namespace Cub.View.Event
             int X = (int)_Data[1];
             int Z = (int)_Data[2];
             
-            //Animator AF = C.gameObject.GetComponent<Animator>();            
-            //AF.SetTrigger("Move");
+            Animator AF = C.gameObject.GetComponent<Animator>();            
+            AF.SetTrigger("Move");
 
             C.transform.LookAt(new Vector3(X, 0, Z));
 

@@ -14,6 +14,7 @@ namespace Cub.View
         private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
         private static Dictionary<CubeType, Material> Dictionary_Cube { get; set; }
+        private static Dictionary<string, AudioClip> Dictionary_Sound { get; set; }
 
 		private static Dictionary<Cub.Terrain,GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
 
@@ -58,6 +59,9 @@ namespace Cub.View
                 Dictionary_Cube.Add(CubeType.TeamColorTwoA, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Orange"));
                 Dictionary_Cube.Add(CubeType.TeamColorOneB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Green"));
                 Dictionary_Cube.Add(CubeType.TeamColorTwoB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Blue"));
+
+                Dictionary_Sound = new Dictionary<string, AudioClip>();
+                Dictionary_Sound.Add("Scream",(AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));
                 
                 Trigger = false;
             }
@@ -116,6 +120,13 @@ namespace Cub.View
             }
             if (Dictionary_Cube.ContainsKey(ct))
                 return Dictionary_Cube[ct];
+            return null;
+        }
+
+        public static AudioClip Get_Sound(string name)
+        {
+            if (Dictionary_Sound.ContainsKey(name))
+                return Dictionary_Sound[name];
             return null;
         }
     }
