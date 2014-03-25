@@ -107,7 +107,11 @@ public class GameplayScreenController : MonoBehaviour {
         foreach (Cub.Tool.Character c in TeamTwo.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, false);
-			Cub.View.Runtime.Add_Character(c, false);
+			Cub.View.Character view = Cub.View.Runtime.Add_Character(c, false);
+            Quaternion rot = view.gameObject.transform.rotation;
+            rot.y = 180;
+            view.gameObject.transform.rotation = rot;
+
         }
         Cub.Tool.Main.Initialization(TeamOne, TeamTwo);
         SwitchModes(GameMode.Gameplay);

@@ -15,7 +15,7 @@ namespace Cub.View.Event
 
             C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
 
-            return 1.0F;
+            return 1.5F;
         }
     }
 }

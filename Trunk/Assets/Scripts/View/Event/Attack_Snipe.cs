@@ -12,7 +12,7 @@ namespace Cub.View.Event
 
             C.gameObject.GetComponent<Animator>().SetTrigger("Attack_Snipe");
 
-            return 1.0F;
+            return 1.5F;
         }
     }
 }

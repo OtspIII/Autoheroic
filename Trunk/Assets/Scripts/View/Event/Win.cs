@@ -10,7 +10,7 @@ namespace Cub.View.Event
 
         public override float Process(List<object> _Data)
         {
-            return 0.0F;
+            return 3.0F;
         }
     }
 }

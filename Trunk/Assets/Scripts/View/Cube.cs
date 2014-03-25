@@ -6,13 +6,21 @@ namespace Cub.View
     public class Cube : MonoBehaviour
     {
         public CubeType CubeType = CubeType.Black;
+        bool Dying = false;
 
         void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.name == "Plane")
+            if (!Dying && collision.gameObject.CompareTag("Terrain"))
             {
-                iTween.ScaleTo(this.gameObject, Vector3.zero, 3.0F);
-                Destroy(this.gameObject, 3.0F);
+                if (UnityEngine.Random.Range(0, 2) == 1)
+                    Destroy(this.gameObject);
+                else
+                {
+                    float time = UnityEngine.Random.Range(4.0f, 12.0f);
+                    iTween.ScaleTo(this.gameObject, Vector3.zero, time);
+                    Destroy(this.gameObject, time);
+                    Dying = true;
+                }
             }
         }
 
