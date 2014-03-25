@@ -15,7 +15,17 @@ namespace Cub.View.Event
 
             C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
 
-            return 1.5F;
+            Debug.Log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+
+            GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
+
+            B.transform.position = C0.transform.position;
+
+            iTween.MoveTo(B, C1.transform.position, 1.0F);
+
+            //GameObject.Destroy(B, 2.0F);
+
+            return 1.0F;
         }
     }
 }

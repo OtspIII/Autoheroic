@@ -9,6 +9,7 @@ namespace Cub.View
         private static bool Trigger = true;
 
         private static GameObject Prefab_Cube { get; set; }
+        private static GameObject Prefab_Bullet { get; set; }
         private static GameObject Prefab_Character { get; set; }
 
         private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
@@ -25,6 +26,8 @@ namespace Cub.View
                 Prefab_Cube.renderer.material = Resources.Load<Material>("Materials/Transparent");
 
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
+
+                Prefab_Bullet = Resources.Load<GameObject>("Prefabs/Bullet");
 
 				Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
 				Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
@@ -97,6 +100,11 @@ namespace Cub.View
 				return Dictionary_Terrain[t];
 			return null;
 		}
+
+        public static GameObject Get_Bullet()
+        {
+            return Prefab_Bullet;
+        }
 
         public static Material Get_Cube(CubeType ct, bool TeamOne)
         {
