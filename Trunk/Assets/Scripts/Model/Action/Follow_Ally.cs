@@ -8,7 +8,7 @@ namespace Cub.Tool.Action
     public class Follow_Ally : Cub.Tool.Action.Base
     {
         public override int Turn_Casting { get { return 0; } }
-        public override int Turn_Cooldown { get { return 1; } }
+        public override int Turn_Cooldown { get { return 2; } }
 
         //public Charge(List<object> _Info)
         //{

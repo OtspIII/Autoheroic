@@ -15,17 +15,20 @@ namespace Cub.View.Event
 
             C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
 
-            Debug.Log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+            //Debug.Log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
+
+            TrailRenderer tr = (TrailRenderer)B.GetComponent("TrailRenderer");
+            tr.material.color = Color.yellow;
 
             B.transform.position = C0.transform.position;
 
             iTween.MoveTo(B, C1.transform.position, 1.0F);
 
-            //GameObject.Destroy(B, 2.0F);
+            GameObject.Destroy(B, 2.0F);
 
-            return 1.0F;
+            return 1.5F;
         }
     }
 }
