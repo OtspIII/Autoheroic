@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Idle : Base
     {
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
             return 0.0F;
         }

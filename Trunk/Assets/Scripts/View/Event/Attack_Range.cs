@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Range : Base
     {
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
@@ -27,6 +27,8 @@ namespace Cub.View.Event
             iTween.MoveTo(B, iTween.Hash("position",C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
 
             GameObject.Destroy(B, 2.0F);
+
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
             return 0.5F;
         }

@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Move : Base
     {
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
             int X = (int)_Data[1];

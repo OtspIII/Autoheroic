@@ -366,6 +366,15 @@ namespace Cub.Tool
         {
             ID = System.Guid.NewGuid();
         }
+
+        public string FindColorName()
+        {
+            string r = this.Name;
+            string color = "FF0000";
+            if (Cub.Tool.Main.List_Team[0] != Stat.GetTeam())
+                color = "00FF00";
+            return "[" + color + "]" + r + "[-]";
+        }
     }
 
 }

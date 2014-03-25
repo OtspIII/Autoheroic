@@ -7,6 +7,7 @@ public class GameplayScreenController : MonoBehaviour {
     GameMode CurrentMode;
     GameplayTeamPickerController Tpc;
     ScoreCardManager Scm;
+    DescriptionManager Desc;
     Cub.Tool.Team TeamOne = null;
     Cub.Tool.Team TeamTwo = null;
 	public Cub.View.Runtime RT;
@@ -19,6 +20,8 @@ public class GameplayScreenController : MonoBehaviour {
         RT.GSC = this;
         Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
         Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));
+        Desc = (DescriptionManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("DescriptionManager"));
+        Cub.View.NarratorController.Initialize(Desc);
         SwitchModes(GameMode.TeamPick);
         Cub.View.Library.Initialization();
         Cub.Tool.Library.Initialization();
@@ -81,14 +84,17 @@ public class GameplayScreenController : MonoBehaviour {
         {
             case GameMode.TeamPick:
                 Scm.gameObject.SetActive(false);
+                Desc.gameObject.SetActive(false);
                 break;
             case GameMode.Gameplay:
                 Scm.gameObject.SetActive(false);
                 Tpc.gameObject.SetActive(false);
+                Desc.gameObject.SetActive(false);
                 break;
             case GameMode.Postgame:
                 Scm.gameObject.SetActive(true);
                 Tpc.gameObject.SetActive(false);
+                Desc.gameObject.SetActive(false);
                 break;
         }
     }

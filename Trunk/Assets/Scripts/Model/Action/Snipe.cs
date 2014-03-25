@@ -51,7 +51,7 @@ namespace Cub.Tool.Action
             who.Stat.Cooldown += this.Turn_Cooldown;
             who.ExhaustedActions.Add(ActionType);
             Debug.Log("Snipe: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Snipe, who.Name + " <SNIPE> " + target.Name, new List<object>() { who.ID, target.ID }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Snipe, who.FindColorName() + " <SNIPE> " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
             target.Damage(Damage, who, r);
             return r;
         }

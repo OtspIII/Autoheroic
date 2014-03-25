@@ -50,7 +50,7 @@ namespace Cub.Tool.Action
                 target = (data[UnityEngine.Random.Range(0, data.Count)] as Cub.Tool.Character);
             who.Stat.Cooldown += this.Turn_Cooldown;
             Debug.Log("Heal: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Heal, who.Name + " <HEAL> " + target.Name, new List<object>() { who.ID, target.ID }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Heal, who.FindColorName() + " <HEAL> " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
             target.Heal(HealAmt, who, r);
             return r;
         }

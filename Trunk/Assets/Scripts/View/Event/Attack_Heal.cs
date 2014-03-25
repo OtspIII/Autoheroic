@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Heal : Base
     {
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
@@ -15,7 +15,9 @@ namespace Cub.View.Event
             
             C1.gameObject.particleSystem.Emit(10);
 
-            return 1.5F;
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+
+            return 0.5F;
         }
     }
 }

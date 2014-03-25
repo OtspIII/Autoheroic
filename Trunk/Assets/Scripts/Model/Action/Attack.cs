@@ -49,7 +49,7 @@ namespace Cub.Tool.Action
             who.Stat.Cooldown += this.Turn_Cooldown;
 
             Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.Name + " vs. " + target.Name, new List<object>() { who.ID, target.ID }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
             target.Damage(2, who, r);
             //if (kill){
             //    r.Add(new Cub.View.GameEvent(Cub.Event.Die, "R.I.P. " + target.Name, new List<object>{target.ID }));

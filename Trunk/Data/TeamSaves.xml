@@ -27,7 +27,7 @@
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>Johnny One</Name>
+        <Name>Ser Fluffknight Lightstitcher</Name>
         <ID>78b30dcc-724f-4598-a8c7-615b51dfd3c0</ID>
         <Info>
           <Class>Knight</Class>
@@ -65,7 +65,7 @@
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>Court Mage Elizabeth Stuffyflu</Name>
+        <Name>Countess Elizabeth Stuffyfluff</Name>
         <ID>4f451837-e49d-4688-bbba-836af6366f0a</ID>
         <Info>
           <Class>Soldier</Class>
@@ -201,7 +201,7 @@
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>Red Five</Name>
+        <Name>Franz Skyfluffer III, Esq</Name>
         <ID>78143df7-1607-4161-a1fd-455274438cfa</ID>
         <Info>
           <Class>Sniper</Class>
@@ -239,7 +239,7 @@
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>John Smith</Name>
+        <Name>Queen Skye McCloudington</Name>
         <ID>eafdb7c8-4fcb-434e-b528-1f38bf030b8c</ID>
         <Info>
           <Class>Jerk</Class>
@@ -489,15 +489,17 @@
             <Free>true</Free>
             <C>Any</C>
             <A>Attack</A>
+            <Data />
           </Tactic>
           <Tactic>
             <Free>true</Free>
             <C>Any</C>
             <A>Follow_Enemy</A>
+            <Data />
           </Tactic>
         </Tactics>
         <ExhaustedActions />
-        <Name>John Smith</Name>
+        <Name>Charles</Name>
         <ID>308f7368-6d45-4f26-9302-1c0b9f708f6d</ID>
         <Info>
           <Class>Jerk</Class>

@@ -8,8 +8,9 @@ namespace Cub.View.Event
     {
         //_Data[0] is a list of GUIDs of the winners, [1] is a list of losers.
 
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
             return 3.0F;
         }
     }

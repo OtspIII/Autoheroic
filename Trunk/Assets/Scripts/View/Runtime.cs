@@ -59,7 +59,7 @@ namespace Cub.View
 
 				//Debug.Log("Eventon Start -- " + Queue_Eventon.Count.ToString() + " Eventons Queued");
 
-                float Delay = Cub.View.Library.Get_Event_Processor(E.Type).Process(E.Data);
+                float Delay = Cub.View.Library.Get_Event_Processor(E.Type).Process(E.Data,E.Description);
 
                 Invoke("Run_Eventon", Delay);
             }

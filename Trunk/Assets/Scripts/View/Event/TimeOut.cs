@@ -6,9 +6,10 @@ namespace Cub.View.Event
 {
     public class TimeOut : Base
     {
-        public override float Process(List<object> _Data)
+        public override float Process(List<object> _Data, string Desc)
         {
-            return 0.0F;
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            return 3.0F;
         }
     }
 }
