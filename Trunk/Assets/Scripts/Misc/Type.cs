@@ -115,6 +115,42 @@ namespace Cub
         Warrior
     }
 
+    public enum Bodypart_Head
+    {
+        Soldier,
+        Hunter,
+        Idiot,
+        Protector,
+        Custom
+    }
+
+    public enum Bodypart_Body
+    {
+        Light,
+        Medium,
+        Heavy,
+        Bomber,
+        Healer
+    }
+
+    public enum Bodypart_Arms
+    {
+        Rifle,
+        Sword,
+        Axe,
+        Pistol,
+        Sniper_Rifle,
+        RPG,
+        Heal_Gun
+    }
+
+    public enum Bodypart_Legs
+    {
+        Legs,
+        Hover,
+        Tank_Tread
+    }
+
     public struct Position2
     {
         public int X;
