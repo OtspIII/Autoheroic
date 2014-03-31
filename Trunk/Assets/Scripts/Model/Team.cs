@@ -10,9 +10,6 @@ namespace Cub.Model
         public string Owner_Name;
         public List<Cub.Model.Character_Save> Chars;
         public int TotalValue { get { return FindTotalValue(); } }
-        public Color32 Colour1 { get; set; }
-        public Color32 Colour2 { get; set; }
-        public Color32 Colour3 { get; set; }
 
         public TeamSave()
         {
@@ -44,7 +41,7 @@ namespace Cub.Model
             return r;
         }
     }
-    
+
     public class Team
     {
         public System.Guid ID { get; private set; }
@@ -55,6 +52,9 @@ namespace Cub.Model
         public int TotalValue { get { return FindTValue(); } }
         public int Score { get { return FindScore(); } }
 
+        public Color32 Colour_Primary { get; set; }
+        public Color32 Colour_Secondary { get; set; }
+
         public Team()
         {
             Name = "-Empty-";
@@ -62,9 +62,13 @@ namespace Cub.Model
             this.ID = System.Guid.NewGuid();
             this.List_Character = new List<Character>();
             ScoreThings = new List<Score>();
+
+            this.Colour_Primary = new Color32(255, 0, 0, 192);
+            this.Colour_Secondary = new Color32(255, 255, 0, 192);
         }
 
-        public void Imprint(TeamSave parent){
+        public void Imprint(TeamSave parent)
+        {
             Name = parent.Name;
             Owner_Name = parent.Owner_Name;
             this.ID = System.Guid.NewGuid();

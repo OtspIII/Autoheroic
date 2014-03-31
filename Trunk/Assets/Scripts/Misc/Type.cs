@@ -154,11 +154,11 @@ namespace Cub
 
     public enum Colour
     {
+        Red,
         Black,
         White,
-        Team_1,
-        Team_2,
-        Team_3
+        Team_Primary,
+        Team_Secondary
     }
 
     public struct Position2
