@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Character_Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Character_Skeleton xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Position_Body>
     <x>0</x>
     <y>0</y>
@@ -10,26 +10,26 @@
     <y>5</y>
     <z>0</z>
   </Position_Body_Head>
-  <Position_Body_Hand_Left>
+  <Position_Body_Arms_Left>
     <x>-4</x>
     <y>1</y>
     <z>-1</z>
-  </Position_Body_Hand_Left>
-  <Position_Body_Hand_Right>
+  </Position_Body_Arms_Left>
+  <Position_Body_Arms_Right>
     <x>4</x>
     <y>1</y>
     <z>-1</z>
-  </Position_Body_Hand_Right>
-  <Position_Body_Foot_Left>
+  </Position_Body_Arms_Right>
+  <Position_Body_Legs_Left>
     <x>-3</x>
     <y>-4</y>
     <z>0</z>
-  </Position_Body_Foot_Left>
-  <Position_Body_Foot_Right>
+  </Position_Body_Legs_Left>
+  <Position_Body_Legs_Right>
     <x>3</x>
     <y>-4</y>
     <z>0</z>
-  </Position_Body_Foot_Right>
+  </Position_Body_Legs_Right>
   <Rotation_Body>
     <x>10</x>
     <y>0</y>
@@ -40,24 +40,24 @@
     <y>0</y>
     <z>0</z>
   </Rotation_Body_Head>
-  <Rotation_Body_Hand_Left>
+  <Rotation_Body_Arms_Left>
     <x>30</x>
     <y>-15</y>
     <z>0</z>
-  </Rotation_Body_Hand_Left>
-  <Rotation_Body_Hand_Right>
+  </Rotation_Body_Arms_Left>
+  <Rotation_Body_Arms_Right>
     <x>15</x>
     <y>15</y>
     <z>0</z>
-  </Rotation_Body_Hand_Right>
-  <Rotation_Body_Foot_Left>
+  </Rotation_Body_Arms_Right>
+  <Rotation_Body_Legs_Left>
     <x>0</x>
     <y>-15</y>
     <z>0</z>
-  </Rotation_Body_Foot_Left>
-  <Rotation_Body_Foot_Right>
+  </Rotation_Body_Legs_Left>
+  <Rotation_Body_Legs_Right>
     <x>0</x>
     <y>15</y>
     <z>0</z>
-  </Rotation_Body_Foot_Right>
-</Character_Model>
+  </Rotation_Body_Legs_Right>
+</Character_Skeleton>
