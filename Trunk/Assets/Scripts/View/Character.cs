@@ -80,6 +80,7 @@ namespace Cub.View
         public void Initialize_Bodypart()
         {
             this.Part.Head = Library.Get_Part_Head(this.Stat.Head);
+            Debug.Log("X: " + Part.Head);
             this.Part.Body = Library.Get_Part_Body(this.Stat.Body);
             this.Part.Arms_Left = Library.Get_Part_Arms_Left(this.Stat.Arms);
             this.Part.Arms_Right = Library.Get_Part_Arms_Right(this.Stat.Arms);
