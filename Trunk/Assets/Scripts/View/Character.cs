@@ -197,6 +197,10 @@ namespace Cub.View
         {
             switch (_Colour)
             {
+                case Colour.Red:
+                    {
+                        return new Color32(255, 0, 0, 255);
+                    }
                 case Colour.Black:
                     {
                         return new Color32(0, 0, 0, 255);
@@ -205,11 +209,19 @@ namespace Cub.View
                     {
                         return new Color32(255, 255, 255, 255);
                     }
+                case Colour.Team_Primary:
+                    {
+                        return this.Stat.Team.Colour_Primary;
+                    }
+                case Colour.Team_Secondary:
+                    {
+                        return this.Stat.Team.Colour_Secondary;
+                    }
                 default:
                     {
                         return new Color32(0, 0, 0, 255);
                     }
-                    
+
             }
         }
 
