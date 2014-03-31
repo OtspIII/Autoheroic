@@ -8,7 +8,7 @@ public class StartingPositionController : MonoBehaviour {
     public int X;
     public int Y;
     UILabel Label;
-    public Cub.Tool.Character Who = null;
+    public Cub.Tool.Character_Save Who = null;
 
 	// Use this for initialization
 	void Awake () {
@@ -28,7 +28,7 @@ public class StartingPositionController : MonoBehaviour {
         
     }
 
-    public void Imprint(Cub.Tool.Character who)
+    public void Imprint(Cub.Tool.Character_Save who)
     {
         Who = who;
         if (who == null)
@@ -36,8 +36,8 @@ public class StartingPositionController : MonoBehaviour {
             Label.text = "";
             return;
         }
-        //Label.text = "x";
-        Label.text = Who.Info.Class.ToString()[0].ToString();
+        Label.text = "x";
+        //Label.text = Who.Info.Class.ToString()[0].ToString();
         IC.TeamEditor.SPButtonColors(who);
     }
 }

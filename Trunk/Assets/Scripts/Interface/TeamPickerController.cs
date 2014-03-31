@@ -7,7 +7,7 @@ public class TeamPickerController : MonoBehaviour {
 
     //InterfaceController IC;
     UIGrid Grid;
-    public List<Team> Teams = new List<Team>();
+    public List<TeamSave> Teams = new List<TeamSave>();
     List<TeamEditorButton> Buttons = new List<TeamEditorButton>();
     public GameObject TeamButtonType;
     
@@ -41,10 +41,10 @@ public class TeamPickerController : MonoBehaviour {
         Grid.repositionNow = true;
     }
 
-    List<Team> LoadTeams()
+    List<TeamSave> LoadTeams()
     {
-        string name = typeof(List<Team>).AssemblyQualifiedName;
-        return (List<Team>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
+        string name = typeof(List<TeamSave>).AssemblyQualifiedName;
+        return (List<TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
     }
 
     public void SaveTeams()
@@ -57,7 +57,10 @@ public class TeamPickerController : MonoBehaviour {
         TeamEditorButton teb = (TeamEditorButton)NGUITools.AddChild(Grid.gameObject, TeamButtonType).GetComponent("TeamEditorButton");
         Buttons.Add(teb);
 
-        Team team = new Team();
+        TeamSave team = new TeamSave();
+        team.Name = "";
+        team.Owner_Name = "";
+        team.Chars = new List<Character_Save>();
         Teams.Add(team);
 
         teb.Setup(Teams.Count - 1);

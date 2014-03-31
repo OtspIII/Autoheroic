@@ -3,6 +3,44 @@ using System.Collections.Generic;
 
 namespace Cub.Tool
 {
+    public class TeamSave
+    {
+        public string Name;
+        public string Owner_Name;
+        public List<Cub.Tool.Character_Save> Chars;
+        public int TotalValue { get { return FindTotalValue(); } }
+
+        public TeamSave()
+        {
+
+        }
+
+        public void Add_Character(Character_Save c)
+        {
+            Chars.Add(c);
+        }
+
+        public void Remove_Character(Character_Save c)
+        {
+            Chars.Remove(c);
+        }
+
+        public int FindTotalValue()
+        {
+            int r = 0;
+            foreach (Character_Save cs in Chars)
+                r += cs.Value;
+            return r;
+        }
+
+        public Team Extract_Team()
+        {
+            Team r = new Team();
+            r.Imprint(this);
+            return r;
+        }
+    }
+    
     public class Team
     {
         public System.Guid ID { get; private set; }
@@ -20,6 +58,18 @@ namespace Cub.Tool
             this.ID = System.Guid.NewGuid();
             this.List_Character = new List<Character>();
             ScoreThings = new List<Score>();
+        }
+
+        public void Imprint(TeamSave parent){
+            Name = parent.Name;
+            Owner_Name = parent.Owner_Name;
+            this.ID = System.Guid.NewGuid();
+            foreach (Character_Save cs in parent.Chars)
+            {
+                Character c = new Character();
+                c.Imprint(cs);
+                Add_Character(c);
+            }
         }
 
         public void Add_Character(Cub.Tool.Character _C)

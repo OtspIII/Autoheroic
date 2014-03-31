@@ -110,11 +110,6 @@ namespace Cub
         Missile
     }
 
-    public enum AIProfile
-    {
-        Warrior
-    }
-
     public enum Bodypart_Head
     {
         Soldier,
@@ -149,6 +144,12 @@ namespace Cub
         Legs,
         Hover,
         Tank_Tread
+    }
+
+    public enum Special_Effects
+    {
+        Autoheal,
+        Explode_On_Death
     }
 
     public struct Position2
