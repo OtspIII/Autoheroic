@@ -68,66 +68,66 @@
       <Character_Save>
         <Name>Ser Fluffknight Lightstitcher</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Arms>Axe</Arms>
+        <Body>Heavy</Body>
+        <Legs>Hover</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>6</X>
+          <Y>1</Y>
         </Position>
       </Character_Save>
       <Character_Save>
         <Name>Countess Elizabeth Stuffyfluff</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>4</X>
+          <Y>1</Y>
         </Position>
       </Character_Save>
       <Character_Save>
         <Name>Lady Legolass Greenleaf</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Head>Protector</Head>
+        <Arms>Heal_Gun</Arms>
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>2</X>
+          <Y>1</Y>
         </Position>
       </Character_Save>
       <Character_Save>
         <Name>Viscountess Cloud McStuffing</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
+          <X>1</X>
           <Y>0</Y>
         </Position>
       </Character_Save>
       <Character_Save>
         <Name>Franz Skyfluffer III, Esq</Name>
-        <Head>Soldier</Head>
+        <Head>Hunter</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
+          <X>7</X>
           <Y>0</Y>
         </Position>
       </Character_Save>
       <Character_Save>
         <Name>I Don't Remember</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Head>Idiot</Head>
+        <Arms>Pistol</Arms>
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
+          <X>3</X>
           <Y>0</Y>
         </Position>
       </Character_Save>

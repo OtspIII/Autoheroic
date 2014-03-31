@@ -52,17 +52,22 @@ namespace Cub.Tool
                 Dictionary_Arms.Add(Bodypart_Arms.Rifle, new Model.Bodypart("Rifle",
                     "A basic rifle. The standard by which all other weapons are measured.", 0, 0, 25));
                 Dictionary_Arms.Add(Bodypart_Arms.Sword, new Model.Bodypart("Sword & Shield",
-                    "A sword and shield, granting defense at the cost of an extremely short attack range.", 1, 0, 25));
+                    "A sword and shield, granting defense at the cost of an extremely short attack range.", 1, 0, 25,
+                    new List<Cub.Action> {Cub.Action.Charge }));
                 Dictionary_Arms.Add(Bodypart_Arms.Axe, new Model.Bodypart("Axe",
-                    "A heavy axe, dealing terrible damage at close range but offering no protection.", 0, 0, 25));
+                    "A heavy axe, dealing terrible damage at close range but offering no protection.", 0, 0, 25,
+                    new List<Cub.Action> { Cub.Action.Charge }));
                 Dictionary_Arms.Add(Bodypart_Arms.Sniper_Rifle, new Model.Bodypart("Sniper Rifle",
-                    "A sniper rifle that is only mildly effective unless it can pull off a head-shot.", 0, 0, 30));
+                    "A sniper rifle that is only mildly effective unless it can pull off a head-shot.", 0, 0, 30,
+                    new List<Cub.Action> { Cub.Action.Snipe }));
                 Dictionary_Arms.Add(Bodypart_Arms.Pistol, new Model.Bodypart("Pistol",
                     "A cheap pistol with meager range and damage.", 0, 0, 10));
                 Dictionary_Arms.Add(Bodypart_Arms.RPG, new Model.Bodypart("RPG",
-                    "A rocket launcher that is hard to aim but does damage in an area around where it hits.", 0, 0, 35));
+                    "A rocket launcher that is hard to aim but does damage in an area around where it hits.", 0, 0, 35,
+                    new List<Cub.Action> { Cub.Action.Missile }));
                 Dictionary_Arms.Add(Bodypart_Arms.Heal_Gun, new Model.Bodypart("Heal Gun",
-                    "A heal-gun that can be used both to heal allies and to harm the enemy.", 0, 0, 25));
+                    "A heal-gun that can be used both to heal allies and to harm the enemy.", 0, 0, 25,
+                    new List<Cub.Action> { Cub.Action.Heal }));
 
                 Dictionary_Weapons = new Dictionary<Bodypart_Arms, Model.Weapon>();
                 Dictionary_Weapons.Add(Bodypart_Arms.Rifle, new Model.Weapon(5));

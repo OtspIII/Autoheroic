@@ -211,7 +211,7 @@ namespace Cub.Tool
 
             this.Stat.HP = info.MHP;
 
-            this.Tactics = BuildAIProfile(head);
+            this.Tactics = BuildAIProfile(head,acts);
             
             return info;
         }
@@ -251,36 +251,69 @@ namespace Cub.Tool
             return r;
         }
 
-        public List<Tactic> BuildAIProfile(Cub.Bodypart_Head head)
+        public List<Tactic> BuildAIProfile(Cub.Bodypart_Head head, List<Cub.Action> acts)
         {
             List<Tactic> r = new List<Tactic>();
+            List<Tactic> vhigh = new List<Tactic>();
+            List<Tactic> high = new List<Tactic>();
+            List<Tactic> med = new List<Tactic>();
+            List<Tactic> low = new List<Tactic>();
             switch (head)
             {
                 case Cub.Bodypart_Head.Soldier:
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
+                    high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
+                    low.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
                     break;
 
                 case Cub.Bodypart_Head.Idiot:
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Explore));
+                    high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
+                    low.Add(new Tactic(Cub.Condition.Any, Cub.Action.Explore));
                     break;
 
                 case Cub.Bodypart_Head.Protector:
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
-                    r.Add(new Tactic(Cub.Condition.Closest, Cub.Action.Follow_Ally));
+                    high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
+                    low.Add(new Tactic(Cub.Condition.Closest, Cub.Action.Follow_Ally));
                     break;
 
                 case Cub.Bodypart_Head.Hunter:
-                    r.Add(new Tactic(Cub.Condition.Almost_Dead, Cub.Action.Attack));
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
-                    r.Add(new Tactic(Cub.Condition.Almost_Dead, Cub.Action.Follow_Enemy));
-                    r.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
+                    AddTactic(high, Cub.Action.Attack, Cub.Condition.Almost_Dead);
+                    //high.Add(new Tactic(Cub.Condition.Almost_Dead, Cub.Action.Attack));
+                    //high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
+                    AddTactic(low, Cub.Action.Follow_Enemy, Cub.Condition.Almost_Dead);
+                    //low.Add(new Tactic(Cub.Condition.Almost_Dead, Cub.Action.Follow_Enemy));
+                    //low.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
                     break;
             }
-            //foreach (Tactic t in r)
-            //    t.Free = true;
+            foreach (Cub.Action act in acts)
+            {
+                switch (act)
+                {
+                    case Cub.Action.Charge:
+                        AddTactic(med, Cub.Action.Charge, Cub.Condition.None);
+                        break;
+                    case Cub.Action.Heal:
+                        med.Add(new Tactic(Cub.Condition.Is_Hurt, Cub.Action.Heal));
+                        break;
+                    case Cub.Action.Missile:
+                        vhigh.Add(new Tactic(Cub.Condition.Adjacent_2, Cub.Action.Missile));
+                        break;
+                    case Cub.Action.Snipe:
+                        AddTactic(vhigh, Cub.Action.Snipe, Cub.Condition.None);
+                        break;
+                }
+            }
+            r.AddRange(vhigh);
+            r.AddRange(high);
+            r.AddRange(med);
+            r.AddRange(low);
             return r;
+        }
+
+        void AddTactic(List<Tactic> list, Cub.Action act, Cub.Condition favorite)
+        {
+            if (favorite != Cub.Condition.None)
+                list.Add(new Tactic(favorite, act));
+            list.Add(new Tactic(Cub.Condition.Any, act));
         }
 
         public void MakeUnique()
