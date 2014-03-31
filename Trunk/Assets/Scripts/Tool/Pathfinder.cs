@@ -90,12 +90,12 @@ namespace Cub.Tool
 
         public static bool CheckAccessable(Cub.Position2 where)
         {
-            if (where.X < 0 || where.X >= Cub.Tool.Library.Stage_Terrain.Length || where.Y < 0
-                || where.Y >= Cub.Tool.Library.Stage_Terrain[where.X].Length)
+            if (where.X < 0 || where.X >= Cub.Model.Library.Stage_Terrain.Length || where.Y < 0
+                || where.Y >= Cub.Model.Library.Stage_Terrain[where.X].Length)
                 return false;
-            foreach (Cub.Tool.Team t in Cub.Tool.Main.List_Team)
+            foreach (Cub.Model.Team t in Cub.Model.Main.List_Team)
             {
-                foreach (Cub.Tool.Character c in t.Return_List_Character())
+                foreach (Cub.Model.Character c in t.Return_List_Character())
                 {
                     if (c.Stat.Position.X == where.X && c.Stat.Position.Y == where.Y)
                         return false;

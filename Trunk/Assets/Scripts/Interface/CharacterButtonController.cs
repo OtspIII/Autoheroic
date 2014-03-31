@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class CharacterButtonController : MonoBehaviour {
 
     InterfaceController IC;
-    Cub.Tool.Character_Save Who = null;
+    Cub.Model.Character_Save Who = null;
     int Number;
     UILabel NumTxt;
     UILabel Name;
@@ -41,7 +41,7 @@ public class CharacterButtonController : MonoBehaviour {
 	}
 
 
-    public void Imprint(int num, Cub.Tool.Character_Save who)
+    public void Imprint(int num, Cub.Model.Character_Save who)
     {
         if (num != -1)
         {

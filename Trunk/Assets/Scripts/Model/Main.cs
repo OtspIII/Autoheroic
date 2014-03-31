@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cub.Tool
+namespace Cub.Model
 {
     public static class Main
     {
         //public static Cub.View.SetupData SData { get; set; }
-        public static List<Cub.Tool.Team> List_Team { get; set; }
+        public static List<Cub.Model.Team> List_Team { get; set; }
 
         public static int Turn { get; private set; }
 
@@ -15,7 +15,7 @@ namespace Cub.Tool
 
         public static bool TimeOut = false;
 
-        public static List<Cub.Tool.Character> DeadCharacters { get; set; }
+        public static List<Cub.Model.Character> DeadCharacters { get; set; }
 
         public static void Initialization(Team teamOne, Team teamTwo)
         {
@@ -34,8 +34,8 @@ namespace Cub.Tool
         {
             Debug.Log("Turn " + Turn.ToString() + " Start");
             List<Cub.View.Eventon> GEL = new List<View.Eventon>();
-            List<Cub.Tool.Character> CL = GenerateTurnOrder();
-            foreach (Cub.Tool.Character C in CL)
+            List<Cub.Model.Character> CL = GenerateTurnOrder();
+            foreach (Cub.Model.Character C in CL)
                 if (GameStillRunning() && !DeadCharacters.Contains(C))
                 {
                     C.Stat.Cooldown -= 1;
@@ -70,7 +70,7 @@ namespace Cub.Tool
             return r;
         }
 
-        public static void Dispose(Cub.Tool.Character C, List<Cub.View.Eventon> events)
+        public static void Dispose(Cub.Model.Character C, List<Cub.View.Eventon> events)
         {
             DeadCharacters.Add(C);
             foreach (Team team in List_Team)

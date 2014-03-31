@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Cub.Tool.Condition;
+using Cub.Model.Condition;
 
-namespace Cub.Tool
+namespace Cub.Model
 {
 
     public class Character_Save
@@ -17,11 +17,11 @@ namespace Cub.Tool
         //public int X;
         //public int Y;
 
-        public Cub.Model.Bodypart Head_Part { get { return Cub.Tool.Library.Get_Head(Head); } }
-        public Cub.Model.Bodypart Body_Part { get { return Cub.Tool.Library.Get_Body(Body); } }
-        public Cub.Model.Bodypart Arms_Part { get { return Cub.Tool.Library.Get_Arms(Arms); } }
-        public Cub.Model.Bodypart Legs_Part { get { return Cub.Tool.Library.Get_Legs(Legs); } }
-        public Cub.Model.Weapon Weapon { get { return Cub.Tool.Library.Get_Weapon(Arms); } }
+        public Cub.Model.Bodypart Head_Part { get { return Cub.Model.Library.Get_Head(Head); } }
+        public Cub.Model.Bodypart Body_Part { get { return Cub.Model.Library.Get_Body(Body); } }
+        public Cub.Model.Bodypart Arms_Part { get { return Cub.Model.Library.Get_Arms(Arms); } }
+        public Cub.Model.Bodypart Legs_Part { get { return Cub.Model.Library.Get_Legs(Legs); } }
+        public Cub.Model.Weapon Weapon { get { return Cub.Model.Library.Get_Weapon(Arms); } }
         public int Value { get { return Head_Part.Cost + Arms_Part.Cost + Body_Part.Cost + Legs_Part.Cost; } }
         public int Health { get { return Mathf.Max(1,Head_Part.Health + Arms_Part.Health + Body_Part.Health + Legs_Part.Health); } }
         public int Speed { get { return Mathf.Max(1,Head_Part.Speed + Arms_Part.Speed + Body_Part.Speed + Legs_Part.Speed); } }
@@ -66,12 +66,7 @@ namespace Cub.Tool
         public Cub.Position2 Position { get; set; }
         public int HP { get; set; }
         public int Cooldown { get; set; }
-        private Cub.Tool.Team Team { get; set; }
-
-        public Team GetTeam()
-        {
-            return this.Team;
-        }
+        public Cub.Model.Team Team { get; set; }
 
         public void SetTeam(Team t)
         {
@@ -81,13 +76,13 @@ namespace Cub.Tool
 
     public class Character
     {
-        public string Name { get; private set; }
-        public System.Guid ID { get; private set; }
-        public Character_Info Info { get; private set; }
-        public Character_Stat Stat { get; private set; }
+        public string Name { get; set; }
+        public System.Guid ID { get; set; }
+        public Character_Info Info { get; set; }
+        public Character_Stat Stat { get; set; }
         //public List<Cub.Tool.Tactic> Bought_Tactic = new List<Tactic>();
         //public List<Cub.Tool.Tactic> Free_Tactic = new List<Tactic>();
-        public List<Cub.Tool.Tactic> Tactics = new List<Tactic>();
+        public List<Cub.Model.Tactic> Tactics = new List<Tactic>();
         public int Value { get { return FindValue(); } }
         public List<Cub.Action> ExhaustedActions = new List<Cub.Action>();
 
@@ -122,7 +117,7 @@ namespace Cub.Tool
                 events.Add(new View.Eventon(Event.Die, "R.I.P. " + Name, new List<object> { ID }));
                 //Debug.Log(source.Name + " / " + source.Stat.Team);
                 //Debug.Log(source.Stat.Team.Name);
-                source.Stat.GetTeam().AddScore("Kills", Value);
+                source.Stat.Team.AddScore("Kills", Value);
                 Main.Dispose(this,events);
                 return true;
             }
@@ -144,7 +139,7 @@ namespace Cub.Tool
             foreach (Tactic T in this.Tactics)
             {
                 if (T.A == Cub.Action.None) continue;
-                Cub.Tool.Action.Base a = Library.Get_Action(T.A);
+                Cub.Model.Action.Base a = Library.Get_Action(T.A);
                 if (a == null) Debug.Log("ERROR: " + T.A);
                 List<object> Data = a.Confirm(this);
                 if (Data == null) continue;
@@ -172,13 +167,13 @@ namespace Cub.Tool
             info.Arms = arms;
             info.Body = body;
             info.Legs = legs;
-            info.Weapon = Cub.Tool.Library.Get_Weapon(arms);
+            info.Weapon = Cub.Model.Library.Get_Weapon(arms);
 
             List<Cub.Model.Bodypart> parts = new List<Model.Bodypart>();
-            parts.Add(Cub.Tool.Library.Get_Head(head));
-            parts.Add(Cub.Tool.Library.Get_Arms(arms));
-            parts.Add(Cub.Tool.Library.Get_Body(body));
-            parts.Add(Cub.Tool.Library.Get_Legs(legs));
+            parts.Add(Cub.Model.Library.Get_Head(head));
+            parts.Add(Cub.Model.Library.Get_Arms(arms));
+            parts.Add(Cub.Model.Library.Get_Body(body));
+            parts.Add(Cub.Model.Library.Get_Legs(legs));
 
             int hp = 0;
             int sp = 0;
@@ -229,8 +224,8 @@ namespace Cub.Tool
         public List<Character> FindEnemies()
         {
 			List<Character> r = new List<Character>();
-            foreach (Team t in Cub.Tool.Main.List_Team)
-                if (t != Stat.GetTeam())
+            foreach (Team t in Cub.Model.Main.List_Team)
+                if (t != Stat.Team)
                     r.AddRange(t.Return_List_Character());
             return r;
         }
@@ -325,7 +320,7 @@ namespace Cub.Tool
         {
             string r = this.Name;
             string color = "FF0000";
-            if (Cub.Tool.Main.List_Team[0] != Stat.GetTeam())
+            if (Cub.Model.Main.List_Team[0] != Stat.Team)
                 color = "00FF00";
             return "[" + color + "]" + r + "[-]";
         }

@@ -16,7 +16,7 @@ public class TeamEditorController : MonoBehaviour {
     GameObject CharList;
     public GameObject CharButtonType;
     List<CharacterButtonController> CButtons = new List<CharacterButtonController>();
-    public Cub.Tool.TeamSave Team = null;
+    public Cub.Model.TeamSave Team = null;
     TeamEditorButton TeamButton = null;
     Dictionary<Position2, StartingPositionController> SPButtons = new Dictionary<Position2, StartingPositionController>();
 
@@ -67,7 +67,7 @@ public class TeamEditorController : MonoBehaviour {
             CloseWindow();
 	}
 
-    public void ImprintTeam(Cub.Tool.TeamSave team, TeamEditorButton button)
+    public void ImprintTeam(Cub.Model.TeamSave team, TeamEditorButton button)
     {
         TeamButton = button;
         foreach (Transform tran in CLGrid.transform)
@@ -76,11 +76,11 @@ public class TeamEditorController : MonoBehaviour {
         Team = team;
         TeamName.value = Team.Name;
         OwnerName.value = Team.Owner_Name;
-        System.Collections.Generic.List<Cub.Tool.Character_Save> chars = team.Chars;
+        System.Collections.Generic.List<Cub.Model.Character_Save> chars = team.Chars;
         PointsReadoutUpdate();
         int n = 0;
         CButtons = new List<CharacterButtonController>();
-        foreach (Cub.Tool.Character_Save c in chars)
+        foreach (Cub.Model.Character_Save c in chars)
         {
             CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
             CButtons.Add(cbc);
@@ -98,15 +98,15 @@ public class TeamEditorController : MonoBehaviour {
         {
             spc.Imprint(null);
         }
-        List<Cub.Tool.Character_Save> unplaced = new List<Cub.Tool.Character_Save>();
-        foreach (Cub.Tool.Character_Save c in Team.Chars)
+        List<Cub.Model.Character_Save> unplaced = new List<Cub.Model.Character_Save>();
+        foreach (Cub.Model.Character_Save c in Team.Chars)
         {
             if (SPButtons.ContainsKey(c.Position))
                 SPButtons[c.Position].Imprint(c);
             else
                 unplaced.Add(c);
         }
-        foreach (Cub.Tool.Character_Save c in unplaced)
+        foreach (Cub.Model.Character_Save c in unplaced)
         {
             bool placed = false;
             foreach (StartingPositionController spc in SPButtons.Values)
@@ -135,7 +135,7 @@ public class TeamEditorController : MonoBehaviour {
 
     public void SaveButton()
     {
-        if (Team.TotalValue > Cub.Tool.Library.PointCap)
+        if (Team.TotalValue > Cub.Model.Library.PointCap)
         {
             Debug.Log("TRYING TO SAVE WHEN YOU SHOULDN'T");
             //return;
@@ -171,7 +171,7 @@ public class TeamEditorController : MonoBehaviour {
         if (Team == null || Team.Chars.Count >= 16) return;
         CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
         CButtons.Add(cbc);
-        Cub.Tool.Character_Save cha = new Cub.Tool.Character_Save("---",Bodypart_Head.Soldier,Bodypart_Arms.Rifle,Bodypart_Body.Medium,Bodypart_Legs.Legs,0,0);
+        Cub.Model.Character_Save cha = new Cub.Model.Character_Save("---",Bodypart_Head.Soldier,Bodypart_Arms.Rifle,Bodypart_Body.Medium,Bodypart_Legs.Legs,0,0);
         Team.Add_Character(cha);
         cbc.Imprint(CButtons.Count - 1,cha);
         CLGrid.repositionNow = true;
@@ -186,7 +186,7 @@ public class TeamEditorController : MonoBehaviour {
 
     public void RemoveCharacter()
     {
-        Cub.Tool.Character_Save who = CharEditor.Who;
+        Cub.Model.Character_Save who = CharEditor.Who;
         Team.Remove_Character(who);
         Refresh();
     }
@@ -194,14 +194,14 @@ public class TeamEditorController : MonoBehaviour {
     public void SPButtonClick(StartingPositionController spc)
     {
         if (spc.Who != null) return;
-        Cub.Tool.Character_Save who = IC.TeamEditor.CharEditor.Who;
+        Cub.Model.Character_Save who = IC.TeamEditor.CharEditor.Who;
         if (SPButtons.ContainsKey(who.Position))
             SPButtons[who.Position].Imprint(null);
         spc.Imprint(IC.TeamEditor.CharEditor.Who);
         who.Position = new Position2(spc.X, spc.Y);
     }
 
-    public void SPButtonColors(Cub.Tool.Character_Save who)
+    public void SPButtonColors(Cub.Model.Character_Save who)
     {
         foreach (StartingPositionController spc in SPButtons.Values)
         {
@@ -222,12 +222,12 @@ public class TeamEditorController : MonoBehaviour {
 
     public void PointsReadoutUpdate()
     {
-        System.Collections.Generic.List<Cub.Tool.Character_Save> chars = Team.Chars;
+        System.Collections.Generic.List<Cub.Model.Character_Save> chars = Team.Chars;
         NumChars.text = chars.Count.ToString() + " Characters";
         int pts = Team.TotalValue;
-        TotalPts.text = pts.ToString() + "pts (" + (Cub.Tool.Library.PointCap - pts).ToString() + "pts left)";
+        TotalPts.text = pts.ToString() + "pts (" + (Cub.Model.Library.PointCap - pts).ToString() + "pts left)";
         Color col = Color.black;
-        if (pts > Cub.Tool.Library.PointCap)
+        if (pts > Cub.Model.Library.PointCap)
             col = Color.red;
         TotalPts.color = col;
         SaveButt.color = col;

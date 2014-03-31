@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Cub.Tool;
+using Cub.Model;
 
 public class GameplayTeamPickerController : MonoBehaviour {
 
@@ -9,7 +9,7 @@ public class GameplayTeamPickerController : MonoBehaviour {
     //##----------------------------------Needs one per team selector!!!!!!
     TeamSave TeamOne = null;
     TeamSave TeamTwo = null;
-    List<Cub.Tool.TeamSave> Teams;
+    List<Cub.Model.TeamSave> Teams;
     List<UIPopupList> Selectors = new List<UIPopupList>();
     Dictionary<string, TeamSave> TeamDictionary = new Dictionary<string, TeamSave>();
     UIPopupList SelOne;

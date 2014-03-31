@@ -25,7 +25,7 @@ namespace Cub.Model
             Range = range;
         }
 
-        virtual public List<Cub.View.Eventon> Make_Attack(Cub.Tool.Character who, List<object> data)
+        virtual public List<Cub.View.Eventon> Make_Attack(Cub.Model.Character who, List<object> data)
         {
             List<Cub.View.Eventon> r = new List<View.Eventon>();
 

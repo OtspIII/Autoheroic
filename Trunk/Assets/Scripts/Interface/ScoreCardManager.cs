@@ -34,7 +34,7 @@ public class ScoreCardManager : MonoBehaviour {
         }
 	}
 
-    public void Imprint(Cub.Tool.Team t1, Cub.Tool.Team t2)
+    public void Imprint(Cub.Model.Team t1, Cub.Model.Team t2)
     {
         TeamOneNamer.Imprint(t1);
         TeamOneScores.Imprint(t1);

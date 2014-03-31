@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Cub.Tool;
+using Cub.Model;
 
-namespace Cub.Tool.Action
+namespace Cub.Model.Action
 {
-    public class Explore : Cub.Tool.Action.Base
+    public class Explore : Cub.Model.Action.Base
     {
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
@@ -37,7 +37,7 @@ namespace Cub.Tool.Action
                 for (int y = NowY - (M - System.Math.Abs(x - NowX)); y < NowY + (M - System.Math.Abs(x - NowX)); y++)
                 {
                     Cub.Position2 V = new Cub.Position2(x, y);
-                    if (Pathfinder.CheckAccessable(V))
+                    if (Cub.Tool.Pathfinder.CheckAccessable(V))
                         L.Add(V);
                 }
 
@@ -54,7 +54,7 @@ namespace Cub.Tool.Action
             if (data.Count == 0) return new List<View.Eventon>();
             if (data.Count == 1) where = (Cub.Position2)data[0];
             else where = (Cub.Position2)data[UnityEngine.Random.Range(0, data.Count)];
-            List<Cub.Position2> path = Pathfinder.findPath(who.Stat.Position, where);
+            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, where);
             int TravelDistance = Math.Min(who.Info.Speed, path.Count) - 1;
             if (TravelDistance < 0)
                 return new List<Cub.View.Eventon>() { };

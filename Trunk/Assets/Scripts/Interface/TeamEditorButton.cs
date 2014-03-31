@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TeamEditorButton : MonoBehaviour {
 
-    Cub.Tool.TeamSave Team = null;
+    Cub.Model.TeamSave Team = null;
     InterfaceController IC;
     int TeamNum;
     //string TeamName = "-Empty-";
@@ -60,11 +60,11 @@ public class TeamEditorButton : MonoBehaviour {
         Num.text = "Team " + (TeamNum + 1).ToString();
     }
 
-    Cub.Tool.TeamSave LoadTeam(int num)
+    Cub.Model.TeamSave LoadTeam(int num)
     {
-        List<Cub.Tool.TeamSave> teams = IC.TeamPicker.Teams;
+        List<Cub.Model.TeamSave> teams = IC.TeamPicker.Teams;
         if (num >= teams.Count)
-            return new Cub.Tool.TeamSave();
+            return new Cub.Model.TeamSave();
         return teams[num];
     }
 }

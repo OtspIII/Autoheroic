@@ -8,7 +8,7 @@ public class StartingPositionController : MonoBehaviour {
     public int X;
     public int Y;
     UILabel Label;
-    public Cub.Tool.Character_Save Who = null;
+    public Cub.Model.Character_Save Who = null;
 
 	// Use this for initialization
 	void Awake () {
@@ -28,7 +28,7 @@ public class StartingPositionController : MonoBehaviour {
         
     }
 
-    public void Imprint(Cub.Tool.Character_Save who)
+    public void Imprint(Cub.Model.Character_Save who)
     {
         Who = who;
         if (who == null)

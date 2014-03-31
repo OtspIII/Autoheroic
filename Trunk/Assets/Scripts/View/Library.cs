@@ -12,12 +12,20 @@ namespace Cub.View
         private static GameObject Prefab_Bullet { get; set; }
         private static GameObject Prefab_Character { get; set; }
 
-        private static Dictionary<Cub.Class, Cub.View.Character_Model> Dictionary_Character_Model { get; set; }
+        private static Cub.View.Character_Model Dictionary_Character_Model { get; set; }
+
+        private static Dictionary<Bodypart_Head, Cub.View.Cubon> Dictionary_Bodypart_Head { get; set; }
+        private static Dictionary<Bodypart_Body, Cub.View.Cubon> Dictionary_Bodypart_Body { get; set; }
+        private static Dictionary<Bodypart_Arms, Cub.View.Cubon> Dictionary_Bodypart_Arms_Left { get; set; }
+        private static Dictionary<Bodypart_Arms, Cub.View.Cubon> Dictionary_Bodypart_Arms_Right { get; set; }
+        private static Dictionary<Bodypart_Legs, Cub.View.Cubon> Dictionary_Bodypart_Legs_Left { get; set; }
+        private static Dictionary<Bodypart_Legs, Cub.View.Cubon> Dictionary_Bodypart_Legs_Right { get; set; }
+
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
-        private static Dictionary<CubeType, Material> Dictionary_Cube { get; set; }
+
         private static Dictionary<string, AudioClip> Dictionary_Sound { get; set; }
 
-		private static Dictionary<Cub.Terrain,GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
+        private static Dictionary<Cub.Terrain, GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
 
         public static void Initialization()
         {
@@ -27,19 +35,13 @@ namespace Cub.View
                 Prefab_Cube.renderer.material = Resources.Load<Material>("Materials/Transparent");
 
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
-
                 Prefab_Bullet = Resources.Load<GameObject>("Prefabs/Bullet");
 
-				Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
-				Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
+                Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
+                Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
 
-                Dictionary_Character_Model = new Dictionary<Class, Character_Model>();
-                Dictionary_Character_Model[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Knight.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Jerk.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Medic.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Rocket.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Sniper.xml") as Cub.View.Character_Model;
-                Dictionary_Character_Model[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/Character_Model_Soldier.xml") as Cub.View.Character_Model;
+                Dictionary_Character_Model = new Character_Model();
+                Dictionary_Character_Model = Cub.Tool.Xml.Deserialize(typeof(Cub.View.Character_Model), "Data/View_Model_Character.xml") as Cub.View.Character_Model;
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
@@ -55,17 +57,27 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
                 Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
 
-                Dictionary_Cube = new Dictionary<CubeType, Material>();
-                Dictionary_Cube.Add(CubeType.Black, (Material)Resources.Load<Material>("Prefabs/Cubes/Black"));
-                Dictionary_Cube.Add(CubeType.White, (Material)Resources.Load<Material>("Prefabs/Cubes/White"));
-                Dictionary_Cube.Add(CubeType.TeamColorOneA, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Red"));
-                Dictionary_Cube.Add(CubeType.TeamColorTwoA, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Orange"));
-                Dictionary_Cube.Add(CubeType.TeamColorOneB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Green"));
-                Dictionary_Cube.Add(CubeType.TeamColorTwoB, (Material)Resources.Load<Material>("Prefabs/Cubes/Trans_Blue"));
-
                 Dictionary_Sound = new Dictionary<string, AudioClip>();
-                Dictionary_Sound.Add("Scream",(AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));
-                
+                Dictionary_Sound.Add("Scream", (AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));
+
+                Dictionary_Bodypart_Head = new Dictionary<Bodypart_Head, Cubon>();
+                Dictionary_Bodypart_Head.Add(Bodypart_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Head_Solider.xml") as Cub.View.Cubon);
+
+                Dictionary_Bodypart_Body = new Dictionary<Bodypart_Body, Cubon>();
+                Dictionary_Bodypart_Body.Add(Bodypart_Body.Medium, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Body_Medium.xml") as Cub.View.Cubon);
+
+                Dictionary_Bodypart_Arms_Left = new Dictionary<Bodypart_Arms, Cubon>();
+                Dictionary_Bodypart_Arms_Left.Add(Bodypart_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Arms_Left_Rifle.xml") as Cub.View.Cubon);
+
+                Dictionary_Bodypart_Arms_Right = new Dictionary<Bodypart_Arms, Cubon>();
+                Dictionary_Bodypart_Arms_Right.Add(Bodypart_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Arms_Right_Rifle.xml") as Cub.View.Cubon);
+
+                Dictionary_Bodypart_Legs_Left = new Dictionary<Bodypart_Legs, Cubon>();
+                Dictionary_Bodypart_Legs_Left.Add(Bodypart_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Legs_Left_Hover.xml") as Cub.View.Cubon);
+
+                Dictionary_Bodypart_Legs_Right = new Dictionary<Bodypart_Legs, Cubon>();
+                Dictionary_Bodypart_Legs_Right.Add(Bodypart_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Model_Bodypart_Legs_Right_Hover.xml") as Cub.View.Cubon);
+
                 Trigger = false;
             }
         }
@@ -75,16 +87,16 @@ namespace Cub.View
             Trigger = true;
         }
 
-        
-		public static Cub.View.Character_Model Get_Character_Model(Cub.Class _C)
-		{
-			return Dictionary_Character_Model[_C];
-		}
 
-        public static Cub.View.Event.Base Get_Event_Processor(Cub.Event _E)
+        public static Cub.View.Character_Model Get_Character_Model()
         {
-			if (!Dictionary_Event.ContainsKey(_E))
-				Debug.Log(_E.ToString());
+            return Dictionary_Character_Model;
+        }
+
+        public static Cub.View.Event.Base Get_Event(Cub.Event _E)
+        {
+            if (!Dictionary_Event.ContainsKey(_E))
+                Debug.Log(_E.ToString());
             return Dictionary_Event[_E];
         }
 
@@ -93,48 +105,81 @@ namespace Cub.View
             return Prefab_Cube;
         }
 
-		public static GameObject Get_Character()
-		{
-			return Prefab_Character;
-		}
+        public static GameObject Get_Character()
+        {
+            return Prefab_Character;
+        }
 
-		public static GameObject Get_Terrain(Cub.Terrain t)
-		{
-			if (Dictionary_Terrain.ContainsKey(t))
-				return Dictionary_Terrain[t];
-			return null;
-		}
+        public static GameObject Get_Terrain(Cub.Terrain t)
+        {
+            if (Dictionary_Terrain.ContainsKey(t))
+                return Dictionary_Terrain[t];
+            return null;
+        }
 
         public static GameObject Get_Bullet()
         {
             return Prefab_Bullet;
         }
 
-        public static Material Get_Cube(CubeType ct, bool TeamOne)
-        {
-            if (ct == CubeType.TeamColorOne)
-            {
-                if (TeamOne)
-                    ct = CubeType.TeamColorOneA;
-                else
-                    ct = CubeType.TeamColorOneB;
-            }
-            if (ct == CubeType.TeamColorTwo)
-            {
-                if (TeamOne)
-                    ct = CubeType.TeamColorTwoA;
-                else
-                    ct = CubeType.TeamColorTwoB;
-            }
-            if (Dictionary_Cube.ContainsKey(ct))
-                return Dictionary_Cube[ct];
-            return null;
-        }
-
         public static AudioClip Get_Sound(string name)
         {
             if (Dictionary_Sound.ContainsKey(name))
                 return Dictionary_Sound[name];
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Head(Bodypart_Head _Head)
+        {
+            if (Dictionary_Bodypart_Head.ContainsKey(_Head))
+            {
+                return Dictionary_Bodypart_Head[_Head];
+            }
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Body(Bodypart_Body _Body)
+        {
+            if (Dictionary_Bodypart_Body.ContainsKey(_Body))
+            {
+                return Dictionary_Bodypart_Body[_Body];
+            }
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Arms_Left(Bodypart_Arms _Arms)
+        {
+            if (Dictionary_Bodypart_Arms_Left.ContainsKey(_Arms))
+            {
+                return Dictionary_Bodypart_Arms_Left[_Arms];
+            }
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Arms_Right(Bodypart_Arms _Arms)
+        {
+            if (Dictionary_Bodypart_Arms_Right.ContainsKey(_Arms))
+            {
+                return Dictionary_Bodypart_Arms_Right[_Arms];
+            }
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Legs_Left(Bodypart_Legs _Legs)
+        {
+            if (Dictionary_Bodypart_Legs_Left.ContainsKey(_Legs))
+            {
+                return Dictionary_Bodypart_Legs_Left[_Legs];
+            }
+            return null;
+        }
+
+        public static Cubon Get_Bodypart_Legs_Right(Bodypart_Legs _Legs)
+        {
+            if (Dictionary_Bodypart_Legs_Right.ContainsKey(_Legs))
+            {
+                return Dictionary_Bodypart_Legs_Right[_Legs];
+            }
             return null;
         }
     }

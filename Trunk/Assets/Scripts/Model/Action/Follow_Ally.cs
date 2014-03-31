@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Cub.Tool;
+using Cub.Model;
 
-namespace Cub.Tool.Action
+namespace Cub.Model.Action
 {
-    public class Follow_Ally : Cub.Tool.Action.Base
+    public class Follow_Ally : Cub.Model.Action.Base
     {
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
@@ -28,7 +28,7 @@ namespace Cub.Tool.Action
         public override List<object> Confirm(Character who)
         {
             List<object> data = new List<object>();
-            foreach (Character friend in who.Stat.GetTeam().Return_List_Character())
+            foreach (Character friend in who.Stat.Team.Return_List_Character())
                 if (friend != who)
                     data.Add(friend);
             if (data.Count == 0) return null;
@@ -45,7 +45,7 @@ namespace Cub.Tool.Action
             else
                 target = (Character)data[UnityEngine.Random.Range(0, data.Count)];
 
-            List<Cub.Position2> path = Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
+            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);

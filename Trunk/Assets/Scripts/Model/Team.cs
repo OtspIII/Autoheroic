@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace Cub.Tool
+namespace Cub.Model
 {
     public class TeamSave
     {
         public string Name;
         public string Owner_Name;
-        public List<Cub.Tool.Character_Save> Chars;
+        public List<Cub.Model.Character_Save> Chars;
         public int TotalValue { get { return FindTotalValue(); } }
+        public Color32 Colour1 { get; set; }
+        public Color32 Colour2 { get; set; }
+        public Color32 Colour3 { get; set; }
 
         public TeamSave()
         {
@@ -46,8 +50,8 @@ namespace Cub.Tool
         public System.Guid ID { get; private set; }
         public string Name { get; set; }
         public string Owner_Name { get; set; }
-        public List<Cub.Tool.Character> List_Character { get; set; }
-        public List<Cub.Score> ScoreThings { get; private set; }
+        public List<Cub.Model.Character> List_Character { get; set; }
+        public List<Cub.Model.Score> ScoreThings { get; private set; }
         public int TotalValue { get { return FindTValue(); } }
         public int Score { get { return FindScore(); } }
 
@@ -72,13 +76,13 @@ namespace Cub.Tool
             }
         }
 
-        public void Add_Character(Cub.Tool.Character _C)
+        public void Add_Character(Cub.Model.Character _C)
         {
             this.List_Character.Add(_C);
             _C.Stat.SetTeam(this);
         }
 
-        public void Remove_Character(Cub.Tool.Character _C)
+        public void Remove_Character(Cub.Model.Character _C)
         {
             if (Contains_Character(_C))
             {
@@ -87,14 +91,14 @@ namespace Cub.Tool
             }
         }
 
-        public bool Contains_Character(Cub.Tool.Character _C)
+        public bool Contains_Character(Cub.Model.Character _C)
         {
             return this.List_Character.Contains(_C);
         }
 
-        public List<Cub.Tool.Character> Return_List_Character()
+        public List<Cub.Model.Character> Return_List_Character()
         {
-            List<Cub.Tool.Character> CL = new List<Character>();
+            List<Cub.Model.Character> CL = new List<Character>();
             CL.AddRange(this.List_Character);
             return CL;
         }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cub.Tool;
+using Cub.Model;
 
-namespace Cub.Tool.Condition
+namespace Cub.Model.Condition
 {
     public class Adjacent_2 : Base
     {
@@ -22,7 +22,7 @@ namespace Cub.Tool.Condition
             {
                 Character e = (Character)obj;
                 foreach (Character other in enemies)
-                    if (e != other && Pathfinder.Distance(e.Stat.Position, other.Stat.Position) <= 1.5f)
+                    if (e != other && Cub.Tool.Pathfinder.Distance(e.Stat.Position, other.Stat.Position) <= 1.5f)
                         r.Add(e);
             }
             if (r.Count == 0)

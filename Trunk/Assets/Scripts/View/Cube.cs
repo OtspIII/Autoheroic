@@ -5,7 +5,7 @@ namespace Cub.View
 {
     public class Cube : MonoBehaviour
     {
-        public CubeType CubeType = CubeType.Black;
+        public Colour CubeType = Colour.Black;
         bool Dying = false;
 
         void OnCollisionEnter(Collision collision)
@@ -24,10 +24,11 @@ namespace Cub.View
             }
         }
 
-        public void SetMaterial(CubeType ct, bool TeamOne)
+        /*
+        public void SetMaterial(Colour ct, bool TeamOne)
         {
             CubeType = ct;
             renderer.material = Cub.View.Library.Get_Cube(CubeType,TeamOne);
-        }
+        }*/
     }
 }

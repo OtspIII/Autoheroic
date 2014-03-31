@@ -22,7 +22,7 @@ public class ScoreNameController : MonoBehaviour {
         }
 	}
 
-    public void Imprint(Cub.Tool.Team t)
+    public void Imprint(Cub.Model.Team t)
     {
         Name.text = t.Name;
         OwnerName.text = t.Owner_Name;

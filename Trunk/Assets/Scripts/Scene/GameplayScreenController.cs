@@ -8,8 +8,8 @@ public class GameplayScreenController : MonoBehaviour {
     GameplayTeamPickerController Tpc;
     ScoreCardManager Scm;
     DescriptionManager Desc;
-    Cub.Tool.Team TeamOne = null;
-    Cub.Tool.Team TeamTwo = null;
+    Cub.Model.Team TeamOne = null;
+    Cub.Model.Team TeamTwo = null;
 	public Cub.View.Runtime RT;
     bool RTStarted = false;
     //Cub.Position2 StageSize;
@@ -24,7 +24,7 @@ public class GameplayScreenController : MonoBehaviour {
         Cub.View.NarratorController.Initialize(Desc);
         SwitchModes(GameMode.TeamPick);
         Cub.View.Library.Initialization();
-        Cub.Tool.Library.Initialization();
+        Cub.Model.Library.Initialization();
         BuildMap();
 	}
 	
@@ -53,13 +53,13 @@ public class GameplayScreenController : MonoBehaviour {
 
     void GameplayUpdate()
     {
-        if (Cub.Tool.Main.GameStillRunning())
+        if (Cub.Model.Main.GameStillRunning())
             MatchBuildUpdate();
     }
 
     void MatchBuildUpdate()
     {
-        List<Cub.View.Eventon> events = Cub.Tool.Main.Go();
+        List<Cub.View.Eventon> events = Cub.Model.Main.Go();
         foreach (Cub.View.Eventon e in events)
         {
             Cub.View.Runtime.Add_Eventon(e);
@@ -99,27 +99,27 @@ public class GameplayScreenController : MonoBehaviour {
         }
     }
 
-    public void StartGame(Cub.Tool.Team T1, Cub.Tool.Team T2)
+    public void StartGame(Cub.Model.Team T1, Cub.Model.Team T2)
     {
 		TeamOne = T1;
         TeamTwo = T2;
         TeamOne.MakeUnique();
         TeamTwo.MakeUnique();
-        foreach (Cub.Tool.Character c in TeamOne.List_Character)
+        foreach (Cub.Model.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
-			Cub.View.Runtime.Add_Character(c, true);
+			Cub.View.Runtime.Add_Character(c);
         }
-        foreach (Cub.Tool.Character c in TeamTwo.List_Character)
+        foreach (Cub.Model.Character c in TeamTwo.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, false);
-			Cub.View.Character view = Cub.View.Runtime.Add_Character(c, false);
+			Cub.View.Character view = Cub.View.Runtime.Add_Character(c);
             Quaternion rot = view.gameObject.transform.rotation;
             rot.y = 180;
             view.gameObject.transform.rotation = rot;
 
         }
-        Cub.Tool.Main.Initialization(TeamOne, TeamTwo);
+        Cub.Model.Main.Initialization(TeamOne, TeamTwo);
         SwitchModes(GameMode.Gameplay);
     }
 
@@ -132,7 +132,7 @@ public class GameplayScreenController : MonoBehaviour {
 
     void BuildMap()
     {
-		Cub.Terrain[][] map = Cub.Tool.Library.Stage_Terrain;
+		Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
 		for (int y = 0; y < map.Length; y++)
 		{
 			for (int x = 0; x < map[0].Length; x++)

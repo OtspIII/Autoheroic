@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ArmsMenuController : MonoBehaviour
 {
 
-    Cub.Tool.Character_Save Who;
+    Cub.Model.Character_Save Who;
     InterfaceController IC;
 
     UIPopupList Options;
@@ -40,7 +40,7 @@ public class ArmsMenuController : MonoBehaviour
             }
         }
         Options.items = new List<string> { };
-        foreach (Cub.Model.Bodypart bp in Cub.Tool.Library.List_Arms())
+        foreach (Cub.Model.Bodypart bp in Cub.Model.Library.List_Arms())
             Options.items.Add(bp.Name);
     }
 
@@ -50,7 +50,7 @@ public class ArmsMenuController : MonoBehaviour
 
     }
 
-    public void Imprint(Cub.Tool.Character_Save who)
+    public void Imprint(Cub.Model.Character_Save who)
     {
         Who = who;
         Cub.Model.Bodypart H = who.Arms_Part;
@@ -66,7 +66,7 @@ public class ArmsMenuController : MonoBehaviour
         if (Who == null) return;
         Cub.Bodypart_Arms current = Who.Arms;
         string bp = Options.value;
-        Who.Arms = Cub.Tool.Library.Get_Arms(bp);
+        Who.Arms = Cub.Model.Library.Get_Arms(bp);
         //Imprint(Who);
         IC.TeamEditor.Refresh();
         IC.TeamEditor.CharEditor.Refresh();

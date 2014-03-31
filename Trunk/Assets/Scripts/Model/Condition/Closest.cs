@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cub.Tool.Condition
+namespace Cub.Model.Condition
 {
     public class Closest : Base
     {
@@ -22,7 +22,7 @@ namespace Cub.Tool.Condition
             foreach (object obj in data)
             {
                 Character e = (Character)obj;
-                int dist = Pathfinder.Distance(e.Stat.Position, who.Stat.Position);
+                int dist = Cub.Tool.Pathfinder.Distance(e.Stat.Position, who.Stat.Position);
                 if (dist < bDist)
                     r.Clear();
                 if (dist <= bDist)

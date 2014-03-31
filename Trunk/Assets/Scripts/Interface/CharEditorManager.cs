@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Cub.Tool;
+using Cub.Model;
 
 public class CharEditorManager : MonoBehaviour {
 
@@ -13,7 +13,7 @@ public class CharEditorManager : MonoBehaviour {
     UILabel Range;
     UILabel Speed;
     CharacterButtonController CharButton;
-    public Cub.Tool.Character_Save Who;
+    public Cub.Model.Character_Save Who;
     HeadMenuController Head;
     ArmsMenuController Arms;
     BodyMenuController Body;
@@ -62,7 +62,7 @@ public class CharEditorManager : MonoBehaviour {
 	
 	}
 
-    public void Imprint(Cub.Tool.Character_Save who, CharacterButtonController button)
+    public void Imprint(Cub.Model.Character_Save who, CharacterButtonController button)
     {
         CharButton = button;
         IC.TeamEditor.SPButtonColors(who);

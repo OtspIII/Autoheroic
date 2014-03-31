@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Cub.Tool;
+using Cub.Model;
 
-namespace Cub.Tool.Action
+namespace Cub.Model.Action
 {
-    public class Charge : Cub.Tool.Action.Base
+    public class Charge : Cub.Model.Action.Base
     {
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
@@ -32,7 +32,7 @@ namespace Cub.Tool.Action
             List<object> data = new List<object>();
             foreach (Character enemy in who.FindEnemies())
             {
-                int dist = Pathfinder.Distance(who.Stat.Position, enemy.Stat.Position);
+                int dist = Cub.Tool.Pathfinder.Distance(who.Stat.Position, enemy.Stat.Position);
                 if (dist <= who.Info.Speed + 1)
                     data.Add(enemy);
             }
@@ -52,7 +52,7 @@ namespace Cub.Tool.Action
             else
                 target = (Character)data[UnityEngine.Random.Range(0, data.Count)];
 
-            List<Cub.Position2> path = Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
+            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
             int TravelDistance = Math.Min(who.Info.Speed, path.Count) - 1;
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);
@@ -62,7 +62,7 @@ namespace Cub.Tool.Action
             for (int n = 0; n <= TravelDistance; n++){
                 r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Charging " + target.FindColorName(), new List<object>() { who.ID, path[n].X, path[n].Y }));
             }
-            if (Pathfinder.Distance(who.Stat.Position,target.Stat.Position) <= who.Info.Range)
+            if (Cub.Tool.Pathfinder.Distance(who.Stat.Position, target.Stat.Position) <= who.Info.Range)
                 r.AddRange(Library.Get_Action(Cub.Action.Attack).Body(who, new List<object>{target}));
             return r;
         }

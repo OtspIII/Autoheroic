@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Cub.Tool;
+using Cub.Model;
 
 public class TeamPickerController : MonoBehaviour {
 
@@ -49,7 +49,7 @@ public class TeamPickerController : MonoBehaviour {
 
     public void SaveTeams()
     {
-        Cub.Tool.Xml.Serialize(Teams,"Data/TeamSaves.xml");
+        Cub.Tool.Xml.Serialize(Teams, "Data/TeamSaves.xml");
     }
 
     public void AddNewTeam()

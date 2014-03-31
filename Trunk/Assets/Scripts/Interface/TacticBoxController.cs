@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class TacticBoxController : MonoBehaviour {
 
     InterfaceController IC;
-    Cub.Tool.Character Who = null;
-    public Cub.Tool.Tactic Tactic = null;
+    Cub.Model.Character Who = null;
+    public Cub.Model.Tactic Tactic = null;
     public int Number;
     UILabel NumLabel;
     UILabel ActionDesc;
@@ -54,7 +54,7 @@ public class TacticBoxController : MonoBehaviour {
 	
 	}
 
-    public void Imprint(int n, Cub.Tool.Character who, Cub.Tool.Tactic tac)
+    public void Imprint(int n, Cub.Model.Character who, Cub.Model.Tactic tac)
     {
         Who = who;
         Number = n;
@@ -72,13 +72,13 @@ public class TacticBoxController : MonoBehaviour {
             else
             {
                 //Cub.Action oldAct = Tactic.A;
-                List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(who.Info.Class);
-                foreach (Cub.Tool.Action.Base act in acts)
+                List<Cub.Model.Action.Base> acts = Cub.Model.Library.List_Actions(who.Info.Class);
+                foreach (Cub.Model.Action.Base act in acts)
                     ActionList.items.Add(act.Name);
                 DeleteButton.gameObject.SetActive(true);
             }
-            ActionList.value = Cub.Tool.Library.Get_Action(Tactic.A).Name;
-            ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;
+            ActionList.value = Cub.Model.Library.Get_Action(Tactic.A).Name;
+            ConditionList.value = Cub.Model.Library.Get_Condition(Tactic.C).Name;
         }
         else
         {
@@ -91,10 +91,10 @@ public class TacticBoxController : MonoBehaviour {
     public void Refresh()
     {
         ActionList.items = new List<string> { };
-        List<Cub.Tool.Action.Base> acts = Cub.Tool.Library.List_Actions(Who.Info.Class);
+        List<Cub.Model.Action.Base> acts = Cub.Model.Library.List_Actions(Who.Info.Class);
         Debug.Log(acts.Count);
         bool unlucky = true;
-        foreach (Cub.Tool.Action.Base act in acts)
+        foreach (Cub.Model.Action.Base act in acts)
         {
             ActionList.items.Add(act.Name);
             if (act.ActionType == Tactic.A)
@@ -106,11 +106,11 @@ public class TacticBoxController : MonoBehaviour {
             foreach (Cub.Action sp in Who.Info.List_Special_Ability)
                 a = sp;
             Tactic.SetAction(a);
-            if (!Cub.Tool.Library.List_Conditions(a).Contains(Cub.Tool.Library.Get_Condition(Tactic.C)))
+            if (!Cub.Model.Library.List_Conditions(a).Contains(Cub.Model.Library.Get_Condition(Tactic.C)))
                 Tactic.SetCondition(Cub.Condition.Any);
         }
-        ActionList.value = Cub.Tool.Library.Get_Action(Tactic.A).Name;
-        ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;
+        ActionList.value = Cub.Model.Library.Get_Action(Tactic.A).Name;
+        ConditionList.value = Cub.Model.Library.Get_Condition(Tactic.C).Name;
     }
 
     public void NewActionSelected()
@@ -120,7 +120,7 @@ public class TacticBoxController : MonoBehaviour {
             string text = UIPopupList.current.isLocalized ?
                 Localization.Get(UIPopupList.current.value) :
                 UIPopupList.current.value;
-            Tactic.SetAction(Cub.Tool.Library.String_Action(text));
+            Tactic.SetAction(Cub.Model.Library.String_Action(text));
             SetAction();
         }
     }
@@ -128,22 +128,22 @@ public class TacticBoxController : MonoBehaviour {
     public void SetAction()
     {
         if (Tactic == null) return;
-        ActionDesc.text = Cub.Tool.Library.Get_Action(Tactic.A).Description;
+        ActionDesc.text = Cub.Model.Library.Get_Action(Tactic.A).Description;
         ConditionList.items = new List<string> { };
-        List<Cub.Tool.Condition.Base> cons = Cub.Tool.Library.List_Conditions(Tactic.A);
-        foreach (Cub.Tool.Condition.Base con in cons)
+        List<Cub.Model.Condition.Base> cons = Cub.Model.Library.List_Conditions(Tactic.A);
+        foreach (Cub.Model.Condition.Base con in cons)
             ConditionList.items.Add(con.Name);
-        if (!ConditionList.items.Contains(Cub.Tool.Library.Get_Condition(Tactic.C).Name))
+        if (!ConditionList.items.Contains(Cub.Model.Library.Get_Condition(Tactic.C).Name))
         {
             Tactic.SetCondition(Cub.Condition.Any);
-            ConditionList.value = Cub.Tool.Library.Get_Condition(Tactic.C).Name;
+            ConditionList.value = Cub.Model.Library.Get_Condition(Tactic.C).Name;
         }
     }
 
     public void SetCondition()
     {
         if (Tactic == null) return;
-        ConditionDesc.text = Cub.Tool.Library.Get_Condition(Tactic.C).Description;
+        ConditionDesc.text = Cub.Model.Library.Get_Condition(Tactic.C).Description;
     }
 
     public void NewConditionSelected()
@@ -153,7 +153,7 @@ public class TacticBoxController : MonoBehaviour {
             string text = UIPopupList.current.isLocalized ?
                 Localization.Get(UIPopupList.current.value) :
                 UIPopupList.current.value;
-            Tactic.SetCondition(Cub.Tool.Library.String_Condition(text));
+            Tactic.SetCondition(Cub.Model.Library.String_Condition(text));
             //if (Tactic.C == Cub.Condition.None) return;
             SetCondition();
         }
@@ -167,7 +167,7 @@ public class TacticBoxController : MonoBehaviour {
 
     public void MoveTacticUp()
     {
-        List<Cub.Tool.Tactic> tactics = Who.Tactics;
+        List<Cub.Model.Tactic> tactics = Who.Tactics;
         int placement = tactics.IndexOf(Tactic);
         if (placement == 0) return;
         tactics.RemoveAt(placement);
@@ -177,7 +177,7 @@ public class TacticBoxController : MonoBehaviour {
 
     public void MoveTacticDown()
     {
-        List<Cub.Tool.Tactic> tactics = Who.Tactics;
+        List<Cub.Model.Tactic> tactics = Who.Tactics;
         int placement = tactics.IndexOf(Tactic);
         if (placement >= tactics.Count - 1) return;
         tactics.RemoveAt(placement);

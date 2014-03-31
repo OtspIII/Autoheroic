@@ -1,10 +1,10 @@
-﻿using Cub.Tool;
+﻿using Cub.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cub.Tool.Condition
+namespace Cub.Model.Condition
 {
     public abstract class Base
     {

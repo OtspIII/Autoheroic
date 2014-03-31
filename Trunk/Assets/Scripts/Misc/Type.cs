@@ -152,6 +152,15 @@ namespace Cub
         Explode_On_Death
     }
 
+    public enum Colour
+    {
+        Black,
+        White,
+        Team_1,
+        Team_2,
+        Team_3
+    }
+
     public struct Position2
     {
         public int X;

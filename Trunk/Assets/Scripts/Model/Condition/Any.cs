@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Cub.Tool.Condition
+namespace Cub.Model.Condition
 {
     public class Any : Base
     {

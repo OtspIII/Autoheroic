@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Cub.Tool.Action
+namespace Cub.Model.Action
 {
     public abstract class Base
     {

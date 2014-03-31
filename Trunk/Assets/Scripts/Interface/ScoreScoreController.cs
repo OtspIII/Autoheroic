@@ -26,17 +26,17 @@ public class ScoreScoreController : MonoBehaviour {
         }
 	}
 
-    public void Imprint(Cub.Tool.Team t)
+    public void Imprint(Cub.Model.Team t)
     {
         Kills.text = GetScore("Kills", t);
         Survival.text = GetScore("Survival", t);
         Total.text = t.Score.ToString() + "pts";
     }
 
-    string GetScore(string name, Cub.Tool.Team t)
+    string GetScore(string name, Cub.Model.Team t)
     {
         int amt = 0;
-        foreach (Cub.Score s in t.ScoreThings)
+        foreach (Cub.Model.Score s in t.ScoreThings)
             if (s.Name == name)
             {
                 amt = s.Value;
