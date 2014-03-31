@@ -78,7 +78,7 @@ public class GameplayTeamPickerController : MonoBehaviour {
     List<TeamSave> LoadTeams()
     {
         string name = typeof(List<TeamSave>).AssemblyQualifiedName;
-        List<TeamSave> r = (List<TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
+        List<TeamSave> r = (List<TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/Team_Saves.xml");
 		return r;
     }
 

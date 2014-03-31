@@ -44,12 +44,12 @@ public class TeamPickerController : MonoBehaviour {
     List<TeamSave> LoadTeams()
     {
         string name = typeof(List<TeamSave>).AssemblyQualifiedName;
-        return (List<TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/TeamSaves.xml");
+        return (List<TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/Team_Saves.xml");
     }
 
     public void SaveTeams()
     {
-        Cub.Tool.Xml.Serialize(Teams, "Data/TeamSaves.xml");
+        Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
     }
 
     public void AddNewTeam()
