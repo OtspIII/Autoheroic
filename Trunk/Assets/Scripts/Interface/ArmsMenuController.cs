@@ -64,7 +64,7 @@ public class ArmsMenuController : MonoBehaviour
     public void UpdateBodypart()
     {
         if (Who == null) return;
-        Cub.Bodypart_Arms current = Who.Arms;
+        Cub.Part_Arms current = Who.Arms;
         string bp = Options.value;
         Who.Arms = Cub.Model.Library.Get_Arms(bp);
         //Imprint(Who);

@@ -14,7 +14,7 @@ namespace Cub.View
 
         public void Awake()
         {
-            Dictionary_Character = new Dictionary<Guid, Cub.View.Character>();            
+            Dictionary_Character = new Dictionary<Guid, Cub.View.Character>();
             Queue_Eventon = new Queue<Eventon>();
         }
 
@@ -24,6 +24,7 @@ namespace Cub.View
             Cub.View.Character C = GO.GetComponent<Cub.View.Character>();
             C.Initialize_Stat(_Character.ID, _Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position, _Character.Stat.Team, _Character.Info.Head, _Character.Info.Body, _Character.Info.Arms, _Character.Info.Legs);
             C.Initialize_Model();
+            C.Initialize_Bodypart();
             Debug.Log(_Character.ID);
             Dictionary_Character[_Character.ID] = C;
             return C;
@@ -58,9 +59,9 @@ namespace Cub.View
             {
                 Eventon E = Queue_Eventon.Dequeue();
 
-				//Debug.Log("Eventon Start -- " + Queue_Eventon.Count.ToString() + " Eventons Queued");
+                //Debug.Log("Eventon Start -- " + Queue_Eventon.Count.ToString() + " Eventons Queued");
 
-                float Delay = Cub.View.Library.Get_Event(E.Type).Process(E.Data,E.Description);
+                float Delay = Cub.View.Library.Get_Event(E.Type).Process(E.Data, E.Description);
 
                 Invoke("Run_Eventon", Delay);
             }

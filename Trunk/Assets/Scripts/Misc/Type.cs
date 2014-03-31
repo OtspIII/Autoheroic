@@ -110,7 +110,7 @@ namespace Cub
         Missile
     }
 
-    public enum Bodypart_Head
+    public enum Part_Head
     {
         Soldier,
         Hunter,
@@ -119,7 +119,7 @@ namespace Cub
         Custom
     }
 
-    public enum Bodypart_Body
+    public enum Part_Body
     {
         Light,
         Medium,
@@ -128,7 +128,7 @@ namespace Cub
         Healer
     }
 
-    public enum Bodypart_Arms
+    public enum Part_Arms
     {
         Rifle,
         Sword,
@@ -139,7 +139,7 @@ namespace Cub
         Heal_Gun
     }
 
-    public enum Bodypart_Legs
+    public enum Part_Legs
     {
         Legs,
         Hover,

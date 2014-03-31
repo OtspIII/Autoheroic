@@ -64,7 +64,7 @@ public class BodyMenuController : MonoBehaviour
     public void UpdateBodypart()
     {
         if (Who == null) return;
-        Cub.Bodypart_Body current = Who.Body;
+        Cub.Part_Body current = Who.Body;
         string bp = Options.value;
         Who.Body = Cub.Model.Library.Get_Body(bp);
         //Imprint(Who);

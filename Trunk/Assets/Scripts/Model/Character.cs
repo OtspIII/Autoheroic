@@ -9,10 +9,10 @@ namespace Cub.Model
     public class Character_Save
     {
         public string Name;
-        public Bodypart_Head Head;
-        public Bodypart_Arms Arms;
-        public Bodypart_Body Body;
-        public Bodypart_Legs Legs;
+        public Part_Head Head;
+        public Part_Arms Arms;
+        public Part_Body Body;
+        public Part_Legs Legs;
         public Position2 Position;
         //public int X;
         //public int Y;
@@ -31,7 +31,7 @@ namespace Cub.Model
 
         }
 
-        public Character_Save(string name, Bodypart_Head head, Bodypart_Arms arms, Bodypart_Body body, Bodypart_Legs legs, int _X, int _Y)
+        public Character_Save(string name, Part_Head head, Part_Arms arms, Part_Body body, Part_Legs legs, int _X, int _Y)
         {
             Name = name;
             Head = head;
@@ -44,10 +44,10 @@ namespace Cub.Model
 
     public class Character_Info
     {
-        public Bodypart_Head Head { get; set; }
-        public Bodypart_Arms Arms { get; set; }
-        public Bodypart_Body Body { get; set; }
-        public Bodypart_Legs Legs { get; set; }
+        public Part_Head Head { get; set; }
+        public Part_Arms Arms { get; set; }
+        public Part_Body Body { get; set; }
+        public Part_Legs Legs { get; set; }
         public List<Special_Effects> Effects { get; set; }
         public Cub.Model.Weapon Weapon { get; set; }
         
@@ -160,7 +160,7 @@ namespace Cub.Model
             Name = name;
         }
 
-        public Character_Info BuildInfo(Bodypart_Head head, Bodypart_Arms arms, Bodypart_Body body, Bodypart_Legs legs)
+        public Character_Info BuildInfo(Part_Head head, Part_Arms arms, Part_Body body, Part_Legs legs)
         {
             Character_Info info = new Character_Info();
             info.Head = head;
@@ -246,7 +246,7 @@ namespace Cub.Model
             return r;
         }
 
-        public List<Tactic> BuildAIProfile(Cub.Bodypart_Head head, List<Cub.Action> acts)
+        public List<Tactic> BuildAIProfile(Cub.Part_Head head, List<Cub.Action> acts)
         {
             List<Tactic> r = new List<Tactic>();
             List<Tactic> vhigh = new List<Tactic>();
@@ -255,22 +255,22 @@ namespace Cub.Model
             List<Tactic> low = new List<Tactic>();
             switch (head)
             {
-                case Cub.Bodypart_Head.Soldier:
+                case Cub.Part_Head.Soldier:
                     high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
                     low.Add(new Tactic(Cub.Condition.Any, Cub.Action.Follow_Enemy));
                     break;
 
-                case Cub.Bodypart_Head.Idiot:
+                case Cub.Part_Head.Idiot:
                     high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
                     low.Add(new Tactic(Cub.Condition.Any, Cub.Action.Explore));
                     break;
 
-                case Cub.Bodypart_Head.Protector:
+                case Cub.Part_Head.Protector:
                     high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));
                     low.Add(new Tactic(Cub.Condition.Closest, Cub.Action.Follow_Ally));
                     break;
 
-                case Cub.Bodypart_Head.Hunter:
+                case Cub.Part_Head.Hunter:
                     AddTactic(high, Cub.Action.Attack, Cub.Condition.Almost_Dead);
                     //high.Add(new Tactic(Cub.Condition.Almost_Dead, Cub.Action.Attack));
                     //high.Add(new Tactic(Cub.Condition.Any, Cub.Action.Attack));

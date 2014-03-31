@@ -64,7 +64,7 @@ public class HeadMenuController : MonoBehaviour
     public void UpdateBodypart()
     {
         if (Who == null) return;
-        Cub.Bodypart_Head current = Who.Head;
+        Cub.Part_Head current = Who.Head;
         string bp = Options.value;
         Who.Head = Cub.Model.Library.Get_Head(bp);
         //Imprint(Who);
