@@ -64,7 +64,7 @@ public class LegsMenuController : MonoBehaviour
     public void UpdateBodypart()
     {
         if (Who == null) return;
-        Cub.Part_Legs current = Who.Legs;
+        //Cub.Part_Legs current = Who.Legs;
         string bp = Options.value;
         Who.Legs = Cub.Model.Library.Get_Legs(bp);
         //Imprint(Who);

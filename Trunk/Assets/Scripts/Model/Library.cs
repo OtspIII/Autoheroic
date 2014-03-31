@@ -53,7 +53,7 @@ namespace Cub.Model
                     "A basic rifle. The standard by which all other weapons are measured.", 0, 0, 25));
                 Dictionary_Arms.Add(Part_Arms.Sword, new Model.Bodypart("Sword & Shield",
                     "A sword and shield, granting defense at the cost of an extremely short attack range.", 1, 0, 25,
-                    new List<Cub.Action> {Cub.Action.Charge }));
+                    new List<Cub.Action> { Cub.Action.Charge }));
                 Dictionary_Arms.Add(Part_Arms.Axe, new Model.Bodypart("Axe",
                     "A heavy axe, dealing terrible damage at close range but offering no protection.", 0, 0, 25,
                     new List<Cub.Action> { Cub.Action.Charge }));
