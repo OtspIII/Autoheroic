@@ -23,12 +23,12 @@ namespace Cub.View
 
     public class Character_Part
     {
-        public Cub.View.Cubon Cubon_Head { get; set; }
-        public Cub.View.Cubon Cubon_Body { get; set; }
-        public Cub.View.Cubon Cubon_Arms_Left { get; set; }
-        public Cub.View.Cubon Cubon_Arms_Right { get; set; }
-        public Cub.View.Cubon Cubon_Legs_Left { get; set; }
-        public Cub.View.Cubon Cubon_Legs_Right { get; set; }
+        public List<Cub.View.Cubon> Head { get; set; }
+        public List<Cub.View.Cubon> Body { get; set; }
+        public List<Cub.View.Cubon> Arms_Left { get; set; }
+        public List<Cub.View.Cubon> Arms_Right { get; set; }
+        public List<Cub.View.Cubon> Legs_Left { get; set; }
+        public List<Cub.View.Cubon> Legs_Right { get; set; }
     }
 
     public class Character_Stat
@@ -79,12 +79,12 @@ namespace Cub.View
 
         public void Initialize_Bodypart()
         {
-            this.Part.Cubon_Head = Library.Get_Part_Head(this.Stat.Head);
-            this.Part.Cubon_Body = Library.Get_Part_Body(this.Stat.Body);
-            this.Part.Cubon_Arms_Left = Library.Get_Part_Arms_Left(this.Stat.Arms);
-            this.Part.Cubon_Arms_Right = Library.Get_Part_Arms_Right(this.Stat.Arms);
-            this.Part.Cubon_Legs_Left = Library.Get_Part_Legs_Left(this.Stat.Legs);
-            this.Part.Cubon_Legs_Right = Library.Get_Part_Legs_Right(this.Stat.Legs);
+            this.Part.Head = Library.Get_Part_Head(this.Stat.Head);
+            this.Part.Body = Library.Get_Part_Body(this.Stat.Body);
+            this.Part.Arms_Left = Library.Get_Part_Arms_Left(this.Stat.Arms);
+            this.Part.Arms_Right = Library.Get_Part_Arms_Right(this.Stat.Arms);
+            this.Part.Legs_Left = Library.Get_Part_Legs_Left(this.Stat.Legs);
+            this.Part.Legs_Right = Library.Get_Part_Legs_Right(this.Stat.Legs);
 
             GameObject GO_Head = this.gameObject.transform.FindChild("Head").gameObject;
             GameObject GO_Body = this.gameObject.transform.FindChild("Body").gameObject;
@@ -108,64 +108,108 @@ namespace Cub.View
             GO_Legs_Left.transform.rotation = Quaternion.Euler(Skeleton.Rotation_Body_Legs_Left);
             GO_Legs_Right.transform.rotation = Quaternion.Euler(Skeleton.Rotation_Body_Legs_Right);
 
-            foreach (Position3 P in Part.Cubon_Head.Position)
+            foreach (Cubon C in Part.Head)
             {
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                
-                G.transform.parent = GO_Head.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Head.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
             }
 
-            foreach (Position3 P in Part.Cubon_Body.Position)
+            foreach (Cubon C in Part.Body)
             {
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                
-                G.transform.parent = GO_Body.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Body.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
             }
 
-            foreach (Position3 P in Part.Cubon_Arms_Left.Position)
+            foreach (Cubon C in Part.Arms_Left)
             {
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                
-                G.transform.parent = GO_Arms_Left.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Arms_Left.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
             }
 
-            foreach (Position3 P in Part.Cubon_Arms_Right.Position)
-            {         
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-             
-                G.transform.parent = GO_Arms_Right.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
-            }
-
-            foreach (Position3 P in Part.Cubon_Legs_Left.Position)
-            {   
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                
-                G.transform.parent = GO_Legs_Left.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
-            }
-
-            foreach (Position3 P in Part.Cubon_Legs_Right.Position)
+            foreach (Cubon C in Part.Arms_Right)
             {
-                GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
-                
-                G.transform.parent = GO_Legs_Right.transform.FindChild("Model").transform;
-                G.transform.localPosition = P.ToVector3();
-                G.transform.localScale = G.transform.lossyScale;
-                G.transform.localRotation = Quaternion.identity;
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Arms_Right.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
+            }
+
+            foreach (Cubon C in Part.Legs_Left)
+            {
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Legs_Left.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
+            }
+
+            foreach (Cubon C in Part.Legs_Right)
+            {
+                foreach (Position3 P in C.Position)
+                {
+                    GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
+
+                    G.transform.parent = GO_Legs_Right.transform.FindChild("Model").transform;
+                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localScale = G.transform.lossyScale;
+                    G.transform.localRotation = Quaternion.identity;
+                    G.renderer.material.color = Get_Color(C.Colour);
+                }
+            }
+        }
+
+        private Color32 Get_Color(Colour _Colour)
+        {
+            switch (_Colour)
+            {
+                case Colour.Black:
+                    {
+                        return new Color32(0, 0, 0, 255);
+                    }
+                case Colour.White:
+                    {
+                        return new Color32(255, 255, 255, 255);
+                    }
+                default:
+                    {
+                        return new Color32(0, 0, 0, 255);
+                    }
+                    
             }
         }
 

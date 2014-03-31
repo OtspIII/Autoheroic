@@ -18,16 +18,17 @@ namespace Cub.View
             Queue_Eventon = new Queue<Eventon>();
         }
 
-        public static Character Add_Character(Cub.Model.Character _Character)
+        public static void Add_Character(Cub.Model.Character _Character)
         {
             GameObject GO = GameObject.Instantiate(Cub.View.Library.Get_Character(), _Character.Stat.Position.ToVector3(), Quaternion.identity) as GameObject;
+
             Cub.View.Character C = GO.GetComponent<Cub.View.Character>();
+
             C.Initialize_Stat(_Character.ID, _Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position, _Character.Stat.Team, _Character.Info.Head, _Character.Info.Body, _Character.Info.Arms, _Character.Info.Legs);
             C.Initialize_Model();
             C.Initialize_Bodypart();
-            Debug.Log(_Character.ID);
+
             Dictionary_Character[_Character.ID] = C;
-            return C;
         }
 
         public static void Remove_Character(Guid _ID)

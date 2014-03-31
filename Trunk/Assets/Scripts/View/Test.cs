@@ -8,6 +8,7 @@ namespace Cub.Scene
     {
         public void Start()
         {
+            
             Cub.View.Library.Initialization();
 
             Cub.Model.Character C = new Model.Character();
@@ -25,6 +26,13 @@ namespace Cub.Scene
             C.Stat.Team = new Model.Team();
             
             Cub.View.Runtime.Add_Character(C);
+        
+
+            /*
+            List<Cub.View.Cubon> C = new List<View.Cubon>();
+            C.Add(new View.Cubon(Colour.Black, new List<Position3>() { new Position3(0, 0, 0) }));
+
+            Cub.Tool.Xml.Serialize(C, "Data/View_Part_Legs_Right_Hover.xml");*/
         }
     }
 }

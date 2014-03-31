@@ -14,12 +14,12 @@ namespace Cub.View
 
         private static Cub.View.Character_Skeleton Dictionary_Character_Skeleton { get; set; }
 
-        private static Dictionary<Part_Head, Cub.View.Cubon> Dictionary_Part_Head { get; set; }
-        private static Dictionary<Part_Body, Cub.View.Cubon> Dictionary_Part_Body { get; set; }
-        private static Dictionary<Part_Arms, Cub.View.Cubon> Dictionary_Part_Arms_Left { get; set; }
-        private static Dictionary<Part_Arms, Cub.View.Cubon> Dictionary_Part_Arms_Right { get; set; }
-        private static Dictionary<Part_Legs, Cub.View.Cubon> Dictionary_Part_Legs_Left { get; set; }
-        private static Dictionary<Part_Legs, Cub.View.Cubon> Dictionary_Part_Legs_Right { get; set; }
+        private static Dictionary<Part_Head, List<Cub.View.Cubon>> Dictionary_Part_Head { get; set; }
+        private static Dictionary<Part_Body, List<Cub.View.Cubon>> Dictionary_Part_Body { get; set; }
+        private static Dictionary<Part_Arms, List<Cub.View.Cubon>> Dictionary_Part_Arms_Left { get; set; }
+        private static Dictionary<Part_Arms, List<Cub.View.Cubon>> Dictionary_Part_Arms_Right { get; set; }
+        private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Left { get; set; }
+        private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Right { get; set; }
 
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
 
@@ -60,23 +60,23 @@ namespace Cub.View
                 Dictionary_Sound = new Dictionary<string, AudioClip>();
                 Dictionary_Sound.Add("Scream", (AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));
 
-                Dictionary_Part_Head = new Dictionary<Part_Head, Cubon>();
-                Dictionary_Part_Head.Add(Part_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Head_Solider.xml") as Cub.View.Cubon);
+                Dictionary_Part_Head = new Dictionary<Part_Head, List<Cubon>>();
+                Dictionary_Part_Head.Add(Part_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
 
-                Dictionary_Part_Body = new Dictionary<Part_Body, Cubon>();
-                Dictionary_Part_Body.Add(Part_Body.Medium, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Body_Medium.xml") as Cub.View.Cubon);
+                Dictionary_Part_Body = new Dictionary<Part_Body, List<Cubon>>();
+                Dictionary_Part_Body.Add(Part_Body.Medium, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
 
-                Dictionary_Part_Arms_Left = new Dictionary<Part_Arms, Cubon>();
-                Dictionary_Part_Arms_Left.Add(Part_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Arms_Left_Rifle.xml") as Cub.View.Cubon);
+                Dictionary_Part_Arms_Left = new Dictionary<Part_Arms, List<Cubon>>();
+                Dictionary_Part_Arms_Left.Add(Part_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Arms_Left_Rifle.xml") as List<Cub.View.Cubon>);
 
-                Dictionary_Part_Arms_Right = new Dictionary<Part_Arms, Cubon>();
-                Dictionary_Part_Arms_Right.Add(Part_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Arms_Right_Rifle.xml") as Cub.View.Cubon);
+                Dictionary_Part_Arms_Right = new Dictionary<Part_Arms, List<Cubon>>();
+                Dictionary_Part_Arms_Right.Add(Part_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Arms_Right_Rifle.xml") as List<Cub.View.Cubon>);
 
-                Dictionary_Part_Legs_Left = new Dictionary<Part_Legs, Cubon>();
-                Dictionary_Part_Legs_Left.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Legs_Left_Hover.xml") as Cub.View.Cubon);
+                Dictionary_Part_Legs_Left = new Dictionary<Part_Legs, List<Cubon>>();
+                Dictionary_Part_Legs_Left.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Left_Hover.xml") as List<Cub.View.Cubon>);
 
-                Dictionary_Part_Legs_Right = new Dictionary<Part_Legs, Cubon>();
-                Dictionary_Part_Legs_Right.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(Cub.View.Cubon), "Data/View_Part_Legs_Right_Hover.xml") as Cub.View.Cubon);
+                Dictionary_Part_Legs_Right = new Dictionary<Part_Legs, List<Cubon>>();
+                Dictionary_Part_Legs_Right.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
 
                 Trigger = false;
             }
@@ -129,7 +129,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Head(Part_Head _Head)
+        public static List<Cubon> Get_Part_Head(Part_Head _Head)
         {
             if (Dictionary_Part_Head.ContainsKey(_Head))
             {
@@ -138,7 +138,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Body(Part_Body _Body)
+        public static List<Cubon> Get_Part_Body(Part_Body _Body)
         {
             if (Dictionary_Part_Body.ContainsKey(_Body))
             {
@@ -147,7 +147,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Arms_Left(Part_Arms _Arms)
+        public static List<Cubon> Get_Part_Arms_Left(Part_Arms _Arms)
         {
             if (Dictionary_Part_Arms_Left.ContainsKey(_Arms))
             {
@@ -156,7 +156,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Arms_Right(Part_Arms _Arms)
+        public static List<Cubon> Get_Part_Arms_Right(Part_Arms _Arms)
         {
             if (Dictionary_Part_Arms_Right.ContainsKey(_Arms))
             {
@@ -165,7 +165,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Legs_Left(Part_Legs _Legs)
+        public static List<Cubon> Get_Part_Legs_Left(Part_Legs _Legs)
         {
             if (Dictionary_Part_Legs_Left.ContainsKey(_Legs))
             {
@@ -174,7 +174,7 @@ namespace Cub.View
             return null;
         }
 
-        public static Cubon Get_Part_Legs_Right(Part_Legs _Legs)
+        public static List<Cubon> Get_Part_Legs_Right(Part_Legs _Legs)
         {
             if (Dictionary_Part_Legs_Right.ContainsKey(_Legs))
             {

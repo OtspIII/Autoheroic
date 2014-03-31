@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Cubon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Colour>Team_1</Colour>
-  <Position>
-    <Position3>
-      <X>1</X>
-      <Y>1</Y>
-      <Z>1</Z>
-    </Position3>
-    <Position3>
-      <X>0</X>
-      <Y>0</Y>
-      <Z>0</Z>
-    </Position3>
-  </Position>
-</Cubon>
+<ArrayOfCubon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Cubon>
+    <Colour>White</Colour>
+    <Position>
+      <Position3>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>0</Z>
+      </Position3>
+    </Position>
+  </Cubon>
+</ArrayOfCubon>
