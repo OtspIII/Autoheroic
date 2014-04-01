@@ -139,6 +139,7 @@ public class GameplayScreenController : MonoBehaviour
     void BuildMap()
     {
         Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
+        Debug.Log(map.Length.ToString());
         for (int y = 0; y < map.Length; y++)
         {
             for (int x = 0; x < map[0].Length; x++)
@@ -155,11 +156,10 @@ public class GameplayScreenController : MonoBehaviour
     {
         int x = pos.X;
         int y = pos.Y;
-        x += 1;
         Cub.Position2 r = new Cub.Position2(x, y);
         if (!teamOne)
-            r = new Cub.Position2(9 - x, 9 - y);
-        if (r.X > 9 || r.X < 0 || r.Y > 9 || r.Y < 0)
+            r = new Cub.Position2(11 - x, 11 - y);
+        if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
     }

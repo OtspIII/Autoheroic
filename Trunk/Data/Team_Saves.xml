@@ -144,8 +144,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>1</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
       <Character_Save>
@@ -155,8 +155,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>3</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
       <Character_Save>
@@ -166,8 +166,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>4</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
       <Character_Save>
@@ -177,8 +177,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>5</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
       <Character_Save>
@@ -188,8 +188,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>6</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
       <Character_Save>
@@ -199,8 +199,8 @@
         <Body>Medium</Body>
         <Legs>Legs</Legs>
         <Position>
-          <X>0</X>
-          <Y>0</Y>
+          <X>2</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
     </Chars>
