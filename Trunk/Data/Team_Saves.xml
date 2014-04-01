@@ -7,9 +7,9 @@
       <Character_Save>
         <Name>Skulllock</Name>
         <Head>Hunter</Head>
-        <Arms>RPG</Arms>
-        <Body>Bomber</Body>
-        <Legs>Hover</Legs>
+        <Arms>Heal_Gun</Arms>
+        <Body>Heavy</Body>
+        <Legs>Legs</Legs>
         <Position>
           <X>3</X>
           <Y>0</Y>

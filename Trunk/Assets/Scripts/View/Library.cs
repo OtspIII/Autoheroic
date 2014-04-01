@@ -62,16 +62,16 @@ namespace Cub.View
 
                 Dictionary_Part_Head = new Dictionary<Part_Head, List<Cubon>>();
                 Dictionary_Part_Head.Add(Part_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Head.Add(Part_Head.Idiot, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Head.Add(Part_Head.Idiot, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Idiot.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Head.Add(Part_Head.Hunter, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Hunter.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Head.Add(Part_Head.Protector, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Head.Add(Part_Head.Protector, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Protector.xml") as List<Cub.View.Cubon>);
 
                 Dictionary_Part_Body = new Dictionary<Part_Body, List<Cubon>>();
                 Dictionary_Part_Body.Add(Part_Body.Medium, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Body.Add(Part_Body.Light, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Body.Add(Part_Body.Heavy, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Body.Add(Part_Body.Healer, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Body.Add(Part_Body.Bomber, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Medium.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Body.Add(Part_Body.Light, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Light.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Body.Add(Part_Body.Heavy, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Heavy.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Body.Add(Part_Body.Healer, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Healer.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Body.Add(Part_Body.Bomber, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Body_Bomber.xml") as List<Cub.View.Cubon>);
 
                 Dictionary_Part_Arms_Left = new Dictionary<Part_Arms, List<Cubon>>();
                 Dictionary_Part_Arms_Left.Add(Part_Arms.Rifle, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Arms_Left_Rifle.xml") as List<Cub.View.Cubon>);
@@ -93,12 +93,12 @@ namespace Cub.View
 
                 Dictionary_Part_Legs_Left = new Dictionary<Part_Legs, List<Cubon>>();
                 Dictionary_Part_Legs_Left.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Left_Hover.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Legs_Left.Add(Part_Legs.Legs, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Left_Hover.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Legs_Left.Add(Part_Legs.Legs, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Left_Humanoid.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Left.Add(Part_Legs.Tank_Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Left_Hover.xml") as List<Cub.View.Cubon>);
 
                 Dictionary_Part_Legs_Right = new Dictionary<Part_Legs, List<Cubon>>();
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
-                Dictionary_Part_Legs_Right.Add(Part_Legs.Legs, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
+                Dictionary_Part_Legs_Right.Add(Part_Legs.Legs, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Humanoid.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Tank_Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
 
                 Trigger = false;
