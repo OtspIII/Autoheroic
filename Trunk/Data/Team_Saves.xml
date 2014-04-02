@@ -9,7 +9,7 @@
         <Head>Hunter</Head>
         <Arms>Heal_Gun</Arms>
         <Body>Heavy</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>3</X>
           <Y>0</Y>
@@ -20,7 +20,7 @@
         <Head>Soldier</Head>
         <Arms>Sword</Arms>
         <Body>Light</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>2</X>
           <Y>0</Y>
@@ -42,7 +42,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>5</X>
           <Y>0</Y>
@@ -53,81 +53,9 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>1</X>
-          <Y>0</Y>
-        </Position>
-      </Character_Save>
-    </Chars>
-  </TeamSave>
-  <TeamSave>
-    <Name>Fluffy Clouds</Name>
-    <Owner_Name>Elyse</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>Ser Fluffknight Lightstitcher</Name>
-        <Head>Soldier</Head>
-        <Arms>Axe</Arms>
-        <Body>Heavy</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>6</X>
-          <Y>1</Y>
-        </Position>
-      </Character_Save>
-      <Character_Save>
-        <Name>Countess Elizabeth Stuffyfluff</Name>
-        <Head>Soldier</Head>
-        <Arms>RPG</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
-        <Position>
-          <X>4</X>
-          <Y>1</Y>
-        </Position>
-      </Character_Save>
-      <Character_Save>
-        <Name>Lady Legolass Greenleaf</Name>
-        <Head>Protector</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
-        <Position>
-          <X>2</X>
-          <Y>1</Y>
-        </Position>
-      </Character_Save>
-      <Character_Save>
-        <Name>Viscountess Cloud McStuffing</Name>
-        <Head>Hunter</Head>
-        <Arms>RPG</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
-        <Position>
-          <X>1</X>
-          <Y>0</Y>
-        </Position>
-      </Character_Save>
-      <Character_Save>
-        <Name>Franz Skyfluffer III, Esq</Name>
-        <Head>Hunter</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
-        <Position>
-          <X>7</X>
-          <Y>0</Y>
-        </Position>
-      </Character_Save>
-      <Character_Save>
-        <Name>I Don't Remember</Name>
-        <Head>Idiot</Head>
-        <Arms>Pistol</Arms>
-        <Body>Medium</Body>
-        <Legs>Legs</Legs>
-        <Position>
-          <X>3</X>
           <Y>0</Y>
         </Position>
       </Character_Save>
@@ -142,7 +70,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>1</X>
           <Y>3</Y>
@@ -153,7 +81,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>3</X>
           <Y>3</Y>
@@ -164,7 +92,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>4</X>
           <Y>3</Y>
@@ -175,7 +103,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>5</X>
           <Y>3</Y>
@@ -186,7 +114,7 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>6</X>
           <Y>3</Y>
@@ -197,10 +125,60 @@
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Legs</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>2</X>
           <Y>3</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name>TEEM THREE</Name>
+    <Owner_Name>MIKL CONSOULI</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>Sandra Dee</Name>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>5</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Nodricon Woobsy</Name>
+        <Head>Hunter</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Heavy</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>5</X>
+          <Y>1</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Thermador Jones</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>---</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
         </Position>
       </Character_Save>
     </Chars>

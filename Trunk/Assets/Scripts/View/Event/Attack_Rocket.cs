@@ -13,7 +13,7 @@ namespace Cub.View.Event
 
             C0.transform.LookAt(C1.transform.position);
 
-            C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Rocket");
+            //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Rocket");
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
 

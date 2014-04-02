@@ -48,7 +48,7 @@ namespace Cub.Model
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(), 
                 new List<object>(){ who.ID, target.ID,result,dam }));
             if (dam > 0)
-                target.Damage(dam, who, r);
+                target.Damage(dam, who, r, result);
             return r;
         }
     }

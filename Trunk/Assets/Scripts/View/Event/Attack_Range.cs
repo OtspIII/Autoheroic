@@ -13,7 +13,7 @@ namespace Cub.View.Event
 
             C0.transform.LookAt(C1.transform.position);
 
-            C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
+            //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
 
             //Debug.Log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 

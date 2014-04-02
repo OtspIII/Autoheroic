@@ -108,7 +108,7 @@ namespace Cub.Model
             this.Stat.Cooldown = 0;
         }
 
-        public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events)
+        public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events, AttackResults hitLevel)
         {
             this.Stat.HP -= Amount;
             if (this.Stat.HP <= 0)
@@ -118,12 +118,15 @@ namespace Cub.Model
                 //Debug.Log(source.Name + " / " + source.Stat.Team);
                 //Debug.Log(source.Stat.Team.Name);
                 source.Stat.Team.AddScore("Kills", Value);
-                Main.Dispose(this,events);
+                Main.Dispose(this, events);
                 return true;
             }
             else
+            {
+                //hitLevel tells you if this was from a normal attack or a crit. Maybe crits make an animation or something.
                 events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",
-                new List<object> { ID, Amount }));
+                    new List<object> { ID, Amount }));
+            }
             return false;
         }
 
