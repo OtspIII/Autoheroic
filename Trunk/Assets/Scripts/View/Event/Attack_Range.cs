@@ -13,9 +13,7 @@ namespace Cub.View.Event
 
             C0.transform.LookAt(C1.transform.position);
 
-            //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Range");
-
-            //Debug.Log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
+            C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
 

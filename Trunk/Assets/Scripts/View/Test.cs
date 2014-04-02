@@ -40,12 +40,17 @@ namespace Cub.Scene
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                Debug.Log("fdsa");
+
+                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
+
+                /*
                 foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Cube"))
                 {
                     DestroyImmediate(GO);
                 }
 
-                Start();
+                Start();*/
             }
         }
     }
