@@ -7,7 +7,7 @@
       <Character_Save>
         <Name>Skulllock</Name>
         <Head>Hunter</Head>
-        <Arms>Heal_Gun</Arms>
+        <Arms>RPG</Arms>
         <Body>Heavy</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -18,7 +18,7 @@
       <Character_Save>
         <Name>Soothslayer</Name>
         <Head>Soldier</Head>
-        <Arms>Sword</Arms>
+        <Arms>RPG</Arms>
         <Body>Light</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -29,7 +29,7 @@
       <Character_Save>
         <Name>Killusionist</Name>
         <Head>Hunter</Head>
-        <Arms>Sniper_Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
@@ -40,7 +40,7 @@
       <Character_Save>
         <Name>Muscle Wizard</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -51,7 +51,7 @@
       <Character_Save>
         <Name>M.A.G.U.S.</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -68,7 +68,7 @@
       <Character_Save>
         <Name>Bennett</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -79,7 +79,7 @@
       <Character_Save>
         <Name>Eric</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -90,7 +90,7 @@
       <Character_Save>
         <Name>Clara</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -101,7 +101,7 @@
       <Character_Save>
         <Name>Frank</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -112,7 +112,7 @@
       <Character_Save>
         <Name>Andy</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -123,7 +123,7 @@
       <Character_Save>
         <Name>Charles</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>

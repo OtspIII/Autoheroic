@@ -9,9 +9,10 @@ namespace Cub.View.Event
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
-            Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
+            Vector2 impact = (Vector2)_Data[1];
+            Vector3 target = new Vector3(impact.x, -0.35f, impact.y);
 
-            C0.transform.LookAt(C1.transform.position);
+            C0.transform.LookAt(impact);
 
             //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Rocket");
 
@@ -22,7 +23,7 @@ namespace Cub.View.Event
 
             B.transform.position = C0.transform.position;
 
-            iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
+            iTween.MoveTo(B, iTween.Hash("position", target, "time", 0.5F, "easetype", iTween.EaseType.linear));
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 

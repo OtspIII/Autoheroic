@@ -54,7 +54,8 @@ namespace Cub.Model.Action
             who.Stat.Cooldown += this.Turn_Cooldown;
             who.ExhaustedActions.Add(ActionType);
             Debug.Log("Missile: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " <MISSILE> " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " <MISSILE> " + target.FindColorName(),
+                new List<object>() { who.ID, target.Stat.Position.ToVector2() }));
             foreach (Character guy in Main.AllCharacters())
                 if (Cub.Tool.Pathfinder.Distance(target.Stat.Position, guy.Stat.Position) <= 1.5f)
                 {
