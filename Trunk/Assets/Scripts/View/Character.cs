@@ -210,6 +210,10 @@ namespace Cub.View
                     {
                         return new Color32(255, 255, 255, 255);
                     }
+                case Colour.Silver:
+                    {
+                        return new Color32(100, 100, 100, 255);
+                    }
                 case Colour.Team_Primary:
                     {
                         return this.Stat.Team.Colour_Primary;

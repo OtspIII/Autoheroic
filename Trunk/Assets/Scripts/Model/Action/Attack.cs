@@ -38,8 +38,6 @@ namespace Cub.Model.Action
         public override List<Cub.View.Eventon> Body(Character who, List<object> data)
         {
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
-            //Cooldown
-            //Character who = (this.Info[0] as Cub.Model.Character);
             if (data.Count == 0) return new List<View.Eventon>();
             Character target = null;
             if (data.Count == 1)
@@ -48,12 +46,37 @@ namespace Cub.Model.Action
                 target = (data[UnityEngine.Random.Range(0, data.Count)] as Cub.Model.Character);
             who.Stat.Cooldown += this.Turn_Cooldown;
 
-            Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
-            target.Damage(2, who, r);
-            //if (kill){
-            //    r.Add(new Cub.View.GameEvent(Cub.Event.Die, "R.I.P. " + target.Name, new List<object>{target.ID }));
-            //}
+            int Adv = FindAdvantage(who,target);
+            int Dis = FindDisadvantage(who, target);
+            bool RerollsGood = true;
+            if (Dis > Adv)
+                RerollsGood = false;
+            int BestRoll = -1;
+            for (int n = 1 + Mathf.Abs(Adv - Dis); n > 0; n--)
+            {
+                int roll = UnityEngine.Random.Range(0,10);
+                if (BestRoll == -1 || (RerollsGood && roll > BestRoll) || (!RerollsGood && roll < BestRoll))
+                    BestRoll = roll;
+            }
+            r.AddRange(who.Info.Weapon.Make_Attack(who, target,BestRoll));
+            return r;
+        }
+
+        public int FindAdvantage(Character who, Character target)
+        {
+            int r = 0;
+
+
+
+            return r;
+        }
+
+        public int FindDisadvantage(Character who, Character target)
+        {
+            int r = 0;
+
+
+
             return r;
         }
     }

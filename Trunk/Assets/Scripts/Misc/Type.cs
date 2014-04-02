@@ -157,8 +157,16 @@ namespace Cub
         Red,
         Black,
         White,
+        Silver,
         Team_Primary,
         Team_Secondary
+    }
+
+    public enum AttackResults
+    {
+        Miss,
+        Hit,
+        Crit
     }
 
     public struct Position2
