@@ -53,7 +53,7 @@ namespace Cub.Model
                     "A basic rifle. The standard by which all other weapons are measured.", 0, 0, 25));
                 Dictionary_Arms.Add(Part_Arms.Sword, new Model.Bodypart("Sword & Shield",
                     "A sword and shield, granting defense at the cost of an extremely short attack range.", 1, 0, 25,
-                    new List<Cub.Action> { Cub.Action.Charge }));
+                    new List<Cub.Action> {Cub.Action.Charge }));
                 Dictionary_Arms.Add(Part_Arms.Axe, new Model.Bodypart("Axe",
                     "A heavy axe, dealing terrible damage at close range but offering no protection.", 0, 0, 25,
                     new List<Cub.Action> { Cub.Action.Charge }));
@@ -70,13 +70,13 @@ namespace Cub.Model
                     new List<Cub.Action> { Cub.Action.Heal }));
 
                 Dictionary_Weapons = new Dictionary<Part_Arms, Model.Weapon>();
-                Dictionary_Weapons.Add(Part_Arms.Rifle, new Model.Weapon(5,2,2,2,3));
-                Dictionary_Weapons.Add(Part_Arms.Sword, new Model.Weapon(1,1,2,2,3));
-                Dictionary_Weapons.Add(Part_Arms.Axe, new Model.Weapon(1,1,2,3,5));
-                Dictionary_Weapons.Add(Part_Arms.Sniper_Rifle, new Model.Weapon(6,3,3,1,5));
-                Dictionary_Weapons.Add(Part_Arms.Pistol, new Model.Weapon(3,3,2,1,3));
-                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapon(4,2,3,2,2));
-                Dictionary_Weapons.Add(Part_Arms.Heal_Gun, new Model.Weapon(3,0,0,1,1));
+                Dictionary_Weapons.Add(Part_Arms.Rifle, new Model.Weapon(5));
+                Dictionary_Weapons.Add(Part_Arms.Sword, new Model.Weapon(1));
+                Dictionary_Weapons.Add(Part_Arms.Axe, new Model.Weapon(1));
+                Dictionary_Weapons.Add(Part_Arms.Sniper_Rifle, new Model.Weapon(6));
+                Dictionary_Weapons.Add(Part_Arms.Pistol, new Model.Weapon(3));
+                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapon(4));
+                Dictionary_Weapons.Add(Part_Arms.Heal_Gun, new Model.Weapon(3));
 
                 Dictionary_Bodies = new Dictionary<Part_Body, Model.Bodypart>();
                 Dictionary_Bodies.Add(Part_Body.Medium, new Model.Bodypart("Medium Armor",
@@ -91,9 +91,9 @@ namespace Cub.Model
                     "Medium armor that repairs itself automatically ever round.", 3, 0, 35));
 
                 Dictionary_Legs = new Dictionary<Part_Legs, Model.Bodypart>();
-                Dictionary_Legs.Add(Part_Legs.Legs, new Model.Bodypart("Humanoid",
+                Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.Bodypart("Humanoid",
                     "Humanoid legs that are neither especially fast nor fragile.", 0, 3, 25));
-                Dictionary_Legs.Add(Part_Legs.Tank_Tread, new Model.Bodypart("Tank Treads",
+                Dictionary_Legs.Add(Part_Legs.Tread, new Model.Bodypart("Tank Treads",
                     "Tank tread legs that are incredibly hard to damage but lack in speed.", 1, 2, 25));
                 Dictionary_Legs.Add(Part_Legs.Hover, new Model.Bodypart("Hover",
                     "A hover-engine that allows for rapid movement at the cost of durability.", -1, 4, 25));
@@ -215,7 +215,7 @@ namespace Cub.Model
             foreach (Cub.Part_Legs l in Dictionary_Legs.Keys)
                 if (Get_Legs(l).Name == legs)
                     return l;
-            return Cub.Part_Legs.Legs;
+            return Cub.Part_Legs.Humanoid;
         }
         public static List<Cub.Model.Bodypart> List_Legs()
         {

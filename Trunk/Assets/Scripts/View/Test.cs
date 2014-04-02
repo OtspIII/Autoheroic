@@ -8,6 +8,7 @@ namespace Cub.Scene
     {
         public void Start()
         {
+            Cub.View.Library.Unlock();
             
             Cub.View.Library.Initialization();
 
@@ -19,7 +20,7 @@ namespace Cub.Scene
             C.Info.Head = Part_Head.Soldier;
             C.Info.Body = Part_Body.Medium;
             C.Info.Arms = Part_Arms.Rifle;
-            C.Info.Legs = Part_Legs.Hover;
+            C.Info.Legs = Part_Legs.Tread;
 
             C.Stat = new Model.Character_Stat();
             C.Stat.Position = new Position2(0, 0);
@@ -33,6 +34,19 @@ namespace Cub.Scene
             C.Add(new View.Cubon(Colour.Black, new List<Position3>() { new Position3(0, 0, 0) }));
 
             Cub.Tool.Xml.Serialize(C, "Data/View_Part_Legs_Right_Hover.xml");*/
+        }
+
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Cube"))
+                {
+                    DestroyImmediate(GO);
+                }
+
+                Start();
+            }
         }
     }
 }

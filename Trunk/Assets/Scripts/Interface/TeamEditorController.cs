@@ -171,7 +171,7 @@ public class TeamEditorController : MonoBehaviour {
         if (Team == null || Team.Chars.Count >= 16) return;
         CharacterButtonController cbc = (CharacterButtonController)NGUITools.AddChild(CLGrid.gameObject, CharButtonType).GetComponent("CharacterButtonController");
         CButtons.Add(cbc);
-        Cub.Model.Character_Save cha = new Cub.Model.Character_Save("---",Part_Head.Soldier,Part_Arms.Rifle,Part_Body.Medium,Part_Legs.Legs,0,0);
+        Cub.Model.Character_Save cha = new Cub.Model.Character_Save("---",Part_Head.Soldier,Part_Arms.Rifle,Part_Body.Medium,Part_Legs.Humanoid,0,0);
         Team.Add_Character(cha);
         cbc.Imprint(CButtons.Count - 1,cha);
         CLGrid.repositionNow = true;
