@@ -41,8 +41,8 @@ namespace Cub.Model.Weapons
             }
             Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ") ["
                 + MissChance.ToString() + "/" + CritChance.ToString() + "/" + roll.ToString() + "/" + result + "/" + dam.ToString() + "]");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(),
-                new List<object>() { who.ID, target.ID, result, dam }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " vs. " + target.FindColorName(),
+                new List<object>() { who.ID, where }));
             r.AddRange(SplashDamage(where, AttackResults.Crit,who));
             foreach (Vector2 d in dirs)
                 r.AddRange(SplashDamage(where + d, AttackResults.Hit, who));
