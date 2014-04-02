@@ -141,9 +141,9 @@ namespace Cub
 
     public enum Part_Legs
     {
-        Legs,
+        Humanoid,
         Hover,
-        Tank_Tread
+        Tread
     }
 
     public enum Special_Effects
