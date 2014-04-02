@@ -71,12 +71,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Head)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Head.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);
@@ -85,12 +85,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Body)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Body.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);
@@ -99,12 +99,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Arms_Left)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Arms_Left.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);
@@ -113,12 +113,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Arms_Right)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Arms_Right.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);
@@ -127,12 +127,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Legs_Left)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Legs_Left.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);
@@ -141,12 +141,12 @@ namespace Cub.View
 
             foreach (Cubon C in Part.Legs_Right)
             {
-                foreach (Position3 P in C.Position)
+                foreach (Vector3 P in C.Position)
                 {
                     GameObject G = Instantiate(Library.Get_Cube()) as GameObject;
 
                     G.transform.parent = GO_Legs_Right.transform;
-                    G.transform.localPosition = P.ToVector3();
+                    G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
                     G.renderer.material.color = Get_Color(C.Colour);

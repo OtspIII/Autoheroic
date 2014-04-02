@@ -7,14 +7,14 @@ namespace Cub.View
     public class Cubon
     {
         public Colour Colour { get; set; }
-        public List<Position3> Position { get; set; }
+        public List<Vector3> Position { get; set; }
 
         public Cubon()
         {
 
         }
 
-        public Cubon(Colour _Color, List<Position3> _Position)
+        public Cubon(Colour _Color, List<Vector3> _Position)
         {
             this.Colour = _Color;
             this.Position = _Position;
