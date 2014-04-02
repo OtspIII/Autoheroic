@@ -75,7 +75,7 @@ namespace Cub.Model
                 Dictionary_Weapons.Add(Part_Arms.Axe, new Model.Weapon(1,1,2,3,5));
                 Dictionary_Weapons.Add(Part_Arms.Sniper_Rifle, new Model.Weapon(6,3,3,1,5));
                 Dictionary_Weapons.Add(Part_Arms.Pistol, new Model.Weapon(3,3,2,1,3));
-                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapon(4,2,3,2,2));
+                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapons.RPG(4,2,3,2,2));
                 Dictionary_Weapons.Add(Part_Arms.Heal_Gun, new Model.Weapon(3,0,0,1,1));
 
                 Dictionary_Bodies = new Dictionary<Part_Body, Model.Bodypart>();
