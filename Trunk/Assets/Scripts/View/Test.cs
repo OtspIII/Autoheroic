@@ -39,10 +39,9 @@ namespace Cub.Scene
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
-            {
-                Debug.Log("fdsa");
-
-                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
+            {                
+                GameObject.Find("Character(Clone)").transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Move");
+                GameObject.Find("Character(Clone)").transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
 
                 /*
                 foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Cube"))
