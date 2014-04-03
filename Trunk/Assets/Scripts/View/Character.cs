@@ -152,6 +152,29 @@ namespace Cub.View
                     G.renderer.material.color = Get_Color(C.Colour);
                 }
             }
+
+            switch (Stat.Legs)
+            {
+                case Part_Legs.Humanoid:
+                    {
+                        GO_Legs_Left.GetComponent<Animator>().SetTrigger("Humanoid_Idle");
+                        GO_Legs_Right.GetComponent<Animator>().SetTrigger("Humanoid_Idle");
+                        break;
+                    }
+                case Part_Legs.Tread:
+                    {
+                        GO_Legs_Left.GetComponent<Animator>().SetTrigger("Tread_Idle");
+                        GO_Legs_Right.GetComponent<Animator>().SetTrigger("Tread_Idle");
+                        break;
+                    }
+                case Part_Legs.Hover:
+                    {
+                        GO_Legs_Left.GetComponent<Animator>().SetTrigger("Hover_Idle");
+                        GO_Legs_Right.GetComponent<Animator>().SetTrigger("Hover_Idle");
+                        break;
+                    }
+            }
+            
         }
 
         private Color32 Get_Color(Colour _Colour)
