@@ -153,6 +153,16 @@ namespace Cub.View
                 }
             }
 
+            switch (Stat.Arms)
+            {
+                case Part_Arms.Rifle:
+                    {
+                        GO_Arms_Left.GetComponent<Animator>().SetTrigger("Rifle");
+                        GO_Arms_Right.GetComponent<Animator>().SetTrigger("Rifle");
+                        break;
+                    }
+            }
+
             switch (Stat.Legs)
             {
                 case Part_Legs.Humanoid:

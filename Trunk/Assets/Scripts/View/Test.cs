@@ -20,7 +20,7 @@ namespace Cub.Scene
             C.Info.Head = Part_Head.Soldier;
             C.Info.Body = Part_Body.Medium;
             C.Info.Arms = Part_Arms.Rifle;
-            C.Info.Legs = Part_Legs.Humanoid;
+            C.Info.Legs = Part_Legs.Tread;
 
             C.Stat = new Model.Character_Stat();
             C.Stat.Position = new Position2(0, 0);
@@ -39,7 +39,11 @@ namespace Cub.Scene
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
-            {                
+            {
+                GameObject.Find("Character(Clone)").transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Move");
+                GameObject.Find("Character(Clone)").transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Move");
+                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Move");
+                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Move");
                 GameObject.Find("Character(Clone)").transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Move");
                 GameObject.Find("Character(Clone)").transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
 
