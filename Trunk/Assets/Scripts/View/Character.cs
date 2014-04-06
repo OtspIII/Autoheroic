@@ -153,6 +153,7 @@ namespace Cub.View
                 }
             }
 
+            /*
             switch (Stat.Arms)
             {
                 case Part_Arms.Rifle:
@@ -162,6 +163,7 @@ namespace Cub.View
                         break;
                     }
             }
+            */
 
             switch (Stat.Legs)
             {
@@ -183,8 +185,7 @@ namespace Cub.View
                         GO_Legs_Right.GetComponent<Animator>().SetTrigger("Hover");
                         break;
                     }
-            }
-            
+            }            
         }
 
         private Color32 Get_Color(Colour _Colour)
