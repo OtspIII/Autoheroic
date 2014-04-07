@@ -23,13 +23,13 @@ namespace Cub.View.Event
             C.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Move");
             C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Move");
             C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
+
+            C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
                         
             C.transform.LookAt(new Vector3(X, 0, Z));
 
             iTween.MoveTo(C.gameObject, iTween.Hash("position", new Vector3(X, 0, Z), "time", Timespan, "easetype", iTween.EaseType.linear));
-
-            C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
-
+            
             return Timespan;
         }
     }

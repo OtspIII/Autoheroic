@@ -51,18 +51,11 @@ namespace Cub.Scene
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
-            {
-                
+            {                
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0, 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
                 
                 /*
-                GameObject.Find("Character(Clone)").transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Move");
-                GameObject.Find("Character(Clone)").transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Move");
-                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Move");
-                GameObject.Find("Character(Clone)").transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Move");
-                GameObject.Find("Character(Clone)").transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Move");
-                GameObject.Find("Character(Clone)").transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
                 */
                 /*
                 foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Cube"))
@@ -71,6 +64,18 @@ namespace Cub.Scene
                 }
 
                 Start();*/
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Move, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
+                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
+                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
