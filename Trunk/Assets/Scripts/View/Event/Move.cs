@@ -17,24 +17,19 @@ namespace Cub.View.Event
             //Animator AF = C.gameObject.GetComponent<Animator>();            
             //AF.SetTrigger("Move");
 
-            Animator A_Head = C.transform.FindChild("Head").GetComponent<Animator>();
-            Animator A_Body = C.transform.FindChild("Body").GetComponent<Animator>();
-            Animator A_Arms_Left = C.transform.FindChild("Arms_Left").GetComponent<Animator>();
-            Animator A_Arms_Right = C.transform.FindChild("Arms_Right").GetComponent<Animator>();
-            Animator A_Legs_Left = C.transform.FindChild("Legs_Left").GetComponent<Animator>();
-            Animator A_Legs_Right = C.transform.FindChild("Legs_Right").GetComponent<Animator>();
+            C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Move");
+            C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Move");
+            C.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Move");
+            C.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Move");
+            C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Move");
+            C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
 
-            A_Head.SetTrigger("Move");
-            A_Body.SetTrigger("Move");
-            A_Arms_Left.SetTrigger("Move");
-            A_Arms_Right.SetTrigger("Move");
-            A_Legs_Left.SetTrigger("Move");
-            A_Legs_Right.SetTrigger("Move");
-
+            C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
+                        
             C.transform.LookAt(new Vector3(X, 0, Z));
 
             iTween.MoveTo(C.gameObject, iTween.Hash("position", new Vector3(X, 0, Z), "time", Timespan, "easetype", iTween.EaseType.linear));
-
+            
             return Timespan;
         }
     }
