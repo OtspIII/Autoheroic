@@ -7,7 +7,7 @@
       <Character_Save>
         <Name>Skulllock</Name>
         <Head>Hunter</Head>
-        <Arms>RPG</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Heavy</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -18,7 +18,7 @@
       <Character_Save>
         <Name>Soothslayer</Name>
         <Head>Soldier</Head>
-        <Arms>RPG</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Light</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -29,7 +29,7 @@
       <Character_Save>
         <Name>Killusionist</Name>
         <Head>Hunter</Head>
-        <Arms>RPG</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
@@ -40,7 +40,7 @@
       <Character_Save>
         <Name>Muscle Wizard</Name>
         <Head>Soldier</Head>
-        <Arms>RPG</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -51,7 +51,7 @@
       <Character_Save>
         <Name>M.A.G.U.S.</Name>
         <Head>Soldier</Head>
-        <Arms>RPG</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -179,6 +179,143 @@
         <Position>
           <X>0</X>
           <Y>0</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name>Maggots</Name>
+    <Owner_Name>Sig</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>Joff</Name>
+        <Head>Idiot</Head>
+        <Arms>Axe</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>The Mountain</Name>
+        <Head>Protector</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>7</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Little Finger</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>9</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Red Woman</Name>
+        <Head>Protector</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Heavy</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>6</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Stannis</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>5</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name>Classikal Gentlemen</Name>
+    <Owner_Name>Josh R</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>Alexander</Name>
+        <Head>Soldier</Head>
+        <Arms>Sword</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>4</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Horatius
+</Name>
+        <Head>Protector</Head>
+        <Arms>Sword</Arms>
+        <Body>Heavy</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>6</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Socrates
+</Name>
+        <Head>Idiot</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Heavy</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>4</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Paris
+</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>9</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Odysseus
+</Name>
+        <Head>Hunter</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Maximinus Thrax</Name>
+        <Head>Soldier</Head>
+        <Arms>Axe</Arms>
+        <Body>Light</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>9</X>
+          <Y>3</Y>
         </Position>
       </Character_Save>
     </Chars>

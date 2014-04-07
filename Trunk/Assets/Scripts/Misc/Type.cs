@@ -96,9 +96,10 @@ namespace Cub
         Attack_Range,
         Attack_Melee,
         Attack_Rocket,
-        Attack_Snipe,//
-        Attack_Heal,//
-        Be_Healed,//
+        Attack_Snipe,
+        Attack_Heal,
+        Attack_Harm,
+        Be_Healed,
         Be_Attacked
     }
 

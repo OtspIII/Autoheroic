@@ -41,6 +41,7 @@ namespace Cub.View
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
+                Dictionary_Event[Cub.Event.Attack_Harm] = new Cub.View.Event.Attack_Harm();
                 Dictionary_Event[Cub.Event.Attack_Melee] = new Cub.View.Event.Attack_Melee();
                 Dictionary_Event[Cub.Event.Attack_Range] = new Cub.View.Event.Attack_Range();
                 Dictionary_Event[Cub.Event.Attack_Rocket] = new Cub.View.Event.Attack_Rocket();
