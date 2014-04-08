@@ -19,7 +19,7 @@ namespace Cub.Scene
             C0.Info.Head = Part_Head.Soldier;
             C0.Info.Body = Part_Body.Medium;
             C0.Info.Arms = Part_Arms.Rifle;
-            C0.Info.Legs = Part_Legs.Hover;
+            C0.Info.Legs = Part_Legs.Tread;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
             C0.Stat.Team = new Model.Team();

@@ -156,9 +156,11 @@ namespace Cub
     public enum Colour
     {
         Red,
+        Brown,
         Black,
         White,
         Silver,
+        Grey,
         Team_Primary,
         Team_Secondary
     }

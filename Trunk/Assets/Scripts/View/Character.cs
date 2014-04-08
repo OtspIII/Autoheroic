@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cub.View
-{    
+{
     public class Character_Part
     {
         public List<Cub.View.Cubon> Head { get; set; }
@@ -69,6 +69,26 @@ namespace Cub.View
             GameObject GO_Legs_Left = this.gameObject.transform.FindChild("Legs_Left").gameObject;
             GameObject GO_Legs_Right = this.gameObject.transform.FindChild("Legs_Right").gameObject;
 
+            Dictionary<Colour, Material> Dictionary_Material = new Dictionary<Colour, Material>();
+            Dictionary_Material.Add(Colour.Red, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Black, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.White, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Grey, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Brown, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Silver, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Team_Primary, new Material(Library.Get_Material()));
+            Dictionary_Material.Add(Colour.Team_Secondary, new Material(Library.Get_Material()));
+            Dictionary_Material[Colour.Red].color = Color.red;
+            Dictionary_Material[Colour.Black].color = Color.black;
+            Dictionary_Material[Colour.White].color = Color.white;
+            Dictionary_Material[Colour.Grey].color = Color.grey;
+            Dictionary_Material[Colour.Brown].color = new Color(0.64F, 0.32F, 0.32F, 1F);
+            Dictionary_Material[Colour.Silver].color = new Color(0.88F, 0.88F, 0.88F, 1F);
+            Dictionary_Material[Colour.Team_Primary].color = Stat.Team.Colour_Primary;
+            Dictionary_Material[Colour.Team_Secondary].color = Stat.Team.Colour_Secondary;
+
+
+
             foreach (Cubon C in Part.Head)
             {
                 foreach (Vector3 P in C.Position)
@@ -79,7 +99,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -93,7 +113,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -107,7 +127,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -121,7 +141,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -135,7 +155,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -149,7 +169,7 @@ namespace Cub.View
                     G.transform.localPosition = P;
                     G.transform.localScale = G.transform.lossyScale;
                     G.transform.localRotation = Quaternion.identity;
-                    G.renderer.material.color = Get_Color(C.Colour);
+                    G.renderer.material = Dictionary_Material[C.Colour];
                 }
             }
 
@@ -185,17 +205,13 @@ namespace Cub.View
                         GO_Legs_Right.GetComponent<Animator>().SetTrigger("Hover");
                         break;
                     }
-            }            
+            }
         }
 
         private Color32 Get_Color(Colour _Colour)
         {
             switch (_Colour)
             {
-                case Colour.Red:
-                    {
-                        return new Color32(255, 0, 0, 255);
-                    }
                 case Colour.Black:
                     {
                         return new Color32(0, 0, 0, 255);
