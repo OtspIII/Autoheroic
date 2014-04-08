@@ -53,6 +53,7 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
                 Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
+                Dictionary_Event[Cub.Event.BlowUp] = new Cub.View.Event.BlowUp();
 
                 Dictionary_Sound = new Dictionary<string, AudioClip>();
                 Dictionary_Sound.Add("Scream", (AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));

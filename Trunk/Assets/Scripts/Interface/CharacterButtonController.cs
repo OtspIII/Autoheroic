@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class CharacterButtonController : MonoBehaviour {
 
     InterfaceController IC;
-    Cub.Model.Character_Save Who = null;
+    public Cub.Model.Character_Save Who = null;
     int Number;
     UILabel NumTxt;
     UILabel Name;

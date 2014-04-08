@@ -44,7 +44,7 @@ namespace Cub.Model.Action
             else
                 target = (Character)data[UnityEngine.Random.Range(0, data.Count)];
 
-            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position);
+            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position, who.Info.Blockable);
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);

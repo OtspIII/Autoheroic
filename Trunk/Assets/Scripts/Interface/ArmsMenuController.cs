@@ -57,7 +57,7 @@ public class ArmsMenuController : MonoBehaviour
         if (Options.value != H.Name)
             Options.value = H.Name;
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
-        Effects.text = "Effects: --";
+        Effects.text = "Effects: " + H.Name;
         Desc.text = H.Description;
     }
 

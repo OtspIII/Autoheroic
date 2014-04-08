@@ -60,7 +60,8 @@ namespace Cub
         Missile,
         Snipe,
         Follow_Ally,
-        Follow_Enemy
+        Follow_Enemy,
+        BlowUp
 
         //Approach,
         //Fallback,
@@ -100,7 +101,8 @@ namespace Cub
         Attack_Heal,
         Attack_Harm,
         Be_Healed,
-        Be_Attacked
+        Be_Attacked,
+        BlowUp
     }
 
     public enum ConditionGenre

@@ -10,51 +10,14 @@ namespace Cub.Model
         public string Name;
         public string Description;
         
-        public int Health;
-        public int Speed;
         public int Cost;
 
         public List<Special_Effects> Effects = new List<Special_Effects>();
         public List<Cub.Action> Special_Abilities = new List<Cub.Action>();
 
-        public Bodypart(string name, string desc, int hp, int sp, int cst)
+        public Bodypart()
         {
-            Name = name;
-            Description = desc;
-            Health = hp;
-            Speed = sp;
-            Cost = cst;
-        }
 
-        public Bodypart(string name, string desc, int hp, int sp, int cst, List<Special_Effects> eff)
-        {
-            Name = name;
-            Description = desc;
-            Health = hp;
-            Speed = sp;
-            Cost = cst;
-            Effects = eff;
-        }
-
-        public Bodypart(string name, string desc, int hp, int sp, int cst, List<Cub.Action> abil)
-        {
-            Name = name;
-            Description = desc;
-            Health = hp;
-            Speed = sp;
-            Cost = cst;
-            Special_Abilities = abil;
-        }
-
-        public Bodypart(string name, string desc, int hp, int sp, int cst, List<Special_Effects> eff, List<Cub.Action> abil)
-        {
-            Name = name;
-            Description = desc;
-            Health = hp;
-            Speed = sp;
-            Cost = cst;
-            Effects = eff;
-            Special_Abilities = abil;
         }
     }
 }

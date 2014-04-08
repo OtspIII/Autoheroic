@@ -37,7 +37,7 @@ namespace Cub.Model.Action
                 for (int y = NowY - (M - System.Math.Abs(x - NowX)); y < NowY + (M - System.Math.Abs(x - NowX)); y++)
                 {
                     Cub.Position2 V = new Cub.Position2(x, y);
-                    if (Cub.Tool.Pathfinder.CheckAccessable(V))
+                    if (Cub.Tool.Pathfinder.CheckAccessable(V,true))
                         L.Add(V);
                 }
 
@@ -54,7 +54,7 @@ namespace Cub.Model.Action
             if (data.Count == 0) return new List<View.Eventon>();
             if (data.Count == 1) where = (Cub.Position2)data[0];
             else where = (Cub.Position2)data[UnityEngine.Random.Range(0, data.Count)];
-            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, where);
+            List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, where,who.Info.Blockable);
             int TravelDistance = Math.Min(who.Info.Speed, path.Count) - 1;
             if (TravelDistance < 0)
                 return new List<Cub.View.Eventon>() { };

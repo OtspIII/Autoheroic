@@ -8,8 +8,8 @@
         <Name>Skulllock</Name>
         <Head>Hunter</Head>
         <Arms>Heal_Gun</Arms>
-        <Body>Heavy</Body>
-        <Legs>Humanoid</Legs>
+        <Body>Bomber</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>3</X>
           <Y>0</Y>
@@ -19,8 +19,8 @@
         <Name>Soothslayer</Name>
         <Head>Soldier</Head>
         <Arms>Heal_Gun</Arms>
-        <Body>Light</Body>
-        <Legs>Humanoid</Legs>
+        <Body>Bomber</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>2</X>
           <Y>0</Y>
@@ -30,7 +30,7 @@
         <Name>Killusionist</Name>
         <Head>Hunter</Head>
         <Arms>Heal_Gun</Arms>
-        <Body>Light</Body>
+        <Body>Healer</Body>
         <Legs>Hover</Legs>
         <Position>
           <X>4</X>
@@ -41,8 +41,8 @@
         <Name>Muscle Wizard</Name>
         <Head>Soldier</Head>
         <Arms>Heal_Gun</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>5</X>
           <Y>0</Y>
@@ -52,8 +52,8 @@
         <Name>M.A.G.U.S.</Name>
         <Head>Soldier</Head>
         <Arms>Heal_Gun</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>1</X>
           <Y>0</Y>
@@ -139,10 +139,10 @@
     <Chars>
       <Character_Save>
         <Name>Sandra Dee</Name>
-        <Head>Hunter</Head>
-        <Arms>RPG</Arms>
+        <Head>Protector</Head>
+        <Arms>Sniper_Rifle</Arms>
         <Body>Healer</Body>
-        <Legs>Tread</Legs>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>5</X>
           <Y>0</Y>
@@ -153,7 +153,7 @@
         <Head>Hunter</Head>
         <Arms>Heal_Gun</Arms>
         <Body>Heavy</Body>
-        <Legs>Humanoid</Legs>
+        <Legs>Hover</Legs>
         <Position>
           <X>5</X>
           <Y>1</Y>
@@ -161,21 +161,21 @@
       </Character_Save>
       <Character_Save>
         <Name>Thermador Jones</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
+        <Body>Heavy</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>0</X>
           <Y>0</Y>
         </Position>
       </Character_Save>
       <Character_Save>
-        <Name>---</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Name>Lola</Name>
+        <Head>Hunter</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>0</X>
           <Y>0</Y>
@@ -315,6 +315,150 @@
         <Legs>Humanoid</Legs>
         <Position>
           <X>9</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name>80085</Name>
+    <Owner_Name>JimmyJamTheJ-Man</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>Balls</Name>
+        <Head>Idiot</Head>
+        <Arms>RPG</Arms>
+        <Body>Bomber</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>5</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Michelle</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Heavy</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>5</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Hey
+I 
+Can
+Do
+This
+That
+Seems
+</Name>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>8</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>if(fStop == true){ run();}</Name>
+        <Head>Protector</Head>
+        <Arms>Axe</Arms>
+        <Body>Healer</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>---</Name>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>3</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name>Cthuluh</Name>
+    <Owner_Name>Matt</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>Hunter
+</Name>
+        <Head>Hunter</Head>
+        <Arms>Axe</Arms>
+        <Body>Light</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>0</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Tank
+</Name>
+        <Head>Protector</Head>
+        <Arms>Sword</Arms>
+        <Body>Heavy</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>3</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Sniper</Name>
+        <Head>Soldier</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>3</X>
+          <Y>1</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Healer</Name>
+        <Head>Soldier</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>2</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Standard
+</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>Kamikaze
+</Name>
+        <Head>Idiot</Head>
+        <Arms>Sword</Arms>
+        <Body>Bomber</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>1</X>
           <Y>3</Y>
         </Position>
       </Character_Save>

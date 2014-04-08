@@ -16,10 +16,10 @@ namespace Cub.Model
         private static Dictionary<string, Cub.Action> Action_Strings { get; set; }
         private static Dictionary<Cub.Class, Cub.Model.Character_Info> Dictionary_Class_Info { get; set; }
 
-        private static Dictionary<Cub.Part_Head, Cub.Model.Bodypart> Dictionary_Heads { get; set; }
-        private static Dictionary<Cub.Part_Arms, Cub.Model.Bodypart> Dictionary_Arms { get; set; }
-        private static Dictionary<Cub.Part_Body, Cub.Model.Bodypart> Dictionary_Bodies { get; set; }
-        private static Dictionary<Cub.Part_Legs, Cub.Model.Bodypart> Dictionary_Legs { get; set; }
+        private static Dictionary<Cub.Part_Head, Cub.Model.BPHead> Dictionary_Heads { get; set; }
+        private static Dictionary<Cub.Part_Arms, Cub.Model.BPArms> Dictionary_Arms { get; set; }
+        private static Dictionary<Cub.Part_Body, Cub.Model.BPBody> Dictionary_Bodies { get; set; }
+        private static Dictionary<Cub.Part_Legs, Cub.Model.BPLegs> Dictionary_Legs { get; set; }
         private static Dictionary<Cub.Part_Arms, Cub.Model.Weapon> Dictionary_Weapons { get; set; }
 
         public static Cub.Terrain[][] Stage_Terrain { get; set; }
@@ -38,36 +38,36 @@ namespace Cub.Model
                 Dictionary_Class_Info[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Jerk.xml") as Cub.Model.Character_Info;
                 Dictionary_Class_Info[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Medic.xml") as Cub.Model.Character_Info;
 
-                Dictionary_Heads = new Dictionary<Part_Head, Model.Bodypart>();
-                Dictionary_Heads.Add(Cub.Part_Head.Soldier, new Model.Bodypart("Soldier",
-                    "An AI module that marches towards the enemy and attacks. Simple but effecive.", 0, 0, 25));
-                Dictionary_Heads.Add(Cub.Part_Head.Idiot, new Model.Bodypart("Idiot",
-                    "An incredibly cheap AI module that wanders the battlefield at random. At least it's hard to damage.", 1, 0, 10));
-                Dictionary_Heads.Add(Cub.Part_Head.Protector, new Model.Bodypart("Protector",
-                    "An AI module that chooses to follow teammates around rather than seek the enemy out itself.", 0, 0, 20));
-                Dictionary_Heads.Add(Cub.Part_Head.Hunter, new Model.Bodypart("Hunter-Killer",
-                    "This AI module seeks out the highest-value unit on the opposing team and targets it first.", 0, 0, 30));
+                Dictionary_Heads = new Dictionary<Part_Head, Model.BPHead>();
+                Dictionary_Heads.Add(Cub.Part_Head.Soldier, new Model.BPHead("Soldier",
+                    "An AI module that marches towards the enemy and attacks. Simple but effecive.", 25));
+                Dictionary_Heads.Add(Cub.Part_Head.Idiot, new Model.BPHead("Idiot",
+                    "An incredibly cheap AI module that wanders the battlefield at random. At least it's hard to damage.", 5));
+                Dictionary_Heads.Add(Cub.Part_Head.Protector, new Model.BPHead("Protector",
+                    "An AI module that chooses to follow teammates around rather than seek the enemy out itself.", 20));
+                Dictionary_Heads.Add(Cub.Part_Head.Hunter, new Model.BPHead("Hunter-Killer",
+                    "This AI module seeks out the highest-value unit on the opposing team and targets it first.", 30));
 
-                Dictionary_Arms = new Dictionary<Part_Arms, Model.Bodypart>();
-                Dictionary_Arms.Add(Part_Arms.Rifle, new Model.Bodypart("Rifle",
-                    "A basic rifle. The standard by which all other weapons are measured.", 0, 0, 25));
-                Dictionary_Arms.Add(Part_Arms.Sword, new Model.Bodypart("Sword & Shield",
-                    "A sword and shield, granting defense at the cost of an extremely short attack range.", 1, 0, 25,
+                Dictionary_Arms = new Dictionary<Part_Arms, Model.BPArms>();
+                Dictionary_Arms.Add(Part_Arms.Rifle, new Model.BPArms("Rifle",
+                    "A basic rifle. The standard by which all other weapons are measured.", 25));
+                Dictionary_Arms.Add(Part_Arms.Sword, new Model.BPArms("Sword & Shield",
+                    "A sword and shield, granting defense at the cost of an extremely short attack range.", 25,
                     new List<Cub.Action> { Cub.Action.Charge }));
-                Dictionary_Arms.Add(Part_Arms.Axe, new Model.Bodypart("Axe",
-                    "A heavy axe, dealing terrible damage at close range but offering no protection.", 0, 0, 25,
+                Dictionary_Arms.Add(Part_Arms.Axe, new Model.BPArms("Axe",
+                    "A heavy axe, dealing terrible damage at close range but offering no protection.", 25,
                     new List<Cub.Action> { Cub.Action.Charge }));
-                Dictionary_Arms.Add(Part_Arms.Sniper_Rifle, new Model.Bodypart("Sniper Rifle",
-                    "A sniper rifle that is only mildly effective unless it can pull off a head-shot.", 0, 0, 30,
+                Dictionary_Arms.Add(Part_Arms.Sniper_Rifle, new Model.BPArms("Sniper Rifle",
+                    "A sniper rifle that is only mildly effective unless it can pull off a head-shot.", 30,
                     new List<Cub.Action> { Cub.Action.Snipe }));
-                Dictionary_Arms.Add(Part_Arms.Pistol, new Model.Bodypart("Pistol",
-                    "A cheap pistol with meager range and damage.", 0, 0, 10));
-                Dictionary_Arms.Add(Part_Arms.RPG, new Model.Bodypart("RPG",
-                    "A rocket launcher that is hard to aim but does damage in an area around where it hits.", 0, 0, 35,
+                Dictionary_Arms.Add(Part_Arms.Pistol, new Model.BPArms("Pistol",
+                    "A cheap pistol with meager range and damage.", 10));
+                Dictionary_Arms.Add(Part_Arms.RPG, new Model.BPArms("RPG",
+                    "A rocket launcher that is hard to aim but does damage in an area around where it hits.", 35,
                     new List<Cub.Action> { }));
                     //new List<Cub.Action> { Cub.Action.Missile }));
-                Dictionary_Arms.Add(Part_Arms.Heal_Gun, new Model.Bodypart("Heal Gun",
-                    "A heal-gun that can be used both to heal allies and to harm the enemy.", 0, 0, 25,
+                Dictionary_Arms.Add(Part_Arms.Heal_Gun, new Model.BPArms("Heal Gun",
+                    "A heal-gun that can be used both to heal allies and to harm the enemy.", 25,
                     new List<Cub.Action> { Cub.Action.Heal }));
 
                 Dictionary_Weapons = new Dictionary<Part_Arms, Model.Weapon>();
@@ -79,25 +79,25 @@ namespace Cub.Model
                 Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapons.RPG(4,2,3,2,1));
                 Dictionary_Weapons.Add(Part_Arms.Heal_Gun, new Model.Weapons.Heal_Gun(3,1));
 
-                Dictionary_Bodies = new Dictionary<Part_Body, Model.Bodypart>();
-                Dictionary_Bodies.Add(Part_Body.Medium, new Model.Bodypart("Medium Armor",
-                    "The basic armor.", 3, 0, 25));
-                Dictionary_Bodies.Add(Part_Body.Light, new Model.Bodypart("Light Armor",
-                    "Light armor that gains move speed at the cost of protection.", 2, 1, 25));
-                Dictionary_Bodies.Add(Part_Body.Heavy, new Model.Bodypart("Heavy Armor",
-                    "Armor made from heavy materials that trade speed for protection.", 4, -1, 25));
-                Dictionary_Bodies.Add(Part_Body.Bomber, new Model.Bodypart("Bomber Chest",
-                    "A bunch of explosives stuffed in a tin can. Explodes when destroyed.", 2, 0, 25));
-                Dictionary_Bodies.Add(Part_Body.Healer, new Model.Bodypart("Self-Repairing Core",
-                    "Medium armor that repairs itself automatically ever round.", 3, 0, 35));
+                Dictionary_Bodies = new Dictionary<Part_Body, Model.BPBody>();
+                Dictionary_Bodies.Add(Part_Body.Medium, new Model.BPBody("Medium Armor",
+                    "The basic armor.", 3, 25));
+                Dictionary_Bodies.Add(Part_Body.Light, new Model.BPBody("Light Armor",
+                    "Light armor that gains move speed at the cost of protection.", 2, 15));
+                Dictionary_Bodies.Add(Part_Body.Heavy, new Model.BPBody("Heavy Armor",
+                    "Armor made from heavy materials that trade speed for protection.", 4, 35));
+                Dictionary_Bodies.Add(Part_Body.Bomber, new Model.BPBody("Bomber Chest",
+                    "A bunch of explosives stuffed in a tin can. Explodes when destroyed.", 2, 25));
+                Dictionary_Bodies.Add(Part_Body.Healer, new Model.BPBody("Self-Repairing Core",
+                    "Medium armor that repairs itself automatically ever round.", 3, 40));
 
-                Dictionary_Legs = new Dictionary<Part_Legs, Model.Bodypart>();
-                Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.Bodypart("Humanoid",
-                    "Humanoid legs that are neither especially fast nor fragile.", 0, 3, 25));
-                Dictionary_Legs.Add(Part_Legs.Tread, new Model.Bodypart("Tank Treads",
-                    "Tank tread legs that are incredibly hard to damage but lack in speed.", 1, 2, 25));
-                Dictionary_Legs.Add(Part_Legs.Hover, new Model.Bodypart("Hover",
-                    "A hover-engine that allows for rapid movement at the cost of durability.", -1, 4, 25));
+                Dictionary_Legs = new Dictionary<Part_Legs, Model.BPLegs>();
+                Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.BPLegs("Humanoid",
+                    "Humanoid legs that are neither especially fast nor fragile.", 3, 25));
+                Dictionary_Legs.Add(Part_Legs.Tread, new Model.BPLegs("Tank Treads",
+                    "Tank tread legs that are incredibly hard to damage but lack in speed.", 2, 15));
+                Dictionary_Legs.Add(Part_Legs.Hover, new Model.BPLegs("Hover",
+                    "A hover-engine that allows for rapid movement at the cost of durability.", 4, 35, new List<Cub.Action>(), false));
 
                 Dictionary_Condition = new Dictionary<Cub.Condition, Cub.Model.Condition.Base>();
                 Dictionary_Condition[Cub.Condition.Any] = new Cub.Model.Condition.Any();
@@ -138,7 +138,7 @@ namespace Cub.Model
             }
         }
 
-        public static Cub.Model.Bodypart Get_Head(Cub.Part_Head head)
+        public static Cub.Model.BPHead Get_Head(Cub.Part_Head head)
         {
             if (Dictionary_Heads.ContainsKey(head))
                 return Dictionary_Heads[head];
@@ -152,15 +152,15 @@ namespace Cub.Model
                     return h;
             return Cub.Part_Head.Soldier;
         }
-        public static List<Cub.Model.Bodypart> List_Heads()
+        public static List<Cub.Model.BPHead> List_Heads()
         {
-            List<Cub.Model.Bodypart> r = new List<Model.Bodypart>();
+            List<Cub.Model.BPHead> r = new List<Model.BPHead>();
             foreach (Cub.Part_Head head in Dictionary_Heads.Keys)
                 r.Add(Dictionary_Heads[head]);
             return r;
         }
 
-        public static Cub.Model.Bodypart Get_Arms(Cub.Part_Arms arms)
+        public static Cub.Model.BPArms Get_Arms(Cub.Part_Arms arms)
         {
             if (Dictionary_Arms.ContainsKey(arms))
                 return Dictionary_Arms[arms];
@@ -174,15 +174,15 @@ namespace Cub.Model
                     return a;
             return Cub.Part_Arms.Rifle;
         }
-        public static List<Cub.Model.Bodypart> List_Arms()
+        public static List<Cub.Model.BPArms> List_Arms()
         {
-            List<Cub.Model.Bodypart> r = new List<Model.Bodypart>();
+            List<Cub.Model.BPArms> r = new List<Model.BPArms>();
             foreach (Cub.Part_Arms arms in Dictionary_Arms.Keys)
                 r.Add(Dictionary_Arms[arms]);
             return r;
         }
 
-        public static Cub.Model.Bodypart Get_Body(Cub.Part_Body body)
+        public static Cub.Model.BPBody Get_Body(Cub.Part_Body body)
         {
             if (Dictionary_Bodies.ContainsKey(body))
                 return Dictionary_Bodies[body];
@@ -196,15 +196,15 @@ namespace Cub.Model
                     return b;
             return Cub.Part_Body.Medium;
         }
-        public static List<Cub.Model.Bodypart> List_Bodies()
+        public static List<Cub.Model.BPBody> List_Bodies()
         {
-            List<Cub.Model.Bodypart> r = new List<Model.Bodypart>();
+            List<Cub.Model.BPBody> r = new List<Model.BPBody>();
             foreach (Cub.Part_Body body in Dictionary_Bodies.Keys)
                 r.Add(Dictionary_Bodies[body]);
             return r;
         }
 
-        public static Cub.Model.Bodypart Get_Legs(Cub.Part_Legs legs)
+        public static Cub.Model.BPLegs Get_Legs(Cub.Part_Legs legs)
         {
             if (Dictionary_Legs.ContainsKey(legs))
                 return Dictionary_Legs[legs];
@@ -218,9 +218,9 @@ namespace Cub.Model
                     return l;
             return Cub.Part_Legs.Humanoid;
         }
-        public static List<Cub.Model.Bodypart> List_Legs()
+        public static List<Cub.Model.BPLegs> List_Legs()
         {
-            List<Cub.Model.Bodypart> r = new List<Model.Bodypart>();
+            List<Cub.Model.BPLegs> r = new List<Model.BPLegs>();
             foreach (Cub.Part_Legs legs in Dictionary_Legs.Keys)
                 r.Add(Dictionary_Legs[legs]);
             return r;

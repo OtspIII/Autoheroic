@@ -17,14 +17,14 @@ namespace Cub.Model
         //public int X;
         //public int Y;
 
-        public Cub.Model.Bodypart Head_Part { get { return Cub.Model.Library.Get_Head(Head); } }
-        public Cub.Model.Bodypart Body_Part { get { return Cub.Model.Library.Get_Body(Body); } }
-        public Cub.Model.Bodypart Arms_Part { get { return Cub.Model.Library.Get_Arms(Arms); } }
-        public Cub.Model.Bodypart Legs_Part { get { return Cub.Model.Library.Get_Legs(Legs); } }
+        public Cub.Model.BPHead Head_Part { get { return Cub.Model.Library.Get_Head(Head); } }
+        public Cub.Model.BPBody Body_Part { get { return Cub.Model.Library.Get_Body(Body); } }
+        public Cub.Model.BPArms Arms_Part { get { return Cub.Model.Library.Get_Arms(Arms); } }
+        public Cub.Model.BPLegs Legs_Part { get { return Cub.Model.Library.Get_Legs(Legs); } }
         public Cub.Model.Weapon Weapon { get { return Cub.Model.Library.Get_Weapon(Arms); } }
         public int Value { get { return Head_Part.Cost + Arms_Part.Cost + Body_Part.Cost + Legs_Part.Cost; } }
-        public int Health { get { return Mathf.Max(1,Head_Part.Health + Arms_Part.Health + Body_Part.Health + Legs_Part.Health); } }
-        public int Speed { get { return Mathf.Max(1,Head_Part.Speed + Arms_Part.Speed + Body_Part.Speed + Legs_Part.Speed); } }
+        public int Health { get { return Body_Part.Health; } }
+        public int Speed { get { return Legs_Part.Speed; } }
 
         public Character_Save()
         {
@@ -54,6 +54,7 @@ namespace Cub.Model
         public Cub.Class Class { get; set; }
         public string Name { get; set; }
         public int Range { get; set; }
+        public bool Blockable { get; set; }
         public int MHP { get; set; }
         public int Speed { get; set; }
         public int Value { get; set; }
@@ -110,14 +111,26 @@ namespace Cub.Model
 
         public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events, AttackResults hitLevel)
         {
+            if (this.Stat.HP <= 0) return true;
             this.Stat.HP -= Amount;
             if (this.Stat.HP <= 0)
             {
-                Debug.Log("Die: " + this.Name + " (" + this.Info.Class + ")");
-                events.Add(new View.Eventon(Event.Die, "R.I.P. " + Name, new List<object> { ID }));
-                //Debug.Log(source.Name + " / " + source.Stat.Team);
-                //Debug.Log(source.Stat.Team.Name);
-                source.Stat.Team.AddScore("Kills", Value);
+                if (Info.Effects.Contains(Special_Effects.Explode_On_Death))
+                {
+                    foreach (Character guy in Main.AllCharacters())
+                        if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
+                            guy.Damage(2, this, events, Cub.AttackResults.Hit);
+                    Cub.Model.Library.Get_Action(Cub.Action.BlowUp).Body(this, new List<object>());
+                    Debug.Log("Blow Up: " + this.Name + " (" + this.Info.Class + ")");
+                    events.Add(new View.Eventon(Event.BlowUp, "Blow Up " + FindColorName(), new List<object> { ID }));
+                }
+                else
+                {
+                    Debug.Log("Die: " + this.Name + " (" + this.Info.Class + ")");
+                    events.Add(new View.Eventon(Event.Die, "R.I.P. " + FindColorName(), new List<object> { ID }));
+                }
+                if (source.Stat.Team != Stat.Team)
+                    source.Stat.Team.AddScore("Kills", Value);
                 Main.Dispose(this, events);
                 return true;
             }
@@ -139,6 +152,7 @@ namespace Cub.Model
 
         public List<Cub.View.Eventon> Go()
         {
+            List<View.Eventon> r = new List<View.Eventon>();
             foreach (Tactic T in this.Tactics)
             {
                 if (T.A == Cub.Action.None) continue;
@@ -153,9 +167,21 @@ namespace Cub.Model
                     Data = c.Confirm(this, Data);
                     if (Data == null) continue;
                 }
-                return a.Body(this, Data);
+                r = a.Body(this, Data);
+                EndTurn(r);
+                return r;
             }
-            return new List<View.Eventon>();
+            return r;
+        }
+
+        List<Cub.View.Eventon> EndTurn(List<Cub.View.Eventon> events)
+        {
+            if (Info.Effects.Contains(Special_Effects.Autoheal))
+            {
+                if (Stat.HP < Info.MHP)
+                    Heal(1, this, events);
+            }
+            return events;
         }
 
         public void SetName(string name)
@@ -178,16 +204,14 @@ namespace Cub.Model
             parts.Add(Cub.Model.Library.Get_Body(body));
             parts.Add(Cub.Model.Library.Get_Legs(legs));
 
-            int hp = 0;
-            int sp = 0;
+            int hp = Cub.Model.Library.Get_Body(info.Body).Health;
+            int sp = Cub.Model.Library.Get_Legs(info.Legs).Speed;
             int value = 0;
             List<Special_Effects> effects = new List<Special_Effects>();
             List<Cub.Action> acts = new List<Cub.Action>();
 
             foreach (Cub.Model.Bodypart bp in parts)
             {
-                hp += bp.Health;
-                sp += bp.Speed;
                 value += bp.Cost;
                 foreach (Special_Effects se in bp.Effects)
                     if (!effects.Contains(se))
@@ -200,6 +224,7 @@ namespace Cub.Model
             info.Value = value;
             info.MHP = Mathf.Max(1,hp);
             info.Speed = Mathf.Max(1,sp);
+            info.Blockable = Cub.Model.Library.Get_Legs(info.Legs).Blockable;
             info.List_Special_Ability = acts;
             info.Effects = effects;
             info.Range = info.Weapon.Range;

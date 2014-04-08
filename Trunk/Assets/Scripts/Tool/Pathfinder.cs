@@ -8,13 +8,14 @@ namespace Cub.Tool
 {
     static class Pathfinder
     {
-        public static List<Cub.Position2> findPath(Cub.Position2 start, Cub.Position2 finish)
+        public static List<Cub.Position2> findPath(Cub.Position2 start, Cub.Position2 finish, bool blockable)
         {
-            return findPath(start, finish, 1000);
+            return findPath(start, finish, 1000, blockable);
         }
 
-        public static List<Cub.Position2> findPath(Cub.Position2 start, Cub.Position2 finish, int distance)
+        public static List<Cub.Position2> findPath(Cub.Position2 start, Cub.Position2 finish, int distance, bool blockable)
         {
+            //if (!blockable)
             List<Cub.Position2> sq;
             List<Cub.Position2> path = new List<Cub.Position2>();
             if (finish.X == -999) return path;
@@ -37,7 +38,7 @@ namespace Cub.Tool
                 }
                 sq = GetAdjacents(seed.Square);
                 foreach (Cub.Position2 s in sq)
-                    if (s.X != -999 && (s == finish || (CheckAccessable(s) && !closedList.ContainsKey(s))))
+                    if (s.X != -999 && (s == finish || (CheckAccessable(s, blockable) && !closedList.ContainsKey(s))))
                     {
                         int dist = GetTerrainDifficulty(seed.Square);
                         if (!openList.Keys.Contains(s))
@@ -62,7 +63,7 @@ namespace Cub.Tool
                 else
                     seed = closedList[seed.pSquare];
             }
-            if (!CheckAccessable(finish) && finish != start)
+            if (!CheckAccessable(finish,true) && finish != start)
                 path.Remove(finish);
             return path;
         }
@@ -88,11 +89,13 @@ namespace Cub.Tool
 
         }
 
-        public static bool CheckAccessable(Cub.Position2 where)
+        public static bool CheckAccessable(Cub.Position2 where, bool blockable)
         {
             if (where.X < 0 || where.X >= Cub.Model.Library.Stage_Terrain.Length || where.Y < 0
                 || where.Y >= Cub.Model.Library.Stage_Terrain[where.X].Length)
                 return false;
+            if (blockable)
+                return true;
             foreach (Cub.Model.Team t in Cub.Model.Main.List_Team)
             {
                 foreach (Cub.Model.Character c in t.Return_List_Character())

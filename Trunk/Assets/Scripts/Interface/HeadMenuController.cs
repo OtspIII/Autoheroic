@@ -57,7 +57,7 @@ public class HeadMenuController : MonoBehaviour
         if (Options.value != H.Name)
             Options.value = H.Name;
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
-        Effects.text = "Effects: --";
+        Effects.text = "Effects: AI";
         Desc.text = H.Description;
     }
 

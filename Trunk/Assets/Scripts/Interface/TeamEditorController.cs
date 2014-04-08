@@ -120,6 +120,8 @@ public class TeamEditorController : MonoBehaviour {
             if (placed) continue;
         }
         SPButtonColors(null);
+        //if (CButtons.Count > 0)
+         //   CharEditor.Imprint(CButtons[0].Who, CButtons[0]);
     }
 
     public void Refresh()
@@ -182,6 +184,7 @@ public class TeamEditorController : MonoBehaviour {
                 break;
             }
         PointsReadoutUpdate();
+        CharEditor.Imprint(cha, cbc);
     }
 
     public void RemoveCharacter()

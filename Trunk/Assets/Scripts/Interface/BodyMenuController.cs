@@ -53,11 +53,11 @@ public class BodyMenuController : MonoBehaviour
     public void Imprint(Cub.Model.Character_Save who)
     {
         Who = who;
-        Cub.Model.Bodypart H = who.Body_Part;
+        Cub.Model.BPBody H = who.Body_Part;
         if (Options.value != H.Name)
             Options.value = H.Name;
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
-        Effects.text = "Effects: --";
+        Effects.text = "Effects: " + H.Health + " Health";
         Desc.text = H.Description;
     }
 
