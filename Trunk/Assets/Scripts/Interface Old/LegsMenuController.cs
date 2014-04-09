@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ArmsMenuController : MonoBehaviour
+public class LegsMenuController : MonoBehaviour
 {
 
     Cub.Model.Character_Save Who;
@@ -40,7 +40,7 @@ public class ArmsMenuController : MonoBehaviour
             }
         }
         Options.items = new List<string> { };
-        foreach (Cub.Model.Bodypart bp in Cub.Model.Library.List_Arms())
+        foreach (Cub.Model.Bodypart bp in Cub.Model.Library.List_Legs())
             Options.items.Add(bp.Name);
     }
 
@@ -53,20 +53,21 @@ public class ArmsMenuController : MonoBehaviour
     public void Imprint(Cub.Model.Character_Save who)
     {
         Who = who;
-        Cub.Model.Bodypart H = who.Arms_Part;
+        Cub.Model.BPLegs H = who.Legs_Part;
         if (Options.value != H.Name)
             Options.value = H.Name;
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
-        Effects.text = "Effects: " + H.Name;
+        Effects.text = "Effects: " + H.Speed + " Speed";
         Desc.text = H.Description;
+        Portrait.color = Portrait.color;
     }
 
     public void UpdateBodypart()
     {
         if (Who == null) return;
-        //Cub.Part_Arms current = Who.Arms;
+        //Cub.Part_Legs current = Who.Legs;
         string bp = Options.value;
-        Who.Arms = Cub.Model.Library.Get_Arms(bp);
+        Who.Legs = Cub.Model.Library.Get_Legs(bp);
         //Imprint(Who);
         IC.TeamEditor.Refresh();
         IC.TeamEditor.CharEditor.Refresh();

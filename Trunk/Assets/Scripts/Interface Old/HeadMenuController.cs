@@ -59,6 +59,7 @@ public class HeadMenuController : MonoBehaviour
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
         Effects.text = "Effects: AI";
         Desc.text = H.Description;
+        Portrait.color = Portrait.color;
     }
 
     public void UpdateBodypart()

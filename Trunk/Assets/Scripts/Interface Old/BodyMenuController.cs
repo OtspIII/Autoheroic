@@ -59,6 +59,7 @@ public class BodyMenuController : MonoBehaviour
         Cost.text = "Cost: " + H.Cost.ToString() + "pts";
         Effects.text = "Effects: " + H.Health + " Health";
         Desc.text = H.Description;
+        Portrait.color = Portrait.color;
     }
 
     public void UpdateBodypart()
