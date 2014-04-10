@@ -157,7 +157,7 @@ namespace Cub
 
     public enum Colour
     {
-        Red,
+        Skin,
         Brown,
         Black,
         White,

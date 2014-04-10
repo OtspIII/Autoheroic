@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCubon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Cubon>
-    <Colour>Silver</Colour>
+    <Colour>Team_Primary</Colour>
     <Position>
       <Vector3>
         <x>0</x>
@@ -46,7 +46,7 @@
     </Position>
   </Cubon>
   <Cubon>
-    <Colour>Black</Colour>
+    <Colour>Skin</Colour>
     <Position>
       <Vector3>
         <x>0</x>
@@ -67,6 +67,71 @@
         <x>1</x>
         <y>1</y>
         <z>2</z>
+      </Vector3>
+    </Position>
+  </Cubon>
+  <Cubon>
+    <Colour>Black</Colour>
+    <Position>
+      <Vector3>
+        <x>0</x>
+        <y>0</y>
+        <z>4</z>
+      </Vector3>
+      <Vector3>
+        <x>1</x>
+        <y>0</y>
+        <z>4</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>1</y>
+        <z>4</z>
+      </Vector3>
+      <Vector3>
+        <x>1</x>
+        <y>1</y>
+        <z>4</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>1</y>
+        <z>5</z>
+      </Vector3>
+      <Vector3>
+        <x>1</x>
+        <y>1</y>
+        <z>5</z>
+      </Vector3>      
+    </Position>
+  </Cubon>
+  <Cubon>
+    <Colour>Grey</Colour>
+    <Position>
+      <Vector3>
+        <x>1</x>
+        <y>0</y>
+        <z>5</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>0</y>
+        <z>5</z>
+      </Vector3>
+      <Vector3>
+        <x>0.5</x>
+        <y>1</y>
+        <z>6</z>
+      </Vector3>
+    </Position>
+  </Cubon>
+  <Cubon>
+    <Colour>Black</Colour>
+    <Position>
+      <Vector3>
+        <x>0.5</x>
+        <y>2</y>
+        <z>4</z>
       </Vector3>
     </Position>
   </Cubon>

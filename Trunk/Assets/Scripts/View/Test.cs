@@ -16,9 +16,9 @@ namespace Cub.Scene
             C0.Name = "fdsa";
             C0.ID = new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             C0.Info = new Model.Character_Info();
-            C0.Info.Head = Part_Head.Soldier;
+            C0.Info.Head = Part_Head.Hunter;
             C0.Info.Body = Part_Body.Medium;
-            C0.Info.Arms = Part_Arms.Rifle;
+            C0.Info.Arms = Part_Arms.Sword;
             C0.Info.Legs = Part_Legs.Tread;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
@@ -76,6 +76,17 @@ namespace Cub.Scene
             {
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Character"))
+                {
+                    DestroyImmediate(GO);
+                }
+                Cub.View.Library.Unlock();
+                Cub.View.Library.Initialization();
+                Start();
             }
         }
     }
