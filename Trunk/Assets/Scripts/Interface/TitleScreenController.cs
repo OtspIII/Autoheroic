@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-namespace Cub.Interface.MainMenu
+namespace Cub.Interface
 {
 
     public class TitleScreenController : OptionsListController

@@ -8,11 +8,12 @@ namespace Cub.Interface
 
     public class OptionsListController : MonoBehaviour
     {
+        public bool CurrentlyActive = false;
 
         public GameObject SelectMarker;
 
         public List<GameObject> OptionsRaw;
-        List<MenuChoiceController> Options = new List<MenuChoiceController>();
+        protected List<MenuChoiceController> Options = new List<MenuChoiceController>();
 
         protected MenuChoiceController Selected;
 
@@ -30,6 +31,8 @@ namespace Cub.Interface
         // Update is called once per frame
         void Update()
         {
+            if (!CurrentlyActive)
+                return;
             if (Timer > 0)
                 Timer -= Time.deltaTime;
 
@@ -80,6 +83,12 @@ namespace Cub.Interface
             Vector3 offset = Selected.gameObject.transform.position - SelectMarker.transform.position;
             Selected = Options[current];
             SelectMarker.transform.position = Selected.gameObject.transform.position - offset;
+            OnSelectChange();
+        }
+
+        protected virtual void OnSelectChange()
+        {
+
         }
     }
 
@@ -87,6 +96,7 @@ namespace Cub.Interface
     {
         MMFight,
         MMEditTeam,
-        MMQuit
+        MMQuit,
+        PickerTeam
     }
 }

@@ -5,54 +5,57 @@ using System.Collections.Generic;
 public class GameplayScreenController : MonoBehaviour
 {
 
-    GameMode CurrentMode;
-    GameplayTeamPickerController Tpc;
-    ScoreCardManager Scm;
-    DescriptionManager Desc;
+    //GameMode CurrentMode;
+    //GameplayTeamPickerController Tpc;
+    //public ScoreCardManager Scm;
+    public DescriptionManager Desc;
     Cub.Model.Team TeamOne = null;
     Cub.Model.Team TeamTwo = null;
     public Cub.View.Runtime RT;
     bool RTStarted = false;
     //Cub.Position2 StageSize;
+    public bool CurrentlyActive = false;
 
     // Use this for initialization
     void Start()
     {
         //StageSize = new Cub.Position2(10, 10);
         RT.GSC = this;
-        Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
-        Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));
-        Desc = (DescriptionManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("DescriptionManager"));
+        //Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
+        //Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));
+        //Desc = (DescriptionManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("DescriptionManager"));
         Cub.View.NarratorController.Initialize(Desc);
-        SwitchModes(GameMode.TeamPick);
-        Cub.View.Library.Initialization();
-        Cub.Model.Library.Initialization();
-        BuildMap();
+        //SwitchModes(GameMode.TeamPick);
+        //Cub.View.Library.Initialization();
+        //Cub.Model.Library.Initialization();
+        //BuildMap();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.LoadLevel("Main Menu");
-        switch (CurrentMode)
-        {
-            case GameMode.TeamPick:
-                TeamPickUpdate();
-                break;
-            case GameMode.Gameplay:
-                GameplayUpdate();
-                break;
-            case GameMode.Postgame:
-                PostGameUpdate();
-                break;
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    Application.LoadLevel("Main Menu");
+        //switch (CurrentMode)
+        //{
+        //    case GameMode.TeamPick:
+        //        TeamPickUpdate();
+        //        break;
+        //    case GameMode.Gameplay:
+        //        GameplayUpdate();
+        //        break;
+        //    case GameMode.Postgame:
+        //        PostGameUpdate();
+        //        break;
+        //}
+        if (CurrentlyActive)
+            GameplayUpdate();
     }
 
-    void TeamPickUpdate()
-    {
+    //void TeamPickUpdate()
+    //{
 
-    }
+    //}
 
     void GameplayUpdate()
     {
@@ -69,6 +72,7 @@ public class GameplayScreenController : MonoBehaviour
         }
         if (!RTStarted && events.Count > 0)
         {
+            Debug.Log("WIZARD--------------------------------------");
             RT.Run_Eventon();
             RTStarted = true;
         }
@@ -80,34 +84,34 @@ public class GameplayScreenController : MonoBehaviour
             Application.LoadLevel("Main Menu");
     }
 
-    public void SwitchModes(GameMode mode)
-    {
-        CurrentMode = mode;
-        switch (mode)
-        {
-            case GameMode.TeamPick:
-                Scm.gameObject.SetActive(false);
-                Desc.gameObject.SetActive(false);
-                break;
-            case GameMode.Gameplay:
-                Scm.gameObject.SetActive(false);
-                Tpc.gameObject.SetActive(false);
-                Desc.gameObject.SetActive(false);
-                break;
-            case GameMode.Postgame:
-                Scm.gameObject.SetActive(true);
-                Tpc.gameObject.SetActive(false);
-                Desc.gameObject.SetActive(false);
-                break;
-        }
-    }
+    //public void SwitchModes(GameMode mode)
+    //{
+    //    CurrentMode = mode;
+    //    switch (mode)
+    //    {
+    //        case GameMode.TeamPick:
+    //            Scm.gameObject.SetActive(false);
+    //            Desc.gameObject.SetActive(false);
+    //            break;
+    //        case GameMode.Gameplay:
+    //            Scm.gameObject.SetActive(false);
+    //            Tpc.gameObject.SetActive(false);
+    //            Desc.gameObject.SetActive(false);
+    //            break;
+    //        case GameMode.Postgame:
+    //            Scm.gameObject.SetActive(true);
+    //            Tpc.gameObject.SetActive(false);
+    //            Desc.gameObject.SetActive(false);
+    //            break;
+    //    }
+    //}
 
     public void StartGame(Cub.Model.Team T1, Cub.Model.Team T2)
     {
         TeamOne = T1;
         TeamTwo = T2;
-        TeamOne.MakeUnique();
-        TeamTwo.MakeUnique();
+        //TeamOne.MakeUnique();
+        //TeamTwo.MakeUnique();
         foreach (Cub.Model.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
@@ -126,31 +130,32 @@ public class GameplayScreenController : MonoBehaviour
 
         }
         Cub.Model.Main.Initialization(TeamOne, TeamTwo);
-        SwitchModes(GameMode.Gameplay);
+        //SwitchModes(GameMode.Gameplay);
+        CurrentlyActive = true;
     }
 
     public void EndGame()
     {
-        SwitchModes(GameMode.Postgame);
+        //SwitchModes(GameMode.Postgame);
         Debug.Log("1: " + TeamOne.Name + " / 2: " + TeamTwo.Name);
-        Scm.Imprint(TeamOne, TeamTwo);
+        //Scm.Imprint(TeamOne, TeamTwo);
     }
 
-    void BuildMap()
-    {
-        Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
-        Debug.Log(map.Length.ToString());
-        for (int y = 0; y < map.Length; y++)
-        {
-            for (int x = 0; x < map[0].Length; x++)
-            {
+    //void BuildMap()
+    //{
+    //    Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
+    //    Debug.Log(map.Length.ToString());
+    //    for (int y = 0; y < map.Length; y++)
+    //    {
+    //        for (int x = 0; x < map[0].Length; x++)
+    //        {
 
-                GameObject t = Cub.View.Library.Get_Terrain(map[y][x]);
-                if (t != null)
-                    Instantiate(t, new Vector3(x, -0.5f, y), Quaternion.identity);
-            }
-        }
-    }
+    //            GameObject t = Cub.View.Library.Get_Terrain(map[y][x]);
+    //            if (t != null)
+    //                Instantiate(t, new Vector3(x, -0.5f, y), Quaternion.identity);
+    //        }
+    //    }
+    //}
 
     public Cub.Position2 TranslateStartPosition(Cub.Position2 pos, bool teamOne)
     {
@@ -165,9 +170,9 @@ public class GameplayScreenController : MonoBehaviour
     }
 }
 
-public enum GameMode
-{
-    TeamPick,
-    Gameplay,
-    Postgame
-}
+//public enum GameMode
+//{
+//    TeamPick,
+//    Gameplay,
+//    Postgame
+//}

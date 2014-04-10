@@ -305,6 +305,16 @@ namespace Cub.Model
                 return Condition_Strings[str];
             return Cub.Condition.None;
         }
+
+        public static string Make_Team_Name()
+        {
+            return "A FANCY TEAM";
+        }
+
+        public static string Make_Character_Name()
+        {
+            return "A FANCY PERSON";
+        }
     }
 
 

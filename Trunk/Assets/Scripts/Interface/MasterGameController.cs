@@ -4,9 +4,14 @@ using System.Collections.Generic;
 
 public class MasterGameController : MonoBehaviour
 {
-    public GameObject MainMenu;
+    public Cub.Interface.TitleScreenController MainMenu;
     public GameObject TeamPickers;
+    public GameplayScreenController GSC;
+    //public GameObject MainMenu;
+    //public GameObject TeamPickers;
     public Camera MainCamera;
+
+    List<Cub.Model.TeamSave> Teams;
 
     MasterStage Stage = MasterStage.Waiting;
 
@@ -23,8 +28,8 @@ public class MasterGameController : MonoBehaviour
     Dictionary<GameObject, float> BlockTimers;
     List<GameObject> Blocks = new List<GameObject>();
 
-    public GameObject LeftPicker;
-    public GameObject RightPicker;
+    public Cub.Interface.TeamPickerManager LeftPicker;
+    public Cub.Interface.TeamPickerManager RightPicker;
 
 
     // Use this for initialization
@@ -33,6 +38,10 @@ public class MasterGameController : MonoBehaviour
         Cub.View.Library.Initialization();
         Cub.Model.Library.Initialization();
         BuildMap();
+        string name = typeof(List<Cub.Model.TeamSave>).AssemblyQualifiedName;
+        Teams = (List<Cub.Model.TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/Team_Saves.xml");
+        MainMenu.CurrentlyActive = true;
+        GSC.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,8 +59,13 @@ public class MasterGameController : MonoBehaviour
         {
             HandleStage(Stage);
         }
-        
+        else if (TeamPickers.activeSelf)
+        {
+            if (LeftPicker.Chosen && RightPicker.Chosen && LeftPicker.SelectedTeam != null && RightPicker.SelectedTeam != null)
+                StartGameplay();
+        }
     }
+
     void HandleStage(MasterStage stage)
     {
         switch (stage)
@@ -80,10 +94,16 @@ public class MasterGameController : MonoBehaviour
             case MasterStage.TeamPickersSlideIn:
                 Timer = Mathf.Max(0, Timer - Time.deltaTime);
                 float x = Mathf.Lerp(300f, 198f, (TimerMax - Timer) / TimerMax);
-                LeftPicker.transform.localPosition = new Vector3(-x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
-                RightPicker.transform.localPosition = new Vector3(x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
+                LeftPicker.transform.localPosition =
+                    new Vector3(-x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
+                RightPicker.transform.localPosition =
+                    new Vector3(x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
                 if (Timer <= 0)
+                {
                     SetStage(MasterStage.Waiting);
+                    LeftPicker.CurrentlyActive = true;
+                    RightPicker.CurrentlyActive = true;
+                }
                 break;
         }
     }
@@ -91,7 +111,9 @@ public class MasterGameController : MonoBehaviour
 
     public void GotoFightScreen()
     {
-        MainMenu.SetActive(false);
+        MainMenu.gameObject.SetActive(false);
+        LeftPicker.Setup(Teams);
+        RightPicker.Setup(Teams);
         //CameraToPoint(new Vector3(-2, 3, -2),1);
         BlockTimers = new Dictionary<GameObject, float>();
         BlockTimersMax = new Dictionary<GameObject, float>();
@@ -107,7 +129,7 @@ public class MasterGameController : MonoBehaviour
 
     public void GotoEditScreen()
     {
-        MainMenu.SetActive(false);
+        MainMenu.gameObject.SetActive(false);
         Debug.Log("EDIT!");
     }
 
@@ -121,7 +143,7 @@ public class MasterGameController : MonoBehaviour
     void BuildMap()
     {
         Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
-        Debug.Log(map.Length.ToString());
+        //Debug.Log(map.Length.ToString());
         for (int y = 0; y < map.Length; y++)
         {
             for (int x = 0; x < map[0].Length; x++)
@@ -137,6 +159,29 @@ public class MasterGameController : MonoBehaviour
     void SetStage(MasterStage stage)
     {
         Stage = stage;
+    }
+
+    void StartGameplay()
+    {
+        Cub.Model.TeamSave TS1 = LeftPicker.SelectedTeam;
+        Cub.Model.TeamSave TS2 = RightPicker.SelectedTeam;
+        Cub.Model.Team TeamOne = TS1.Extract_Team();
+        Cub.Model.Team TeamTwo = TS2.Extract_Team();
+        TeamPickers.SetActive(false);
+        GSC.gameObject.SetActive(true);
+        GSC.StartGame(TeamOne, TeamTwo);
+    }
+
+    public Cub.Position2 TranslateStartPosition(Cub.Position2 pos, bool teamOne)
+    {
+        int x = pos.X;
+        int y = pos.Y;
+        Cub.Position2 r = new Cub.Position2(x, y);
+        if (!teamOne)
+            r = new Cub.Position2(11 - x, 11 - y);
+        if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
+            Debug.Log("TRANSLATE ERROR");
+        return r;
     }
 }
 

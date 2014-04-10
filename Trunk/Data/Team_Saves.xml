@@ -464,4 +464,43 @@ Seems
       </Character_Save>
     </Chars>
   </TeamSave>
+  <TeamSave>
+    <Name>Some GUys</Name>
+    <Owner_Name>????</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>---</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>---</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+      <Character_Save>
+        <Name>---</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
 </ArrayOfTeamSave>
