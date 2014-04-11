@@ -18,7 +18,7 @@ namespace Cub.Scene
             C0.Info = new Model.Character_Info();
             C0.Info.Head = Part_Head.Hunter;
             C0.Info.Body = Part_Body.Medium;
-            C0.Info.Arms = Part_Arms.Sword;
+            C0.Info.Arms = Part_Arms.Sniper_Rifle;
             C0.Info.Legs = Part_Legs.Tread;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
@@ -30,10 +30,10 @@ namespace Cub.Scene
             C1.Name = "fdsa";
             C1.ID = new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1);
             C1.Info = new Model.Character_Info();
-            C1.Info.Head = Part_Head.Soldier;
+            C1.Info.Head = Part_Head.Protector;
             C1.Info.Body = Part_Body.Medium;
-            C1.Info.Arms = Part_Arms.Rifle;
-            C1.Info.Legs = Part_Legs.Hover;
+            C1.Info.Arms = Part_Arms.Sword;
+            C1.Info.Legs = Part_Legs.Humanoid;
             C1.Stat = new Model.Character_Stat();
             C1.Stat.Position = new Position2(0, 3);
             C1.Stat.Team = new Model.Team();
