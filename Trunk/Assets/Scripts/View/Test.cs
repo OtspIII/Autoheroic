@@ -17,9 +17,9 @@ namespace Cub.Scene
             C0.ID = new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             C0.Info = new Model.Character_Info();
             C0.Info.Head = Part_Head.Hunter;
-            C0.Info.Body = Part_Body.Medium;
+            C0.Info.Body = Part_Body.Bomber;
             C0.Info.Arms = Part_Arms.Sniper_Rifle;
-            C0.Info.Legs = Part_Legs.Tread;
+            C0.Info.Legs = Part_Legs.Hover;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
             C0.Stat.Team = new Model.Team();
@@ -31,7 +31,7 @@ namespace Cub.Scene
             C1.ID = new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1);
             C1.Info = new Model.Character_Info();
             C1.Info.Head = Part_Head.Protector;
-            C1.Info.Body = Part_Body.Medium;
+            C1.Info.Body = Part_Body.Light;
             C1.Info.Arms = Part_Arms.Sword;
             C1.Info.Legs = Part_Legs.Humanoid;
             C1.Stat = new Model.Character_Stat();

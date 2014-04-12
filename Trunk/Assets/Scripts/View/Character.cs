@@ -81,7 +81,7 @@ namespace Cub.View
             Dictionary_Material[Colour.Skin].color = new Color(0.95F, 0.88F, 0.88F);
             Dictionary_Material[Colour.Black].color = Color.black;
             Dictionary_Material[Colour.White].color = Color.white;
-            Dictionary_Material[Colour.Grey].color = new Color(0.35F, 0.35F, 0.35F);
+            Dictionary_Material[Colour.Grey].color = new Color(0.25F, 0.25F, 0.25F);
             Dictionary_Material[Colour.Brown].color = new Color(0.64F, 0.32F, 0.32F, 1F);
             Dictionary_Material[Colour.Silver].color = new Color(0.88F, 0.88F, 0.88F, 1F);
             Dictionary_Material[Colour.Team_Primary].color = Stat.Team.Colour_Primary;

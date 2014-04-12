@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCubon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Cubon>
-    <Colour>Silver</Colour>
+    <Colour>Team_Primary</Colour>
     <Position>
       <Vector3>
         <x>0</x>
         <y>0</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>-1</x>
+        <y>0</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>1</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>-1</x>
+        <y>1</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>0</y>
         <z>0</z>
       </Vector3>
       <Vector3>
@@ -22,36 +42,6 @@
         <x>-1</x>
         <y>1</y>
         <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>2</z>
       </Vector3>
     </Position>
   </Cubon>
@@ -60,6 +50,26 @@
     <Position>
       <Vector3>
         <x>0</x>
+        <y>0</y>
+        <z>1</z>
+      </Vector3>
+      <Vector3>
+        <x>-1</x>
+        <y>0</y>
+        <z>1</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
+        <y>-1</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>-1</x>
+        <y>-1</y>
+        <z>-1</z>
+      </Vector3>
+      <Vector3>
+        <x>0</x>
         <y>-1</y>
         <z>0</z>
       </Vector3>
@@ -77,16 +87,6 @@
         <x>-1</x>
         <y>-1</y>
         <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>2</z>
       </Vector3>
     </Position>
   </Cubon>
