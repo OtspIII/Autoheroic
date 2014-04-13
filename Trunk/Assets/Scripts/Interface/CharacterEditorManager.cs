@@ -24,6 +24,17 @@ public class CharacterEditorManager : OptionsListController
     Cub.View.Character Who;
     Cub.Model.Character_Save WhoSave;
 
+    public UILabel Name;
+    public UILabel Cost;
+    public UILabel AI;
+    public UILabel Weapon;
+    public UILabel Special;
+
+    public UILabel Health;
+    public UILabel Speed;
+    public UILabel Range;
+    public UILabel Damage;
+
     protected override void MoreUpdate()
     {
         if (HoriTimer > 0)
@@ -78,7 +89,23 @@ public class CharacterEditorManager : OptionsListController
         Body = SChar.Body_Part;
         Legs = SChar.Legs_Part;
 
+        WriteDescriptions();
+
         //PersonalCamera.transform.LookAt(VChar.transform);
+    }
+
+    void WriteDescriptions()
+    {
+        Name.text = WhoSave.Name;
+        Cost.text = "Cost: " + WhoSave.Value.ToString() + "pts";
+        AI.text = "AI: " + WhoSave.Head_Part.Description + " (" + WhoSave.Head_Part.Cost.ToString() + "pts)";
+        Weapon.text = "Wpn: " + WhoSave.Arms_Part.Name + " (" + WhoSave.Arms_Part.Cost.ToString() + "pts)";
+        Special.text = "Spcl: " + "--";
+
+        Health.text = "HP: " + WhoSave.Body_Part.Health.ToString();
+        Speed.text = "Speed: " + WhoSave.Legs_Part.Speed.ToString();
+        Range.text = "Range: " + WhoSave.Weapon.Range.ToString();
+        Damage.text = "Damage: " + WhoSave.Weapon.HitDam.ToString();
     }
 
     protected override void Click()
@@ -125,6 +152,7 @@ public class CharacterEditorManager : OptionsListController
         }
         Who.Delete_Part();
         Who.Initialize_Part();
+        WriteDescriptions();
     }
 
     protected override void OnSelectChange()

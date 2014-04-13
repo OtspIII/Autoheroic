@@ -40,13 +40,13 @@ namespace Cub.Model
 
                 Dictionary_Heads = new Dictionary<Part_Head, Model.BPHead>();
                 Dictionary_Heads.Add(Cub.Part_Head.Soldier, new Model.BPHead("Soldier",
-                    "An AI module that marches towards the enemy and attacks. Simple but effecive.", 25,Cub.Part_Head.Soldier));
+                    "March At Enemy", 25,Cub.Part_Head.Soldier));
                 Dictionary_Heads.Add(Cub.Part_Head.Idiot, new Model.BPHead("Idiot",
-                    "An incredibly cheap AI module that wanders the battlefield at random. At least it's hard to damage.", 5, Cub.Part_Head.Idiot));
+                    "Wander Around Like An Idiot", 5, Cub.Part_Head.Idiot));
                 Dictionary_Heads.Add(Cub.Part_Head.Protector, new Model.BPHead("Protector",
-                    "An AI module that chooses to follow teammates around rather than seek the enemy out itself.", 20, Cub.Part_Head.Protector));
+                    "Follow Allies", 20, Cub.Part_Head.Protector));
                 Dictionary_Heads.Add(Cub.Part_Head.Hunter, new Model.BPHead("Hunter-Killer",
-                    "This AI module seeks out the highest-value unit on the opposing team and targets it first.", 30, Cub.Part_Head.Hunter));
+                    "Hunt Down Powerful Enemies", 30, Cub.Part_Head.Hunter));
 
                 Dictionary_Arms = new Dictionary<Part_Arms, Model.BPArms>();
                 Dictionary_Arms.Add(Part_Arms.Rifle, new Model.BPArms("Rifle",
