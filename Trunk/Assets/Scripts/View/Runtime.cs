@@ -18,7 +18,7 @@ namespace Cub.View
             Queue_Eventon = new Queue<Eventon>();
         }
 
-        public static void Add_Character(Cub.Model.Character _Character)
+        public static Cub.View.Character Add_Character(Cub.Model.Character _Character)
         {
             GameObject GO = GameObject.Instantiate(Cub.View.Library.Get_Character(), _Character.Stat.Position.ToVector3(), Quaternion.identity) as GameObject;
 
@@ -28,6 +28,8 @@ namespace Cub.View
             C.Initialize_Part();
 
             Dictionary_Character[_Character.ID] = C;
+
+            return C;
         }
 
         public static void Remove_Character(Guid _ID)

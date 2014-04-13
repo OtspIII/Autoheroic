@@ -11,9 +11,10 @@
         <Body>Bomber</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>3</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>3</Y>
         </Position>
+        <ID>00000000-0000-0000-0060-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Soothslayer</Name>
@@ -22,9 +23,10 @@
         <Body>Bomber</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>2</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>2</Y>
         </Position>
+        <ID>00000000-0000-0000-0050-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Killusionist</Name>
@@ -33,9 +35,10 @@
         <Body>Healer</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>4</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>4</Y>
         </Position>
+        <ID>00000000-0000-0000-0400-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Muscle Wizard</Name>
@@ -44,9 +47,10 @@
         <Body>Healer</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>5</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>5</Y>
         </Position>
+        <ID>00000000-0000-0000-0300-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>M.A.G.U.S.</Name>
@@ -55,9 +59,10 @@
         <Body>Healer</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>1</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>1</Y>
         </Position>
+        <ID>00000000-0000-0000-0200-000000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -72,9 +77,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>1</Y>
         </Position>
+        <ID>00000000-0000-0000-0100-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Eric</Name>
@@ -86,6 +92,7 @@
           <X>3</X>
           <Y>3</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000000090</ID>
       </Character_Save>
       <Character_Save>
         <Name>Clara</Name>
@@ -94,9 +101,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>4</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>4</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000008000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Frank</Name>
@@ -105,9 +113,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>5</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>5</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000070000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Andy</Name>
@@ -116,9 +125,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>6</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>6</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000060000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Charles</Name>
@@ -130,6 +140,7 @@
           <X>2</X>
           <Y>3</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000500000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -144,9 +155,10 @@
         <Body>Healer</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>5</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>5</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000000400000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Nodricon Woobsy</Name>
@@ -155,9 +167,10 @@
         <Body>Heavy</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>5</X>
-          <Y>1</Y>
+          <X>1</X>
+          <Y>5</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000003000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Thermador Jones</Name>
@@ -166,9 +179,10 @@
         <Body>Heavy</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>0</X>
+          <X>2</X>
           <Y>0</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-000002000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Lola</Name>
@@ -180,6 +194,7 @@
           <X>0</X>
           <Y>0</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-001000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -194,9 +209,10 @@
         <Body>Healer</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>3</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>3</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-700000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>The Mountain</Name>
@@ -205,9 +221,10 @@
         <Body>Healer</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>7</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>7</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-600000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Little Finger</Name>
@@ -216,9 +233,10 @@
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>9</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>9</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-500000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Red Woman</Name>
@@ -227,9 +245,10 @@
         <Body>Heavy</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>6</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>6</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-400000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Stannis</Name>
@@ -238,9 +257,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>5</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>5</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-300000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -255,9 +275,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>4</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>4</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-200000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Horatius
@@ -267,9 +288,10 @@
         <Body>Heavy</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>6</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>6</Y>
         </Position>
+        <ID>00000000-0000-0000-0000-100000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Socrates
@@ -279,9 +301,10 @@
         <Body>Heavy</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>4</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>4</Y>
         </Position>
+        <ID>00000000-0090-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Paris
@@ -291,9 +314,10 @@
         <Body>Light</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>9</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>9</Y>
         </Position>
+        <ID>00000000-0080-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Odysseus
@@ -303,9 +327,10 @@
         <Body>Medium</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>1</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>1</Y>
         </Position>
+        <ID>00000000-0070-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Maximinus Thrax</Name>
@@ -314,9 +339,10 @@
         <Body>Light</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>9</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>9</Y>
         </Position>
+        <ID>00000600-0000-0000-0000-000000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -331,9 +357,10 @@
         <Body>Bomber</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>5</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>5</Y>
         </Position>
+        <ID>00005000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Michelle</Name>
@@ -342,9 +369,10 @@
         <Body>Heavy</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>5</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>5</Y>
         </Position>
+        <ID>00040000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Hey
@@ -360,9 +388,10 @@ Seems
         <Body>Healer</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>8</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>8</Y>
         </Position>
+        <ID>00300000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>if(fStop == true){ run();}</Name>
@@ -374,6 +403,7 @@ Seems
           <X>0</X>
           <Y>0</Y>
         </Position>
+        <ID>02000000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -385,6 +415,7 @@ Seems
           <X>3</X>
           <Y>2</Y>
         </Position>
+        <ID>10000000-0000-0000-0000-000000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -400,9 +431,10 @@ Seems
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>0</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>0</Y>
         </Position>
+        <ID>00000090-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Tank
@@ -412,9 +444,10 @@ Seems
         <Body>Heavy</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>2</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>2</Y>
         </Position>
+        <ID>00000800-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Sniper</Name>
@@ -423,9 +456,10 @@ Seems
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>3</X>
-          <Y>1</Y>
+          <X>1</X>
+          <Y>3</Y>
         </Position>
+        <ID>00007000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Healer</Name>
@@ -434,9 +468,10 @@ Seems
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>1</Y>
         </Position>
+        <ID>00060000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Standard
@@ -446,9 +481,10 @@ Seems
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>0</Y>
+          <X>0</X>
+          <Y>1</Y>
         </Position>
+        <ID>00500000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>Kamikaze
@@ -458,9 +494,10 @@ Seems
         <Body>Bomber</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>1</X>
-          <Y>3</Y>
+          <X>3</X>
+          <Y>1</Y>
         </Position>
+        <ID>04000000-0000-0000-0000-000000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -478,6 +515,7 @@ Seems
           <X>0</X>
           <Y>0</Y>
         </Position>
+        <ID>00000030-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -487,8 +525,9 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>1</Y>
         </Position>
+        <ID>00000020-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -498,8 +537,9 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>2</Y>
         </Position>
+        <ID>00000100-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -509,8 +549,9 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>3</Y>
         </Position>
+        <ID>00001000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -520,8 +561,9 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>4</Y>
         </Position>
+        <ID>00010000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
@@ -531,8 +573,9 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>5</Y>
         </Position>
+        <ID>00100000-0000-0000-0000-000000000000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

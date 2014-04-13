@@ -72,7 +72,6 @@ public class GameplayScreenController : MonoBehaviour
         }
         if (!RTStarted && events.Count > 0)
         {
-            Debug.Log("WIZARD--------------------------------------");
             RT.Run_Eventon();
             RTStarted = true;
         }
@@ -132,6 +131,7 @@ public class GameplayScreenController : MonoBehaviour
         Cub.Model.Main.Initialization(TeamOne, TeamTwo);
         //SwitchModes(GameMode.Gameplay);
         CurrentlyActive = true;
+        Desc.gameObject.SetActive(false);
     }
 
     public void EndGame()

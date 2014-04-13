@@ -10,6 +10,9 @@ public class MasterGameController : MonoBehaviour
     //public GameObject MainMenu;
     //public GameObject TeamPickers;
     public Camera MainCamera;
+    public GameObject PersonalCamera;
+
+    public Cub.View.Runtime Runtime;
 
     List<Cub.Model.TeamSave> Teams;
 
@@ -30,6 +33,8 @@ public class MasterGameController : MonoBehaviour
 
     public Cub.Interface.TeamPickerManager LeftPicker;
     public Cub.Interface.TeamPickerManager RightPicker;
+    public TeamEditorManager LeftEditor;
+    public TeamEditorManager RightEditor;
 
 
     // Use this for initialization
@@ -182,6 +187,25 @@ public class MasterGameController : MonoBehaviour
         if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
+    }
+
+    public void EditTeam(Cub.Model.TeamSave team, Cub.Interface.TeamPickerManager picker)
+    {
+        Debug.Log("EDIT TEAM: " + team.Name);
+        picker.gameObject.SetActive(false);
+        if (picker.PlayerOne) {
+            LeftEditor.Setup(team);
+            LeftEditor.gameObject.SetActive(true);
+            LeftEditor.CurrentlyActive = true;
+        }
+        else
+        {
+            RightEditor.Setup(team);
+            RightEditor.gameObject.SetActive(true);
+            RightEditor.CurrentlyActive = true;
+        }
+
+
     }
 }
 

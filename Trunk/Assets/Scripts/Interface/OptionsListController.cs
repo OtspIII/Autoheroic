@@ -8,9 +8,13 @@ namespace Cub.Interface
 
     public class OptionsListController : MonoBehaviour
     {
+        public bool PlayerOne;
+        public bool PlayerTwo;
         public bool CurrentlyActive = false;
+        bool Clicking = false;
 
         public GameObject SelectMarker;
+        public MasterGameController GM;
 
         public List<GameObject> OptionsRaw;
         protected List<MenuChoiceController> Options = new List<MenuChoiceController>();
@@ -25,6 +29,7 @@ namespace Cub.Interface
         {
             foreach (GameObject obj in OptionsRaw)
                 Options.Add((MenuChoiceController)obj.GetComponent("MenuChoiceController"));
+            GM = (MasterGameController)GameObject.Find("Game Master").GetComponent("MasterGameController");
             Selected = Options[0];
         }
 
@@ -36,23 +41,39 @@ namespace Cub.Interface
             if (Timer > 0)
                 Timer -= Time.deltaTime;
 
-            if (Input.GetAxis("Vertical") > 0.1f && Timer <= 0)
+            if (GetInput("Vertical") > 0.1f && Timer <= 0)
             {
                 ChangeSelection(-1);
                 Timer = SelectTimer;
             }
-            else if (Input.GetAxis("Vertical") < -0.1f && Timer <= 0)
+            else if (GetInput("Vertical") < -0.1f && Timer <= 0)
             {
                 ChangeSelection(1);
                 Timer = SelectTimer;
             }
-            else if (Timer > 0 && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)
+            else if (Timer > 0 && Mathf.Abs(GetInput("Vertical")) < 0.1f)
                 Timer = 0;
             MoreUpdate();
-            if (Input.GetAxis("Click") == 1)
+            if (GetInput("Click") > 0.5f)
             {
-                Click();
+                if (!Clicking)
+                {
+                    Clicking = true;
+                    Click();
+                }
             }
+            else
+                Clicking = false;
+        }
+
+        protected float GetInput(string axis)
+        {
+            float r = 0;
+            if (PlayerOne)
+                r += Input.GetAxis(axis + " P1");
+            if (PlayerTwo)
+                r += Input.GetAxis(axis + " P2");
+            return r;
         }
 
         protected virtual void MoreUpdate()
@@ -71,7 +92,7 @@ namespace Cub.Interface
         //    OptionsDict.Add(mmo, obj);
         //}
 
-        void ChangeSelection(int n)
+        protected virtual void ChangeSelection(int n)
         {
             int current = Options.IndexOf(Selected);
             current += n;

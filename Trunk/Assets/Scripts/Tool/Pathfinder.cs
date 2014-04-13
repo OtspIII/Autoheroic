@@ -60,8 +60,16 @@ namespace Cub.Tool
                 path.Insert(0, seed.Square);
                 if (seed.pSquare == start)
                     break;
+                else if (seed.pSquare.X < 0)
+                {
+                    Debug.Log("Not reading start ----------------------------------------------------------------------------------");
+                    break;
+                }
                 else
+                {
+                    //Debug.Log("PSQUARE: " + seed + " / " + seed.Square.X + "," + seed.Square.Y + " / " + start.X + "," + start.Y);
                     seed = closedList[seed.pSquare];
+                }
             }
             if (!CheckAccessable(finish,true) && finish != start)
                 path.Remove(finish);
@@ -94,7 +102,7 @@ namespace Cub.Tool
             if (where.X < 0 || where.X >= Cub.Model.Library.Stage_Terrain.Length || where.Y < 0
                 || where.Y >= Cub.Model.Library.Stage_Terrain[where.X].Length)
                 return false;
-            if (blockable)
+            if (!blockable)
                 return true;
             foreach (Cub.Model.Team t in Cub.Model.Main.List_Team)
             {

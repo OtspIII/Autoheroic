@@ -97,7 +97,7 @@ namespace Cub.Model
                 Dictionary_Legs.Add(Part_Legs.Tread, new Model.BPLegs("Tank Treads",
                     "Tank tread legs that are incredibly hard to damage but lack in speed.", 2, 15));
                 Dictionary_Legs.Add(Part_Legs.Hover, new Model.BPLegs("Hover",
-                    "A hover-engine that allows for rapid movement at the cost of durability.", 4, 35, new List<Cub.Action>(), false));
+                    "A hover-engine that allows for rapid movement at the cost of durability.", 4, 35));
 
                 Dictionary_Condition = new Dictionary<Cub.Condition, Cub.Model.Condition.Base>();
                 Dictionary_Condition[Cub.Condition.Any] = new Cub.Model.Condition.Any();

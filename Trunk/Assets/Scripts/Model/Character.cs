@@ -14,6 +14,7 @@ namespace Cub.Model
         public Part_Body Body;
         public Part_Legs Legs;
         public Position2 Position;
+        public System.Guid ID;
         //public int X;
         //public int Y;
 
@@ -39,6 +40,7 @@ namespace Cub.Model
             Body = body;
             Legs = legs;
             Position = new Position2(_X, _Y);
+            ID = System.Guid.NewGuid();
         }
     }
 
@@ -79,6 +81,7 @@ namespace Cub.Model
     {
         public string Name { get; set; }
         public System.Guid ID { get; set; }
+        public System.Guid ID_Save { get; set; }
         public Character_Info Info { get; set; }
         public Character_Stat Stat { get; set; }
         //public List<Cub.Tool.Tactic> Bought_Tactic = new List<Tactic>();
@@ -101,6 +104,7 @@ namespace Cub.Model
         {
             SetName(save.Name);
             this.ID = System.Guid.NewGuid();
+            this.ID_Save = save.ID;
             this.Stat = new Character_Stat();
             this.Info = BuildInfo(save.Head, save.Arms, save.Body, save.Legs);
 

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TeamButtonController : Cub.Interface.MenuChoiceController {
-    
+public class TeamButtonController : Cub.Interface.MenuChoiceController
+{
+
     public Cub.Model.TeamSave Team;
-    bool Adder;
+    public bool Adder;
     public UILabel TeamName;
     public UILabel OwnerName;
 
@@ -12,7 +13,8 @@ public class TeamButtonController : Cub.Interface.MenuChoiceController {
     public void Setup(Cub.Model.TeamSave team)
     {
         Team = team;
-        if (Team != null) { 
+        if (Team != null)
+        {
             TeamName.text = team.Name;
             OwnerName.text = team.Owner_Name;
             Adder = false;
