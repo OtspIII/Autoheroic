@@ -11,7 +11,7 @@ namespace Cub.Interface
         public bool PlayerOne;
         public bool PlayerTwo;
         public bool CurrentlyActive = false;
-        bool Clicking = false;
+        public bool Clicking = false;
 
         public GameObject SelectMarker;
         public MasterGameController GM;
@@ -22,7 +22,7 @@ namespace Cub.Interface
         protected MenuChoiceController Selected;
 
         protected float SelectTimer = 0.2f;
-        float Timer;
+        protected float Timer;
 
         // Use this for initialization
         void Start()

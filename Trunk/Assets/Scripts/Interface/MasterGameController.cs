@@ -29,7 +29,7 @@ public class MasterGameController : MonoBehaviour
     //bool BlockStuff;
     Dictionary<GameObject, float> BlockTimersMax;
     Dictionary<GameObject, float> BlockTimers;
-    List<GameObject> Blocks = new List<GameObject>();
+    public List<GameObject> Blocks = new List<GameObject>();
 
     public Cub.Interface.TeamPickerManager LeftPicker;
     public Cub.Interface.TeamPickerManager RightPicker;

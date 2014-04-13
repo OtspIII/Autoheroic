@@ -52,6 +52,16 @@ public class CharacterEditorManager : OptionsListController
         }
         else if (HoriTimer > 0 && Mathf.Abs(GetInput("Horizontal")) < 0.1f)
             HoriTimer = 0;
+
+        if (GetInput("Escape") > 0.8f)
+        {
+            if (PlayerOne)
+                GM.LeftEditor.gameObject.SetActive(true);
+            else
+                GM.RightEditor.gameObject.SetActive(true);
+            gameObject.SetActive(false);
+            PersonalCamera.SetActive(false);
+        }
     }
 
     public void Setup(Cub.View.Character VChar, Cub.Model.Character_Save SChar)

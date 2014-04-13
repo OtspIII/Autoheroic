@@ -17,6 +17,7 @@ public class TeamEditorManager : MonoBehaviour
     private Dictionary<System.Guid, Cub.View.Character> Dictionary_Character { get; set; }
     private Dictionary<System.Guid, Cub.Model.Character_Save> Dictionary_CharSave { get; set; }
     private Dictionary<Cub.Position2, System.Guid> Dictionary_CharPos { get; set; }
+    private List<GameObject> CharacterModels;
 
     TeamSave Team = null;
     Team FakeTeam = null;
@@ -30,6 +31,9 @@ public class TeamEditorManager : MonoBehaviour
     public bool PlayerOne;
     public bool PlayerTwo;
     public Rect SelectRange;
+
+    public bool Ready;
+    public UISprite ReadyButton;
 
     // Use this for initialization
     void Start()
@@ -86,8 +90,58 @@ public class TeamEditorManager : MonoBehaviour
                 Click();
             }
         }
+        else if (GetInput("Ready") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                if (Ready)
+                {
+                    Ready = false;
+                    ReadyButton.color = Color.green;
+                }
+                else
+                {
+                    Ready = true;
+                    ReadyButton.color = Color.white;
+                    //Maybe start?
+                }
+            }
+        }
+        else if (GetInput("Escape") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                if (PlayerOne)
+                {
+                    GM.LeftPicker.gameObject.SetActive(true);
+                    GM.LeftPicker.Clicking = true;
+                }
+                else
+                {
+                    GM.RightPicker.gameObject.SetActive(true);
+                    GM.RightPicker.Clicking = true;
+                }
+                Dictionary_Character.Clear();
+                Dictionary_CharPos.Clear();
+                Dictionary_CharSave.Clear();
+                foreach (GameObject go in SquareMarkers)
+                    Destroy(go);
+                foreach (GameObject go in CharacterModels)
+                    Destroy(go);
+                CharacterModels.Clear();
+                Current_Char = null;
+                Current_CharSave = null;
+                CurrentlyActive = false;
+                SquareMarker.transform.position = new Vector3(-5, 0, 5);
+                gameObject.SetActive(false);
+            }
+        }
         else
             Clicking = false;
+
+        
     }
 
     public void Setup(Cub.Model.TeamSave team)
@@ -99,6 +153,7 @@ public class TeamEditorManager : MonoBehaviour
         Dictionary_Character = new Dictionary<System.Guid, Cub.View.Character>();
         Dictionary_CharSave = new Dictionary<System.Guid, Character_Save>();
         Dictionary_CharPos = new Dictionary<Cub.Position2, System.Guid>();
+        CharacterModels = new List<GameObject>();
         FakeTeam = Team.Extract_Team();
         
         foreach (Character c in FakeTeam.List_Character)
@@ -106,6 +161,7 @@ public class TeamEditorManager : MonoBehaviour
             AddCharacter(c).gameObject.SetActive(false);
         }
         Clicking = true;
+        Ready = false;
     }
 
     Cub.View.Character AddCharacter(Cub.Model.Character c)
@@ -123,6 +179,7 @@ public class TeamEditorManager : MonoBehaviour
         C.transform.rotation = Quaternion.Euler(Rot);
         SquareMarkers.Add((GameObject)Instantiate(SquareMarkerType, C.transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity));
         Dictionary_CharPos.Add(c.Stat.Position, c.ID_Save);
+        CharacterModels.Add(C.gameObject);
         return C;
     }
 
@@ -150,6 +207,7 @@ public class TeamEditorManager : MonoBehaviour
         int y = Mathf.Min((int)(SelectRange.y + SelectRange.height), Mathf.Max((int)(SelectRange.y), SelectedSquare.Y + move.Y));
         SelectedSquare = new Cub.Position2(x, y);
         MoveSelector();
+        //Debug.Log(Dictionary_CharPos.Keys.Count + " / " + SelectedSquare);
         if (Dictionary_CharPos.ContainsKey(SelectedSquare))
         {
             Dictionary_Character[Dictionary_CharPos[SelectedSquare]].gameObject.SetActive(true);

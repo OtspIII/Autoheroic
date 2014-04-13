@@ -6,7 +6,7 @@ namespace Cub.Interface
 {
     public class TeamPickerManager : OptionsListController
     {
-
+        bool AlreadySetup = false;
         List<Cub.Model.TeamSave> Teams;
         public bool Chosen = false;
         public Cub.Model.TeamSave SelectedTeam { get { return ((TeamButtonController)Selected).Team; } }
@@ -16,8 +16,59 @@ namespace Cub.Interface
 
         public void Setup(List<Cub.Model.TeamSave> teams)
         {
+            if (AlreadySetup)
+                return;
+            AlreadySetup = true;
             Teams = teams;
             MarkTeamButtons();
+        }
+
+        void Update()
+        {
+            if (!CurrentlyActive)
+                return;
+            if (Timer > 0)
+                Timer -= Time.deltaTime;
+
+            if (GetInput("Vertical") > 0.1f && Timer <= 0)
+            {
+                ChangeSelection(-1);
+                Timer = SelectTimer;
+            }
+            else if (GetInput("Vertical") < -0.1f && Timer <= 0)
+            {
+                ChangeSelection(1);
+                Timer = SelectTimer;
+            }
+            else if (Timer > 0 && Mathf.Abs(GetInput("Vertical")) < 0.1f)
+                Timer = 0;
+            MoreUpdate();
+            if (GetInput("Click") > 0.5f)
+            {
+                if (!Clicking)
+                {
+                    Clicking = true;
+                    Click();
+                }
+            }
+            else if (GetInput("Escape") > 0.8f)
+            {
+                if (!Clicking)
+                {
+                    Clicking = true;
+                    GM.MainMenu.gameObject.SetActive(true);
+                    GM.LeftPicker.transform.localPosition =
+                        new Vector3(-300, transform.localPosition.y, transform.localPosition.z);
+                    GM.RightPicker.transform.localPosition =
+                        new Vector3(300, transform.localPosition.y, transform.localPosition.z);
+                    foreach (GameObject tile in GM.Blocks)
+                        tile.transform.position += new Vector3(0, 20, 0);
+                    GM.LeftPicker.CurrentlyActive = false;
+                    GM.RightPicker.CurrentlyActive = false;
+                }
+            }
+            else
+                Clicking = false;
         }
 
         void MarkTeamButtons()
