@@ -10,7 +10,7 @@ public class MasterGameController : MonoBehaviour
     //public GameObject MainMenu;
     //public GameObject TeamPickers;
     public Camera MainCamera;
-    public GameObject PersonalCamera;
+    //public GameObject PersonalCamera;
 
     public Cub.View.Runtime Runtime;
 
@@ -35,6 +35,8 @@ public class MasterGameController : MonoBehaviour
     public Cub.Interface.TeamPickerManager RightPicker;
     public TeamEditorManager LeftEditor;
     public TeamEditorManager RightEditor;
+    public CharacterEditorManager LeftCEditor;
+    public CharacterEditorManager RightCEditor;
 
 
     // Use this for initialization
@@ -47,6 +49,12 @@ public class MasterGameController : MonoBehaviour
         Teams = (List<Cub.Model.TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/Team_Saves.xml");
         MainMenu.CurrentlyActive = true;
         GSC.gameObject.SetActive(false);
+        LeftCEditor.PersonalCamera.SetActive(false);
+        RightCEditor.PersonalCamera.SetActive(false);
+        LeftEditor.gameObject.SetActive(false);
+        RightEditor.gameObject.SetActive(false);
+        LeftCEditor.gameObject.SetActive(false);
+        RightCEditor.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -206,6 +214,18 @@ public class MasterGameController : MonoBehaviour
         }
 
 
+    }
+
+    public void EditCharacter(TeamEditorManager tem, Cub.View.Character VChar, Cub.Model.Character_Save SChar)
+    {
+        CharacterEditorManager cem;
+        if (tem.PlayerOne)
+            cem = LeftCEditor;
+        else
+            cem = RightCEditor;
+        tem.gameObject.SetActive(false);
+        cem.gameObject.SetActive(true);
+        cem.Setup(VChar, SChar);
     }
 }
 

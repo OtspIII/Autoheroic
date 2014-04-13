@@ -8,34 +8,38 @@ namespace Cub.Model
     public class BPBody : Bodypart
     {
         public int Health;
+        public Cub.Part_Body E;
         
-        public BPBody(string name, string desc, int hp, int cst)
+        public BPBody(string name, string desc, int hp, int cst, Cub.Part_Body e)
         {
             Name = name;
             Description = desc;
             Health = hp;
             Cost = cst;
+            E = e;
         }
 
-        public BPBody(string name, string desc, int hp, int cst, List<Special_Effects> eff)
+        public BPBody(string name, string desc, int hp, int cst, Cub.Part_Body e, List<Special_Effects> eff)
         {
             Name = name;
             Description = desc;
             Health = hp;
             Cost = cst;
             Effects = eff;
+            E = e;
         }
 
-        public BPBody(string name, string desc, int hp, int cst, List<Cub.Action> abil)
+        public BPBody(string name, string desc, int hp, int cst, Cub.Part_Body e, List<Cub.Action> abil)
         {
             Name = name;
             Description = desc;
             Health = hp;
             Cost = cst;
             Special_Abilities = abil;
+            E = e;
         }
 
-        public BPBody(string name, string desc, int hp, int cst, List<Special_Effects> eff, List<Cub.Action> abil)
+        public BPBody(string name, string desc, int hp, int cst, Cub.Part_Body e, List<Special_Effects> eff, List<Cub.Action> abil)
         {
             Name = name;
             Description = desc;
@@ -43,6 +47,7 @@ namespace Cub.Model
             Cost = cst;
             Effects = eff;
             Special_Abilities = abil;
+            E = e;
         }
     }
 }

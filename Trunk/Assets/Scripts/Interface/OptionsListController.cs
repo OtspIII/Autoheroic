@@ -21,7 +21,7 @@ namespace Cub.Interface
 
         protected MenuChoiceController Selected;
 
-        float SelectTimer = 0.2f;
+        protected float SelectTimer = 0.2f;
         float Timer;
 
         // Use this for initialization
@@ -101,9 +101,14 @@ namespace Cub.Interface
             else if (current < 0)
                 current = Options.Count - 1;
             //-15,-7
-            Vector3 offset = Selected.gameObject.transform.position - SelectMarker.transform.position;
-            Selected = Options[current];
-            SelectMarker.transform.position = Selected.gameObject.transform.position - offset;
+            if (SelectMarker != null)
+            {
+                Vector3 offset = Selected.gameObject.transform.position - SelectMarker.transform.position;
+                Selected = Options[current];
+                SelectMarker.transform.position = Selected.gameObject.transform.position - offset;
+            }
+            else
+                Selected = Options[current];
             OnSelectChange();
         }
 
@@ -118,6 +123,10 @@ namespace Cub.Interface
         MMFight,
         MMEditTeam,
         MMQuit,
-        PickerTeam
+        PickerTeam,
+        Head,
+        Arms,
+        Body,
+        Legs
     }
 }

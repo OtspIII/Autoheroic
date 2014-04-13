@@ -53,6 +53,29 @@ namespace Cub.View
             this.Stat.Legs = _Legs;
         }
 
+        public void Delete_Part()
+        {
+            GameObject GO_Head = this.gameObject.transform.FindChild("Head").gameObject;
+            GameObject GO_Body = this.gameObject.transform.FindChild("Body").gameObject;
+            GameObject GO_Arms_Left = this.gameObject.transform.FindChild("Arms_Left").gameObject;
+            GameObject GO_Arms_Right = this.gameObject.transform.FindChild("Arms_Right").gameObject;
+            GameObject GO_Legs_Left = this.gameObject.transform.FindChild("Legs_Left").gameObject;
+            GameObject GO_Legs_Right = this.gameObject.transform.FindChild("Legs_Right").gameObject;
+
+            foreach (Transform t in GO_Head.transform)
+                Destroy(t.gameObject);
+            foreach (Transform t in GO_Body.transform)
+                Destroy(t.gameObject);
+            foreach (Transform t in GO_Arms_Left.transform)
+                Destroy(t.gameObject);
+            foreach (Transform t in GO_Arms_Right.transform)
+                Destroy(t.gameObject);
+            foreach (Transform t in GO_Legs_Left.transform)
+                Destroy(t.gameObject);
+            foreach (Transform t in GO_Legs_Right.transform)
+                Destroy(t.gameObject);
+        }
+
         public void Initialize_Part()
         {
             this.Part.Head = Library.Get_Part_Head(this.Stat.Head);
