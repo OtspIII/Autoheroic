@@ -16,7 +16,7 @@ namespace Cub.Scene
             C0.Name = "fdsa";
             C0.ID = new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             C0.Info = new Model.Character_Info();
-            C0.Info.Head = Part_Head.Hunter;
+            C0.Info.Head = Part_Head.Soldier;
             C0.Info.Body = Part_Body.Medium;
             C0.Info.Arms = Part_Arms.Sniper_Rifle;
             C0.Info.Legs = Part_Legs.Hover;
@@ -54,16 +54,6 @@ namespace Cub.Scene
             {                
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0, 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-                
-                /*
-                */
-                /*
-                foreach (GameObject GO in GameObject.FindGameObjectsWithTag("Cube"))
-                {
-                    DestroyImmediate(GO);
-                }
-
-                Start();*/
             }
 
             if (Input.GetKeyDown(KeyCode.W))

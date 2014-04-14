@@ -330,44 +330,8 @@
         <y>-3</y>
         <z>2</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>-2</y>
         <z>2</z>
       </Vector3>
@@ -382,41 +346,6 @@
         <z>2</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>-1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>-1</y>
         <z>2</z>
@@ -427,83 +356,12 @@
         <z>2</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>0</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>0</y>
         <z>2</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>1</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>1</y>
         <z>2</z>
       </Vector3>
@@ -512,44 +370,8 @@
         <y>1</y>
         <z>2</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>2</y>
-        <z>2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>2</y>
         <z>2</z>
       </Vector3>
@@ -648,44 +470,8 @@
         <y>-3</y>
         <z>1</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>-2</y>
         <z>1</z>
       </Vector3>
@@ -700,82 +486,12 @@
         <z>1</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>-1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>-1</y>
         <z>1</z>
       </Vector3>
       <Vector3>
         <x>-4</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>0</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>0</y>
         <z>1</z>
       </Vector3>
@@ -790,82 +506,12 @@
         <z>1</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>1</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>1</y>
         <z>1</z>
       </Vector3>
       <Vector3>
         <x>-4</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>2</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>2</y>
         <z>1</z>
       </Vector3>
@@ -881,31 +527,6 @@
       </Vector3>
       <Vector3>
         <x>-3</x>
-        <y>3</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>3</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>3</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>3</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>3</y>
-        <z>1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
         <y>3</y>
         <z>1</z>
       </Vector3>
@@ -964,44 +585,8 @@
         <y>-3</y>
         <z>0</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>-2</y>
         <z>0</z>
       </Vector3>
@@ -1010,44 +595,8 @@
         <y>-2</y>
         <z>0</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>-1</y>
         <z>0</z>
       </Vector3>
@@ -1062,82 +611,12 @@
         <z>0</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>0</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>0</y>
         <z>0</z>
       </Vector3>
       <Vector3>
         <x>-4</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>1</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>1</y>
         <z>0</z>
       </Vector3>
@@ -1152,46 +631,10 @@
         <z>0</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>2</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>2</y>
         <z>0</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
         <y>3</y>
@@ -1199,31 +642,6 @@
       </Vector3>
       <Vector3>
         <x>-3</x>
-        <y>3</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>3</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>3</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>3</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>3</y>
-        <z>0</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
         <y>3</y>
         <z>0</z>
       </Vector3>
@@ -1289,41 +707,6 @@
         <z>-1</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>-2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>-2</y>
         <z>-1</z>
@@ -1331,41 +714,6 @@
 
       <Vector3>
         <x>-4</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>-1</y>
         <z>-1</z>
       </Vector3>
@@ -1381,41 +729,6 @@
         <z>-1</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>0</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>0</y>
         <z>-1</z>
@@ -1426,83 +739,12 @@
         <z>-1</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>1</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>1</y>
         <z>-1</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>2</y>
-        <z>-1</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>2</y>
         <z>-1</z>
       </Vector3>
@@ -1608,41 +850,6 @@
         <z>-2</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>-2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>-2</y>
         <z>-2</z>
@@ -1654,82 +861,12 @@
         <z>-2</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>-1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>-1</y>
         <z>-2</z>
       </Vector3>
       <Vector3>
         <x>-4</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>0</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>0</y>
         <z>-2</z>
       </Vector3>
@@ -1744,82 +881,12 @@
         <z>-2</z>
       </Vector3>
       <Vector3>
-        <x>-3</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
-        <y>1</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
         <x>4</x>
         <y>1</y>
         <z>-2</z>
       </Vector3>
       <Vector3>
         <x>-4</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-3</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-2</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>-1</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>0</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>1</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>2</x>
-        <y>2</y>
-        <z>-2</z>
-      </Vector3>
-      <Vector3>
-        <x>3</x>
         <y>2</y>
         <z>-2</z>
       </Vector3>
@@ -1964,7 +1031,6 @@
         <y>-2</y>
         <z>-3</z>
       </Vector3>
-
       <Vector3>
         <x>-4</x>
         <y>-1</y>
