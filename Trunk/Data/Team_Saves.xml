@@ -344,6 +344,18 @@
         </Position>
         <ID>00000600-0000-0000-0000-000000000000</ID>
       </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>9</Y>
+        </Position>
+        <ID>a9c2ae62-72e8-45f6-9f73-e7b9aa91e4c5</ID>
+      </Character_Save>
     </Chars>
   </TeamSave>
   <TeamSave>
@@ -543,7 +555,7 @@ Seems
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
-        <Head>Soldier</Head>
+        <Head>Idiot</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
@@ -555,7 +567,7 @@ Seems
       </Character_Save>
       <Character_Save>
         <Name>---</Name>
-        <Head>Soldier</Head>
+        <Head>Idiot</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
@@ -576,6 +588,36 @@ Seems
           <Y>5</Y>
         </Position>
         <ID>00100000-0000-0000-0000-000000000000</ID>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name />
+    <Owner_Name />
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>2</Y>
+        </Position>
+        <ID>8a0064f2-848e-4cc3-a4e3-78e63fa56bbb</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>6</Y>
+        </Position>
+        <ID>ca786e2e-9107-49fd-9973-2d4659720646</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

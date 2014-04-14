@@ -65,12 +65,15 @@ public class CharacterEditorManager : OptionsListController
     }
 
     public void Setup(Cub.View.Character VChar, Cub.Model.Character_Save SChar)
-    {
+    {   
         Who = VChar;
         WhoSave = SChar;
         PersonalCamera.SetActive(true);
+        float offset = 2;
+        if (!PlayerOne)
+            offset = -2;
         PersonalCamera.transform.position =
-            new Vector3(VChar.transform.position.x + 2, VChar.transform.position.y + 1.2f, VChar.transform.position.z + 0.5f);
+            new Vector3(VChar.transform.position.x + offset, VChar.transform.position.y + 1.2f, VChar.transform.position.z + 0.5f);
         CurrentlyActive = true;
         OnSelectChange();
         //Heads = Cub.Model.Library.List_Heads();

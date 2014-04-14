@@ -25,7 +25,7 @@ namespace Cub.Interface
         protected float Timer;
 
         // Use this for initialization
-        void Start()
+        void Awake()
         {
             foreach (GameObject obj in OptionsRaw)
                 Options.Add((MenuChoiceController)obj.GetComponent("MenuChoiceController"));

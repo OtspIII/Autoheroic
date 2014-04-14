@@ -13,7 +13,13 @@ namespace Cub.Model
 
         public TeamSave()
         {
+        }
 
+        public TeamSave(string name, string owner)
+        {
+            Name = name;
+            Owner_Name = owner;
+            Chars = new List<Character_Save>();
         }
 
         public void Add_Character(Character_Save c)
