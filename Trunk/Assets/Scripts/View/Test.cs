@@ -94,6 +94,12 @@ namespace Cub.Scene
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Die, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
+                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }
