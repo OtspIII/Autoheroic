@@ -10,6 +10,18 @@ namespace Cub.View.Event
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
 
+            Cube[] CL = C.GetComponentsInChildren<Cube>();
+
+            foreach (Cube CO in CL)
+            {
+                CO.gameObject.AddComponent<Rigidbody>();
+                CO.gameObject.AddComponent<BoxCollider>();
+
+                CO.transform.parent = null;
+
+                CO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+            }
+
             //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
             //BoxCollider[] BL = C.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
 
