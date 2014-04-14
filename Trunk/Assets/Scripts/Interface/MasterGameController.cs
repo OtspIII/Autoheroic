@@ -55,6 +55,7 @@ public class MasterGameController : MonoBehaviour
         RightEditor.gameObject.SetActive(false);
         LeftCEditor.gameObject.SetActive(false);
         RightCEditor.gameObject.SetActive(false);
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -176,11 +177,14 @@ public class MasterGameController : MonoBehaviour
 
     void StartGameplay()
     {
+        LeftEditor.ClearMarkers();
+        RightEditor.ClearMarkers();
         Cub.Model.TeamSave TS1 = LeftPicker.SelectedTeam;
         Cub.Model.TeamSave TS2 = RightPicker.SelectedTeam;
         Cub.Model.Team TeamOne = TS1.Extract_Team();
         Cub.Model.Team TeamTwo = TS2.Extract_Team();
-        TeamPickers.SetActive(false);
+        LeftEditor.gameObject.SetActive(false);
+        RightEditor.gameObject.SetActive(false);
         GSC.gameObject.SetActive(true);
         GSC.StartGame(TeamOne, TeamTwo);
     }
@@ -226,6 +230,19 @@ public class MasterGameController : MonoBehaviour
         tem.gameObject.SetActive(false);
         cem.gameObject.SetActive(true);
         cem.Setup(VChar, SChar);
+    }
+
+    public void CheckMatchReady()
+    {
+        bool ready = true;
+        if (!LeftEditor.Ready)
+            ready = false;
+        if (!RightEditor.Ready)
+            ready = false;
+        if (ready)
+        {
+            StartGameplay();
+        }
     }
 }
 

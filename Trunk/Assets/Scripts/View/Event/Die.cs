@@ -10,19 +10,19 @@ namespace Cub.View.Event
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
 
-            Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
-            BoxCollider[] BL = C.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
+            //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
+            //BoxCollider[] BL = C.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
 
-            foreach (Rigidbody R in RL)
-            {
-                R.useGravity = true;
-                R.AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 0, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
-            }
+            //foreach (Rigidbody R in RL)
+            //{
+            //    R.useGravity = true;
+            //    R.AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 0, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
+            //}
 
-            foreach (BoxCollider B in BL)
-            {
-                B.enabled = true;
-            }
+            //foreach (BoxCollider B in BL)
+            //{
+            //    B.enabled = true;
+            //}
             C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
             Runtime.Remove_Character((Guid)_Data[0]);
 

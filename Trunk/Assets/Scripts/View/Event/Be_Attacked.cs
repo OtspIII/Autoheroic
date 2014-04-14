@@ -21,22 +21,24 @@ namespace Cub.View.Event
 
             C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
 
-            int A = (int)_Data[1] * 5;
+            //We should redo all of this, or just turn it on when we can figure out how to optimize it better----------------------------------------
 
-            Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
+            //int A = (int)_Data[1] * 5;
 
-            while (A > 0)
-            {
-                GameObject GO = RL[UnityEngine.Random.Range(0, RL.Length)].gameObject;
+            //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
 
-                GO.rigidbody.useGravity = true;
-                GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
-                GO.GetComponent<BoxCollider>().enabled = true;
+            //while (A > 0)
+            //{
+            //    GameObject GO = RL[UnityEngine.Random.Range(0, RL.Length)].gameObject;
+
+            //    GO.rigidbody.useGravity = true;
+            //    GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+            //    GO.GetComponent<BoxCollider>().enabled = true;
                 
-                //GOL[I].GetComponent<TrailRenderer>().enabled = true;
+            //    //GOL[I].GetComponent<TrailRenderer>().enabled = true;
 
-                A--;
-            }
+            //    A--;
+            //}
 
             return Timespan;
         }

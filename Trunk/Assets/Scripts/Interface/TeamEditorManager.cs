@@ -98,13 +98,13 @@ public class TeamEditorManager : MonoBehaviour
                 if (Ready)
                 {
                     Ready = false;
-                    ReadyButton.color = Color.green;
+                    ReadyButton.color = Color.white;
                 }
                 else
                 {
                     Ready = true;
-                    ReadyButton.color = Color.white;
-                    //Maybe start?
+                    ReadyButton.color = Color.green;
+                    GM.CheckMatchReady();
                 }
             }
         }
@@ -123,25 +123,28 @@ public class TeamEditorManager : MonoBehaviour
                     GM.RightPicker.gameObject.SetActive(true);
                     GM.RightPicker.Clicking = true;
                 }
-                Dictionary_Character.Clear();
-                Dictionary_CharPos.Clear();
-                Dictionary_CharSave.Clear();
-                foreach (GameObject go in SquareMarkers)
-                    Destroy(go);
-                foreach (GameObject go in CharacterModels)
-                    Destroy(go);
-                CharacterModels.Clear();
-                Current_Char = null;
-                Current_CharSave = null;
-                CurrentlyActive = false;
-                SquareMarker.transform.position = new Vector3(-5, 0, 5);
+                ClearMarkers();
                 gameObject.SetActive(false);
             }
         }
         else
             Clicking = false;
+    }
 
-        
+    public void ClearMarkers()
+    {
+        Dictionary_Character.Clear();
+        Dictionary_CharPos.Clear();
+        Dictionary_CharSave.Clear();
+        foreach (GameObject go in SquareMarkers)
+            Destroy(go);
+        foreach (GameObject go in CharacterModels)
+            Destroy(go);
+        CharacterModels.Clear();
+        Current_Char = null;
+        Current_CharSave = null;
+        CurrentlyActive = false;
+        SquareMarker.transform.position = new Vector3(-5, 0, 5);
     }
 
     public void Setup(Cub.Model.TeamSave team)
