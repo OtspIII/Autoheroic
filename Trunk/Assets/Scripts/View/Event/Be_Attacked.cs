@@ -7,6 +7,7 @@ namespace Cub.View.Event
     public class Be_Attacked : Base
     {
         private const float Timespan = 1.5F;
+        private const int Falling_Number = 10;
 
         public override float Process(List<object> _Data, string Desc)
         {
@@ -21,25 +22,20 @@ namespace Cub.View.Event
 
             C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
 
-            //We should redo all of this, or just turn it on when we can figure out how to optimize it better----------------------------------------
+            Cube[] CO = C.gameObject.transform.GetComponentsInChildren<Cube>();
 
-            //int A = (int)_Data[1] * 5;
+            for (int i = 0; i < Falling_Number; i++)
+            {
+                GameObject GO = CO[UnityEngine.Random.Range(0, CO.Length)].gameObject;
 
-            //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
+                GO.transform.parent = null;
 
-            //while (A > 0)
-            //{
-            //    GameObject GO = RL[UnityEngine.Random.Range(0, RL.Length)].gameObject;
+                GO.AddComponent<Rigidbody>();
+                GO.AddComponent<BoxCollider>();
 
-            //    GO.rigidbody.useGravity = true;
-            //    GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
-            //    GO.GetComponent<BoxCollider>().enabled = true;
-                
-            //    //GOL[I].GetComponent<TrailRenderer>().enabled = true;
-
-            //    A--;
-            //}
-
+                GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+            }
+            
             return Timespan;
         }
     }

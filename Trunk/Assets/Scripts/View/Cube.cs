@@ -5,30 +5,15 @@ namespace Cub.View
 {
     public class Cube : MonoBehaviour
     {
-        public Colour CubeType = Colour.Black;
-        bool Dying = false;
+        private const float Timespan = 2.0F;
 
-        void OnCollisionEnter(Collision collision)
+        public void OnCollisionEnter(Collision collision)
         {
-            if (!Dying && collision.gameObject.CompareTag("Terrain"))
+            if (collision.gameObject.CompareTag("Terrain"))
             {
-                if (UnityEngine.Random.Range(0, 2) == 1)
-                    Destroy(this.gameObject);
-                else
-                {
-                    float time = UnityEngine.Random.Range(4.0f, 12.0f);
-                    iTween.ScaleTo(this.gameObject, Vector3.zero, time);
-                    Destroy(this.gameObject, time);
-                    Dying = true;
-                }
+                iTween.ScaleTo(this.gameObject, Vector3.zero, Timespan);
+                Destroy(this.gameObject, Timespan);
             }
         }
-
-        /*
-        public void SetMaterial(Colour ct, bool TeamOne)
-        {
-            CubeType = ct;
-            renderer.material = Cub.View.Library.Get_Cube(CubeType,TeamOne);
-        }*/
     }
 }
