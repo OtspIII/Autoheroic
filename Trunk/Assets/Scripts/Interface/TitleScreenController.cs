@@ -6,31 +6,47 @@ using System.Collections.Generic;
 namespace Cub.Interface
 {
 
-    public class TitleScreenController : OptionsListController
+    public class TitleScreenController : MonoBehaviour
+        //: OptionsListController
     {
         public MasterGameController MasterController;
 
-        protected override void MoreUpdate()
+        void Update()
         {
-
+            if (GetInput("Click") > 0.5f || GetInput("Ready") > 0.5f)
+                MasterController.GotoFightScreen();
+            //if (GetInput("Escape") > 0.5f)
         }
 
-        protected override void Click()
+        protected float GetInput(string axis)
         {
-            switch (Selected.Option)
-            {
-                case MenuOptions.MMFight:
-                    MasterController.GotoFightScreen();
-                    break;
-
-                case MenuOptions.MMEditTeam:
-                    MasterController.GotoEditScreen();
-                    break;
-
-                case MenuOptions.MMQuit:
-                    Application.Quit();
-                    break;
-            }
+            float r = 0;
+            r += Input.GetAxis(axis + " P1");
+            r += Input.GetAxis(axis + " P2");
+            return r;
         }
+
+        //protected override void MoreUpdate()
+        //{
+
+        //}
+
+        //protected override void Click()
+        //{
+        //    switch (Selected.Option)
+        //    {
+        //        case MenuOptions.MMFight:
+        //            MasterController.GotoFightScreen();
+        //            break;
+
+        //        case MenuOptions.MMEditTeam:
+        //            MasterController.GotoEditScreen();
+        //            break;
+
+        //        case MenuOptions.MMQuit:
+        //            Application.Quit();
+        //            break;
+        //    }
+        //}
     }
 }

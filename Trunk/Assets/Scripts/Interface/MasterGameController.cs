@@ -14,7 +14,7 @@ public class MasterGameController : MonoBehaviour
 
     public Cub.View.Runtime Runtime;
 
-    List<Cub.Model.TeamSave> Teams;
+    public List<Cub.Model.TeamSave> Teams;
 
     MasterStage Stage = MasterStage.Waiting;
 
@@ -47,7 +47,6 @@ public class MasterGameController : MonoBehaviour
         BuildMap();
         string name = typeof(List<Cub.Model.TeamSave>).AssemblyQualifiedName;
         Teams = (List<Cub.Model.TeamSave>)Cub.Tool.Xml.Deserialize(System.Type.GetType(name), "Data/Team_Saves.xml");
-        MainMenu.CurrentlyActive = true;
         GSC.gameObject.SetActive(false);
         LeftCEditor.PersonalCamera.SetActive(false);
         RightCEditor.PersonalCamera.SetActive(false);
@@ -126,8 +125,8 @@ public class MasterGameController : MonoBehaviour
     public void GotoFightScreen()
     {
         MainMenu.gameObject.SetActive(false);
-        LeftPicker.Setup(Teams);
-        RightPicker.Setup(Teams);
+        LeftPicker.Setup();
+        RightPicker.Setup();
         //CameraToPoint(new Vector3(-2, 3, -2),1);
         BlockTimers = new Dictionary<GameObject, float>();
         BlockTimersMax = new Dictionary<GameObject, float>();
@@ -241,6 +240,7 @@ public class MasterGameController : MonoBehaviour
             ready = false;
         if (ready)
         {
+            Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
             StartGameplay();
         }
     }

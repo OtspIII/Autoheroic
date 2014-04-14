@@ -7,19 +7,17 @@ namespace Cub.Interface
     public class TeamPickerManager : OptionsListController
     {
         bool AlreadySetup = false;
-        List<Cub.Model.TeamSave> Teams;
         public bool Chosen = false;
         public Cub.Model.TeamSave SelectedTeam { get { return ((TeamButtonController)Selected).Team; } }
         int TeamsOffset = 0;
         public GameObject UpMarker;
         public GameObject DownMarker;
 
-        public void Setup(List<Cub.Model.TeamSave> teams)
+        public void Setup()
         {
             if (AlreadySetup)
                 return;
             AlreadySetup = true;
-            Teams = teams;
             MarkTeamButtons();
         }
 
@@ -79,17 +77,17 @@ namespace Cub.Interface
                 TeamButtonController tbc = (TeamButtonController)choice;
                 if (n == -1)
                     tbc.SetupAdder();
-                else if (n >= Teams.Count || n < -1)
+                else if (n >= GM.Teams.Count || n < -1)
                     tbc.Setup(null);
                 else
-                    tbc.Setup(Teams[n]);
+                    tbc.Setup(GM.Teams[n]);
                 n++;
             }
             if (TeamsOffset > 0)
                 UpMarker.SetActive(true);
             else
                 UpMarker.SetActive(false);
-            if (TeamsOffset + Options.Count - 2 < Mathf.Max(6, Teams.Count - 1))
+            if (TeamsOffset + Options.Count - 2 < Mathf.Max(6, GM.Teams.Count - 1))
                 DownMarker.SetActive(true);
             else
                 DownMarker.SetActive(false);
@@ -102,7 +100,7 @@ namespace Cub.Interface
             if (current >= Options.Count)
             {
                 TeamsOffset++;
-                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(6,Teams.Count))
+                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(6, GM.Teams.Count))
                 {
                     TeamsOffset--;
                 }
@@ -134,7 +132,13 @@ namespace Cub.Interface
             }
             else
             {
-                Debug.Log("ADD A TEAM");
+                Model.TeamSave t = new Model.TeamSave("","");
+                GM.Teams.Add(t);
+                MarkTeamButtons();
+                int slide = GM.Teams.IndexOf(t) - GM.Teams.IndexOf(SelectedTeam);
+                for (int n = slide; n > 0;n--)
+                    ChangeSelection(1);
+                GM.EditTeam(t, this);
             }
         }
 

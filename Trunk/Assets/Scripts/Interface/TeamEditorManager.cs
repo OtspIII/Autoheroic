@@ -108,6 +108,31 @@ public class TeamEditorManager : MonoBehaviour
                 }
             }
         }
+        else if (GetInput("Delete") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Debug.Log("Step One");
+                Clicking = true;
+                if (Current_CharSave != null)
+                {
+                    Debug.Log("Step Two");
+                    Team.Remove_Character(Current_CharSave);
+                    Dictionary_CharSave.Remove(Current_CharSave.ID);
+                    Dictionary_Character.Remove(Current_CharSave.ID);
+                    Dictionary_CharPos.Remove(Current_Char.Stat.Position);
+                    foreach (GameObject go in SquareMarkers.ToArray())
+                        if (go.transform.position.x == (float)Current_Char.Stat.Position.X && go.transform.position.z == (float)Current_Char.Stat.Position.Y)
+                        {
+                            SquareMarkers.Remove(go);
+                            Destroy(go);
+                        }
+                    Destroy(Current_Char.gameObject);
+                    Current_Char = null;
+                    Current_CharSave = null;
+                }
+            }
+        }
         else if (GetInput("Escape") > 0.5f)
         {
             if (!Clicking)
@@ -124,6 +149,7 @@ public class TeamEditorManager : MonoBehaviour
                     GM.RightPicker.Clicking = true;
                 }
                 ClearMarkers();
+                Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
                 gameObject.SetActive(false);
             }
         }
@@ -251,7 +277,6 @@ public class TeamEditorManager : MonoBehaviour
             Current_Char = AddCharacter(ch);
             Current_CharSave = cs;
         }
-        Debug.Log(Current_CharSave.Name);
         GM.EditCharacter(this,Current_Char,Current_CharSave);
     }
 }
