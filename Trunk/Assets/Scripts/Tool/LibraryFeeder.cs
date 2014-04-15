@@ -17,15 +17,17 @@ public class LibraryFeeder : MonoBehaviour
     public Material cubMat;
 
     public AudioClip explosionSound;
+    public AudioClip explosion2Sound;
     public AudioClip laserShotSound;
     public AudioClip footstepSound;
     public AudioClip snipeSound;
+    public AudioClip hurtSound;
 
     // Use this for initialization
     void Awake()
     {
         Cub.View.Library.GetPrefabs(cube, cubeMat, character, bullet, rocket, explosion, healer, desert, grass, scream, cubMat,
-            explosionSound, laserShotSound, footstepSound, snipeSound);
+            explosionSound, laserShotSound, footstepSound, snipeSound, explosion2Sound, hurtSound);
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ namespace Cub.View
             {
                 RO.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 2F, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
             }
+            audio.PlayOneShot(Cub.View.Library.Get_Sound("Explosion2"));
         }
     }
 }

@@ -30,7 +30,8 @@ namespace Cub.View
 
         public static void GetPrefabs(GameObject cube, Material cubeMat, GameObject character, GameObject bullet, GameObject rocket,
             GameObject explosion, GameObject healer, GameObject desert, GameObject grass, AudioClip scream, Material cubMat,
-            AudioClip explosionSound, AudioClip laserShotSound, AudioClip footstepSound, AudioClip snipeSound)
+            AudioClip explosionSound, AudioClip laserShotSound, AudioClip footstepSound, AudioClip snipeSound,
+            AudioClip explosion2Sound, AudioClip hurtSound)
         {
             Prefab_Cube = cube;
             Prefab_Cube.renderer.material = cubeMat;
@@ -49,6 +50,8 @@ namespace Cub.View
             Dictionary_Sound.Add("Scream", scream);
 
             Dictionary_Sound.Add("Explosion", explosionSound);
+            Dictionary_Sound.Add("Hurt", hurtSound);
+            Dictionary_Sound.Add("Explosion2", explosion2Sound);
             Dictionary_Sound.Add("Laser", laserShotSound);
             Dictionary_Sound.Add("Footstep", footstepSound);
             Dictionary_Sound.Add("Snipe", snipeSound);
