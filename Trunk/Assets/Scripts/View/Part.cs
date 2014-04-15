@@ -8,12 +8,12 @@ namespace Cub.View
         public void Idle(float _After)
         {
             Invoke("_Idle", _After);
-            Debug.Log("Bang!");
+            //Debug.Log("Bang!");
         }
 
         private void _Idle()
         {
-            Debug.Log("Bang!");
+            //Debug.Log("Bang!");
             this.GetComponent<Animator>().SetTrigger("Idle");
         }
     }
