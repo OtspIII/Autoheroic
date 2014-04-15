@@ -15,7 +15,7 @@ namespace Cub.View.Event
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
-            Debug.Log("Bang");
+            //Debug.Log("Bang");
 
             C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
             C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");

@@ -28,23 +28,32 @@ namespace Cub.View
         private static Dictionary<string, AudioClip> Dictionary_Sound { get; set; }
         private static Dictionary<Cub.Terrain, GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
 
+        public static void GetPrefabs(GameObject cube, Material cubeMat, GameObject character, GameObject bullet, GameObject rocket,
+            GameObject explosion, GameObject healer, GameObject desert, GameObject grass, AudioClip scream, Material cubMat)
+        {
+            Prefab_Cube = cube;
+            Prefab_Cube.renderer.material = cubeMat;
+
+            Prefab_Character = character;
+            Prefab_Bullet = bullet;
+            Prefab_Rocket = rocket;
+            Prefab_Explosion = explosion;
+            Prefab_Healer = healer;
+
+            Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
+            Dictionary_Terrain.Add(Cub.Terrain.Desert, desert);
+            Dictionary_Terrain.Add(Cub.Terrain.Grass, grass);
+
+            Dictionary_Sound = new Dictionary<string, AudioClip>();
+            Dictionary_Sound.Add("Scream", scream);
+
+            Dictionary_Material = cubMat;
+        }
+
         public static void Initialization()
         {
             if (Trigger)
             {
-                Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
-                Prefab_Cube.renderer.material = Resources.Load<Material>("Materials/Transparent");
-
-                Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
-                Prefab_Bullet = Resources.Load<GameObject>("Prefabs/Bullet");
-                Prefab_Rocket = Resources.Load<GameObject>("Prefabs/Rocket");
-                Prefab_Explosion = Resources.Load<GameObject>("Prefabs/Explosion");
-                Prefab_Healer = Resources.Load<GameObject>("Prefabs/Healer");
-
-                Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
-                Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
-                Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
-
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
                 Dictionary_Event[Cub.Event.Attack_Harm] = new Cub.View.Event.Attack_Harm();
@@ -60,9 +69,6 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
                 Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
                 Dictionary_Event[Cub.Event.BlowUp] = new Cub.View.Event.BlowUp();
-
-                Dictionary_Sound = new Dictionary<string, AudioClip>();
-                Dictionary_Sound.Add("Scream", (AudioClip)Resources.Load<AudioClip>("Sounds/Scream"));
 
                 Dictionary_Part_Head = new Dictionary<Part_Head, List<Cubon>>();
                 Dictionary_Part_Head.Add(Part_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
@@ -104,8 +110,6 @@ namespace Cub.View
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Humanoid, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Humanoid.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Tread.xml") as List<Cub.View.Cubon>);
-
-                Dictionary_Material = Resources.Load<Material>("Materials/Cube");
 
                 Trigger = false;
             }
