@@ -61,7 +61,7 @@ namespace Cub.View
             {
                 Eventon E = Queue_Eventon.Dequeue();
                 
-                if (E.Data[0] is System.Guid)
+                if (E.Data.Count > 0 && E.Data[0] is System.Guid)
                 {
                     GameObject.Find("Main Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character((System.Guid)E.Data[0]).gameObject, SendMessageOptions.DontRequireReceiver);
                 }
