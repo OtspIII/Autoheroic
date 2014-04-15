@@ -6,12 +6,16 @@ namespace Cub.View.Event
 {
     public class Attack_Heal : Base
     {
-        private const float Timespan = 0.1F;
+        public const float Timespan = 2.0F;
+
+        private const int Amount = 5;
 
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
+
+            Debug.Log("Bang");
 
             C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
             C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");
@@ -22,12 +26,16 @@ namespace Cub.View.Event
 
             C0.BroadcastMessage("Idle", Timespan + 0.5F, SendMessageOptions.DontRequireReceiver);
 
-            C1.gameObject.particleSystem.startColor = Color.green;
-            C1.gameObject.particleSystem.Emit(10);
+            for (int i = 0; i < Amount; i++)
+            {
+                GameObject HO = UnityEngine.Object.Instantiate(Library.Get_Healer(), C0.transform.position, Quaternion.identity) as GameObject;
+                HO.SendMessage("Pump", C1.gameObject);
+            }
+            
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
 
-            return Timespan;
+            return Timespan + 2.0F;
         }
     }
 }

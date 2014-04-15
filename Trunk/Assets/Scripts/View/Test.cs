@@ -85,9 +85,16 @@ namespace Cub.Scene
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Die, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
+                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                Debug.Log("1");
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Heal, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
 
