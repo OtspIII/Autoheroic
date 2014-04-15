@@ -96,6 +96,21 @@ namespace Cub.Scene
                 Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(2, 2), 0 }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                GameObject.Find("Camera").SendMessage("Shake", null, SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                GameObject.Find("Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character(new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1)).gameObject, SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                GameObject.Find("Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character(new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)).gameObject, SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }
