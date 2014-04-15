@@ -170,7 +170,7 @@ public class TeamEditorManager : MonoBehaviour
         Current_Char = null;
         Current_CharSave = null;
         CurrentlyActive = false;
-        SquareMarker.transform.position = new Vector3(-5, 0, 5);
+        SquareMarker.transform.position = new Vector3(-5, 1000, 5);
     }
 
     public void Setup(Cub.Model.TeamSave team)

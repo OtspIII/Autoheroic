@@ -44,6 +44,8 @@ namespace Cub.View.Event
             C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
             Runtime.Remove_Character((Guid)_Data[0]);
 
+            Cub.View.NarratorController.DisplayText(Desc, Timespan);
+
             GameObject.Destroy(C.gameObject, Timespan);
 
             return Timespan;

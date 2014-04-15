@@ -245,8 +245,7 @@
         <ID>00000000-0000-0000-0000-200000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Horatius
-</Name>
+        <Name>Horatius</Name>
         <Head>Protector</Head>
         <Arms>Sword</Arms>
         <Body>Heavy</Body>
@@ -258,8 +257,7 @@
         <ID>00000000-0000-0000-0000-100000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Socrates
-</Name>
+        <Name>Socrates</Name>
         <Head>Idiot</Head>
         <Arms>Heal_Gun</Arms>
         <Body>Heavy</Body>
@@ -271,8 +269,7 @@
         <ID>00000000-0090-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Paris
-</Name>
+        <Name>Paris</Name>
         <Head>Hunter</Head>
         <Arms>Sniper_Rifle</Arms>
         <Body>Light</Body>
@@ -284,8 +281,7 @@
         <ID>00000000-0080-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Odysseus
-</Name>
+        <Name>Odysseus</Name>
         <Head>Hunter</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
@@ -351,14 +347,7 @@
         <ID>00040000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Hey
-I 
-Can
-Do
-This
-That
-Seems
-</Name>
+        <Name>HeyI CanDoThisThatSeems</Name>
         <Head>Hunter</Head>
         <Arms>RPG</Arms>
         <Body>Healer</Body>
@@ -412,8 +401,7 @@ Seems
     <Owner_Name>Matt</Owner_Name>
     <Chars>
       <Character_Save>
-        <Name>Hunter
-</Name>
+        <Name>Hunter</Name>
         <Head>Hunter</Head>
         <Arms>Axe</Arms>
         <Body>Light</Body>
@@ -425,8 +413,7 @@ Seems
         <ID>00000090-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Tank
-</Name>
+        <Name>Tank</Name>
         <Head>Protector</Head>
         <Arms>Sword</Arms>
         <Body>Heavy</Body>
@@ -462,8 +449,7 @@ Seems
         <ID>00060000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Standard
-</Name>
+        <Name>Standard</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
@@ -475,8 +461,7 @@ Seems
         <ID>00500000-0000-0000-0000-000000000000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>Kamikaze
-</Name>
+        <Name>Kamikaze</Name>
         <Head>Idiot</Head>
         <Arms>Sword</Arms>
         <Body>Bomber</Body>

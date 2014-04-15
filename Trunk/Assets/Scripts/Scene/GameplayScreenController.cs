@@ -110,6 +110,10 @@ public class GameplayScreenController : MonoBehaviour
     {
         TeamOne = T1;
         TeamTwo = T2;
+        TeamOne.Colour_Primary = Color.red;
+        TeamOne.Colour_Secondary = Color.yellow;
+        TeamTwo.Colour_Primary = Color.green;
+        TeamTwo.Colour_Secondary = Color.blue;
         //TeamOne.MakeUnique();
         //TeamTwo.MakeUnique();
         foreach (Cub.Model.Character c in TeamOne.List_Character)

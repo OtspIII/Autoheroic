@@ -21,6 +21,7 @@ namespace Cub.View.Event
             R.SendMessage("Pump", target);
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            C0.PlaySound(Cub.View.Library.Get_Sound("Explosion"));
 
             Cub.View.Kamera.Follow(C0.gameObject);
 

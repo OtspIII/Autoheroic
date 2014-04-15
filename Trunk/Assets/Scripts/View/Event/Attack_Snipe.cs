@@ -23,6 +23,7 @@ namespace Cub.View.Event
             iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            C0.PlaySound(Cub.View.Library.Get_Sound("Laser"));
 
             Cub.View.Kamera.Follow(C0.gameObject);
 

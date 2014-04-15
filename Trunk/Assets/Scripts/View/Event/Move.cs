@@ -27,9 +27,10 @@ namespace Cub.View.Event
 
             iTween.MoveTo(C.gameObject, iTween.Hash("position", new Vector3(X, 0, Z), "time", Timespan, "easetype", iTween.EaseType.linear));
 
-
+            C.PlaySound(Cub.View.Library.Get_Sound("Footstep"));
 
             Cub.View.Kamera.Follow(C.gameObject);
+            Cub.View.NarratorController.DisplayText(Desc, Timespan);
             
             return Timespan;
         }
