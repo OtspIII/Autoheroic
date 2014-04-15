@@ -38,6 +38,8 @@ public class MasterGameController : MonoBehaviour
     public CharacterEditorManager LeftCEditor;
     public CharacterEditorManager RightCEditor;
 
+    public ScoreCardManager SCM;
+
 
     // Use this for initialization
     void Start()
@@ -54,6 +56,7 @@ public class MasterGameController : MonoBehaviour
         RightEditor.gameObject.SetActive(false);
         LeftCEditor.gameObject.SetActive(false);
         RightCEditor.gameObject.SetActive(false);
+        SCM.gameObject.SetActive(false);
         Application.targetFrameRate = 60;
     }
 
@@ -247,7 +250,8 @@ public class MasterGameController : MonoBehaviour
 
     public void TurnOnScoreCard(Cub.Model.Team teamOne, Cub.Model.Team teamTwo)
     {
-
+        SCM.gameObject.SetActive(true);
+        SCM.Imprint(teamOne, teamTwo);
     }
 }
 
