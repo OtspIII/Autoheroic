@@ -570,7 +570,7 @@
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
+        <Head>Idiot</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
@@ -579,6 +579,42 @@
           <Y>6</Y>
         </Position>
         <ID>ca786e2e-9107-49fd-9973-2d4659720646</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+        <ID>d09d763e-69eb-4fa0-bf18-07654344ee3e</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>3</Y>
+        </Position>
+        <ID>05303e74-58cd-4a30-b149-64034c9faa9a</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>3</Y>
+        </Position>
+        <ID>a15753d3-5bb0-4acd-b319-f7a9d3546e6f</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

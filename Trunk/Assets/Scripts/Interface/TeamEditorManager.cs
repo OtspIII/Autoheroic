@@ -7,8 +7,8 @@ public class TeamEditorManager : MonoBehaviour
 {
 
     public GameObject SquareMarker;
-    public GameObject SquareMarkerType;
-    public List<GameObject> SquareMarkers;
+    //public GameObject SquareMarkerType;
+    //public List<GameObject> SquareMarkers;
     Cub.Position2 SelectedSquare;
     public MasterGameController GM;
     public bool CurrentlyActive = false;
@@ -121,12 +121,12 @@ public class TeamEditorManager : MonoBehaviour
                     Dictionary_CharSave.Remove(Current_CharSave.ID);
                     Dictionary_Character.Remove(Current_CharSave.ID);
                     Dictionary_CharPos.Remove(Current_Char.Stat.Position);
-                    foreach (GameObject go in SquareMarkers.ToArray())
-                        if (go.transform.position.x == (float)Current_Char.Stat.Position.X && go.transform.position.z == (float)Current_Char.Stat.Position.Y)
-                        {
-                            SquareMarkers.Remove(go);
-                            Destroy(go);
-                        }
+                    //foreach (GameObject go in SquareMarkers.ToArray())
+                    //    if (go.transform.position.x == (float)Current_Char.Stat.Position.X && go.transform.position.z == (float)Current_Char.Stat.Position.Y)
+                    //    {
+                    //        SquareMarkers.Remove(go);
+                    //        Destroy(go);
+                    //    }
                     Destroy(Current_Char.gameObject);
                     Current_Char = null;
                     Current_CharSave = null;
@@ -162,8 +162,8 @@ public class TeamEditorManager : MonoBehaviour
         Dictionary_Character.Clear();
         Dictionary_CharPos.Clear();
         Dictionary_CharSave.Clear();
-        foreach (GameObject go in SquareMarkers)
-            Destroy(go);
+        //foreach (GameObject go in SquareMarkers)
+        //    Destroy(go);
         foreach (GameObject go in CharacterModels)
             Destroy(go);
         CharacterModels.Clear();
@@ -177,7 +177,7 @@ public class TeamEditorManager : MonoBehaviour
     {
         Team = team;
         SelectedSquare = new Cub.Position2((int)SelectRange.x, (int)SelectRange.y);
-        SquareMarkers = new List<GameObject>();
+        //SquareMarkers = new List<GameObject>();
         MoveSelector();
         Dictionary_Character = new Dictionary<System.Guid, Cub.View.Character>();
         Dictionary_CharSave = new Dictionary<System.Guid, Character_Save>();
@@ -187,7 +187,8 @@ public class TeamEditorManager : MonoBehaviour
         
         foreach (Character c in FakeTeam.List_Character)
         {
-            AddCharacter(c).gameObject.SetActive(false);
+            //AddCharacter(c).gameObject.SetActive(false);
+            AddCharacter(c);
         }
         Clicking = true;
         Ready = false;
@@ -206,7 +207,7 @@ public class TeamEditorManager : MonoBehaviour
             if (cs.ID == c.ID_Save)
                 Dictionary_CharSave[c.ID_Save] = cs;
         C.transform.rotation = Quaternion.Euler(Rot);
-        SquareMarkers.Add((GameObject)Instantiate(SquareMarkerType, C.transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity));
+        //SquareMarkers.Add((GameObject)Instantiate(SquareMarkerType, C.transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity));
         Dictionary_CharPos.Add(c.Stat.Position, c.ID_Save);
         CharacterModels.Add(C.gameObject);
         return C;
@@ -228,7 +229,7 @@ public class TeamEditorManager : MonoBehaviour
     {
         if (Current_Char != null)
         {
-            Current_Char.gameObject.SetActive(false);
+            //Current_Char.gameObject.SetActive(false);
             Current_Char = null;
             Current_CharSave = null;
         }
@@ -239,7 +240,7 @@ public class TeamEditorManager : MonoBehaviour
         //Debug.Log(Dictionary_CharPos.Keys.Count + " / " + SelectedSquare);
         if (Dictionary_CharPos.ContainsKey(SelectedSquare))
         {
-            Dictionary_Character[Dictionary_CharPos[SelectedSquare]].gameObject.SetActive(true);
+            //Dictionary_Character[Dictionary_CharPos[SelectedSquare]].gameObject.SetActive(true);
             Current_Char = Dictionary_Character[Dictionary_CharPos[SelectedSquare]];
             Current_CharSave = Dictionary_CharSave[Dictionary_CharPos[SelectedSquare]];
         }
@@ -277,6 +278,20 @@ public class TeamEditorManager : MonoBehaviour
             Current_Char = AddCharacter(ch);
             Current_CharSave = cs;
         }
+        foreach (GameObject go in CharacterModels)
+        {
+            if (Current_Char.gameObject != go)
+                go.SetActive(false);
+        }
         GM.EditCharacter(this,Current_Char,Current_CharSave);
+    }
+
+
+    public void TurnOn()
+    {
+        foreach (GameObject go in CharacterModels)
+        {
+            go.SetActive(true);
+        }
     }
 }

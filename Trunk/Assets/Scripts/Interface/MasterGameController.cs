@@ -44,6 +44,7 @@ public class MasterGameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Screen.lockCursor = true;
         Cub.View.Library.Initialization();
         Cub.Model.Library.Initialization();
         BuildMap();

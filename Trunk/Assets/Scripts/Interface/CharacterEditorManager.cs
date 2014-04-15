@@ -82,10 +82,14 @@ public class CharacterEditorManager : OptionsListController
 
     protected override void Click()
     {
-        if (PlayerOne)
+        if (PlayerOne){
             GM.LeftEditor.gameObject.SetActive(true);
-        else
+            GM.LeftEditor.TurnOn();
+        }
+        else { 
             GM.RightEditor.gameObject.SetActive(true);
+            GM.RightEditor.TurnOn();
+        }
         gameObject.SetActive(false);
         PersonalCamera.SetActive(false);
     }
