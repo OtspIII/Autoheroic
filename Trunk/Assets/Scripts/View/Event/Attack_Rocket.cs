@@ -6,30 +6,27 @@ namespace Cub.View.Event
 {
     public class Attack_Rocket : Base
     {
+        private const float Timespan = 4F;
+
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Vector2 impact = (Vector2)_Data[1];
             Vector3 target = new Vector3(impact.x, -0.35f, impact.y);
 
-            C0.transform.LookAt(impact);
+            C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Rocket");
 
-            //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Rocket");
+            GameObject R = UnityEngine.Object.Instantiate(Library.Get_Rocket(), C0.transform.position, Quaternion.identity) as GameObject;
 
-            GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
+            R.SendMessage("Pump", target);
 
-            TrailRenderer tr = (TrailRenderer)B.GetComponent("TrailRenderer");
-            tr.material.color = Color.green;
+            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
-            B.transform.position = C0.transform.position;
+            GameObject.Destroy(R, Timespan);
 
-            iTween.MoveTo(B, iTween.Hash("position", target, "time", 0.5F, "easetype", iTween.EaseType.linear));
+            C0.BroadcastMessage("Idle", Timespan - 3F, SendMessageOptions.DontRequireReceiver);
 
-            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
-
-            GameObject.Destroy(B, 2.0F);
-
-            return 0.5F;
+            return Timespan;
         }
     }
 }

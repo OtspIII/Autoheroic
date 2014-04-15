@@ -11,6 +11,8 @@ namespace Cub.View
         private static GameObject Prefab_Cube { get; set; }
         private static GameObject Prefab_Bullet { get; set; }
         private static GameObject Prefab_Character { get; set; }
+        private static GameObject Prefab_Rocket { get; set; }
+        private static GameObject Prefab_Explosion { get; set; }
 
         private static Dictionary<Part_Head, List<Cub.View.Cubon>> Dictionary_Part_Head { get; set; }
         private static Dictionary<Part_Body, List<Cub.View.Cubon>> Dictionary_Part_Body { get; set; }
@@ -34,6 +36,8 @@ namespace Cub.View
 
                 Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
                 Prefab_Bullet = Resources.Load<GameObject>("Prefabs/Bullet");
+                Prefab_Rocket = Resources.Load<GameObject>("Prefabs/Rocket");
+                Prefab_Explosion = Resources.Load<GameObject>("Prefabs/Explosion");
 
                 Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
                 Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
@@ -137,6 +141,16 @@ namespace Cub.View
         public static GameObject Get_Bullet()
         {
             return Prefab_Bullet;
+        }
+
+        public static GameObject Get_Rocket()
+        {
+            return Prefab_Rocket;
+        }
+
+        public static GameObject Get_Explosion()
+        {
+            return Prefab_Explosion;
         }
 
         public static AudioClip Get_Sound(string name)
