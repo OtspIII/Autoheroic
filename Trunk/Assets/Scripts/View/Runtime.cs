@@ -60,9 +60,7 @@ namespace Cub.View
             if (Queue_Eventon.Count > 0)
             {
                 Eventon E = Queue_Eventon.Dequeue();
-
-                //Debug.Log("Eventon Start -- " + Queue_Eventon.Count.ToString() + " Eventons Queued");
-
+                
                 if (E.Data[0] is System.Guid)
                 {
                     GameObject.Find("Main Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character((System.Guid)E.Data[0]).gameObject, SendMessageOptions.DontRequireReceiver);

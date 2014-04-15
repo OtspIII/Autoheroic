@@ -6,20 +6,24 @@ namespace Cub.View.Event
 {
     public class Die : Base
     {
+        private const float Timespan = 5.0F;
+
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
+
+            C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Die");
 
             Cube[] CL = C.GetComponentsInChildren<Cube>();
 
             foreach (Cube CO in CL)
             {
-                CO.gameObject.AddComponent<Rigidbody>();
-                CO.gameObject.AddComponent<BoxCollider>();
-
-                CO.transform.parent = null;
-
-                CO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+                CO.Fall(UnityEngine.Random.Range(0.0F, Timespan));
             }
 
             //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
@@ -38,9 +42,9 @@ namespace Cub.View.Event
             C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
             Runtime.Remove_Character((Guid)_Data[0]);
 
-            GameObject.Destroy(C.gameObject, 3.0F);
+            GameObject.Destroy(C.gameObject, Timespan);
 
-            return 1.5F;
+            return Timespan;
         }
     }
 }
