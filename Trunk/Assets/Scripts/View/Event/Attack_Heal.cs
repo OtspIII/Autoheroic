@@ -31,7 +31,8 @@ namespace Cub.View.Event
                 GameObject HO = UnityEngine.Object.Instantiate(Library.Get_Healer(), C0.transform.position, Quaternion.identity) as GameObject;
                 HO.SendMessage("Pump", C1.gameObject);
             }
-            
+
+            Cub.View.Kamera.Follow(C0.gameObject);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
 

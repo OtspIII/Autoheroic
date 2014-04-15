@@ -34,7 +34,9 @@ namespace Cub.View.Event
 
             GameObject.Destroy(B, Timespan + 0.5F);
 
-            //Cub.View.NarratorController.DisplayText(Desc, Timespan);
+            Cub.View.Kamera.Follow(C0.gameObject);
+
+            Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
             return Timespan;
         }

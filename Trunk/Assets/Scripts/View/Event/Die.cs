@@ -19,6 +19,8 @@ namespace Cub.View.Event
             C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Die");
 
+            Cub.View.Kamera.Follow(C.gameObject);
+
             Cube[] CL = C.GetComponentsInChildren<Cube>();
 
             foreach (Cube CO in CL)

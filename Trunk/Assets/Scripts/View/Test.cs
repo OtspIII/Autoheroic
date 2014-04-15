@@ -18,7 +18,7 @@ namespace Cub.Scene
             C0.Info = new Model.Character_Info();
             C0.Info.Head = Part_Head.Soldier;
             C0.Info.Body = Part_Body.Medium;
-            C0.Info.Arms = Part_Arms.RPG;
+            C0.Info.Arms = Part_Arms.Axe;
             C0.Info.Legs = Part_Legs.Hover;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
@@ -117,6 +117,12 @@ namespace Cub.Scene
             if (Input.GetKeyDown(KeyCode.X))
             {
                 GameObject.Find("Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character(new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)).gameObject, SendMessageOptions.DontRequireReceiver);
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Melee, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0 }));
+                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
         }
     }

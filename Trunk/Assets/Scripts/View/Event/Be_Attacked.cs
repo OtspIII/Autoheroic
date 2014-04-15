@@ -35,6 +35,8 @@ namespace Cub.View.Event
 
                 GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
             }
+
+            Cub.View.Kamera.Shake();
             
             return Timespan;
         }

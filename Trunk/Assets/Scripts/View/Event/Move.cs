@@ -14,9 +14,6 @@ namespace Cub.View.Event
             int X = (int)_Data[1];
             int Z = (int)_Data[2];
 
-            //Animator AF = C.gameObject.GetComponent<Animator>();            
-            //AF.SetTrigger("Move");
-
             C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Move");
             C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Move");
             C.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Move");
@@ -29,6 +26,10 @@ namespace Cub.View.Event
             C.transform.LookAt(new Vector3(X, 0, Z));
 
             iTween.MoveTo(C.gameObject, iTween.Hash("position", new Vector3(X, 0, Z), "time", Timespan, "easetype", iTween.EaseType.linear));
+
+
+
+            Cub.View.Kamera.Follow(C.gameObject);
             
             return Timespan;
         }

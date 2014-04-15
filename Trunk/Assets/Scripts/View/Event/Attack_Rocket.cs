@@ -20,7 +20,9 @@ namespace Cub.View.Event
 
             R.SendMessage("Pump", target);
 
-            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+
+            Cub.View.Kamera.Follow(C0.gameObject);
 
             GameObject.Destroy(R, Timespan);
 

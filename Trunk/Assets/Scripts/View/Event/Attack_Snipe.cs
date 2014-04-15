@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cub.View.Event
 {
-    public class Attack_Snipe:Base
+    public class Attack_Snipe : Base
     {
         public override float Process(List<object> _Data, string Desc)
         {
@@ -12,8 +12,6 @@ namespace Cub.View.Event
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
             C0.transform.LookAt(C1.transform.position);
-
-            //C0.gameObject.GetComponent<Animator>().SetTrigger("Attack_Snipe");
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
 
@@ -25,6 +23,8 @@ namespace Cub.View.Event
             iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+
+            Cub.View.Kamera.Follow(C0.gameObject);
 
             GameObject.Destroy(B, 2.0F);
 
