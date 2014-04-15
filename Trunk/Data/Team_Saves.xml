@@ -376,7 +376,7 @@ Seems
         <Body>Healer</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>0</X>
+          <X>1</X>
           <Y>0</Y>
         </Position>
         <ID>02000000-0000-0000-0000-000000000000</ID>
@@ -401,7 +401,7 @@ Seems
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>6</Y>
         </Position>
         <ID>d28ec97c-4853-45c7-ac07-4d310ab1c5fb</ID>
       </Character_Save>

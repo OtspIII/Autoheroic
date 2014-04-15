@@ -19,6 +19,11 @@ public class CharacterEditorManager : OptionsListController
     Cub.Model.BPArms Arms;
     Cub.Model.BPLegs Legs;
 
+    Cub.Model.BPHead IHead;
+    Cub.Model.BPBody IBody;
+    Cub.Model.BPArms IArms;
+    Cub.Model.BPLegs ILegs;
+
     float HoriTimer;
 
     Cub.View.Character Who;
@@ -59,9 +64,30 @@ public class CharacterEditorManager : OptionsListController
                 GM.LeftEditor.gameObject.SetActive(true);
             else
                 GM.RightEditor.gameObject.SetActive(true);
+            WhoSave.Head = IHead.E;
+            WhoSave.Body = IBody.E;
+            WhoSave.Arms = IArms.E;
+            WhoSave.Legs = ILegs.E;
+            Who.Stat.Head = IHead.E;
+            Who.Stat.Body = IBody.E;
+            Who.Stat.Arms = IArms.E;
+            Who.Stat.Legs = ILegs.E;
+            Who.Delete_Part();
+            Who.Initialize_Part();
             gameObject.SetActive(false);
             PersonalCamera.SetActive(false);
         }
+    }
+
+
+    protected override void Click()
+    {
+        if (PlayerOne)
+            GM.LeftEditor.gameObject.SetActive(true);
+        else
+            GM.RightEditor.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+        PersonalCamera.SetActive(false);
     }
 
     public void Setup(Cub.View.Character VChar, Cub.Model.Character_Save SChar)
@@ -97,10 +123,10 @@ public class CharacterEditorManager : OptionsListController
         foreach (Cub.Model.Bodypart bp in Cub.Model.Library.List_Legs())
             OptionOptions[Options[3]].Add(bp);
 
-        Head = SChar.Head_Part;
-        Arms = SChar.Arms_Part;
-        Body = SChar.Body_Part;
-        Legs = SChar.Legs_Part;
+        IHead = Head = SChar.Head_Part;
+        IArms = Arms = SChar.Arms_Part;
+        IBody = Body = SChar.Body_Part;
+        ILegs = Legs = SChar.Legs_Part;
 
         WriteDescriptions();
 
@@ -121,10 +147,6 @@ public class CharacterEditorManager : OptionsListController
         Damage.text = "Damage: " + WhoSave.Weapon.HitDam.ToString();
     }
 
-    protected override void Click()
-    {
-
-    }
 
     protected virtual void ChangeHoriSelection(int n)
     {
