@@ -5,64 +5,28 @@
     <Owner_Name>Misha</Owner_Name>
     <Chars>
       <Character_Save>
-        <Name>Skulllock</Name>
-        <Head>Hunter</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Bomber</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>0</X>
-          <Y>3</Y>
-        </Position>
-        <ID>00000000-0000-0000-0060-000000000000</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>Soothslayer</Name>
+        <Name>TEMP NAME</Name>
         <Head>Soldier</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Bomber</Body>
+        <Arms>Rifle</Arms>
+        <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>0</X>
-          <Y>2</Y>
-        </Position>
-        <ID>00000000-0000-0000-0050-000000000000</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>Killusionist</Name>
-        <Head>Hunter</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>0</X>
-          <Y>4</Y>
-        </Position>
-        <ID>00000000-0000-0000-0400-000000000000</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>Muscle Wizard</Name>
-        <Head>Soldier</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>0</X>
+          <X>3</X>
           <Y>5</Y>
         </Position>
-        <ID>00000000-0000-0000-0300-000000000000</ID>
+        <ID>a3e8e633-7075-4eba-bf8d-d63c91565481</ID>
       </Character_Save>
       <Character_Save>
-        <Name>M.A.G.U.S.</Name>
+        <Name>TEMP NAME</Name>
         <Head>Soldier</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Healer</Body>
+        <Arms>Rifle</Arms>
+        <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
-          <X>0</X>
-          <Y>1</Y>
+          <X>3</X>
+          <Y>4</Y>
         </Position>
-        <ID>00000000-0000-0000-0200-000000000000</ID>
+        <ID>007e430d-8140-4e6b-ad14-4385b0249d09</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -412,7 +376,7 @@ Seems
         <Body>Healer</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>0</X>
+          <X>1</X>
           <Y>0</Y>
         </Position>
         <ID>02000000-0000-0000-0000-000000000000</ID>
@@ -428,6 +392,18 @@ Seems
           <Y>2</Y>
         </Position>
         <ID>10000000-0000-0000-0000-000000000000</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>6</Y>
+        </Position>
+        <ID>d28ec97c-4853-45c7-ac07-4d310ab1c5fb</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

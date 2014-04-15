@@ -22,9 +22,9 @@ public class ScoreNameController : MonoBehaviour {
         }
 	}
 
-    public void Imprint(Cub.Model.Team t)
+    public void Imprint(Cub.Model.Team t, string color)
     {
-        Name.text = t.Name;
+        Name.text = "["+ color +"]" + t.Name + "[-]";
         OwnerName.text = t.Owner_Name;
     }
 }
