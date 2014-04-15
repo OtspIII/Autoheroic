@@ -16,16 +16,9 @@ namespace Cub.View.Event
             C0.transform.LookAt(new Vector3(C1.transform.position.x, 0, C1.transform.position.z));
 
             C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
-            C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");
-            switch (C0.Stat.Arms)
-            {
-                case Part_Arms.Rifle:
-                    {
-                        C0.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Attack_Range_Rifle");
-                        C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range_Rifle");
-                        break;
-                    }
-            }
+            C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");            
+            C0.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
             C0.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Attack_Range");
             C0.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
 
@@ -36,8 +29,6 @@ namespace Cub.View.Event
             B.GetComponent<TrailRenderer>().material.color = Color.yellow;
 
             B.transform.position = C0.transform.FindChild("Arms_Right").position;
-
-            Debug.Log(C1.transform.position);
 
             iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
 

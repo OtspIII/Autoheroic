@@ -71,6 +71,54 @@
     <Owner_Name>Alec</Owner_Name>
     <Chars>
       <Character_Save>
+        <Name>Bennett</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>1</Y>
+        </Position>
+        <ID>00000000-0000-0000-0100-000000000000</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>Eric</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>3</Y>
+        </Position>
+        <ID>00000000-0000-0000-0000-000000000090</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>Clara</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>4</Y>
+        </Position>
+        <ID>00000000-0000-0000-0000-000000008000</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>Frank</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>5</Y>
+        </Position>
+        <ID>00000000-0000-0000-0000-000000070000</ID>
+      </Character_Save>
+      <Character_Save>
         <Name>Andy</Name>
         <Head>Soldier</Head>
         <Arms>RPG</Arms>
@@ -83,76 +131,16 @@
         <ID>00000000-0000-0000-0000-000000060000</ID>
       </Character_Save>
       <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>6</Y>
-        </Position>
-        <ID>d8b4885e-29b7-4dc8-a905-d42b1df38196</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Protector</Head>
-        <Arms>Pistol</Arms>
-        <Body>Light</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>3</X>
-          <Y>8</Y>
-        </Position>
-        <ID>1d54b66f-7568-44ca-893f-f588bd7fbd7f</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Protector</Head>
+        <Name>Charles</Name>
+        <Head>Soldier</Head>
         <Arms>RPG</Arms>
-        <Body>Bomber</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>1</X>
-          <Y>8</Y>
-        </Position>
-        <ID>9c61e13e-f527-45d3-90c2-16a572323666</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>4</Y>
+          <X>2</X>
+          <Y>3</Y>
         </Position>
-        <ID>6119fd86-e6fb-40ea-99c9-e58385dccd1c</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>3</X>
-          <Y>4</Y>
-        </Position>
-        <ID>cee850ae-11ae-4905-bf42-23f456183bb3</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>2</Y>
-        </Position>
-        <ID>e620928c-ddd0-4bad-bf38-bfff45f34d81</ID>
+        <ID>00000000-0000-0000-0000-000000500000</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -630,18 +618,6 @@ Seems
           <Y>6</Y>
         </Position>
         <ID>ca786e2e-9107-49fd-9973-2d4659720646</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>8</Y>
-        </Position>
-        <ID>b2d7892d-9115-4bc5-b83d-2e9ce17114f5</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
