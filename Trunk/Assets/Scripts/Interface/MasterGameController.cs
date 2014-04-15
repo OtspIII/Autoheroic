@@ -244,6 +244,11 @@ public class MasterGameController : MonoBehaviour
             StartGameplay();
         }
     }
+
+    public void TurnOnScoreCard(Cub.Model.Team teamOne, Cub.Model.Team teamTwo)
+    {
+
+    }
 }
 
 public enum MasterStage

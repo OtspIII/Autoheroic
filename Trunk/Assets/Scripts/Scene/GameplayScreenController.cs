@@ -8,6 +8,7 @@ public class GameplayScreenController : MonoBehaviour
     //GameMode CurrentMode;
     //GameplayTeamPickerController Tpc;
     //public ScoreCardManager Scm;
+    public MasterGameController GM;
     public DescriptionManager Desc;
     Cub.Model.Team TeamOne = null;
     Cub.Model.Team TeamTwo = null;
@@ -77,11 +78,11 @@ public class GameplayScreenController : MonoBehaviour
         }
     }
 
-    void PostGameUpdate()
-    {
-        if (Input.GetKey(KeyCode.Return))
-            Application.LoadLevel("Main Menu");
-    }
+    //void PostGameUpdate()
+    //{
+    //    if (Input.GetKey(KeyCode.Return))
+    //        Application.LoadLevel("Main Menu");
+    //}
 
     //public void SwitchModes(GameMode mode)
     //{
@@ -138,7 +139,7 @@ public class GameplayScreenController : MonoBehaviour
     {
         //SwitchModes(GameMode.Postgame);
         Debug.Log("1: " + TeamOne.Name + " / 2: " + TeamTwo.Name);
-        //Scm.Imprint(TeamOne, TeamTwo);
+        GM.TurnOnScoreCard(TeamOne, TeamTwo);
     }
 
     //void BuildMap()
