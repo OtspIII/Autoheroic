@@ -113,7 +113,7 @@ namespace Cub.Model
             this.Stat.Cooldown = 0;
         }
 
-        public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events, AttackResults hitLevel)
+        public bool Damage(int Amount, Character source, List<Cub.View.Eventon> events, Attack_Result hitLevel)
         {
             if (this.Stat.HP <= 0) return true;
             this.Stat.HP -= Amount;
@@ -123,7 +123,7 @@ namespace Cub.Model
                 {
                     foreach (Character guy in Main.AllCharacters())
                         if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
-                            guy.Damage(2, this, events, Cub.AttackResults.Hit);
+                            guy.Damage(2, this, events, Cub.Attack_Result.Hit);
                     Cub.Model.Library.Get_Action(Cub.Action.BlowUp).Body(this, new List<object>());
                     Debug.Log("Blow Up: " + this.Name + " (" + this.Info.Class + ")");
                     events.Add(new View.Eventon(Event.BlowUp, "Blow Up " + FindColorName(), new List<object> { ID }));

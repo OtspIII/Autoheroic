@@ -37,7 +37,7 @@ namespace Cub.View.Event
             }
 
             Cub.View.Kamera.Shake();
-            C.PlaySound(Cub.View.Library.Get_Sound("Hurt"));
+            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
             
             return Timespan;
         }

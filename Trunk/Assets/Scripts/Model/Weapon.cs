@@ -32,16 +32,16 @@ namespace Cub.Model
         virtual public List<Cub.View.Eventon> Make_Attack(Cub.Model.Character who, Cub.Model.Character target, int roll)
         {
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
-            Cub.AttackResults result = AttackResults.Hit;
+            Cub.Attack_Result result = Attack_Result.Hit;
             int CritNum = 10 - CritChance;
             if (roll < MissChance)
-                result = AttackResults.Miss;
+                result = Attack_Result.Miss;
             else if (roll >= CritNum)
-                result = AttackResults.Crit;
+                result = Attack_Result.Crit;
             int dam = HitDam;
-            if (result == AttackResults.Miss)
+            if (result == Attack_Result.Miss)
                 dam = 0;
-            else if (result == AttackResults.Crit)
+            else if (result == Attack_Result.Crit)
                 dam = CritDam;
             Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ") ["
                 + MissChance.ToString() + "/" + CritChance.ToString() + "/" + roll.ToString() + "/" + result + "/" + dam.ToString() + "]");
