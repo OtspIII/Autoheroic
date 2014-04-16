@@ -28,6 +28,66 @@
         </Position>
         <ID>007e430d-8140-4e6b-ad14-4385b0249d09</ID>
       </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>11</Y>
+        </Position>
+        <ID>0e35fe1a-af40-4d40-ac72-d6d1fbef4eb5</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>3</X>
+          <Y>0</Y>
+        </Position>
+        <ID>f26c7328-b490-458b-b161-f095d0f8bc20</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>2</Y>
+        </Position>
+        <ID>3b1603b8-4b8f-483e-9761-399312c510ee</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>7</Y>
+        </Position>
+        <ID>f26adf53-470d-4e15-8b09-d6cbc2d2f842</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>9</Y>
+        </Position>
+        <ID>8b83d172-15cd-4200-b403-959cfa1430e1</ID>
+      </Character_Save>
     </Chars>
   </TeamSave>
   <TeamSave>
@@ -427,7 +487,7 @@
       <Character_Save>
         <Name>Sniper</Name>
         <Head>Soldier</Head>
-        <Arms>Sniper_Rifle</Arms>
+        <Arms>Sword</Arms>
         <Body>Light</Body>
         <Legs>Hover</Legs>
         <Position>
@@ -451,7 +511,7 @@
       <Character_Save>
         <Name>Standard</Name>
         <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Arms>Heal_Gun</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -471,6 +531,78 @@
           <Y>1</Y>
         </Position>
         <ID>04000000-0000-0000-0000-000000000000</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>7</Y>
+        </Position>
+        <ID>8d91629e-8366-47b7-9f9b-07910b2500e7</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Axe</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>10</Y>
+        </Position>
+        <ID>0443de9b-4171-496c-8f14-f50ab7724e73</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Bomber</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>5</Y>
+        </Position>
+        <ID>e2192fe5-bd2f-4952-a830-30c27f7cda75</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>6</Y>
+        </Position>
+        <ID>def52ead-08d0-461c-a5e5-3990b7f3cfeb</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>9</Y>
+        </Position>
+        <ID>937decf8-c99b-4f19-ad9c-49732ea587df</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>11</Y>
+        </Position>
+        <ID>a03e1623-2232-4f96-b516-d60089d3704d</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
