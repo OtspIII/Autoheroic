@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Melee : Base
     {
-        private const float Timespan = 1.5F;
+        private const float Timespan = 2F;
 
         public override float Process(List<object> _Data, string Desc)
         {
@@ -28,7 +28,7 @@ namespace Cub.View.Event
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
-            return Timespan;
+            return Timespan - 1.5F;
         }
     }
 }
