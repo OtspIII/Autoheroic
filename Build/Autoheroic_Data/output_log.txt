@@ -1,45 +1,37 @@
-Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 9.0c [igdumd32.dll 8.15.10.2626]
-    Renderer: Intel(R) HD Graphics 4000
-    Vendor:   Intel
-    VRAM:     880 MB (via DXGI)
-    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=0
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1140]
+    Renderer: AMD Radeon HD 7640G
+    Vendor:   ATI
+    VRAM:     1264 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.074 seconds
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.103 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\System.dll (this message is harmless)
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\System.dll (this message is harmless)
 Main Camera (UnityEngine.GameObject)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\System.Xml.dll (this message is harmless)
 FIGHT!
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-EDIT TEAM: Fighting Wizards
+EDIT TEAM: TEEM THREE
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-EDIT TEAM: Fighting Wizards
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-EDIT TEAM: Fighting Wizards
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-EDIT TEAM: 80085
+EDIT TEAM: Classikal Gentlemen
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -47,32 +39,13 @@ Turn 1 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Platform assembly: C:\Users\OtspIII\Desktop\Autoheroic\Build\Autoheroic_Data\Managed\System.Core.dll (this message is harmless)
-Follow: --- (Soldier) >Cub.Position2
+Platform assembly: C:\Users\JingAn\SkyDrive\Projects\Game Studio 2\Autoheroic\Build\Autoheroic_Data\Managed\System.Core.dll (this message is harmless)
+Follow: Maximinus Thrax (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: if(fStop == true){ run();} (Soldier) >Cub.Position2
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Explore: Balls (Soldier) >Cub.Position2
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > --- (Soldier) [2/2/4/Hit/2]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > --- (Soldier) [2/2/6/Hit/2]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Die: --- (Soldier)
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Follow: Michelle (Soldier) >Cub.Position2
+Follow: Horatius
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -80,75 +53,28 @@ Follow: TEMP NAME (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: TEMP NAME (Soldier) >Cub.Position2
+Follow: Nodricon Woobsy (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: TEMP NAME (Soldier) >Cub.Position2
+Snipe: Paris
+ (Soldier) > Nodricon Woobsy (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > Michelle (Soldier) [2/2/4/Hit/2]
+Die: Nodricon Woobsy (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Explore: TEMP NAME (Soldier) >Cub.Position2
+Attack: Thermador Jones (Soldier) > Maximinus Thrax (Soldier) [2/3/5/Hit/1]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: TEMP NAME (Soldier) >Cub.Position2
+Die: Maximinus Thrax (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: HeyI CanDoThisThatSeems (Soldier) > TEMP NAME (Soldier) [2/3/2/Hit/1]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Turn 2 Start
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > Michelle (Soldier) [2/2/7/Hit/2]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Die: Michelle (Soldier)
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/6/Hit/2]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at Cub.Model.Character.Damage (Int32 Amount, Cub.Model.Character source, System.Collections.Generic.List`1 events, AttackResults hitLevel) [0x00000] in <filename unknown>:0 
-  at Cub.Model.Weapon.Make_Attack (Cub.Model.Character who, Cub.Model.Character target, Int32 roll) [0x00000] in <filename unknown>:0 
-  at Cub.Model.Action.Attack.Body (Cub.Model.Character who, System.Collections.Generic.List`1 data) [0x00000] in <filename unknown>:0 
-  at Cub.Model.Character.Go () [0x00000] in <filename unknown>:0 
-  at Cub.Model.Main.Go () [0x00000] in <filename unknown>:0 
-  at GameplayScreenController.MatchBuildUpdate () [0x00000] in <filename unknown>:0 
-  at GameplayScreenController.GameplayUpdate () [0x00000] in <filename unknown>:0 
-  at GameplayScreenController.Update () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-Turn 2 Start
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > TEMP NAME (Soldier) [2/2/5/Hit/2]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Follow: TEMP NAME (Soldier) >Cub.Position2
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Follow: TEMP NAME (Soldier) >Cub.Position2
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: HeyI CanDoThisThatSeems (Soldier) > TEMP NAME (Soldier) [2/3/4/Hit/1]
+Snipe: Sandra Dee (Soldier) > TEMP NAME (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -156,27 +82,71 @@ Die: TEMP NAME (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Explore: TEMP NAME (Soldier) >Cub.Position2
+Follow: Lola (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: TEMP NAME (Soldier) >Cub.Position2
+Explore: Socrates
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Follow: if(fStop == true){ run();} (Soldier) >Cub.Position2
+Follow: Alexander (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: Balls (Soldier) > TEMP NAME (Soldier) [2/3/8/Crit/1]
+Follow: Odysseus
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > if(fStop == true){ run();} (Soldier) [2/2/9/Crit/3]
+Turn 2 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: if(fStop == true){ run();} (Soldier)
+Charge: Alexander (Soldier) >Cub.Position2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Attack: Alexander (Soldier) > Lola (Soldier) [1/2/4/Hit/2]
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Attack: Odysseus
+ (Soldier) > Lola (Soldier) [2/2/5/Hit/2]
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Die: Lola (Soldier)
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Follow: Horatius
+ (Soldier) >Cub.Position2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Attack: Sandra Dee (Soldier) > Odysseus
+ (Soldier) [3/3/9/Crit/5]
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Die: Odysseus
+ (Soldier)
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Explore: Socrates
+ (Soldier) >Cub.Position2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Follow: Thermador Jones (Soldier) >Cub.Position2
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Attack: Paris
+ (Soldier) > Thermador Jones (Soldier) [3/3/6/Hit/1]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -184,47 +154,35 @@ Turn 3 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > TEMP NAME (Soldier) [2/2/1/Miss/0]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/0/Miss/0]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
 Turn 4 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > TEMP NAME (Soldier) [2/2/1/Miss/0]
+Attack: Sandra Dee (Soldier) > Alexander (Soldier) [3/3/8/Crit/5]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > TEMP NAME (Soldier) [2/2/2/Hit/2]
+Die: Alexander (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: TEMP NAME (Soldier)
+Explore: Socrates
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: Balls (Soldier) > TEMP NAME (Soldier) [2/3/1/Miss/1]
+Follow: Horatius
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: TEMP NAME (Soldier)
+Attack: Paris
+ (Soldier) > Thermador Jones (Soldier) [3/3/0/Miss/0]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > TEMP NAME (Soldier) [2/2/1/Miss/0]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Explore: TEMP NAME (Soldier) >Cub.Position2
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Follow: HeyI CanDoThisThatSeems (Soldier) >Cub.Position2
+Attack: Thermador Jones (Soldier) > Horatius
+ (Soldier) [2/3/2/Hit/1]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -232,35 +190,36 @@ Turn 5 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > HeyI CanDoThisThatSeems (Soldier) [2/2/1/Miss/0]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
 Turn 6 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Snipe: TEMP NAME (Soldier) > TEMP NAME (Soldier)
+Explore: Socrates
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: TEMP NAME (Soldier)
+Attack: Paris
+ (Soldier) > Thermador Jones (Soldier) [3/3/5/Hit/1]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > HeyI CanDoThisThatSeems (Soldier) [2/2/9/Crit/3]
+Follow: Sandra Dee (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: HeyI CanDoThisThatSeems (Soldier)
+Attack: Thermador Jones (Soldier) > Horatius
+ (Soldier) [2/3/0/Miss/1]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: Balls (Soldier) > TEMP NAME (Soldier) [2/3/0/Miss/1]
+Die: Paris
+ (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/5/Hit/2]
+Follow: Horatius
+ (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -268,35 +227,34 @@ Turn 7 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/0/Miss/0]
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
 Turn 8 Start
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Explore: TEMP NAME (Soldier) >Cub.Position2
+Follow: Sandra Dee (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/0/Miss/0]
+Heal: Socrates
+ (Soldier) > Horatius
+ (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Attack: Balls (Soldier) > TEMP NAME (Soldier) [2/3/3/Hit/1]
+Follow: Thermador Jones (Soldier) >Cub.Position2
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Die: TEMP NAME (Soldier)
+Attack: Horatius
+ (Soldier) > Thermador Jones (Soldier) [1/2/5/Hit/2]
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Die: Thermador Jones (Soldier)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
 Turn 9 Start
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Attack: TEMP NAME (Soldier) > Balls (Soldier) [2/2/0/Miss/0]
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -308,27 +266,11 @@ Game Times Out
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-### Fighting Wizards ### (345 Total Value)
+### TEEM THREE ### (145 Total Value)
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
--Kills: 790 points
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
--Survival: 50 points
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
----Total: 840 points---
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-### 80085 ### (100 Total Value)
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
--Kills: 480 points
+-Kills: 675 points
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -336,11 +278,27 @@ Game Times Out
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
----Total: 530 points---
+---Total: 725 points---
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-Fighting Wizards Wins!
+### Classikal Gentlemen ### (255 Total Value)
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+-Kills: 530 points
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+-Survival: 50 points
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+---Total: 580 points---
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+TEEM THREE Wins!
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -353,110 +311,6 @@ Can't add component 'Rigidbody' to Cube(Clone) because such a component is alrea
 (Filename:  Line: 85)
 
 FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-Can't add component 'Rigidbody' to Cube(Clone) because such a component is already added to the game object!
- 
-(Filename:  Line: 85)
-
-FDSA
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-1: Fighting Wizards / 2: 80085
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-The game is over
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 

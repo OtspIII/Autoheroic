@@ -167,11 +167,25 @@ namespace Cub
         Team_Secondary
     }
 
-    public enum AttackResults
+    public enum Attack_Result
     {
         Miss,
         Hit,
         Crit
+    }
+
+    public enum Sound
+    {
+        Die,
+        Attack_Range,
+        Attack_Rocket,
+        Attack_Snipe,
+        Attack_Heal,
+        Move_Humanoid,
+        Move_Tread,
+        Move_Hover,
+        Explosion,
+        Hurt
     }
 
     public struct Position2

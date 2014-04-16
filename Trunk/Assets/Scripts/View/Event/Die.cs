@@ -41,7 +41,8 @@ namespace Cub.View.Event
             //{
             //    B.enabled = true;
             //}
-            C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
+            
+            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Die));
             Runtime.Remove_Character((Guid)_Data[0]);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);

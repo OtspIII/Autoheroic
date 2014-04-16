@@ -37,7 +37,7 @@ namespace Cub.View.Event
             Cub.View.Kamera.Follow(C0.gameObject);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
-            C0.PlaySound(Cub.View.Library.Get_Sound("Laser"));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Range));
 
             return Timespan;
         }

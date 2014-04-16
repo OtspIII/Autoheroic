@@ -29,7 +29,7 @@ namespace Cub.Model.Action
                 new List<object>() { who.ID, who.Stat.Position.ToVector2() }));
             foreach (Character guy in Main.AllCharacters())
                 if (guy != who && Cub.Tool.Pathfinder.Distance(who.Stat.Position, guy.Stat.Position) <= 1.5f)
-                    guy.Damage(Damage, who,r,Cub.AttackResults.Hit);
+                    guy.Damage(Damage, who,r,Cub.Attack_Result.Hit);
             return r;
         }
     }

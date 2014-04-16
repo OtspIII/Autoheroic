@@ -25,9 +25,10 @@ namespace Cub.View
         private static Material Dictionary_Material { get; set; }
 
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
-        private static Dictionary<string, AudioClip> Dictionary_Sound { get; set; }
+        private static Dictionary<Cub.Sound, AudioClip> Dictionary_Sound { get; set; }
         private static Dictionary<Cub.Terrain, GameObject> Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
 
+        /*
         public static void GetPrefabs(GameObject cube, Material cubeMat, GameObject character, GameObject bullet, GameObject rocket,
             GameObject explosion, GameObject healer, GameObject desert, GameObject grass, AudioClip scream, Material cubMat,
             AudioClip explosionSound, AudioClip laserShotSound, AudioClip footstepSound, AudioClip snipeSound,
@@ -58,11 +59,21 @@ namespace Cub.View
 
             Dictionary_Material = cubMat;
         }
+         * */
 
         public static void Initialization()
         {
             if (Trigger)
             {
+                Prefab_Cube = Resources.Load<GameObject>("Prefabs/Cube");
+                Prefab_Bullet = Resources.Load<GameObject>("Prefabs/Bullet");
+                Prefab_Character = Resources.Load<GameObject>("Prefabs/Character");
+                Prefab_Rocket = Resources.Load<GameObject>("Prefabs/Rocket");
+                Prefab_Explosion = Resources.Load<GameObject>("Prefabs/Explosion");
+                Prefab_Healer = Resources.Load<GameObject>("Prefabs/Healer");
+
+                Dictionary_Material = Resources.Load<Material>("Materials/Cube");
+
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
                 Dictionary_Event[Cub.Event.Attack_Harm] = new Cub.View.Event.Attack_Harm();
@@ -120,6 +131,22 @@ namespace Cub.View
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Humanoid, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Humanoid.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Tread.xml") as List<Cub.View.Cubon>);
 
+                Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
+                Dictionary_Sound.Add(Sound.Attack_Range, Resources.Load<AudioClip>("Sounds/Attack_Range"));
+                Dictionary_Sound.Add(Sound.Attack_Snipe, Resources.Load<AudioClip>("Sounds/Attack_Snipe"));
+                Dictionary_Sound.Add(Sound.Attack_Heal, Resources.Load<AudioClip>("Sounds/Attack_Heal"));
+                Dictionary_Sound.Add(Sound.Attack_Rocket, Resources.Load<AudioClip>("Sounds/Attack_Rocket"));
+                Dictionary_Sound.Add(Sound.Move_Hover, Resources.Load<AudioClip>("Sounds/Move_Hover"));
+                Dictionary_Sound.Add(Sound.Move_Tread, Resources.Load<AudioClip>("Sounds/Move_Tread"));
+                Dictionary_Sound.Add(Sound.Move_Humanoid, Resources.Load<AudioClip>("Sounds/Move_Humanoid"));
+                Dictionary_Sound.Add(Sound.Die, Resources.Load<AudioClip>("Sounds/Die"));
+                Dictionary_Sound.Add(Sound.Hurt, Resources.Load<AudioClip>("Sounds/Hurt"));
+                Dictionary_Sound.Add(Sound.Explosion, Resources.Load<AudioClip>("Sounds/Explosion"));
+
+                Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
+                Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
+                Dictionary_Terrain.Add(Cub.Terrain.Grass, Resources.Load<GameObject>("Prefabs/Terrains/Grass"));
+
                 Trigger = false;
             }
         }
@@ -173,10 +200,10 @@ namespace Cub.View
             return Prefab_Healer;
         }
 
-        public static AudioClip Get_Sound(string name)
+        public static AudioClip Get_Sound(Cub.Sound _Sound)
         {
-            if (Dictionary_Sound.ContainsKey(name))
-                return Dictionary_Sound[name];
+            if (Dictionary_Sound.ContainsKey(_Sound))
+                return Dictionary_Sound[_Sound];
             return null;
         }
 

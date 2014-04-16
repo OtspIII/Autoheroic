@@ -59,7 +59,7 @@ namespace Cub.Model.Action
             foreach (Character guy in Main.AllCharacters())
                 if (Cub.Tool.Pathfinder.Distance(target.Stat.Position, guy.Stat.Position) <= 1.5f)
                 {
-                    guy.Damage(Damage, who,r,Cub.AttackResults.Hit);
+                    guy.Damage(Damage, who,r,Cub.Attack_Result.Hit);
                 }
             return r;
         }

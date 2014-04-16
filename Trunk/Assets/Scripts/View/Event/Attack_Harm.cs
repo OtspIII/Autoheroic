@@ -35,7 +35,7 @@ namespace Cub.View.Event
             Cub.View.Kamera.Follow(C0.gameObject);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
-            C0.PlaySound(Cub.View.Library.Get_Sound("Snipe"));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Heal));
 
             return Timespan + 2.0F;
         }
