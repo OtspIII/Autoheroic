@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ScoreCardManager : MonoBehaviour {
 
+    public MasterGameController GM;
     ScoreNameController TeamOneNamer;
     ScoreNameController TeamTwoNamer;
     ScoreScrController TeamOneScores;
@@ -33,6 +34,23 @@ public class ScoreCardManager : MonoBehaviour {
             }
         }
 	}
+
+    void Update()
+    {
+        if (Input.GetAxis("Escape P1") > 0.5f || Input.GetAxis("Escape P2") > 0.5f ||
+            Input.GetAxis("Click P1") > 0.5f || Input.GetAxis("Click P2") > 0.5f ||
+            Input.GetAxis("Ready P1") > 0.5f || Input.GetAxis("Ready P2") > 0.5f)
+        {
+            GM.GSC.ClearMap();
+            GM.GSC.gameObject.SetActive(false);
+            foreach (GameObject tile in GM.Blocks)
+                tile.transform.position += new Vector3(0, 20, 0);
+            GM.MainMenu.gameObject.SetActive(true);
+            GM.ResetCamera();
+            GM.GSC.Reset();
+            gameObject.SetActive(false);
+        }
+    }
 
     public void Imprint(Cub.Model.Team t1, Cub.Model.Team t2)
     {

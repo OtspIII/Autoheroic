@@ -32,9 +32,13 @@ namespace Cub.View
             return C;
         }
 
-        public static void Remove_Character(Guid _ID)
+        public static Cub.View.Character Remove_Character(Guid _ID)
         {
+            Cub.View.Character r = null;
+            if (Dictionary_Character.ContainsKey(_ID))
+                r = Dictionary_Character[_ID];
             Dictionary_Character.Remove(_ID);
+            return r;
         }
 
         public static Cub.View.Character Get_Character(Guid _ID)

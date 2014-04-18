@@ -20,37 +20,37 @@
         <Name>TEMP NAME</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
-        <Body>Light</Body>
-        <Legs>Hover</Legs>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>6</Y>
+        </Position>
+        <ID>3a3a439f-765b-4f4f-bebc-0923cfa700a6</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
         <Position>
           <X>3</X>
           <Y>4</Y>
         </Position>
-        <ID>007e430d-8140-4e6b-ad14-4385b0249d09</ID>
+        <ID>91d0088a-f74d-407e-9ae7-ddb87734266c</ID>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>3</X>
-          <Y>11</Y>
-        </Position>
-        <ID>0e35fe1a-af40-4d40-ac72-d6d1fbef4eb5</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Sniper_Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Tread</Legs>
         <Position>
-          <X>3</X>
+          <X>0</X>
           <Y>0</Y>
         </Position>
-        <ID>f26c7328-b490-458b-b161-f095d0f8bc20</ID>
+        <ID>a0d724f1-b1c8-47c4-9764-7aec7ecc809f</ID>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -59,34 +59,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>3</X>
-          <Y>2</Y>
+          <X>0</X>
+          <Y>0</Y>
         </Position>
-        <ID>3b1603b8-4b8f-483e-9761-399312c510ee</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>3</X>
-          <Y>7</Y>
-        </Position>
-        <ID>f26adf53-470d-4e15-8b09-d6cbc2d2f842</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>3</X>
-          <Y>9</Y>
-        </Position>
-        <ID>8b83d172-15cd-4200-b403-959cfa1430e1</ID>
+        <ID>46908bcf-fbed-4785-a88a-3c14ae383bd9</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -165,6 +141,42 @@
           <Y>3</Y>
         </Position>
         <ID>00000000-0000-0000-0000-000000500000</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>3</X>
+          <Y>11</Y>
+        </Position>
+        <ID>a8f9051a-0b11-4a29-8d83-4ac9b41657f4</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>0</Y>
+        </Position>
+        <ID>b766edd5-0771-4307-bf89-19d21d6a0c01</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>11</Y>
+        </Position>
+        <ID>91bacf82-b24b-4cde-8d1c-2f4b1e247792</ID>
       </Character_Save>
     </Chars>
   </TeamSave>
@@ -695,22 +707,10 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>1</Y>
         </Position>
-        <ID>8a0064f2-848e-4cc3-a4e3-78e63fa56bbb</ID>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>3</X>
-          <Y>6</Y>
-        </Position>
-        <ID>ca786e2e-9107-49fd-9973-2d4659720646</ID>
+        <ID>8c525def-2c92-48b2-954c-4e84039e8646</ID>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -719,22 +719,268 @@
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>3</Y>
+          <X>2</X>
+          <Y>5</Y>
         </Position>
-        <ID>d09d763e-69eb-4fa0-bf18-07654344ee3e</ID>
+        <ID>11d8e75f-a652-42e2-999d-5966f919eff1</ID>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>7</Y>
+        </Position>
+        <ID>31469c98-fafe-4725-9859-b20b841f5051</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Protector</Head>
         <Arms>Sniper_Rifle</Arms>
+        <Body>Bomber</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>9</Y>
+        </Position>
+        <ID>bd7c21a5-a271-4863-b36d-315059af9624</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>4</Y>
+        </Position>
+        <ID>13728ae3-aeab-402e-bb2c-929da64a13bf</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
           <X>2</X>
           <Y>3</Y>
         </Position>
-        <ID>05303e74-58cd-4a30-b149-64034c9faa9a</ID>
+        <ID>a6a34df6-ea0e-4b9b-a7df-86ca4b112353</ID>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name />
+    <Owner_Name />
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Protector</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+        <ID>05bd856a-4098-4a9b-8e18-67a41e9d6276</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Protector</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Bomber</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>0</X>
+          <Y>2</Y>
+        </Position>
+        <ID>87c7cae0-4629-451a-857e-01b3b091f954</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>4</Y>
+        </Position>
+        <ID>38bcd2cc-e660-4fab-b276-5a741d9e7be7</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>6</Y>
+        </Position>
+        <ID>ae5d755e-dc5d-4fa3-95bb-7803e09f5e47</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Rifle</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>8</Y>
+        </Position>
+        <ID>4e04c7b5-08fa-45da-b415-7a39740ff6dc</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Bomber</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>1</X>
+          <Y>7</Y>
+        </Position>
+        <ID>cd1dfed5-b5cb-4a12-8b69-13e683da8345</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>6</Y>
+        </Position>
+        <ID>29e0de07-4bda-47cf-8e43-fcb2f2ae065e</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+        <ID>8b4451a9-f151-4d98-96fa-e9f09ac9b928</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Protector</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>1</Y>
+        </Position>
+        <ID>e63b7474-a861-4cac-a4c0-c35db880a421</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Pistol</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>2</Y>
+        </Position>
+        <ID>1c7d6e5d-35eb-4571-bbc2-9f531474e41d</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Medium</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>0</Y>
+        </Position>
+        <ID>bbd39e9a-aa0f-4e13-a673-1cd459b6e3c2</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Healer</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>9</Y>
+        </Position>
+        <ID>611b8a6d-56be-46e7-941a-a2af2d9a5e56</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>10</Y>
+        </Position>
+        <ID>7de687ff-9015-4174-94df-0b4e13916118</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>7</Y>
+        </Position>
+        <ID>7fc212f4-ff31-44d0-86b8-ce8074f82de2</ID>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name />
+    <Owner_Name />
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>1</Y>
+        </Position>
+        <ID>1d60ce60-8e5e-4651-b0c9-49fd13efa805</ID>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name />
+    <Owner_Name />
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>RPG</Arms>
+        <Body>Bomber</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+        <ID>6fc0723f-f2d6-4daf-bdd6-7acc54c0601a</ID>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -744,9 +990,87 @@
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
+          <Y>1</Y>
+        </Position>
+        <ID>bca101d7-e679-4b63-bb37-c13a11b0e2b6</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>2</Y>
+        </Position>
+        <ID>e5af2338-04b2-4b07-86f8-9d5f23ed665d</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>0</Y>
+        </Position>
+        <ID>60ac617d-2001-4f95-a187-9581d641e5dd</ID>
+      </Character_Save>
+    </Chars>
+  </TeamSave>
+  <TeamSave>
+    <Name />
+    <Owner_Name />
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Healer</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>6</Y>
+        </Position>
+        <ID>3164ff3b-309f-4184-8567-6d244c31661d</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>6</Y>
+        </Position>
+        <ID>25a2335a-591b-4dd2-899d-df2051cdce1b</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
           <Y>3</Y>
         </Position>
-        <ID>a15753d3-5bb0-4acd-b319-f7a9d3546e6f</ID>
+        <ID>39759760-cd31-44a7-89e5-acdd06ad52d2</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>9</Y>
+        </Position>
+        <ID>d7beeb61-e0d4-467f-a696-526c0b6097a0</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

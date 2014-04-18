@@ -121,7 +121,7 @@ namespace Cub.Interface
     public enum MenuOptions
     {
         MMFight,
-        MMEditTeam,
+        MMCredits,
         MMQuit,
         PickerTeam,
         Head,

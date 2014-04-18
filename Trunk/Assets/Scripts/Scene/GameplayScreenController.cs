@@ -146,6 +146,19 @@ public class GameplayScreenController : MonoBehaviour
         GM.TurnOnScoreCard(TeamOne, TeamTwo);
     }
 
+    public void ClearMap()
+    {
+        Debug.Log("CLEAR MAP");
+        foreach (Cub.Model.Character c in TeamOne.List_Character)
+        {
+            Destroy(Cub.View.Runtime.Remove_Character(c.ID).gameObject);
+        }
+        foreach (Cub.Model.Character c in TeamTwo.List_Character)
+        {
+            Destroy(Cub.View.Runtime.Remove_Character(c.ID).gameObject);
+        }
+    }
+
     //void BuildMap()
     //{
     //    Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
@@ -172,6 +185,13 @@ public class GameplayScreenController : MonoBehaviour
         if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
+    }
+
+    public void Reset()
+    {
+        RTStarted = false;
+        TeamOne = null;
+        TeamTwo = null;
     }
 }
 

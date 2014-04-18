@@ -150,5 +150,6 @@ namespace Cub.Model
             events.Add(new View.Eventon(Event.Win, "Game Over!", new List<object>{winners,losers}));
             
         }
+
     }
 }

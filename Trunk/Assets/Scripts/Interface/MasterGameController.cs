@@ -38,6 +38,9 @@ public class MasterGameController : MonoBehaviour
     public CharacterEditorManager LeftCEditor;
     public CharacterEditorManager RightCEditor;
 
+    Vector3 CameraWhere;
+    Quaternion CameraRot;
+
     public ScoreCardManager SCM;
 
 
@@ -59,6 +62,8 @@ public class MasterGameController : MonoBehaviour
         RightCEditor.gameObject.SetActive(false);
         SCM.gameObject.SetActive(false);
         Application.targetFrameRate = 60;
+        CameraWhere = MainCamera.transform.position;
+        CameraRot = MainCamera.transform.rotation;
     }
 
     // Update is called once per frame
@@ -105,6 +110,8 @@ public class MasterGameController : MonoBehaviour
                 if (!keepGoing)
                 {
                     Timer = TimerMax = 1;
+                    LeftPicker.gameObject.SetActive(true);
+                    RightPicker.gameObject.SetActive(true);
                     SetStage(MasterStage.TeamPickersSlideIn);
                 }
                 break;
@@ -233,6 +240,7 @@ public class MasterGameController : MonoBehaviour
         tem.gameObject.SetActive(false);
         cem.gameObject.SetActive(true);
         cem.Setup(VChar, SChar);
+        cem.Clicking = true;
     }
 
     public void CheckMatchReady()
@@ -244,6 +252,8 @@ public class MasterGameController : MonoBehaviour
             ready = false;
         if (ready)
         {
+            LeftEditor.Ready = false;
+            RightEditor.Ready = false;
             Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
             StartGameplay();
         }
@@ -253,6 +263,12 @@ public class MasterGameController : MonoBehaviour
     {
         SCM.gameObject.SetActive(true);
         SCM.Imprint(teamOne, teamTwo);
+    }
+
+    public void ResetCamera()
+    {
+        MainCamera.transform.position = CameraWhere;
+        MainCamera.transform.rotation = CameraRot;
     }
 }
 
