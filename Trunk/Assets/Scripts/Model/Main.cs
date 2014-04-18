@@ -106,7 +106,7 @@ namespace Cub.Model
             Debug.Log("Game Over: Turn " + Turn.ToString());
             if (TimeOut)
             {
-                events.Add(new View.Eventon(Event.TimeOut, "Time Out!", new List<object>()));
+                events.Add(new View.Eventon(Event.Time_Out, "Time Out!", new List<object>()));
                 Debug.Log("Game Times Out");
             }
             int highScore = -999999999;

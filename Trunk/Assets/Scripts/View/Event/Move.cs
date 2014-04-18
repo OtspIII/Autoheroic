@@ -22,7 +22,7 @@ namespace Cub.View.Event
             C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Move");
 
             C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
-                        
+
             C.transform.LookAt(new Vector3(X, 0, Z));
 
             iTween.MoveTo(C.gameObject, iTween.Hash("position", new Vector3(X, 0, Z), "time", Timespan, "easetype", iTween.EaseType.linear));
@@ -46,11 +46,13 @@ namespace Cub.View.Event
                     }
             }
 
-            //C.PlaySound(Cub.View.Library.Get_Sound("Footstep"));
+            //Spotlight.Follow(C.gameObject);
 
-            Cub.View.Kamera.Follow(C.gameObject);
+            C.Stat.Position = new Position2(X, Z);
+
+            //Cub.View.Kamera.Follow(C.gameObject);
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
-            
+
             return Timespan;
         }
     }

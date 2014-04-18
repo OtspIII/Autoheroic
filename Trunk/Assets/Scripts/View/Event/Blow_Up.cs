@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cub.View.Event
 {
-    public class BlowUp : Base
+    public class Blow_Up : Base
     {
         public override float Process(List<object> _Data, string Desc)
         {

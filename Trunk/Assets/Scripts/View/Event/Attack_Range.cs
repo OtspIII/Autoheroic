@@ -34,9 +34,10 @@ namespace Cub.View.Event
 
             GameObject.Destroy(B, Timespan + 0.5F);
 
-            Cub.View.Kamera.Follow(C0.gameObject);
+            Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
-            Cub.View.NarratorController.DisplayText(Desc, Timespan);
+            //Cub.View.NarratorController.DisplayText(Desc, Timespan);
+
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Range));
 
             return Timespan;

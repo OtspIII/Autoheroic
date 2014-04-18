@@ -15,7 +15,7 @@ namespace Cub.View.Event
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
-            Debug.Log("Bang");
+            C0.transform.LookAt(new Vector3(C1.transform.position.x, 0, C1.transform.position.z));
 
             C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
             C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");
@@ -31,8 +31,6 @@ namespace Cub.View.Event
                 GameObject HO = UnityEngine.Object.Instantiate(Library.Get_Healer(), C0.transform.position, Quaternion.identity) as GameObject;
                 HO.SendMessage("Pump", C1.gameObject);
             }
-
-            Cub.View.Kamera.Follow(C0.gameObject);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Heal));

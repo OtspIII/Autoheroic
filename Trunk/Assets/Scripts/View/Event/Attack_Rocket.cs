@@ -20,14 +20,14 @@ namespace Cub.View.Event
 
             R.SendMessage("Pump", target);
 
-            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Rocket));
-
-            Cub.View.Kamera.Follow(C0.gameObject);
-
             GameObject.Destroy(R, Timespan);
 
             C0.BroadcastMessage("Idle", Timespan - 3F, SendMessageOptions.DontRequireReceiver);
+
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Rocket));
+
+            Cub.View.Indicator.Cross(new Position2((int)impact.x, (int)impact.y));
 
             return Timespan;
         }

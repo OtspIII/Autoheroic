@@ -20,6 +20,8 @@ namespace Cub.View
             this.transform.parent = null;
 
             this.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+
+            Destroy(this.gameObject, Timespan * 2);
         }
 
         public void OnCollisionEnter(Collision collision)

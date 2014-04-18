@@ -124,9 +124,9 @@ namespace Cub.Model
                     foreach (Character guy in Main.AllCharacters())
                         if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
                             guy.Damage(2, this, events, Cub.Attack_Result.Hit);
-                    Cub.Model.Library.Get_Action(Cub.Action.BlowUp).Body(this, new List<object>());
+                    Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
                     Debug.Log("Blow Up: " + this.Name + " (" + this.Info.Class + ")");
-                    events.Add(new View.Eventon(Event.BlowUp, "Blow Up " + FindColorName(), new List<object> { ID }));
+                    events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(), new List<object> { ID }));
                 }
                 else
                 {

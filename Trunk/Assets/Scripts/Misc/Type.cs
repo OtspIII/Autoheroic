@@ -61,7 +61,7 @@ namespace Cub
         Snipe,
         Follow_Ally,
         Follow_Enemy,
-        BlowUp
+        Blow_Up
 
         //Approach,
         //Fallback,
@@ -93,7 +93,7 @@ namespace Cub
         Move,
         Die,
         Win,
-        TimeOut,
+        Time_Out,
         Attack_Range,
         Attack_Melee,
         Attack_Rocket,
@@ -102,7 +102,7 @@ namespace Cub
         Attack_Harm,
         Be_Healed,
         Be_Attacked,
-        BlowUp
+        Blow_Up
     }
 
     public enum ConditionGenre
@@ -181,6 +181,7 @@ namespace Cub
         Attack_Rocket,
         Attack_Snipe,
         Attack_Heal,
+        Attack_Melee,
         Move_Humanoid,
         Move_Tread,
         Move_Hover,

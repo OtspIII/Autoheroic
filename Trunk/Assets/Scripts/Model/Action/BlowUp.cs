@@ -17,7 +17,7 @@ namespace Cub.Model.Action
             Name = "Blow Up";
             Description = "Self destruct";
             SpecialAbility = true;
-            ActionType = Cub.Action.BlowUp;
+            ActionType = Cub.Action.Blow_Up;
         }
 
         public override List<Cub.View.Eventon> Body(Character who, List<object> data)

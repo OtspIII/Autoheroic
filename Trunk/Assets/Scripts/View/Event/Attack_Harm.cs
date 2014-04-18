@@ -32,8 +32,6 @@ namespace Cub.View.Event
                 HO.SendMessage("Pump", C1.gameObject);
             }
 
-            Cub.View.Kamera.Follow(C0.gameObject);
-
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Heal));
 

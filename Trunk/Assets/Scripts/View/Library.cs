@@ -14,6 +14,7 @@ namespace Cub.View
         private static GameObject Prefab_Rocket { get; set; }
         private static GameObject Prefab_Explosion { get; set; }
         private static GameObject Prefab_Healer { get; set; }
+        private static GameObject Prefab_Indicator { get; set; }
 
         private static Dictionary<Part_Head, List<Cub.View.Cubon>> Dictionary_Part_Head { get; set; }
         private static Dictionary<Part_Body, List<Cub.View.Cubon>> Dictionary_Part_Body { get; set; }
@@ -71,6 +72,7 @@ namespace Cub.View
                 Prefab_Rocket = Resources.Load<GameObject>("Prefabs/Rocket");
                 Prefab_Explosion = Resources.Load<GameObject>("Prefabs/Explosion");
                 Prefab_Healer = Resources.Load<GameObject>("Prefabs/Healer");
+                Prefab_Indicator = Resources.Load<GameObject>("Prefabs/Indicator");
 
                 Dictionary_Material = Resources.Load<Material>("Materials/Cube");
 
@@ -84,11 +86,10 @@ namespace Cub.View
                 Dictionary_Event[Cub.Event.Be_Attacked] = new Cub.View.Event.Be_Attacked();
                 Dictionary_Event[Cub.Event.Be_Healed] = new Cub.View.Event.Be_Healed();
                 Dictionary_Event[Cub.Event.Die] = new Cub.View.Event.Die();
-                Dictionary_Event[Cub.Event.Idle] = new Cub.View.Event.Idle();
                 Dictionary_Event[Cub.Event.Move] = new Cub.View.Event.Move();
                 Dictionary_Event[Cub.Event.Win] = new Cub.View.Event.Win();
-                Dictionary_Event[Cub.Event.TimeOut] = new Cub.View.Event.TimeOut();
-                Dictionary_Event[Cub.Event.BlowUp] = new Cub.View.Event.BlowUp();
+                Dictionary_Event[Cub.Event.Time_Out] = new Cub.View.Event.Time_Out();
+                Dictionary_Event[Cub.Event.Blow_Up] = new Cub.View.Event.Blow_Up();
 
                 Dictionary_Part_Head = new Dictionary<Part_Head, List<Cubon>>();
                 Dictionary_Part_Head.Add(Part_Head.Soldier, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Head_Solider.xml") as List<Cub.View.Cubon>);
@@ -132,6 +133,7 @@ namespace Cub.View
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Tread.xml") as List<Cub.View.Cubon>);
 
                 Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
+                Dictionary_Sound.Add(Sound.Attack_Melee, Resources.Load<AudioClip>("Sounds/Attack_Melee"));
                 Dictionary_Sound.Add(Sound.Attack_Range, Resources.Load<AudioClip>("Sounds/Attack_Range"));
                 Dictionary_Sound.Add(Sound.Attack_Snipe, Resources.Load<AudioClip>("Sounds/Attack_Snipe"));
                 Dictionary_Sound.Add(Sound.Attack_Heal, Resources.Load<AudioClip>("Sounds/Attack_Heal"));
@@ -161,6 +163,11 @@ namespace Cub.View
             if (!Dictionary_Event.ContainsKey(_E))
                 Debug.Log(_E.ToString());
             return Dictionary_Event[_E];
+        }
+
+        public static GameObject Get_Indicator()
+        {
+            return Prefab_Indicator;
         }
 
         public static GameObject Get_Cube()

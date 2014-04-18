@@ -7,7 +7,7 @@ namespace Cub.View.Event
     public class Be_Attacked : Base
     {
         private const float Timespan = 1.5F;
-        private const int Falling_Number = 50;
+        private const int Falling_Number = 100;
 
         public override float Process(List<object> _Data, string Desc)
         {
