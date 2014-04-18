@@ -15,8 +15,7 @@ namespace Cub.View.Event
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
 
-            TrailRenderer tr = (TrailRenderer)B.GetComponent("TrailRenderer");
-            tr.material.color = Color.red;
+            B.GetComponent<TrailRenderer>().material.color = Color.red;
 
             B.transform.position = C0.transform.position;
 
@@ -25,7 +24,7 @@ namespace Cub.View.Event
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Snipe));
 
-            Cub.View.Kamera.Follow(C0.gameObject);
+            Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
             GameObject.Destroy(B, 2.0F);
 

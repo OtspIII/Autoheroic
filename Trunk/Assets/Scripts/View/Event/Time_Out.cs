@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cub.View.Event
 {
-    public class TimeOut : Base
+    public class Time_Out : Base
     {
         public override float Process(List<object> _Data, string Desc)
         {

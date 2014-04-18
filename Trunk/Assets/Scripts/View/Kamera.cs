@@ -10,18 +10,25 @@ namespace Cub.View
         public void Start()
         {
             Kamera._Camera = GameObject.Find("Main Camera");
-            Debug.Log(Kamera._Camera);
+
+            //Kamera._Camera.transform.rotation = Quaternion.Euler(30, 225, 0);
         }
 
         public static void Shake()
         {
             iTween.ShakePosition(_Camera, new Vector3(0.2F, 0.2F, 0.2F), 0.2F);
-            Debug.Log("FDSA");
         }
 
         public static void Follow(GameObject GO)
         {
-            iTween.MoveTo(_Camera, iTween.Hash("position", GO.transform.position + new Vector3(5, 5, 5), "time", 2.0F, "looktarget", GO.transform.position, "easetype", iTween.EaseType.linear));
+            _Camera.transform.parent = GO.transform;
+
+            _Camera.transform.localPosition = new Vector3(30, 100, 30);
+            _Camera.transform.localRotation = Quaternion.Euler(60, 225, 0);
+
+            
+
+            //iTween.MoveTo(_Camera, iTween.Hash("position", GO.transform.position + new Vector3(2, 2, 2), "time", 1.0F, "easetype", iTween.EaseType.linear));
         }
     }
 }

@@ -42,6 +42,19 @@ namespace Cub.View
             return Dictionary_Character[_ID];
         }
 
+        public static Cub.View.Character Get_Character(Position2 _Position)
+        {
+            foreach (Cub.View.Character C in Runtime.Dictionary_Character.Values)
+            {
+                if (C.Stat.Position == _Position)
+                {
+                    return C;
+                }
+            }
+
+            return null;
+        }
+
         public static void Add_Eventon(Eventon _Eventon)
         {
             Queue_Eventon.Enqueue(_Eventon);
@@ -67,7 +80,7 @@ namespace Cub.View
             }
             else
             {
-                GSC.EndGame();
+                //GSC.EndGame();
                 Debug.Log("The game is over");
                 //No more Invoke
             }

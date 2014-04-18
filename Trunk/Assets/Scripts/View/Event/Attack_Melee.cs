@@ -24,9 +24,11 @@ namespace Cub.View.Event
 
             C0.BroadcastMessage("Idle", Timespan - 0.5F, SendMessageOptions.DontRequireReceiver);
 
-            Cub.View.Kamera.Follow(C0.gameObject);
-
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
+
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Melee));
+
+            //Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
             return Timespan - 1.5F;
         }
