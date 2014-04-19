@@ -37,6 +37,7 @@ namespace Cub.Model.Action
         public override List<Cub.View.Eventon> Body(Character who, List<object> data)
         {
             who.Stat.Cooldown += this.Turn_Cooldown;
+            Debug.Log("Targets: " + data.Count.ToString());
             if (data.Count == 0) return new List<View.Eventon>();
             Character target;
             if (data.Count == 1)
@@ -46,6 +47,7 @@ namespace Cub.Model.Action
 
             List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position, who.Info.Blockable);
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
+            Debug.Log("Dist: " + TravelDistance.ToString() + " (" + path.Count.ToString() + ")");
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);
             Debug.Log("Follow: " + who.Name + " (" + who.Info.Class + ") >" + path[TravelDistance].ToString());

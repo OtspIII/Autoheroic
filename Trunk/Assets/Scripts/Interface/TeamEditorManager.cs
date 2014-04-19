@@ -35,10 +35,24 @@ public class TeamEditorManager : MonoBehaviour
     public bool Ready;
     public UISprite ReadyButton;
 
+    Cub.Interface.TeamPickerManager MyPicker;
+    CharacterEditorManager MyCEditor;
+
+
     // Use this for initialization
     void Start()
     {
         GM = (MasterGameController)GameObject.Find("Game Master").GetComponent("MasterGameController");
+        if (PlayerOne)
+        {
+            MyPicker = GM.LeftPicker;
+            MyCEditor = GM.LeftCEditor;
+        }
+        else
+        {
+            MyPicker = GM.RightPicker;
+            MyCEditor = GM.RightCEditor;
+        }
     }
 
     // Update is called once per frame
@@ -174,7 +188,12 @@ public class TeamEditorManager : MonoBehaviour
 
     public void Setup(Cub.Model.TeamSave team)
     {
+        
         Team = team;
+        if (PlayerOne)
+            SelectRange = new Rect(0, 0, GM.PlacementSize - 1, GM.yMapSize);
+        else
+            SelectRange = new Rect(GM.xMapSize - GM.PlacementSize + 1, 0, GM.PlacementSize - 1, GM.yMapSize);
         SelectedSquare = new Cub.Position2((int)SelectRange.x, (int)SelectRange.y);
         //SquareMarkers = new List<GameObject>();
         MoveSelector();
@@ -218,8 +237,8 @@ public class TeamEditorManager : MonoBehaviour
         int y = pos.Y;
         Cub.Position2 r = new Cub.Position2(x, y);
         if (!teamOne)
-            r = new Cub.Position2(11 - x, 11 - y);
-        if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
+            r = new Cub.Position2(GM.xMapSize - x, GM.yMapSize - y);
+        if (r.X > GM.xMapSize || r.X < 0 || r.Y > GM.yMapSize || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
     }
@@ -264,7 +283,7 @@ public class TeamEditorManager : MonoBehaviour
         {
             Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
             if (!PlayerOne){
-                where = new Cub.Position2(11 - where.X, 11 - where.Y);
+                where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
             }
             Character_Save cs = new Character_Save("TEMP NAME", Cub.Part_Head.Soldier, Cub.Part_Arms.Rifle, Cub.Part_Body.Medium, 
                 Cub.Part_Legs.Humanoid, where.X,where.Y);

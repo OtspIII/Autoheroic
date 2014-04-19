@@ -43,6 +43,9 @@ public class MasterGameController : MonoBehaviour
 
     public ScoreCardManager SCM;
 
+    public int xMapSize { get; private set; }
+    public int yMapSize { get; private set; }
+    public int PlacementSize;
 
     // Use this for initialization
     void Start()
@@ -164,6 +167,8 @@ public class MasterGameController : MonoBehaviour
 
     void BuildMap()
     {
+        yMapSize = Cub.Model.Library.Stage_Terrain.Length - 1;
+        xMapSize = Cub.Model.Library.Stage_Terrain[0].Length - 1;
         Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
         for (int y = 0; y < map.Length; y++)
         {
@@ -202,8 +207,8 @@ public class MasterGameController : MonoBehaviour
         int y = pos.Y;
         Cub.Position2 r = new Cub.Position2(x, y);
         if (!teamOne)
-            r = new Cub.Position2(11 - x, 11 - y);
-        if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
+            r = new Cub.Position2(xMapSize - x, yMapSize - y);
+        if (r.X > xMapSize || r.X < 0 || r.Y > yMapSize || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
     }

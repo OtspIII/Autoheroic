@@ -9,6 +9,8 @@ namespace Cub.Model
         private static bool Trigger = true;
 
         public static int PointCap = 600;
+        public static int MapSizeX = 9;
+        public static int MapSizeY = 6;
 
         private static Dictionary<Cub.Condition, Cub.Model.Condition.Base> Dictionary_Condition { get; set; }
         private static Dictionary<Cub.Action, Cub.Model.Action.Base> Dictionary_Action { get; set; }
@@ -133,7 +135,26 @@ namespace Cub.Model
                 foreach (Cub.Model.Condition.Base con in Dictionary_Condition.Values)
                     Condition_Strings.Add(con.Name, con.ConditionType);
 
-                Cub.Model.Library.Stage_Terrain = Cub.Tool.Xml.Deserialize(typeof(Cub.Terrain[][]), "Data/Stage_Terrain.xml") as Cub.Terrain[][];
+                //Cub.Model.Library.Stage_Terrain = Cub.Tool.Xml.Deserialize(typeof(Cub.Terrain[][]), "Data/Stage_Terrain.xml") as Cub.Terrain[][];
+                Cub.Model.Library.Stage_Terrain = new Cub.Terrain[MapSizeY][];
+                bool toggleY = false;
+                bool toggleX = false;
+                for (int y = 0; y < MapSizeY; y++)
+                {
+                    Cub.Terrain[] line = new Cub.Terrain[MapSizeX];
+                    for (int x = 0; x < MapSizeX; x++)
+                    {
+                        if ((toggleY && toggleX) || (!toggleY && !toggleX))
+                            line[x] = Terrain.Desert;
+                        else
+                            line[x] = Terrain.Grass;
+                        toggleX = !toggleX;
+                    }
+                    Cub.Model.Library.Stage_Terrain[y] = line;
+                    toggleY = !toggleY;
+                    toggleX = false;
+                }
+
                 Cub.Model.Library.Stage_Unit = Cub.Tool.Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
 
                 Trigger = false;

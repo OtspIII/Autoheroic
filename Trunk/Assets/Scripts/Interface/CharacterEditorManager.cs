@@ -40,6 +40,23 @@ public class CharacterEditorManager : OptionsListController
     public UILabel Range;
     public UILabel Damage;
 
+    Cub.Interface.TeamPickerManager MyPicker;
+    TeamEditorManager MyTEditor;
+
+    void Start()
+    {
+        if (PlayerOne)
+        {
+            MyPicker = GM.LeftPicker;
+            MyTEditor = GM.LeftEditor;
+        }
+        else
+        {
+            MyPicker = GM.RightPicker;
+            MyTEditor = GM.RightEditor;
+        }
+    }
+
     protected override void MoreUpdate()
     {
         if (HoriTimer > 0)

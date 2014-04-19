@@ -178,8 +178,8 @@ public class GameplayScreenController : MonoBehaviour
         int y = pos.Y;
         Cub.Position2 r = new Cub.Position2(x, y);
         if (!teamOne)
-            r = new Cub.Position2(11 - x, 11 - y);
-        if (r.X > 11 || r.X < 0 || r.Y > 11 || r.Y < 0)
+            r = new Cub.Position2(GM.xMapSize - x, GM.yMapSize - y);
+        if (r.X > GM.xMapSize || r.X < 0 || r.Y > GM.yMapSize || r.Y < 0)
             Debug.Log("TRANSLATE ERROR");
         return r;
     }

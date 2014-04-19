@@ -23,19 +23,24 @@ namespace Cub.Tool
             Dictionary<Cub.Position2, PathPoint> closedList = new Dictionary<Cub.Position2, PathPoint>();
             openList.Add(start, new PathPoint(start, new Cub.Position2(-999, -999), 0, ManWalk(start, finish)));
             PathPoint seed = null;
+            //Debug.Log("B");
             for (int n = distance; n > 0; n--)
             {
+                //Debug.Log("AB");
                 seed = null;
                 foreach (PathPoint pp in openList.Values)
                     if (seed == null || pp.F <= seed.F)
                         seed = pp;
+                //Debug.Log("AC");
                 if (seed == null)
                     break;
+                //Debug.Log("AD");
                 if (seed.Square == finish)
                 {
                     closedList.Add(seed.Square, seed);
                     break;
                 }
+                //Debug.Log("AE");
                 sq = GetAdjacents(seed.Square);
                 foreach (Cub.Position2 s in sq)
                     if (s.X != -999 && (s == finish || (CheckAccessable(s, blockable) && !closedList.ContainsKey(s))))
@@ -49,11 +54,14 @@ namespace Cub.Tool
                             openList.Add(s, new PathPoint(s, seed.Square, seed.G + dist, ManWalk(s, finish)));
                         }
                     }
+                //Debug.Log("AF");
                 closedList.Add(seed.Square, seed);
                 openList.Remove(seed.Square);
             }
+            //Debug.Log("C" + closedList.Count.ToString());
             if (!closedList.Keys.Contains(finish))
                 return path;
+            //Debug.Log("D");
             seed = closedList[finish];
             while (true)
             {
@@ -99,8 +107,8 @@ namespace Cub.Tool
 
         public static bool CheckAccessable(Cub.Position2 where, bool blockable)
         {
-            if (where.X < 0 || where.X >= Cub.Model.Library.Stage_Terrain.Length || where.Y < 0
-                || where.Y >= Cub.Model.Library.Stage_Terrain[where.X].Length)
+            if (where.X < 0 || where.X >= Cub.Model.Library.MapSizeX || where.Y < 0
+                || where.Y >= Cub.Model.Library.MapSizeY)
                 return false;
             if (!blockable)
                 return true;
