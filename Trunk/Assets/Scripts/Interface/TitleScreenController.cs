@@ -41,7 +41,7 @@ namespace Cub.Interface
                     break;
 
                 case MenuOptions.MMCredits:
-                    GM.GotoEditScreen();
+                    GM.GotoCreditsScreen();
                     break;
 
                 case MenuOptions.MMQuit:

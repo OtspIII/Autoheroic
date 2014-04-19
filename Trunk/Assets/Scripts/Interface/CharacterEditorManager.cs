@@ -61,9 +61,14 @@ public class CharacterEditorManager : OptionsListController
         if (GetInput("Escape") > 0.8f)
         {
             if (PlayerOne)
+            {
                 GM.LeftEditor.gameObject.SetActive(true);
-            else
+                GM.LeftEditor.TurnOn();
+            }
+            else { 
                 GM.RightEditor.gameObject.SetActive(true);
+                GM.RightEditor.TurnOn();
+            }
             WhoSave.Head = IHead.E;
             WhoSave.Body = IBody.E;
             WhoSave.Arms = IArms.E;

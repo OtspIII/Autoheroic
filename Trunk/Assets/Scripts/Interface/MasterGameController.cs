@@ -148,13 +148,11 @@ public class MasterGameController : MonoBehaviour
             BlockTimersMax.Add(block, n);
         }
         SetStage(MasterStage.BlockBuilding);
-        Debug.Log("FIGHT!");
     }
 
-    public void GotoEditScreen()
+    public void GotoCreditsScreen()
     {
         MainMenu.gameObject.SetActive(false);
-        Debug.Log("EDIT!");
     }
 
     void CameraToPoint(Vector3 where, float time)
@@ -167,7 +165,6 @@ public class MasterGameController : MonoBehaviour
     void BuildMap()
     {
         Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
-        //Debug.Log(map.Length.ToString());
         for (int y = 0; y < map.Length; y++)
         {
             for (int x = 0; x < map[0].Length; x++)
@@ -213,7 +210,6 @@ public class MasterGameController : MonoBehaviour
 
     public void EditTeam(Cub.Model.TeamSave team, Cub.Interface.TeamPickerManager picker)
     {
-        Debug.Log("EDIT TEAM: " + team.Name);
         picker.gameObject.SetActive(false);
         if (picker.PlayerOne) {
             LeftEditor.Setup(team);
@@ -253,7 +249,9 @@ public class MasterGameController : MonoBehaviour
         if (ready)
         {
             LeftEditor.Ready = false;
+            LeftEditor.ReadyButton.color = Color.white;
             RightEditor.Ready = false;
+            RightEditor.ReadyButton.color = Color.white;
             Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
             StartGameplay();
         }

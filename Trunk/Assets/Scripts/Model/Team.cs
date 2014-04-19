@@ -121,6 +121,7 @@ namespace Cub.Model
 
         public void AddScore(string name, int value)
         {
+            Debug.Log(Name + " +" + value.ToString() + "pts (" + name + ")");
             foreach (Score st in ScoreThings)
                 if (st.Name == name)
                 {

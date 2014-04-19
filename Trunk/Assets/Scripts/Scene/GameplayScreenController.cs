@@ -142,13 +142,11 @@ public class GameplayScreenController : MonoBehaviour
     public void EndGame()
     {
         //SwitchModes(GameMode.Postgame);
-        Debug.Log("1: " + TeamOne.Name + " / 2: " + TeamTwo.Name);
         GM.TurnOnScoreCard(TeamOne, TeamTwo);
     }
 
     public void ClearMap()
     {
-        Debug.Log("CLEAR MAP");
         foreach (Cub.Model.Character c in TeamOne.List_Character)
         {
             Destroy(Cub.View.Runtime.Remove_Character(c.ID).gameObject);
@@ -162,7 +160,6 @@ public class GameplayScreenController : MonoBehaviour
     //void BuildMap()
     //{
     //    Cub.Terrain[][] map = Cub.Model.Library.Stage_Terrain;
-    //    Debug.Log(map.Length.ToString());
     //    for (int y = 0; y < map.Length; y++)
     //    {
     //        for (int x = 0; x < map[0].Length; x++)

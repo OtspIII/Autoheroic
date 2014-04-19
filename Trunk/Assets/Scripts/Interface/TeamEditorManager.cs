@@ -112,15 +112,14 @@ public class TeamEditorManager : MonoBehaviour
         {
             if (!Clicking)
             {
-                Debug.Log("Step One");
                 Clicking = true;
                 if (Current_CharSave != null)
                 {
-                    Debug.Log("Step Two");
                     Team.Remove_Character(Current_CharSave);
                     Dictionary_CharSave.Remove(Current_CharSave.ID);
                     Dictionary_Character.Remove(Current_CharSave.ID);
                     Dictionary_CharPos.Remove(Current_Char.Stat.Position);
+                    CharacterModels.Remove(Current_Char.gameObject);
                     //foreach (GameObject go in SquareMarkers.ToArray())
                     //    if (go.transform.position.x == (float)Current_Char.Stat.Position.X && go.transform.position.z == (float)Current_Char.Stat.Position.Y)
                     //    {
@@ -237,10 +236,8 @@ public class TeamEditorManager : MonoBehaviour
         int y = Mathf.Min((int)(SelectRange.y + SelectRange.height), Mathf.Max((int)(SelectRange.y), SelectedSquare.Y + move.Y));
         SelectedSquare = new Cub.Position2(x, y);
         MoveSelector();
-        //Debug.Log(Dictionary_CharPos.Keys.Count + " / " + SelectedSquare);
         if (Dictionary_CharPos.ContainsKey(SelectedSquare))
         {
-            //Dictionary_Character[Dictionary_CharPos[SelectedSquare]].gameObject.SetActive(true);
             Current_Char = Dictionary_Character[Dictionary_CharPos[SelectedSquare]];
             Current_CharSave = Dictionary_CharSave[Dictionary_CharPos[SelectedSquare]];
         }
