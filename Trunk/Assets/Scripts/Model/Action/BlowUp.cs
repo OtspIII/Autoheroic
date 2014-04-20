@@ -24,7 +24,7 @@ namespace Cub.Model.Action
         {
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             
-            Debug.Log("Missile: " + who.Name + " (" + who.Info.Class + ") > " + who.Name + " (" + who.Info.Class + ")");
+            Debug.Log("Missile: " + who.Name + " > " + who.Name);
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " <MISSILE> " + who.FindColorName(),
                 new List<object>() { who.ID, who.Stat.Position.ToVector2() }));
             foreach (Character guy in Main.AllCharacters())

@@ -15,6 +15,9 @@
           <Y>3</Y>
         </Position>
         <ID>8c61e017-e591-410e-aaa2-ef78b3b9e57d</ID>
+        <Kills>2</Kills>
+        <Deaths>2</Deaths>
+        <Matches>1</Matches>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -27,6 +30,9 @@
           <Y>5</Y>
         </Position>
         <ID>388c8ed7-6582-4354-b511-8cc8c2609e03</ID>
+        <Kills>1</Kills>
+        <Deaths>2</Deaths>
+        <Matches>1</Matches>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -39,6 +45,9 @@
           <Y>1</Y>
         </Position>
         <ID>7f6322e3-3b2b-4550-a85f-552959f2c242</ID>
+        <Kills>1</Kills>
+        <Deaths>3</Deaths>
+        <Matches>1</Matches>
       </Character_Save>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -51,7 +60,80 @@
           <Y>2</Y>
         </Position>
         <ID>2130dcc4-1a0f-4c2c-9ac7-1b44fcfa6b19</ID>
+        <Kills>4</Kills>
+        <Deaths>3</Deaths>
+        <Matches>1</Matches>
       </Character_Save>
     </Chars>
+    <Wins>0</Wins>
+    <Losses>1</Losses>
+  </TeamSave>
+  <TeamSave>
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+        <ID>283026ab-40d3-45d4-ab15-5a193b0b9bb0</ID>
+        <Kills>0</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>2</Y>
+        </Position>
+        <ID>91e8d20a-a94c-49b3-a4a9-ea4945cbd420</ID>
+        <Kills>2</Kills>
+        <Deaths>0</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>2</Y>
+        </Position>
+        <ID>58d4e366-d2a0-44f1-ab70-a442c6ebb75f</ID>
+        <Kills>1</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>4</Y>
+        </Position>
+        <ID>d40b9bf3-fbd7-4ca8-ab6a-3fcdcb84ebd6</ID>
+        <Kills>1</Kills>
+        <Deaths>0</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+    </Chars>
+    <Wins>1</Wins>
+    <Losses>0</Losses>
   </TeamSave>
 </ArrayOfTeamSave>

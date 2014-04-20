@@ -143,6 +143,7 @@ public class GameplayScreenController : MonoBehaviour
     {
         //SwitchModes(GameMode.Postgame);
         GM.TurnOnScoreCard(TeamOne, TeamTwo);
+        Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
     }
 
     public void ClearMap()

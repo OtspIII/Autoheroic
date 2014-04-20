@@ -48,7 +48,7 @@ namespace Cub.Model.Action
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);
-            Debug.Log("Follow: " + who.Name + " (" + who.Info.Class + ") >" + path[TravelDistance].ToString());
+            Debug.Log("Follow: " + who.Name + " >" + path[TravelDistance].ToString());
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++){
                 r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Following " + target.FindColorName(), new List<object>() { who.ID, path[n].X, path[n].Y }));

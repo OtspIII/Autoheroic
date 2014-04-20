@@ -64,7 +64,7 @@ namespace Cub.Model.Action
 
             who.SetLocation(path[TravelDistance]);
 
-            Debug.Log("Explore: " + who.Name + " (" + who.Info.Class + ") >" + path[TravelDistance].ToString());
+            Debug.Log("Explore: " + who.Name + " >" + path[TravelDistance].ToString());
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++)
             {

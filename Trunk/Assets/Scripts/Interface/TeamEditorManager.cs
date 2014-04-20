@@ -269,11 +269,13 @@ public class TeamEditorManager : MonoBehaviour
     {
         TeamName.text = Team.Name;
         OwnerName.text = Team.Owner_Name;
-        float wins = 3;
-        float losses = 4;
+        float wins = Team.Wins;
+        float losses = Team.Losses;
         WinNum.text = wins.ToString();
         LossNum.text = losses.ToString();
-        float perc = 100.0f * wins / (losses + wins);
+        float perc = 100;
+        if (wins + losses != 0)
+            perc = 100.0f * wins / (losses + wins);
         WinPerc.text = Mathf.RoundToInt(perc).ToString() + "%";
         WRFront.SetDimensions(Mathf.RoundToInt(perc * 150 / 100), 10);
         int TotalPts = Cub.Model.Library.PointCap;

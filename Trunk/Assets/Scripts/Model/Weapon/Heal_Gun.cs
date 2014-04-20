@@ -17,7 +17,7 @@ namespace Cub.Model.Weapons
         public override List<View.Eventon> Make_Attack(Character who, Character target, int roll)
         {
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
-            Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
+            Debug.Log("Attack: " + who.Name + " > " + target.Name);
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Harm, who.FindColorName() + " vs. " + target.FindColorName(),
                 new List<object>() { who.ID, target.ID }));
             target.Damage(HitDam, who, r, Attack_Result.Hit);

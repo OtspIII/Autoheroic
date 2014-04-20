@@ -50,7 +50,7 @@ namespace Cub.Model.Action
                 target = (data[UnityEngine.Random.Range(0, data.Count)] as Cub.Model.Character);
             who.Stat.Cooldown += this.Turn_Cooldown;
             who.ExhaustedActions.Add(ActionType);
-            Debug.Log("Snipe: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
+            Debug.Log("Snipe: " + who.Name + " > " + target.Name);
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Snipe, who.FindColorName() + " <SNIPE> " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
             target.Damage(Damage, who, r,Cub.Attack_Result.Hit);
             return r;

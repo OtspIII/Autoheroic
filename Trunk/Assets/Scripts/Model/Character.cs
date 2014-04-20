@@ -15,6 +15,9 @@ namespace Cub.Model
         public Part_Legs Legs;
         public Position2 Position;
         public System.Guid ID;
+        public int Kills;
+        public int Deaths;
+        public int Matches;
         //public int X;
         //public int Y;
 
@@ -41,6 +44,9 @@ namespace Cub.Model
             Legs = legs;
             Position = new Position2(_X, _Y);
             ID = System.Guid.NewGuid();
+            Kills = 0;
+            Deaths = 0;
+            Matches = 0;
         }
     }
 
@@ -58,7 +64,8 @@ namespace Cub.Model
         public List<Special_Effects> Effects { get; set; }
         //public Cub.Model.Weapon Weapon { get; set; }
         
-        public Cub.Class Class { get; set; }
+        //public Cub.Class Class { get; set; }
+        public Character_Save Save;
         public string Name { get; set; }
         public int Range { get; set; }
         public bool Blockable { get; set; }
@@ -111,7 +118,7 @@ namespace Cub.Model
             this.ID = System.Guid.NewGuid();
             this.ID_Save = save.ID;
             this.Stat = new Character_Stat();
-            this.Info = BuildInfo(save.Head, save.Arms, save.Body, save.Legs);
+            this.Info = BuildInfo(save);
 
             SetLocation(save.Position);
 
@@ -130,13 +137,15 @@ namespace Cub.Model
                         if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
                             guy.Damage(2, this, events, Cub.Attack_Result.Hit);
                     Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
-                    Debug.Log("Blow Up: " + this.Name + " (" + this.Info.Class + ")");
+                    Debug.Log("Blow Up: " + this.Name);
                     events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(), new List<object> { ID }));
                 }
                 else
                 {
-                    Debug.Log("Die: " + this.Name + " (" + this.Info.Class + ")");
+                    Debug.Log("Die: " + this.Name);
                     events.Add(new View.Eventon(Event.Die, "R.I.P. " + FindColorName(), new List<object> { ID }));
+                    Info.Save.Deaths++;
+                    source.Info.Save.Kills++;
                 }
                 if (source.Stat.Team != Stat.Team)
                     source.Stat.Team.AddScore("Kills", Value);
@@ -198,19 +207,20 @@ namespace Cub.Model
             Name = name;
         }
 
-        public Character_Info BuildInfo(Part_Head head, Part_Arms arms, Part_Body body, Part_Legs legs)
+        public Character_Info BuildInfo(Character_Save cs)
         {
             Character_Info info = new Character_Info();
-            info.Head = head;
-            info.Arms = arms;
-            info.Body = body;
-            info.Legs = legs;
+            info.Save = cs;
+            info.Head = cs.Head;
+            info.Arms = cs.Arms;
+            info.Body = cs.Body;
+            info.Legs = cs.Legs;
 
             List<Cub.Model.Bodypart> parts = new List<Model.Bodypart>();
-            parts.Add(Cub.Model.Library.Get_Head(head));
-            parts.Add(Cub.Model.Library.Get_Arms(arms));
-            parts.Add(Cub.Model.Library.Get_Body(body));
-            parts.Add(Cub.Model.Library.Get_Legs(legs));
+            parts.Add(cs.Head_Part);
+            parts.Add(cs.Arms_Part);
+            parts.Add(cs.Body_Part);
+            parts.Add(cs.Legs_Part);
 
             int hp = Cub.Model.Library.Get_Body(info.Body).Health;
             int sp = Cub.Model.Library.Get_Legs(info.Legs).Speed;
@@ -238,11 +248,11 @@ namespace Cub.Model
             info.Range = info.Weapon.Range;
 
             //This is temporary.##
-            info.Class = Class.Soldier;
+            //info.Class = Class.Soldier;
 
             this.Stat.HP = info.MHP;
 
-            this.Tactics = BuildAIProfile(head,acts);
+            this.Tactics = BuildAIProfile(cs.Head,acts);
             
             return info;
         }

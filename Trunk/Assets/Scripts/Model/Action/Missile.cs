@@ -53,7 +53,7 @@ namespace Cub.Model.Action
                 target = (data[UnityEngine.Random.Range(0, data.Count)] as Cub.Model.Character);
             who.Stat.Cooldown += this.Turn_Cooldown;
             who.ExhaustedActions.Add(ActionType);
-            Debug.Log("Missile: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ")");
+            Debug.Log("Missile: " + who.Name +" > " + target.Name);
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " <MISSILE> " + target.FindColorName(),
                 new List<object>() { who.ID, target.Stat.Position.ToVector2() }));
             foreach (Character guy in Main.AllCharacters())

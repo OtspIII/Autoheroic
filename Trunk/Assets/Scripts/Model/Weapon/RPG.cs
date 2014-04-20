@@ -39,7 +39,7 @@ namespace Cub.Model.Weapons
                     wander1 += wander2;
                 where += wander1;
             }
-            Debug.Log("Attack: " + who.Name + " (" + who.Info.Class + ") > " + target.Name + " (" + target.Info.Class + ") ["
+            Debug.Log("Attack: " + who.Name + " > " + target.Name + " ["
                 + MissChance.ToString() + "/" + CritChance.ToString() + "/" + roll.ToString() + "/" + result + "/" + dam.ToString() + "]");
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " vs. " + target.FindColorName(),
                 new List<object>() { who.ID, where }));

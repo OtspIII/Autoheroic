@@ -106,12 +106,6 @@ namespace Cub.Model
                 Dictionary_Condition = new Dictionary<Cub.Condition, Cub.Model.Condition.Base>();
                 Dictionary_Condition[Cub.Condition.Any] = new Cub.Model.Condition.Any();
                 Dictionary_Condition[Cub.Condition.Adjacent_2] = new Cub.Model.Condition.Adjacent_2();
-                Dictionary_Condition[Cub.Condition.Is_Soldier] = new Cub.Model.Condition.Is_Soldier();
-                Dictionary_Condition[Cub.Condition.Is_Sniper] = new Cub.Model.Condition.Is_Sniper();
-                Dictionary_Condition[Cub.Condition.Is_Rocket] = new Cub.Model.Condition.Is_Rocket();
-                Dictionary_Condition[Cub.Condition.Is_Medic] = new Cub.Model.Condition.Is_Medic();
-                Dictionary_Condition[Cub.Condition.Is_Knight] = new Cub.Model.Condition.Is_Knight();
-                Dictionary_Condition[Cub.Condition.Is_Jerk] = new Cub.Model.Condition.Is_Jerk();
                 Dictionary_Condition[Cub.Condition.Almost_Dead] = new Cub.Model.Condition.Almost_Dead();
                 Dictionary_Condition[Cub.Condition.Is_Hurt] = new Cub.Model.Condition.Is_Hurt();
                 Dictionary_Condition[Cub.Condition.I_Am_Alone] = new Cub.Model.Condition.I_Am_Alone();

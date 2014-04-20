@@ -10,6 +10,8 @@ namespace Cub.Model
         public string Owner_Name;
         public List<Cub.Model.Character_Save> Chars;
         public int TotalValue { get { return FindTotalValue(); } }
+        public int Wins;
+        public int Losses;
 
         public TeamSave()
         {
@@ -20,6 +22,8 @@ namespace Cub.Model
             Name = name;
             Owner_Name = owner;
             Chars = new List<Character_Save>();
+            Wins = 0;
+            Losses = 0;
         }
 
         public void Add_Character(Character_Save c)
@@ -50,6 +54,7 @@ namespace Cub.Model
 
     public class Team
     {
+        public TeamSave Save;
         public System.Guid ID { get; private set; }
         public string Name { get; set; }
         public string Owner_Name { get; set; }
@@ -77,6 +82,7 @@ namespace Cub.Model
         {
             Name = parent.Name;
             Owner_Name = parent.Owner_Name;
+            Save = parent;
             this.ID = System.Guid.NewGuid();
             foreach (Character_Save cs in parent.Chars)
             {

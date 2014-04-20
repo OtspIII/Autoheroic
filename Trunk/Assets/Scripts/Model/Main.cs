@@ -22,12 +22,9 @@ namespace Cub.Model
             Turn = 1;
             List_Team = new List<Team>{teamOne,teamTwo};
             DeadCharacters = new List<Character>();
-        }
-
-        public static void StartGameplay(){
-            //foreach (Team t in List_Team)
-            //        foreach (Character c in t.Return_List_Character())
-            //            t.TotalValue += c.Value;
+            foreach (Team t in List_Team)
+                foreach (Character c in t.Return_List_Character())
+                    c.Info.Save.Matches++;
         }
 
         public static List<Cub.View.Eventon> Go()
@@ -136,6 +133,10 @@ namespace Cub.Model
             {
                 winTeam = winningTeams[0];
                 Debug.Log(winTeam.Name + " Wins!");
+                winTeam.Save.Wins++;
+                foreach (Team t in List_Team)
+                    if (t != winTeam)
+                        t.Save.Losses++;
             }
             else
                 Debug.Log("TIE!");

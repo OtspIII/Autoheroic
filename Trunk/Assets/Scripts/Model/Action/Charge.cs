@@ -57,7 +57,7 @@ namespace Cub.Model.Action
             if (TravelDistance < 0) return new List<View.Eventon>();
             who.SetLocation(path[TravelDistance]);
 
-            Debug.Log("Charge: " + who.Name + " (" + who.Info.Class + ") >" + path[TravelDistance].ToString());
+            Debug.Log("Charge: " + who.Name + " >" + path[TravelDistance].ToString());
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++)
             {
