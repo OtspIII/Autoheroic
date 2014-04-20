@@ -8,7 +8,7 @@ namespace Cub.Model
     {
         private static bool Trigger = true;
 
-        public static int PointCap = 600;
+        public static int PointCap = 400;
         public static int MapSizeX = 9;
         public static int MapSizeY = 6;
 
@@ -25,7 +25,7 @@ namespace Cub.Model
         private static Dictionary<Cub.Part_Arms, Cub.Model.Weapon> Dictionary_Weapons { get; set; }
 
         public static Cub.Terrain[][] Stage_Terrain { get; set; }
-        public static Cub.Class[][] Stage_Unit { get; set; }
+        //public static Cub.Class[][] Stage_Unit { get; set; }
 
         public static void Initialization()
         {
@@ -155,7 +155,7 @@ namespace Cub.Model
                     toggleX = false;
                 }
 
-                Cub.Model.Library.Stage_Unit = Cub.Tool.Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
+                //Cub.Model.Library.Stage_Unit = Cub.Tool.Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
 
                 Trigger = false;
             }

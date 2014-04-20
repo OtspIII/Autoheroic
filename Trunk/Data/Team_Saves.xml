@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeamSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TeamSave>
-    <Name />
-    <Owner_Name />
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
     <Chars>
       <Character_Save>
         <Name>TEMP NAME</Name>
@@ -12,34 +12,10 @@
         <Legs>Humanoid</Legs>
         <Position>
           <X>0</X>
-          <Y>0</Y>
+          <Y>3</Y>
         </Position>
-        <ID>a9cb003c-aea8-4dd3-ac9c-455e31cdfff5</ID>
+        <ID>8c61e017-e591-410e-aaa2-ef78b3b9e57d</ID>
       </Character_Save>
-    </Chars>
-  </TeamSave>
-  <TeamSave>
-    <Name />
-    <Owner_Name />
-    <Chars>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-        </Position>
-        <ID>e374a5fd-de37-40e5-87e1-b96b1ca0e83c</ID>
-      </Character_Save>
-    </Chars>
-  </TeamSave>
-  <TeamSave>
-    <Name />
-    <Owner_Name />
-    <Chars>
       <Character_Save>
         <Name>TEMP NAME</Name>
         <Head>Soldier</Head>
@@ -50,7 +26,31 @@
           <X>1</X>
           <Y>5</Y>
         </Position>
-        <ID>03b9d827-cc01-4e84-8edc-d4287d7438f6</ID>
+        <ID>388c8ed7-6582-4354-b511-8cc8c2609e03</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>1</Y>
+        </Position>
+        <ID>7f6322e3-3b2b-4550-a85f-552959f2c242</ID>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>2</Y>
+        </Position>
+        <ID>2130dcc4-1a0f-4c2c-9ac7-1b44fcfa6b19</ID>
       </Character_Save>
     </Chars>
   </TeamSave>

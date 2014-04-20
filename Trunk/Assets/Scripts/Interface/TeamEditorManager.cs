@@ -24,6 +24,9 @@ public class TeamEditorManager : MonoBehaviour
 
     Cub.View.Character Current_Char = null;
     Cub.Model.Character_Save Current_CharSave = null;
+    bool MovingCharacter = false;
+    Cub.Position2 OldPos = new Cub.Position2(999, 999);
+    Vector3 OldVec = Vector3.zero;
 
     float SelectTimer = 0.2f;
     float VertTimer;
@@ -37,6 +40,19 @@ public class TeamEditorManager : MonoBehaviour
 
     Cub.Interface.TeamPickerManager MyPicker;
     CharacterEditorManager MyCEditor;
+
+    public Texture Green;
+    public Texture Red;
+    public UILabel TeamName;
+    public UILabel OwnerName;
+    public UILabel WinNum;
+    public UILabel LossNum;
+    public UILabel WinPerc;
+    public UITexture WRBack;
+    public UITexture WRFront;
+    public UILabel PtsLeft;
+    public UITexture PtsBack;
+    public UITexture PtsFront;
 
 
     // Use this for initialization
@@ -114,7 +130,7 @@ public class TeamEditorManager : MonoBehaviour
                     Ready = false;
                     ReadyButton.color = Color.white;
                 }
-                else
+                else if (Team.TotalValue <= Cub.Model.Library.PointCap)
                 {
                     Ready = true;
                     ReadyButton.color = Color.green;
@@ -143,6 +159,7 @@ public class TeamEditorManager : MonoBehaviour
                     Destroy(Current_Char.gameObject);
                     Current_Char = null;
                     Current_CharSave = null;
+                    Refresh();
                 }
             }
         }
@@ -151,19 +168,56 @@ public class TeamEditorManager : MonoBehaviour
             if (!Clicking)
             {
                 Clicking = true;
-                if (PlayerOne)
+                if (MovingCharacter)
                 {
-                    GM.LeftPicker.gameObject.SetActive(true);
-                    GM.LeftPicker.Clicking = true;
+                    Current_Char.gameObject.transform.position = OldVec;
+                    OldVec = Vector3.zero;
+                    OldPos = new Cub.Position2(999, 999);
+                    MovingCharacter = false;
+                    SquareMarker.renderer.material.color = Color.red;
                 }
                 else
                 {
-                    GM.RightPicker.gameObject.SetActive(true);
-                    GM.RightPicker.Clicking = true;
+                    MyPicker.gameObject.SetActive(true);
+                    MyPicker.Clicking = true;
+                    ClearMarkers();
+                    Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
+                    gameObject.SetActive(false);
                 }
-                ClearMarkers();
-                Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
-                gameObject.SetActive(false);
+
+            }
+        }
+        else if (GetInput("Move") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                if (Current_Char != null)
+                {
+                    if (MovingCharacter)
+                    {
+                        MovingCharacter = false;
+                        SquareMarker.renderer.material.color = Color.red;
+                        Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
+                        Current_Char.Stat.Position = where;
+                        Dictionary_CharPos.Add(where, Current_CharSave.ID);
+                        if (!PlayerOne)
+                        {
+                            where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
+                        }
+                        Current_CharSave.Position = where;
+                        Dictionary_CharPos.Remove(OldPos);
+                        OldPos = new Cub.Position2(999, 999);
+                        OldVec = Vector3.zero;
+                    }
+                    else
+                    {
+                        MovingCharacter = true;
+                        SquareMarker.renderer.material.color = Color.yellow;
+                        OldPos = Current_Char.Stat.Position;
+                        OldVec = Current_Char.gameObject.transform.position;
+                    }
+                }
             }
         }
         else
@@ -188,7 +242,7 @@ public class TeamEditorManager : MonoBehaviour
 
     public void Setup(Cub.Model.TeamSave team)
     {
-        
+
         Team = team;
         if (PlayerOne)
             SelectRange = new Rect(0, 0, GM.PlacementSize - 1, GM.yMapSize);
@@ -202,13 +256,41 @@ public class TeamEditorManager : MonoBehaviour
         Dictionary_CharPos = new Dictionary<Cub.Position2, System.Guid>();
         CharacterModels = new List<GameObject>();
         FakeTeam = Team.Extract_Team();
-        
         foreach (Character c in FakeTeam.List_Character)
         {
-            //AddCharacter(c).gameObject.SetActive(false);
             AddCharacter(c);
         }
+        Refresh();
         Clicking = true;
+        Ready = false;
+    }
+
+    public void Refresh()
+    {
+        TeamName.text = Team.Name;
+        OwnerName.text = Team.Owner_Name;
+        float wins = 3;
+        float losses = 4;
+        WinNum.text = wins.ToString();
+        LossNum.text = losses.ToString();
+        float perc = 100.0f * wins / (losses + wins);
+        WinPerc.text = Mathf.RoundToInt(perc).ToString() + "%";
+        WRFront.SetDimensions(Mathf.RoundToInt(perc * 150 / 100), 10);
+        int TotalPts = Cub.Model.Library.PointCap;
+        int Spent = Team.TotalValue;
+        PtsLeft.text = (TotalPts - Spent).ToString() + "pts";
+        PtsFront.SetDimensions(6, Mathf.RoundToInt(100 * Spent / TotalPts));
+        if (Spent > TotalPts)
+        {
+            PtsFront.mainTexture = Red;
+            ReadyButton.color = Color.red;
+
+        }
+        else
+        {
+            PtsFront.mainTexture = Green;
+            ReadyButton.color = Color.white;
+        }
         Ready = false;
     }
 
@@ -245,16 +327,52 @@ public class TeamEditorManager : MonoBehaviour
 
     void SlideSelector(Cub.Position2 move)
     {
-        if (Current_Char != null)
+        if (!MovingCharacter)
         {
-            //Current_Char.gameObject.SetActive(false);
-            Current_Char = null;
-            Current_CharSave = null;
+            if (Current_Char != null)
+            {
+                //Current_Char.gameObject.SetActive(false);
+                Current_Char = null;
+                Current_CharSave = null;
+            }
         }
+
         int x = Mathf.Min((int)(SelectRange.x + SelectRange.width), Mathf.Max((int)(SelectRange.x), SelectedSquare.X + move.X));
         int y = Mathf.Min((int)(SelectRange.y + SelectRange.height), Mathf.Max((int)(SelectRange.y), SelectedSquare.Y + move.Y));
+        if (MovingCharacter)
+        {
+            if (move.X > 0)
+            {
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                    x++;
+            }
+            else if (move.X < 0)
+            {
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                    x--;
+            }
+            if (move.Y > 0)
+            {
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                    y++;
+            }
+            else if (move.Y < 0)
+            {
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                    y--;
+            }
+            if (x < (int)(SelectRange.x) || x > (int)(SelectRange.x + SelectRange.width) ||
+                y < (int)(SelectRange.y) || y > (int)(SelectRange.y + SelectRange.height))
+                return;
+        }
         SelectedSquare = new Cub.Position2(x, y);
         MoveSelector();
+        if (MovingCharacter)
+        {
+            Vector3 where = SquareMarker.transform.position;
+            where.y += 0.5f;
+            Current_Char.gameObject.transform.position = where;
+        }
         if (Dictionary_CharPos.ContainsKey(SelectedSquare))
         {
             Current_Char = Dictionary_Character[Dictionary_CharPos[SelectedSquare]];
@@ -282,11 +400,12 @@ public class TeamEditorManager : MonoBehaviour
         if (Current_CharSave == null)
         {
             Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
-            if (!PlayerOne){
+            if (!PlayerOne)
+            {
                 where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
             }
-            Character_Save cs = new Character_Save("TEMP NAME", Cub.Part_Head.Soldier, Cub.Part_Arms.Rifle, Cub.Part_Body.Medium, 
-                Cub.Part_Legs.Humanoid, where.X,where.Y);
+            Character_Save cs = new Character_Save("TEMP NAME", Cub.Part_Head.Soldier, Cub.Part_Arms.Rifle, Cub.Part_Body.Medium,
+                Cub.Part_Legs.Humanoid, where.X, where.Y);
             Team.Add_Character(cs);
             Cub.Model.Character ch = new Character(cs);
             FakeTeam.Add_Character(ch);
@@ -299,7 +418,7 @@ public class TeamEditorManager : MonoBehaviour
             if (Current_Char.gameObject != go)
                 go.SetActive(false);
         }
-        GM.EditCharacter(this,Current_Char,Current_CharSave);
+        GM.EditCharacter(this, Current_Char, Current_CharSave);
     }
 
 
@@ -309,5 +428,6 @@ public class TeamEditorManager : MonoBehaviour
         {
             go.SetActive(true);
         }
+        Refresh();
     }
 }

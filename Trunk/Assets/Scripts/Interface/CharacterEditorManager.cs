@@ -77,15 +77,8 @@ public class CharacterEditorManager : OptionsListController
 
         if (GetInput("Escape") > 0.8f)
         {
-            if (PlayerOne)
-            {
-                GM.LeftEditor.gameObject.SetActive(true);
-                GM.LeftEditor.TurnOn();
-            }
-            else { 
-                GM.RightEditor.gameObject.SetActive(true);
-                GM.RightEditor.TurnOn();
-            }
+            MyTEditor.gameObject.SetActive(true);
+            MyTEditor.TurnOn();
             WhoSave.Head = IHead.E;
             WhoSave.Body = IBody.E;
             WhoSave.Arms = IArms.E;
@@ -104,14 +97,8 @@ public class CharacterEditorManager : OptionsListController
 
     protected override void Click()
     {
-        if (PlayerOne){
-            GM.LeftEditor.gameObject.SetActive(true);
-            GM.LeftEditor.TurnOn();
-        }
-        else { 
-            GM.RightEditor.gameObject.SetActive(true);
-            GM.RightEditor.TurnOn();
-        }
+        MyTEditor.gameObject.SetActive(true);
+        MyTEditor.TurnOn();
         gameObject.SetActive(false);
         PersonalCamera.SetActive(false);
     }

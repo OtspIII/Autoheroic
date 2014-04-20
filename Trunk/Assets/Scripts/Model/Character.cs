@@ -50,8 +50,13 @@ namespace Cub.Model
         public Part_Arms Arms { get; set; }
         public Part_Body Body { get; set; }
         public Part_Legs Legs { get; set; }
+        public Cub.Model.BPHead Head_Part { get { return Cub.Model.Library.Get_Head(Head); } }
+        public Cub.Model.BPBody Body_Part { get { return Cub.Model.Library.Get_Body(Body); } }
+        public Cub.Model.BPArms Arms_Part { get { return Cub.Model.Library.Get_Arms(Arms); } }
+        public Cub.Model.BPLegs Legs_Part { get { return Cub.Model.Library.Get_Legs(Legs); } }
+        public Cub.Model.Weapon Weapon { get { return Cub.Model.Library.Get_Weapon(Arms); } }
         public List<Special_Effects> Effects { get; set; }
-        public Cub.Model.Weapon Weapon { get; set; }
+        //public Cub.Model.Weapon Weapon { get; set; }
         
         public Cub.Class Class { get; set; }
         public string Name { get; set; }
@@ -200,7 +205,6 @@ namespace Cub.Model
             info.Arms = arms;
             info.Body = body;
             info.Legs = legs;
-            info.Weapon = Cub.Model.Library.Get_Weapon(arms);
 
             List<Cub.Model.Bodypart> parts = new List<Model.Bodypart>();
             parts.Add(Cub.Model.Library.Get_Head(head));
@@ -271,11 +275,7 @@ namespace Cub.Model
 
         int FindValue()
         {
-            int r = Info.Value;
-            foreach (Tactic tac in Tactics)
-                if (!tac.Free)
-                    r += 10;
-            return r;
+            return Info.Head_Part.Cost + Info.Arms_Part.Cost + Info.Body_Part.Cost + Info.Legs_Part.Cost;
         }
 
         public List<Tactic> BuildAIProfile(Cub.Part_Head head, List<Cub.Action> acts)
