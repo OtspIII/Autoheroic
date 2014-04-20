@@ -40,6 +40,7 @@ public class TeamEditorManager : MonoBehaviour
 
     Cub.Interface.TeamPickerManager MyPicker;
     CharacterEditorManager MyCEditor;
+    TextInputController MyTextEditor;
 
     public Texture Green;
     public Texture Red;
@@ -65,11 +66,13 @@ public class TeamEditorManager : MonoBehaviour
         {
             MyPicker = GM.LeftPicker;
             MyCEditor = GM.LeftCEditor;
+            MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
             MyPicker = GM.RightPicker;
             MyCEditor = GM.RightCEditor;
+            MyTextEditor = GM.RightNameEditor;
         }
     }
 
@@ -246,6 +249,26 @@ public class TeamEditorManager : MonoBehaviour
                     index = 0;
                 Team.Colour_Secondary = GM.Colors[index];
                 Refresh();
+            }
+        }
+        else if (GetInput("Namer") < -0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                MyTextEditor.gameObject.SetActive(true);
+                MyTextEditor.SetupTeam(this, Team);
+                gameObject.SetActive(false);
+            }
+        }
+        else if (GetInput("Namer") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                MyTextEditor.gameObject.SetActive(true);
+                MyTextEditor.SetupOwner(this, Team);
+                gameObject.SetActive(false);
             }
         }
         else
@@ -461,5 +484,19 @@ public class TeamEditorManager : MonoBehaviour
             go.SetActive(true);
         }
         Refresh();
+    }
+
+    public void TeamNameUpdate(string name)
+    {
+        Team.Name = name;
+        FakeTeam.Name = name;
+        TeamName.text = name;
+    }
+
+    public void OwnerNameUpdate(string name)
+    {
+        Team.Owner_Name = name;
+        FakeTeam.Owner_Name = name;
+        OwnerName.text = name;
     }
 }

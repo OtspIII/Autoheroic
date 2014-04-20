@@ -42,6 +42,7 @@ public class CharacterEditorManager : OptionsListController
 
     Cub.Interface.TeamPickerManager MyPicker;
     TeamEditorManager MyTEditor;
+    TextInputController MyTextEditor;
 
     void Start()
     {
@@ -49,11 +50,13 @@ public class CharacterEditorManager : OptionsListController
         {
             MyPicker = GM.LeftPicker;
             MyTEditor = GM.LeftEditor;
+            MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
             MyPicker = GM.RightPicker;
             MyTEditor = GM.RightEditor;
+            MyTextEditor = GM.RightNameEditor;
         }
     }
 
@@ -91,6 +94,16 @@ public class CharacterEditorManager : OptionsListController
             Who.Initialize_Part();
             gameObject.SetActive(false);
             PersonalCamera.SetActive(false);
+        }
+        else if (Mathf.Abs(GetInput("Namer")) > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                MyTextEditor.gameObject.SetActive(true);
+                MyTextEditor.SetupCharacter(this, WhoSave);
+                gameObject.SetActive(false);
+            }
         }
     }
 
@@ -216,5 +229,13 @@ public class CharacterEditorManager : OptionsListController
         {
             ((UISprite)t.gameObject.GetComponent("UISprite")).color = Color.red;
         }
+    }
+
+    public void NameUpdate(string name)
+    {
+        WhoSave.Name = name;
+        Who.name = name;
+        Name.text = name;
+        Clicking = true;
     }
 }

@@ -37,6 +37,8 @@ public class MasterGameController : MonoBehaviour
     public TeamEditorManager RightEditor;
     public CharacterEditorManager LeftCEditor;
     public CharacterEditorManager RightCEditor;
+    public TextInputController LeftNameEditor;
+    public TextInputController RightNameEditor;
 
     Vector3 CameraWhere;
     Quaternion CameraRot;
@@ -48,6 +50,7 @@ public class MasterGameController : MonoBehaviour
     public int PlacementSize;
 
     public List<Color32> Colors;
+    public List<string> Letters;
 
     // Use this for initialization
     void Start()
@@ -65,12 +68,17 @@ public class MasterGameController : MonoBehaviour
         RightEditor.gameObject.SetActive(false);
         LeftCEditor.gameObject.SetActive(false);
         RightCEditor.gameObject.SetActive(false);
+        LeftNameEditor.gameObject.SetActive(false);
+        RightNameEditor.gameObject.SetActive(false);
         SCM.gameObject.SetActive(false);
         Application.targetFrameRate = 60;
         CameraWhere = MainCamera.transform.position;
         CameraRot = MainCamera.transform.rotation;
+        Letters = new List<string> {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+            "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","_",""};
     }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
