@@ -160,4 +160,114 @@
       <a>0</a>
     </Colour_Secondary>
   </TeamSave>
+  <TeamSave>
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>2</Y>
+        </Position>
+        <ID>0729ed08-8fad-4ecd-a2b6-2c89e723104b</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>3</Y>
+        </Position>
+        <ID>7836fe79-9d53-453c-9d52-8460aba74083</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>4</Y>
+        </Position>
+        <ID>17b15883-3c28-4e3a-98db-d81ceb30c09b</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>1</Y>
+        </Position>
+        <ID>a71fe68d-0592-423c-8622-ea43772a021a</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>RPG</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+        <ID>3503bce7-398e-498f-8e36-fd57770ec980</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>RPG</Arms>
+        <Body>Light</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>0</X>
+          <Y>5</Y>
+        </Position>
+        <ID>f268f53a-4af9-4aec-9051-7ca99cf02c47</ID>
+        <Kills>0</Kills>
+        <Deaths>0</Deaths>
+        <Matches>0</Matches>
+      </Character_Save>
+    </Chars>
+    <Wins>0</Wins>
+    <Losses>0</Losses>
+    <Colour_Primary>
+      <r>255</r>
+      <g>255</g>
+      <b>0</b>
+      <a>0</a>
+    </Colour_Primary>
+    <Colour_Secondary>
+      <r>255</r>
+      <g>235</g>
+      <b>4</b>
+      <a>255</a>
+    </Colour_Secondary>
+  </TeamSave>
 </ArrayOfTeamSave>

@@ -110,7 +110,11 @@ namespace Cub.Interface
         {
             int current = Options.IndexOf(Selected);
             current += n;
-            if (current >= Options.Count)
+            if (TeamsOffset == 0 && current < Options.Count && current > GM.Teams.Count)
+            {
+                current = GM.Teams.Count;
+            }
+            else if (current >= Options.Count)
             {
                 TeamsOffset++;
                 if (TeamsOffset + Options.Count - 2 >= Mathf.Max(6, GM.Teams.Count))
