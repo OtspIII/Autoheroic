@@ -47,6 +47,8 @@ public class MasterGameController : MonoBehaviour
     public int yMapSize { get; private set; }
     public int PlacementSize;
 
+    public List<Color32> Colors;
+
     // Use this for initialization
     void Start()
     {

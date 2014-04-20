@@ -12,6 +12,8 @@ namespace Cub.Model
         public int TotalValue { get { return FindTotalValue(); } }
         public int Wins;
         public int Losses;
+        public Color32 Colour_Primary;
+        public Color32 Colour_Secondary;
 
         public TeamSave()
         {
@@ -24,6 +26,8 @@ namespace Cub.Model
             Chars = new List<Character_Save>();
             Wins = 0;
             Losses = 0;
+            Colour_Primary = Color.red;
+            Colour_Secondary = Color.yellow;
         }
 
         public void Add_Character(Character_Save c)
@@ -90,6 +94,8 @@ namespace Cub.Model
                 c.Imprint(cs);
                 Add_Character(c);
             }
+            Colour_Primary = parent.Colour_Primary;
+            Colour_Secondary = parent.Colour_Secondary;
         }
 
         public void Add_Character(Cub.Model.Character _C)

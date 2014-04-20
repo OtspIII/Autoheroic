@@ -53,6 +53,8 @@ public class TeamEditorManager : MonoBehaviour
     public UILabel PtsLeft;
     public UITexture PtsBack;
     public UITexture PtsFront;
+    public UISprite PrimaryColor;
+    public UISprite SecondaryColor;
 
 
     // Use this for initialization
@@ -220,6 +222,32 @@ public class TeamEditorManager : MonoBehaviour
                 }
             }
         }
+        else if (GetInput("Color") > 0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                int index = Mathf.Max(0,GM.Colors.IndexOf(Team.Colour_Primary));
+                index++;
+                if (index >= GM.Colors.Count)
+                    index = 0;
+                Team.Colour_Primary = GM.Colors[index];
+                Refresh();
+            }
+        }
+        else if (GetInput("Color") < -0.5f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Secondary));
+                index++;
+                if (index >= GM.Colors.Count)
+                    index = 0;
+                Team.Colour_Secondary = GM.Colors[index];
+                Refresh();
+            }
+        }
         else
             Clicking = false;
     }
@@ -294,6 +322,8 @@ public class TeamEditorManager : MonoBehaviour
             ReadyButton.color = Color.white;
         }
         Ready = false;
+        PrimaryColor.color = new Color(Team.Colour_Primary.r, Team.Colour_Primary.g, Team.Colour_Primary.b);
+        SecondaryColor.color = new Color(Team.Colour_Secondary.r, Team.Colour_Secondary.g, Team.Colour_Secondary.b);
     }
 
     Cub.View.Character AddCharacter(Cub.Model.Character c)
