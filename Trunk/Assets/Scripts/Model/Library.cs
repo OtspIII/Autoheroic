@@ -61,7 +61,7 @@ namespace Cub.Model
                     new List<Cub.Action> { Cub.Action.Charge }));
                 Dictionary_Arms.Add(Part_Arms.Sniper_Rifle, new Model.BPArms("Sniper Rifle",
                     "A sniper rifle that is only mildly effective unless it can pull off a head-shot.", 30,Part_Arms.Sniper_Rifle,
-                    new List<Cub.Action> { Cub.Action.Snipe }));
+                    new List<Cub.Action> {  }));
                 Dictionary_Arms.Add(Part_Arms.Pistol, new Model.BPArms("Pistol",
                     "A cheap pistol with meager range and damage.", 10, Part_Arms.Pistol));
                 Dictionary_Arms.Add(Part_Arms.RPG, new Model.BPArms("RPG",

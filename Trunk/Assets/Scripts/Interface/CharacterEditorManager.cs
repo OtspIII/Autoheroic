@@ -125,7 +125,7 @@ public class CharacterEditorManager : OptionsListController
         if (!PlayerOne)
             offset = -2;
         PersonalCamera.transform.position =
-            new Vector3(VChar.transform.position.x + offset, VChar.transform.position.y + 1.2f, VChar.transform.position.z + 0.5f);
+            new Vector3(VChar.transform.position.x + offset, VChar.transform.position.y + 1.2f, VChar.transform.position.z + 0.7f);
         CurrentlyActive = true;
         OnSelectChange();
         //Heads = Cub.Model.Library.List_Heads();

@@ -110,6 +110,14 @@ public class GameplayScreenController : MonoBehaviour
     {
         TeamOne = T1;
         TeamTwo = T2;
+        if (TeamOne.Colour_Primary.r == TeamTwo.Colour_Primary.r &&
+            TeamOne.Colour_Primary.g == TeamTwo.Colour_Primary.g && TeamOne.Colour_Primary.b == TeamTwo.Colour_Primary.b)
+        {
+            Color32 p = TeamTwo.Colour_Primary;
+            TeamTwo.Colour_Primary = TeamTwo.Colour_Secondary;
+            TeamTwo.Colour_Secondary = p;
+        }
+
         //TeamOne.Colour_Primary = Color.red;
         //TeamOne.Colour_Secondary = Color.yellow;
         //TeamTwo.Colour_Primary = Color.green;
