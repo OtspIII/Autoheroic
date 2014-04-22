@@ -6,8 +6,8 @@ namespace Cub.View.Event
 {
     public class Be_Attacked : Base
     {
-        private const float Timespan = 1.5F;
-        private const int Falling_Number = 100;
+        private const float Timespan = 0F;
+        private const int Falling_Number = 50;
 
         public override float Process(List<object> _Data, string Desc)
         {
@@ -20,7 +20,7 @@ namespace Cub.View.Event
             C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Be_Attacked");
             C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Be_Attacked");
 
-            C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
+            C.BroadcastMessage("Idle", Timespan + 1.5F, SendMessageOptions.DontRequireReceiver);
 
             Cube[] CO = C.gameObject.transform.GetComponentsInChildren<Cube>();
 
@@ -36,7 +36,7 @@ namespace Cub.View.Event
                 GO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
             }
 
-            Cub.View.Kamera.Shake();
+            //Cub.View.Kamera.Shake();
             C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
             
             return Timespan;

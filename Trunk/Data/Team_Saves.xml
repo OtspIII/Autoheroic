@@ -15,9 +15,9 @@
           <Y>3</Y>
         </Position>
         <ID>8c61e017-e591-410e-aaa2-ef78b3b9e57d</ID>
-        <Kills>5</Kills>
-        <Deaths>5</Deaths>
-        <Matches>7</Matches>
+        <Kills>6</Kills>
+        <Deaths>6</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>z</Name>
@@ -31,8 +31,8 @@
         </Position>
         <ID>388c8ed7-6582-4354-b511-8cc8c2609e03</ID>
         <Kills>3</Kills>
-        <Deaths>7</Deaths>
-        <Matches>7</Matches>
+        <Deaths>8</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -45,9 +45,9 @@
           <Y>1</Y>
         </Position>
         <ID>7f6322e3-3b2b-4550-a85f-552959f2c242</ID>
-        <Kills>3</Kills>
-        <Deaths>6</Deaths>
-        <Matches>7</Matches>
+        <Kills>4</Kills>
+        <Deaths>7</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -61,12 +61,12 @@
         </Position>
         <ID>2130dcc4-1a0f-4c2c-9ac7-1b44fcfa6b19</ID>
         <Kills>8</Kills>
-        <Deaths>9</Deaths>
-        <Matches>7</Matches>
+        <Deaths>10</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
     </Chars>
     <Wins>1</Wins>
-    <Losses>4</Losses>
+    <Losses>5</Losses>
     <Colour_Primary>
       <r>0</r>
       <g>255</g>
@@ -95,9 +95,9 @@
           <Y>3</Y>
         </Position>
         <ID>283026ab-40d3-45d4-ab15-5a193b0b9bb0</ID>
-        <Kills>3</Kills>
+        <Kills>4</Kills>
         <Deaths>1</Deaths>
-        <Matches>3</Matches>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -110,9 +110,9 @@
           <Y>2</Y>
         </Position>
         <ID>91e8d20a-a94c-49b3-a4a9-ea4945cbd420</ID>
-        <Kills>4</Kills>
-        <Deaths>1</Deaths>
-        <Matches>3</Matches>
+        <Kills>5</Kills>
+        <Deaths>2</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -125,9 +125,9 @@
           <Y>2</Y>
         </Position>
         <ID>58d4e366-d2a0-44f1-ab70-a442c6ebb75f</ID>
-        <Kills>3</Kills>
+        <Kills>5</Kills>
         <Deaths>2</Deaths>
-        <Matches>3</Matches>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -141,11 +141,11 @@
         </Position>
         <ID>d40b9bf3-fbd7-4ca8-ab6a-3fcdcb84ebd6</ID>
         <Kills>2</Kills>
-        <Deaths>0</Deaths>
-        <Matches>3</Matches>
+        <Deaths>1</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
     </Chars>
-    <Wins>3</Wins>
+    <Wins>4</Wins>
     <Losses>0</Losses>
     <Colour_Primary>
       <r>255</r>

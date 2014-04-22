@@ -15,6 +15,7 @@ namespace Cub.View
         private static GameObject Prefab_Explosion { get; set; }
         private static GameObject Prefab_Healer { get; set; }
         private static GameObject Prefab_Indicator { get; set; }
+        private static GameObject Prefab_Warhead { get; set; }
 
         private static Dictionary<Part_Head, List<Cub.View.Cubon>> Dictionary_Part_Head { get; set; }
         private static Dictionary<Part_Body, List<Cub.View.Cubon>> Dictionary_Part_Body { get; set; }
@@ -73,12 +74,12 @@ namespace Cub.View
                 Prefab_Explosion = Resources.Load<GameObject>("Prefabs/Explosion");
                 Prefab_Healer = Resources.Load<GameObject>("Prefabs/Healer");
                 Prefab_Indicator = Resources.Load<GameObject>("Prefabs/Indicator");
+                Prefab_Warhead = Resources.Load<GameObject>("Prefabs/Warhead");
 
                 Dictionary_Material = Resources.Load<Material>("Materials/Cube");
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
-                Dictionary_Event[Cub.Event.Attack_Harm] = new Cub.View.Event.Attack_Harm();
                 Dictionary_Event[Cub.Event.Attack_Melee] = new Cub.View.Event.Attack_Melee();
                 Dictionary_Event[Cub.Event.Attack_Range] = new Cub.View.Event.Attack_Range();
                 Dictionary_Event[Cub.Event.Attack_Rocket] = new Cub.View.Event.Attack_Rocket();
@@ -163,6 +164,11 @@ namespace Cub.View
             if (!Dictionary_Event.ContainsKey(_E))
                 Debug.Log(_E.ToString());
             return Dictionary_Event[_E];
+        }
+
+        public static GameObject Get_Warhead()
+        {
+            return Prefab_Warhead;
         }
 
         public static GameObject Get_Indicator()

@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Rocket : Base
     {
-        private const float Timespan = 4F;
+        private const float Timespan = 2.5F;
 
         public override float Process(List<object> _Data, string Desc)
         {

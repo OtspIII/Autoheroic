@@ -6,6 +6,8 @@ namespace Cub.View.Event
 {
     public class Attack_Snipe : Base
     {
+        public const float Timespan = 0.5F;
+
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
@@ -13,22 +15,20 @@ namespace Cub.View.Event
 
             C0.transform.LookAt(C1.transform.position);
 
-            GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
+            GameObject W = UnityEngine.Object.Instantiate(Library.Get_Warhead()) as GameObject;
 
-            B.GetComponent<TrailRenderer>().material.color = Color.red;
+            W.transform.position = C0.transform.position;
 
-            B.transform.position = C0.transform.position;
+            iTween.MoveTo(W, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
 
-            iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", 0.5F, "easetype", iTween.EaseType.linear));
-
-            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Snipe));
 
             Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
-            GameObject.Destroy(B, 2.0F);
+            GameObject.Destroy(W, Timespan);
 
-            return 0.5F;
+            return Timespan;
         }
     }
 }
