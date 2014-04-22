@@ -13,7 +13,16 @@ namespace Cub.View.Event
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
-            C0.transform.LookAt(C1.transform.position);
+            C0.transform.LookAt(new Vector3(C1.transform.position.x, 0, C1.transform.position.z));
+
+            C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Attack_Range");
+            C0.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Attack_Range");
+
+            C0.BroadcastMessage("Idle", Timespan + 0.5F, SendMessageOptions.DontRequireReceiver);
 
             GameObject W = UnityEngine.Object.Instantiate(Library.Get_Warhead()) as GameObject;
 
@@ -21,12 +30,11 @@ namespace Cub.View.Event
 
             iTween.MoveTo(W, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
 
-            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Snipe));
 
             Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
-
-            GameObject.Destroy(W, Timespan);
 
             return Timespan;
         }

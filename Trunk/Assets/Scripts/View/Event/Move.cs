@@ -46,11 +46,8 @@ namespace Cub.View.Event
                     }
             }
 
-            //Spotlight.Follow(C.gameObject);
-
             C.Stat.Position = new Position2(X, Z);
 
-            //Cub.View.Kamera.Follow(C.gameObject);
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
             return Timespan;
