@@ -15,16 +15,18 @@ namespace Cub.Model
         {
             Name = name;
             Description = desc;
+            SpDescription = "";
             Speed = sp;
             Cost = cst;
             Blockable = true;
             E = e;
         }
 
-        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Special_Effects> eff, bool block)
+        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Special_Effects> eff, bool block, string spDesc)
         {
             Name = name;
             Description = desc;
+            SpDescription = spDesc;
             Speed = sp;
             Cost = cst;
             Effects = eff;
@@ -32,10 +34,11 @@ namespace Cub.Model
             E = e;
         }
 
-        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Cub.Action> abil, bool block)
+        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Cub.Action> abil, bool block, string spDesc)
         {
             Name = name;
             Description = desc;
+            SpDescription = spDesc;
             Speed = sp;
             Cost = cst;
             Special_Abilities = abil;
@@ -43,10 +46,11 @@ namespace Cub.Model
             E = e;
         }
 
-        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Special_Effects> eff, List<Cub.Action> abil, bool block)
+        public BPLegs(string name, string desc, int sp, int cst, Cub.Part_Legs e, List<Special_Effects> eff, List<Cub.Action> abil, bool block, string spDesc)
         {
             Name = name;
             Description = desc;
+            SpDescription = spDesc;
             Speed = sp;
             Cost = cst;
             Effects = eff;

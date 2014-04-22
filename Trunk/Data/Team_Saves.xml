@@ -9,7 +9,7 @@
         <Head>Protector</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Legs>Tread</Legs>
         <Position>
           <X>0</X>
           <Y>3</Y>
@@ -22,9 +22,9 @@
       <Character_Save>
         <Name>z</Name>
         <Head>Protector</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Arms>RPG</Arms>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
         <Position>
           <X>1</X>
           <Y>5</Y>
@@ -39,7 +39,7 @@
         <Head>Protector</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Legs>Tread</Legs>
         <Position>
           <X>1</X>
           <Y>1</Y>
@@ -54,7 +54,7 @@
         <Head>Soldier</Head>
         <Arms>RPG</Arms>
         <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
+        <Legs>Tread</Legs>
         <Position>
           <X>2</X>
           <Y>2</Y>
@@ -262,6 +262,25 @@
       <g>255</g>
       <b>0</b>
       <a>0</a>
+    </Colour_Primary>
+    <Colour_Secondary>
+      <r>255</r>
+      <g>235</g>
+      <b>4</b>
+      <a>255</a>
+    </Colour_Secondary>
+  </TeamSave>
+  <TeamSave>
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Chars />
+    <Wins>0</Wins>
+    <Losses>0</Losses>
+    <Colour_Primary>
+      <r>255</r>
+      <g>0</g>
+      <b>0</b>
+      <a>255</a>
     </Colour_Primary>
     <Colour_Secondary>
       <r>255</r>

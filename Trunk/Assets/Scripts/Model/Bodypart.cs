@@ -9,6 +9,7 @@ namespace Cub.Model
     {
         public string Name;
         public string Description;
+        public string SpDescription;
         
         public int Cost;
 

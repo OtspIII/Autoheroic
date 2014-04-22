@@ -39,7 +39,7 @@ public class TeamEditorManager : MonoBehaviour
     public UISprite ReadyButton;
 
     Cub.Interface.TeamPickerManager MyPicker;
-    CharacterEditorManager MyCEditor;
+    //CharacterEditorManager MyCEditor;
     TextInputController MyTextEditor;
 
     public Texture Green;
@@ -65,13 +65,13 @@ public class TeamEditorManager : MonoBehaviour
         if (PlayerOne)
         {
             MyPicker = GM.LeftPicker;
-            MyCEditor = GM.LeftCEditor;
+            //MyCEditor = GM.LeftCEditor;
             MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
             MyPicker = GM.RightPicker;
-            MyCEditor = GM.RightCEditor;
+            //MyCEditor = GM.RightCEditor;
             MyTextEditor = GM.RightNameEditor;
         }
     }
@@ -230,7 +230,7 @@ public class TeamEditorManager : MonoBehaviour
             if (!Clicking)
             {
                 Clicking = true;
-                int index = Mathf.Max(0,GM.Colors.IndexOf(Team.Colour_Primary));
+                int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Primary));
                 index++;
                 if (index >= GM.Colors.Count)
                     index = 0;
