@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Rocket : Base
     {
-        private const float Timespan = 4F;
+        public const float Timespan = 2.5F;
 
         public override float Process(List<object> _Data, string Desc)
         {
@@ -17,14 +17,12 @@ namespace Cub.View.Event
             C0.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Attack_Rocket");
 
             GameObject R = UnityEngine.Object.Instantiate(Library.Get_Rocket(), C0.transform.position, Quaternion.identity) as GameObject;
-
             R.SendMessage("Pump", target);
 
-            GameObject.Destroy(R, Timespan);
+            C0.BroadcastMessage("Idle", 1.0F, SendMessageOptions.DontRequireReceiver);
 
-            C0.BroadcastMessage("Idle", Timespan - 3F, SendMessageOptions.DontRequireReceiver);
+            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
-            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Rocket));
 
             Cub.View.Indicator.Cross(new Position2((int)impact.x, (int)impact.y));

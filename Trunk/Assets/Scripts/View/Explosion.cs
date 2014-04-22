@@ -11,9 +11,12 @@ namespace Cub.View
 
             foreach (Rigidbody RO in RL)
             {
-                RO.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 2F, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+                RO.AddForce(new Vector3(UnityEngine.Random.Range(-0.5F, 0.5F), 5F, UnityEngine.Random.Range(-0.5F, 0.5F)), ForceMode.Impulse);
             }
+
             audio.PlayOneShot(Cub.View.Library.Get_Sound(Cub.Sound.Explosion));
+
+            Destroy(this.gameObject, 0.5F);
         }
     }
 }

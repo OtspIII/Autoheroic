@@ -7,54 +7,37 @@ namespace Cub.View
     {
         private Vector3 T { get; set; }
 
-        private bool Falling { get; set; }
-
         public void Pump(Vector3 Target)
         {
             this.transform.LookAt(this.transform.position + new Vector3(0, 10, 0));
 
-            iTween.MoveTo(this.gameObject, this.transform.position + new Vector3(0, 10, 0), 2.0F);
-
+            iTween.MoveTo(this.gameObject, iTween.Hash("position", this.transform.position + new Vector3(0, 10, 0), "time", Cub.View.Event.Attack_Rocket.Timespan / 2, "easetype", iTween.EaseType.linear));
+                
             this.T = Target;
 
-            this.Falling = false;
-
-            Invoke("Drop", 2.0F);
+            Invoke("Drop", Cub.View.Event.Attack_Rocket.Timespan / 2);
         }
 
         public void Drop()
         {
             this.transform.LookAt(T);
 
-            this.Falling = true;
+            iTween.MoveTo(this.gameObject, iTween.Hash("position", T, "time", Cub.View.Event.Attack_Rocket.Timespan / 2, "easetype", iTween.EaseType.linear));
 
-            iTween.MoveTo(this.gameObject, T + new Vector3(0, -2, 0), 2.0F);
-        }
-
-        public void Update()
-        {
-            if (this.transform.position.y <= 0.5F && this.Falling)
-            {
-                Splash();
-                Falling = false;
-            }
+            Invoke("Splash", Cub.View.Event.Attack_Rocket.Timespan / 2);
         }
 
         public void Splash()
         {
-            Cube[] CLO = this.gameObject.transform.GetComponentsInChildren<Cube>();
+            Vector3 V = new Vector3(this.transform.position.x, 0, this.transform.position.z);
 
-            foreach (Cube CO in CLO)
-            {
-                CO.transform.parent = null;
+            Instantiate(Library.Get_Explosion(), V, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.forward, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.back, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.left, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.right, Quaternion.identity);
 
-                CO.gameObject.AddComponent<Rigidbody>();
-                CO.gameObject.AddComponent<BoxCollider>();
-
-                CO.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
-            }
-
-            Instantiate(Library.Get_Explosion(), this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

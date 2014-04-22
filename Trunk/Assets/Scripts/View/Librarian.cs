@@ -12,6 +12,7 @@ public class Librarian : MonoBehaviour
     public GameObject Prefab_Rocket;
     public GameObject Prefab_Explosion;
     public GameObject Prefab_Healer;
+    public GameObject Prefab_Warhead;
 
     public GameObject Prefab_Terrain_Desert;
     public GameObject Prefab_Terrain_Grass;

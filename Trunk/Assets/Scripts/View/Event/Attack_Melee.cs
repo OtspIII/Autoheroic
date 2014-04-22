@@ -28,8 +28,6 @@ namespace Cub.View.Event
 
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Melee));
 
-            //Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
-
             return Timespan - 1.5F;
         }
     }

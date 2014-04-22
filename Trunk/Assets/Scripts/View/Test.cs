@@ -16,10 +16,10 @@ namespace Cub.Scene
             C0.Name = "fdsa";
             C0.ID = new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
             C0.Info = new Model.Character_Info();
-            C0.Info.Head = Part_Head.Soldier;
-            C0.Info.Body = Part_Body.Medium;
-            C0.Info.Arms = Part_Arms.Sword;
-            C0.Info.Legs = Part_Legs.Humanoid;
+            C0.Info.Head = Part_Head.Hunter;
+            C0.Info.Body = Part_Body.Light;
+            C0.Info.Arms = Part_Arms.Sniper_Rifle;
+            C0.Info.Legs = Part_Legs.Tread;
             C0.Stat = new Model.Character_Stat();
             C0.Stat.Position = new Position2(0, 0);
             C0.Stat.Team = new Model.Team();
@@ -52,20 +52,15 @@ namespace Cub.Scene
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0, 0 }));
+                //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Snipe, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0, 0 }));
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(0, 3), 0, 0 }));
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1) }));
                 GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Move, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-            }
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -77,52 +72,6 @@ namespace Cub.Scene
                 Cub.View.Library.Unlock();
                 Cub.View.Library.Initialization();
                 Start();
-            }
-
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Die, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), 0, 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                Debug.Log("1");
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Heal, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(2, 2), 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                GameObject.Find("Camera").SendMessage("Shake", null, SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                GameObject.Find("Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character(new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1)).gameObject, SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                GameObject.Find("Camera").SendMessage("Follow", Cub.View.Runtime.Get_Character(new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)).gameObject, SendMessageOptions.DontRequireReceiver);
-            }
-
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Melee, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 0 }));
-                GameObject.Find("Runtime").SendMessage("Run_Eventon", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
