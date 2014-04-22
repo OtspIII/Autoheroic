@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeamSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TeamSave>
-    <Name>Mi</Name>
+    <Name>Mis</Name>
     <Owner_Name>Misha</Owner_Name>
     <Chars>
       <Character_Save>
@@ -68,9 +68,9 @@
     <Wins>1</Wins>
     <Losses>4</Losses>
     <Colour_Primary>
-      <r>0</r>
-      <g>255</g>
-      <b>255</b>
+      <r>255</r>
+      <g>0</g>
+      <b>0</b>
       <a>0</a>
     </Colour_Primary>
     <Colour_Secondary>
