@@ -13,23 +13,23 @@ namespace Cub.Interface
         public GameObject UpMarker;
         public GameObject DownMarker;
 
-        CharacterEditorManager MyCEditor;
-        TeamEditorManager MyTEditor;
+        //CharacterEditorManager MyCEditor;
+        //TeamEditorManager MyTEditor;
 
         public void Setup()
         {
             if (AlreadySetup)
                 return;
-            if (PlayerOne)
-            {
-                MyCEditor = GM.LeftCEditor;
-                MyTEditor = GM.LeftEditor;
-            }
-            else
-            {
-                MyCEditor = GM.RightCEditor;
-                MyTEditor = GM.RightEditor;
-            }
+            //if (PlayerOne)
+            //{
+            //    MyCEditor = GM.LeftCEditor;
+            //    MyTEditor = GM.LeftEditor;
+            //}
+            //else
+            //{
+            //    MyCEditor = GM.RightCEditor;
+            //    MyTEditor = GM.RightEditor;
+            //}
             AlreadySetup = true;
             MarkTeamButtons();
         }

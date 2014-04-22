@@ -24,23 +24,43 @@ public class CharacterEditorManager : OptionsListController
     Cub.Model.BPArms IArms;
     Cub.Model.BPLegs ILegs;
 
+    int MaxCost = 140;
+
     float HoriTimer;
 
     Cub.View.Character Who;
     Cub.Model.Character_Save WhoSave;
 
     public UILabel Name;
-    public UILabel Cost;
-    public UILabel AI;
-    public UILabel Weapon;
-    public UILabel Special;
+    public UITexture CostBG;
+    public UITexture CostHead;
+    public UITexture CostArms;
+    public UITexture CostBody;
+    public UITexture CostLegs;
+    public UILabel CostText;
+    public UILabel HeadPts;
+    public UILabel ArmsPts;
+    public UILabel BodyPts;
+    public UILabel LegsPts;
+    public UITexture HealthFG;
+    public UITexture SpeedFG;
+    public UITexture DamageFG;
+    public UITexture RangeFG;
+    public UILabel SpecialDesc;
 
-    public UILabel Health;
-    public UILabel Speed;
-    public UILabel Range;
-    public UILabel Damage;
+    public UILabel CurrentName;
+    public UILabel CurrentDesc;
+    //public UILabel Cost;
+    //public UILabel AI;
+    //public UILabel Weapon;
+    //public UILabel Special;
 
-    Cub.Interface.TeamPickerManager MyPicker;
+    //public UILabel Health;
+    //public UILabel Speed;
+    //public UILabel Range;
+    //public UILabel Damage;
+
+    //Cub.Interface.TeamPickerManager MyPicker;
     TeamEditorManager MyTEditor;
     TextInputController MyTextEditor;
 
@@ -48,13 +68,13 @@ public class CharacterEditorManager : OptionsListController
     {
         if (PlayerOne)
         {
-            MyPicker = GM.LeftPicker;
+            //MyPicker = GM.LeftPicker;
             MyTEditor = GM.LeftEditor;
             MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
-            MyPicker = GM.RightPicker;
+            //MyPicker = GM.RightPicker;
             MyTEditor = GM.RightEditor;
             MyTextEditor = GM.RightNameEditor;
         }
@@ -162,15 +182,85 @@ public class CharacterEditorManager : OptionsListController
     void WriteDescriptions()
     {
         Name.text = WhoSave.Name;
-        Cost.text = "Cost: " + WhoSave.Value.ToString() + "pts";
-        AI.text = "AI: " + WhoSave.Head_Part.Description + " (" + WhoSave.Head_Part.Cost.ToString() + "pts)";
-        Weapon.text = "Wpn: " + WhoSave.Arms_Part.Name + " (" + WhoSave.Arms_Part.Cost.ToString() + "pts)";
-        Special.text = "Spcl: " + "--";
+        int costWidth = 100 * WhoSave.Head_Part.Cost / MaxCost;
+        CostHead.SetDimensions(costWidth, 10);
+        costWidth += 100 * WhoSave.Arms_Part.Cost / MaxCost;
+        CostArms.SetDimensions(costWidth, 10);
+        costWidth += 100 * WhoSave.Body_Part.Cost / MaxCost;
+        CostBody.SetDimensions(costWidth, 10);
+        costWidth += 100 * WhoSave.Legs_Part.Cost / MaxCost;
+        CostLegs.SetDimensions(costWidth, 10);
+        CostText.text = WhoSave.Value.ToString();
+        HeadPts.text = WhoSave.Head_Part.Cost.ToString();
+        ArmsPts.text = WhoSave.Arms_Part.Cost.ToString();
+        BodyPts.text = WhoSave.Body_Part.Cost.ToString();
+        LegsPts.text = WhoSave.Legs_Part.Cost.ToString();
+        costWidth = 100 * WhoSave.Body_Part.Health / 4;
+        HealthFG.SetDimensions(costWidth, 10);
+        costWidth = 100 * WhoSave.Legs_Part.Speed / 6;
+        SpeedFG.SetDimensions(costWidth, 10);
+        costWidth = 100 * WhoSave.Weapon.HitDam / 4;
+        DamageFG.SetDimensions(costWidth, 10);
+        costWidth = 100 * WhoSave.Weapon.Range / 6;
+        RangeFG.SetDimensions(costWidth, 10);
+        string spDesc = "Special: ";
+        bool comma = false;
+        if (WhoSave.Head_Part.SpDescription != "")
+        {
+            spDesc += WhoSave.Head_Part.SpDescription;
+            comma = true;
+        }
+        if (WhoSave.Arms_Part.SpDescription != "")
+        {
+            if (comma)
+                spDesc += ", ";
+            spDesc += WhoSave.Arms_Part.SpDescription;
+            comma = true;
+        }
+        if (WhoSave.Body_Part.SpDescription != "")
+        {
+            if (comma)
+                spDesc += ", ";
+            spDesc += WhoSave.Body_Part.SpDescription;
+            comma = true;
+        }
+        if (WhoSave.Legs_Part.SpDescription != "")
+        {
+            if (comma)
+                spDesc += ", ";
+            spDesc += WhoSave.Legs_Part.SpDescription;
+        }
+        SpecialDesc.text = spDesc;
 
-        Health.text = "HP: " + WhoSave.Body_Part.Health.ToString();
-        Speed.text = "Speed: " + WhoSave.Legs_Part.Speed.ToString();
-        Range.text = "Range: " + WhoSave.Weapon.Range.ToString();
-        Damage.text = "Damage: " + WhoSave.Weapon.HitDam.ToString();
+        if (Selected.Option == MenuOptions.Head)
+        {
+            CurrentName.text = WhoSave.Head_Part.Name;
+            CurrentDesc.text = WhoSave.Head_Part.Description;
+        }
+        else if (Selected.Option == MenuOptions.Arms)
+        {
+            CurrentName.text = WhoSave.Arms_Part.Name;
+            CurrentDesc.text = WhoSave.Arms_Part.Description;
+        }
+        else if (Selected.Option == MenuOptions.Body)
+        {
+            CurrentName.text = WhoSave.Body_Part.Name;
+            CurrentDesc.text = WhoSave.Body_Part.Description;
+        }
+        else if (Selected.Option == MenuOptions.Legs)
+        {
+            CurrentName.text = WhoSave.Legs_Part.Name;
+            CurrentDesc.text = WhoSave.Legs_Part.Description;
+        }
+        //Cost.text = "Cost: " + WhoSave.Value.ToString() + "pts";
+        //AI.text = "AI: " + WhoSave.Head_Part.Description + " (" + WhoSave.Head_Part.Cost.ToString() + "pts)";
+        //Weapon.text = "Wpn: " + WhoSave.Arms_Part.Name + " (" + WhoSave.Arms_Part.Cost.ToString() + "pts)";
+        //Special.text = "Spcl: " + "--";
+
+        //Health.text = "HP: " + WhoSave.Body_Part.Health.ToString();
+        //Speed.text = "Speed: " + WhoSave.Legs_Part.Speed.ToString();
+        //Range.text = "Range: " + WhoSave.Weapon.Range.ToString();
+        //Damage.text = "Damage: " + WhoSave.Weapon.HitDam.ToString();
     }
 
 
@@ -229,6 +319,7 @@ public class CharacterEditorManager : OptionsListController
         {
             ((UISprite)t.gameObject.GetComponent("UISprite")).color = Color.red;
         }
+        WriteDescriptions();
     }
 
     public void NameUpdate(string name)
