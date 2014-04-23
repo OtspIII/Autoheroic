@@ -4,6 +4,7 @@ using System.Collections;
 public class Librarian : MonoBehaviour
 {
     public Material Material;
+    public PhysicMaterial PhysicMaterial;
 
     public GameObject Prefab_Cube;
     public GameObject Prefab_Character;

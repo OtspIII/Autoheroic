@@ -25,6 +25,7 @@ namespace Cub.View
         private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Right { get; set; }
 
         private static Material Dictionary_Material { get; set; }
+        private static PhysicMaterial Dictionary_Physic_Material { get; set; }
 
         private static Dictionary<Cub.Event, Cub.View.Event.Base> Dictionary_Event { get; set; }
         private static Dictionary<Cub.Sound, AudioClip> Dictionary_Sound { get; set; }
@@ -77,6 +78,7 @@ namespace Cub.View
                 Prefab_Warhead = Resources.Load<GameObject>("Prefabs/Warhead");
 
                 Dictionary_Material = Resources.Load<Material>("Materials/Cube");
+                Dictionary_Physic_Material = Resources.Load<PhysicMaterial>("Physic Materials/Cube");
 
                 Dictionary_Event = new Dictionary<Cub.Event, Event.Base>();
                 Dictionary_Event[Cub.Event.Attack_Heal] = new Cub.View.Event.Attack_Heal();
@@ -277,6 +279,11 @@ namespace Cub.View
         public static Material Get_Material()
         {
             return Dictionary_Material;
+        }
+
+        public static PhysicMaterial Get_Physic_Material()
+        {
+            return Dictionary_Physic_Material;
         }
     }
 }
