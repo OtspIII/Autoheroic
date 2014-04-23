@@ -17,6 +17,7 @@ namespace Cub.View
     public class Character_Stat
     {
         public System.Guid ID { get; set; }
+        public string Name { get; set; }
         public Cub.Model.Team Team { get; set; }
         public int MHP { get; set; }
         public int HP { get; set; }
@@ -39,9 +40,10 @@ namespace Cub.View
             this.Part = new Character_Part();
         }
 
-        public void Initialize_Stat(Guid _ID, int _MHP, int _HP, Position2 _Position, Cub.Model.Team _Team, Part_Head _Head, Part_Body _Body, Part_Arms _Arms, Part_Legs _Legs)
+        public void Initialize_Stat(Guid _ID, string n, int _MHP, int _HP, Position2 _Position, Cub.Model.Team _Team, Part_Head _Head, Part_Body _Body, Part_Arms _Arms, Part_Legs _Legs)
         {
             this.Stat.ID = _ID;
+            this.Stat.Name = n;
             this.Stat.MHP = _MHP;
             this.Stat.HP = _HP;
             this.Stat.Position = _Position;

@@ -185,9 +185,8 @@ public class TeamEditorManager : MonoBehaviour
                 {
                     MyPicker.gameObject.SetActive(true);
                     MyPicker.Clicking = true;
-                    ClearMarkers();
+                    Clear();
                     Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
-                    gameObject.SetActive(false);
                 }
 
             }
@@ -275,6 +274,12 @@ public class TeamEditorManager : MonoBehaviour
             Clicking = false;
     }
 
+    public void Clear()
+    {
+        ClearMarkers();
+        gameObject.SetActive(false);
+    }
+
     public void ClearMarkers()
     {
         Dictionary_Character.Clear();
@@ -295,6 +300,7 @@ public class TeamEditorManager : MonoBehaviour
     {
 
         Team = team;
+        SquareMarker.SetActive(true);
         if (PlayerOne)
             SelectRange = new Rect(0, 0, GM.PlacementSize - 1, GM.yMapSize);
         else
@@ -311,6 +317,7 @@ public class TeamEditorManager : MonoBehaviour
         {
             AddCharacter(c);
         }
+        SlideSelector(new Cub.Position2(0, 0));
         Refresh();
         Clicking = true;
         Ready = false;
@@ -479,11 +486,18 @@ public class TeamEditorManager : MonoBehaviour
 
     public void TurnOn()
     {
+        SquareMarker.SetActive(true);
         foreach (GameObject go in CharacterModels)
         {
             go.SetActive(true);
         }
         Refresh();
+    }
+
+    public void TurnOff()
+    {
+        SquareMarker.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void TeamNameUpdate(string name)

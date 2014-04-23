@@ -130,7 +130,7 @@ public class MasterGameController : MonoBehaviour
                 break;
             case MasterStage.TeamPickersSlideIn:
                 Timer = Mathf.Max(0, Timer - Time.deltaTime);
-                float x = Mathf.Lerp(300f, 198f, (TimerMax - Timer) / TimerMax);
+                float x = Mathf.Lerp(300f, 202f, (TimerMax - Timer) / TimerMax);
                 LeftPicker.transform.localPosition =
                     new Vector3(-x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
                 RightPicker.transform.localPosition =
@@ -248,7 +248,7 @@ public class MasterGameController : MonoBehaviour
             cem = LeftCEditor;
         else
             cem = RightCEditor;
-        tem.gameObject.SetActive(false);
+        tem.TurnOff();
         cem.gameObject.SetActive(true);
         cem.Setup(VChar, SChar, tem.Team);
         cem.Clicking = true;
@@ -282,6 +282,25 @@ public class MasterGameController : MonoBehaviour
     {
         MainCamera.transform.position = CameraWhere;
         MainCamera.transform.rotation = CameraRot;
+    }
+
+    public void ClearAll()
+    {
+        if (LeftPicker.CurrentlyActive)
+            LeftPicker.Clear();
+        if (RightPicker.CurrentlyActive)
+            RightPicker.Clear();
+        if (LeftEditor.gameObject.activeSelf)
+            LeftEditor.Clear();
+        if (RightEditor.gameObject.activeSelf)
+            RightEditor.Clear();
+        if (LeftCEditor.gameObject.activeSelf)
+            LeftCEditor.Clear();
+        if (RightCEditor.gameObject.activeSelf)
+            RightCEditor.Clear();
+        foreach (GameObject tile in Blocks)
+            tile.transform.position += new Vector3(0, 20, 0);
+        Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
     }
 }
 

@@ -17,6 +17,12 @@ public class GameplayScreenController : MonoBehaviour
     //Cub.Position2 StageSize;
     public bool CurrentlyActive = false;
 
+    public GameObject PHCType;
+    public UIGrid T1Grid;
+    public Dictionary<System.Guid, PlayerHealthController> T1PHCs;
+    public UIGrid T2Grid;
+    public Dictionary<System.Guid, PlayerHealthController> T2PHCs;
+
     // Use this for initialization
     void Start()
     {
@@ -124,15 +130,24 @@ public class GameplayScreenController : MonoBehaviour
         //TeamTwo.Colour_Secondary = Color.blue;
         //TeamOne.MakeUnique();
         //TeamTwo.MakeUnique();
+        T1PHCs = new Dictionary<System.Guid, PlayerHealthController>();
         foreach (Cub.Model.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
-            Cub.View.Runtime.Add_Character(c);
+            Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
+            PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
+                PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
+            phc.Setup(ch);
+            T1PHCs.Add(ch.Stat.ID,phc);
+            phc.gameObject.transform.parent = T1Grid.gameObject.transform;
+            phc.transform.localScale = new Vector3(1, 1, 1);
         }
+        T1Grid.repositionNow = true;
+        T2PHCs = new Dictionary<System.Guid, PlayerHealthController>();
         foreach (Cub.Model.Character c in TeamTwo.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, false);
-            Cub.View.Runtime.Add_Character(c);
+            Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
 
             Cub.View.Character view = Cub.View.Runtime.Get_Character(c.ID);
 
@@ -140,7 +155,14 @@ public class GameplayScreenController : MonoBehaviour
             rot.y = 180;
             view.gameObject.transform.rotation = rot;
 
+            PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
+                PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
+            phc.Setup(ch);
+            T2PHCs.Add(ch.Stat.ID, phc);
+            phc.gameObject.transform.parent = T2Grid.gameObject.transform;
+            phc.transform.localScale = new Vector3(1, 1, 1);
         }
+        T2Grid.repositionNow = true;
         Cub.Model.Main.Initialization(TeamOne, TeamTwo);
         //SwitchModes(GameMode.Gameplay);
         CurrentlyActive = true;
