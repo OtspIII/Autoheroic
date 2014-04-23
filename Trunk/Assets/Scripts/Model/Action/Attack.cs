@@ -75,9 +75,8 @@ namespace Cub.Model.Action
         public int FindDisadvantage(Character who, Character target)
         {
             int r = 0;
-
-
-
+            if (target.Info.Arms == Part_Arms.Sword)
+                r++;
             return r;
         }
     }

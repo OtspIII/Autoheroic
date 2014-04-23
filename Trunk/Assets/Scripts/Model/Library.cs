@@ -42,20 +42,20 @@ namespace Cub.Model
 
                 Dictionary_Heads = new Dictionary<Part_Head, Model.BPHead>();
                 Dictionary_Heads.Add(Cub.Part_Head.Soldier, new Model.BPHead("Soldier",
-                    "March At Enemy", 25,Cub.Part_Head.Soldier));
+                    "March At Enemy", 25,Cub.Part_Head.Soldier, "A standard head that marches towards the enemy and attacks."));
                 Dictionary_Heads.Add(Cub.Part_Head.Idiot, new Model.BPHead("Idiot",
-                    "Wander Around Like An Idiot", 5, Cub.Part_Head.Idiot));
-                Dictionary_Heads.Add(Cub.Part_Head.Protector, new Model.BPHead("Protector",
-                    "Follow Allies", 20, Cub.Part_Head.Protector));
+                    "Wander Around Like An Idiot", 5, Cub.Part_Head.Idiot, "A low-budget head that wanders the field randomly and attacks nearby enemies."));
+                Dictionary_Heads.Add(Cub.Part_Head.Protector, new Model.BPHead("Follower",
+                    "Follow Allies", 20, Cub.Part_Head.Protector, "A head using a relatively inexpensive AI that relies on others for guidance."));
                 Dictionary_Heads.Add(Cub.Part_Head.Hunter, new Model.BPHead("Hunter-Killer",
-                    "Hunt Down Powerful Enemies", 30, Cub.Part_Head.Hunter));
+                    "Hunt Powerful Foes", 30, Cub.Part_Head.Hunter, "An aggressive head that seeks out strong enemies and attacks them."));
 
                 Dictionary_Arms = new Dictionary<Part_Arms, Model.BPArms>();
                 Dictionary_Arms.Add(Part_Arms.Rifle, new Model.BPArms("Rifle",
                     "A basic rifle. The standard by which all other weapons are measured.", 25, Part_Arms.Rifle));
                 Dictionary_Arms.Add(Part_Arms.Sword, new Model.BPArms("Sword & Shield",
                     "A sword and shield, granting defense at the cost of an extremely short attack range.", 25,Part_Arms.Sword,
-                    new List<Cub.Action> { Cub.Action.Charge },"Charge At Enemies"));
+                    new List<Cub.Action> { Cub.Action.Charge },"Charge At Enemies, Evasion"));
                 Dictionary_Arms.Add(Part_Arms.Axe, new Model.BPArms("Axe",
                     "A heavy axe, dealing terrible damage at close range but offering no protection.", 25,Part_Arms.Axe,
                     new List<Cub.Action> { Cub.Action.Charge }, "Charge At Enemies"));
@@ -81,11 +81,11 @@ namespace Cub.Model
 
                 Dictionary_Bodies = new Dictionary<Part_Body, Model.BPBody>();
                 Dictionary_Bodies.Add(Part_Body.Medium, new Model.BPBody("Medium Armor",
-                    "The basic armor.", 3, 25, Part_Body.Medium));
+                    "The basic armored torso.", 3, 25, Part_Body.Medium));
                 Dictionary_Bodies.Add(Part_Body.Light, new Model.BPBody("Light Armor",
-                    "Light armor that gains move speed at the cost of protection.", 2, 15, Part_Body.Light));
+                    "A cheaply made body that lacks protection.", 2, 15, Part_Body.Light));
                 Dictionary_Bodies.Add(Part_Body.Heavy, new Model.BPBody("Heavy Armor",
-                    "Armor made from heavy materials that trade speed for protection.", 4, 35, Part_Body.Heavy));
+                    "Armor made from heavy materials that is hard to damage.", 4, 35, Part_Body.Heavy));
                 Dictionary_Bodies.Add(Part_Body.Bomber, new Model.BPBody("Bomber Chest",
                     "A bunch of explosives stuffed in a tin can. Explodes when destroyed.", 2, 25,
                     Part_Body.Bomber, new List<Special_Effects> { Cub.Special_Effects.Explode_On_Death }, "Explode on Death"));
@@ -95,11 +95,11 @@ namespace Cub.Model
 
                 Dictionary_Legs = new Dictionary<Part_Legs, Model.BPLegs>();
                 Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.BPLegs("Humanoid",
-                    "Humanoid legs that are neither especially fast nor fragile.", 3, 25, Part_Legs.Humanoid));
+                    "Humanoid legs. Like what you have, but metal.", 3, 25, Part_Legs.Humanoid));
                 Dictionary_Legs.Add(Part_Legs.Tread, new Model.BPLegs("Tank Treads",
-                    "Tank tread legs that are incredibly hard to damage but lack in speed.", 2, 15, Part_Legs.Tread));
+                    "Tank tread legs that, while fashionable, lack in speed.", 2, 15, Part_Legs.Tread));
                 Dictionary_Legs.Add(Part_Legs.Hover, new Model.BPLegs("Hover",
-                    "A hover-engine that allows for rapid movement at the cost of durability.", 4, 35, Part_Legs.Hover));
+                    "A hover-engine that allows for rapid movement.", 4, 35, Part_Legs.Hover));
 
                 Dictionary_Condition = new Dictionary<Cub.Condition, Cub.Model.Condition.Base>();
                 Dictionary_Condition[Cub.Condition.Any] = new Cub.Model.Condition.Any();

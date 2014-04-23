@@ -250,7 +250,7 @@ public class MasterGameController : MonoBehaviour
             cem = RightCEditor;
         tem.gameObject.SetActive(false);
         cem.gameObject.SetActive(true);
-        cem.Setup(VChar, SChar);
+        cem.Setup(VChar, SChar, tem.Team);
         cem.Clicking = true;
     }
 
