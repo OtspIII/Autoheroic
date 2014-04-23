@@ -16,8 +16,8 @@
         </Position>
         <ID>283026ab-40d3-45d4-ab15-5a193b0b9bb0</ID>
         <Kills>12</Kills>
-        <Deaths>7</Deaths>
-        <Matches>14</Matches>
+        <Deaths>8</Deaths>
+        <Matches>16</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -30,9 +30,9 @@
           <Y>2</Y>
         </Position>
         <ID>91e8d20a-a94c-49b3-a4a9-ea4945cbd420</ID>
-        <Kills>8</Kills>
+        <Kills>11</Kills>
         <Deaths>5</Deaths>
-        <Matches>14</Matches>
+        <Matches>16</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -45,9 +45,9 @@
           <Y>2</Y>
         </Position>
         <ID>58d4e366-d2a0-44f1-ab70-a442c6ebb75f</ID>
-        <Kills>12</Kills>
-        <Deaths>9</Deaths>
-        <Matches>14</Matches>
+        <Kills>13</Kills>
+        <Deaths>11</Deaths>
+        <Matches>16</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
@@ -60,13 +60,13 @@
           <Y>4</Y>
         </Position>
         <ID>d40b9bf3-fbd7-4ca8-ab6a-3fcdcb84ebd6</ID>
-        <Kills>9</Kills>
-        <Deaths>6</Deaths>
-        <Matches>14</Matches>
+        <Kills>10</Kills>
+        <Deaths>8</Deaths>
+        <Matches>16</Matches>
       </Character_Save>
     </Chars>
-    <Wins>10</Wins>
-    <Losses>4</Losses>
+    <Wins>11</Wins>
+    <Losses>5</Losses>
     <Colour_Primary>
       <r>255</r>
       <g>0</g>
