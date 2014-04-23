@@ -19,7 +19,7 @@ public class TeamEditorManager : MonoBehaviour
     private Dictionary<Cub.Position2, System.Guid> Dictionary_CharPos { get; set; }
     private List<GameObject> CharacterModels;
 
-    TeamSave Team = null;
+    public TeamSave Team = null;
     Team FakeTeam = null;
 
     Cub.View.Character Current_Char = null;

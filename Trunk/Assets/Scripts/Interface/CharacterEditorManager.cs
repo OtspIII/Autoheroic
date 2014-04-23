@@ -30,6 +30,7 @@ public class CharacterEditorManager : OptionsListController
 
     Cub.View.Character Who;
     Cub.Model.Character_Save WhoSave;
+    Cub.Model.TeamSave Team;
 
     public UILabel Name;
     public UITexture CostBG;
@@ -47,6 +48,8 @@ public class CharacterEditorManager : OptionsListController
     public UITexture DamageFG;
     public UITexture RangeFG;
     public UILabel SpecialDesc;
+    public UILabel AIDesc;
+    public UILabel PtsLeft;
 
     public UILabel CurrentName;
     public UILabel CurrentDesc;
@@ -136,10 +139,11 @@ public class CharacterEditorManager : OptionsListController
         PersonalCamera.SetActive(false);
     }
 
-    public void Setup(Cub.View.Character VChar, Cub.Model.Character_Save SChar)
+    public void Setup(Cub.View.Character VChar, Cub.Model.Character_Save SChar, Cub.Model.TeamSave team)
     {   
         Who = VChar;
         WhoSave = SChar;
+        Team = team;
         PersonalCamera.SetActive(true);
         float offset = 2;
         if (!PlayerOne)
@@ -252,6 +256,18 @@ public class CharacterEditorManager : OptionsListController
             CurrentName.text = WhoSave.Legs_Part.Name;
             CurrentDesc.text = WhoSave.Legs_Part.Description;
         }
+        AIDesc.text = WhoSave.Head_Part.AIDesc;
+        
+        
+        int TotalPts = Cub.Model.Library.PointCap;
+        int Spent = Team.TotalValue;
+        PtsLeft.text = "Pts Left: " + (TotalPts - Spent).ToString() + "pts";
+        if (Spent > TotalPts)
+            PtsLeft.color = Color.red;
+        else if (Spent < TotalPts)
+            PtsLeft.color = Color.green;
+        else
+            PtsLeft.color = Color.white;
         //Cost.text = "Cost: " + WhoSave.Value.ToString() + "pts";
         //AI.text = "AI: " + WhoSave.Head_Part.Description + " (" + WhoSave.Head_Part.Cost.ToString() + "pts)";
         //Weapon.text = "Wpn: " + WhoSave.Arms_Part.Name + " (" + WhoSave.Arms_Part.Cost.ToString() + "pts)";

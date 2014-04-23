@@ -1,107 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeamSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TeamSave>
-    <Name>Mis</Name>
-    <Owner_Name>Misha</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>A</Name>
-        <Head>Protector</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>0</X>
-          <Y>3</Y>
-        </Position>
-        <ID>8c61e017-e591-410e-aaa2-ef78b3b9e57d</ID>
-        <Kills>6</Kills>
-        <Deaths>6</Deaths>
-        <Matches>8</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>z</Name>
-        <Head>Protector</Head>
-        <Arms>RPG</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>1</X>
-          <Y>5</Y>
-        </Position>
-        <ID>388c8ed7-6582-4354-b511-8cc8c2609e03</ID>
-        <Kills>3</Kills>
-        <Deaths>8</Deaths>
-        <Matches>8</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>A</Name>
-        <Head>Protector</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>1</X>
-          <Y>1</Y>
-        </Position>
-        <ID>7f6322e3-3b2b-4550-a85f-552959f2c242</ID>
-        <Kills>4</Kills>
-        <Deaths>7</Deaths>
-        <Matches>8</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>A</Name>
-        <Head>Soldier</Head>
-        <Arms>RPG</Arms>
-        <Body>Medium</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>2</X>
-          <Y>2</Y>
-        </Position>
-        <ID>2130dcc4-1a0f-4c2c-9ac7-1b44fcfa6b19</ID>
-        <Kills>8</Kills>
-        <Deaths>10</Deaths>
-        <Matches>8</Matches>
-      </Character_Save>
-    </Chars>
-    <Wins>1</Wins>
-    <Losses>5</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>0</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>0</g>
-      <b>255</b>
-      <a>0</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
     <Name>CAD</Name>
     <Owner_Name> A </Owner_Name>
     <Chars>
       <Character_Save>
         <Name>A</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
+        <Head>Protector</Head>
+        <Arms>Sniper_Rifle</Arms>
+        <Body>Light</Body>
         <Legs>Humanoid</Legs>
         <Position>
           <X>1</X>
           <Y>3</Y>
         </Position>
         <ID>283026ab-40d3-45d4-ab15-5a193b0b9bb0</ID>
-        <Kills>4</Kills>
-        <Deaths>1</Deaths>
-        <Matches>4</Matches>
+        <Kills>6</Kills>
+        <Deaths>4</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
-        <Head>Soldier</Head>
+        <Head>Protector</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
@@ -110,29 +30,29 @@
           <Y>2</Y>
         </Position>
         <ID>91e8d20a-a94c-49b3-a4a9-ea4945cbd420</ID>
-        <Kills>5</Kills>
-        <Deaths>2</Deaths>
-        <Matches>4</Matches>
+        <Kills>8</Kills>
+        <Deaths>3</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
-        <Body>Medium</Body>
+        <Body>Heavy</Body>
         <Legs>Humanoid</Legs>
         <Position>
           <X>2</X>
           <Y>2</Y>
         </Position>
         <ID>58d4e366-d2a0-44f1-ab70-a442c6ebb75f</ID>
-        <Kills>5</Kills>
-        <Deaths>2</Deaths>
-        <Matches>4</Matches>
+        <Kills>9</Kills>
+        <Deaths>4</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
       <Character_Save>
         <Name>A</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
+        <Head>Protector</Head>
+        <Arms>RPG</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
@@ -140,13 +60,13 @@
           <Y>4</Y>
         </Position>
         <ID>d40b9bf3-fbd7-4ca8-ab6a-3fcdcb84ebd6</ID>
-        <Kills>2</Kills>
-        <Deaths>1</Deaths>
-        <Matches>4</Matches>
+        <Kills>5</Kills>
+        <Deaths>3</Deaths>
+        <Matches>8</Matches>
       </Character_Save>
     </Chars>
-    <Wins>4</Wins>
-    <Losses>0</Losses>
+    <Wins>7</Wins>
+    <Losses>1</Losses>
     <Colour_Primary>
       <r>255</r>
       <g>0</g>
@@ -276,6 +196,121 @@
     <Chars />
     <Wins>0</Wins>
     <Losses>0</Losses>
+    <Colour_Primary>
+      <r>255</r>
+      <g>0</g>
+      <b>0</b>
+      <a>255</a>
+    </Colour_Primary>
+    <Colour_Secondary>
+      <r>255</r>
+      <g>235</g>
+      <b>4</b>
+      <a>255</a>
+    </Colour_Secondary>
+  </TeamSave>
+  <TeamSave>
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>0</X>
+          <Y>2</Y>
+        </Position>
+        <ID>fa760aa5-e354-4715-ba91-7e260b15e73e</ID>
+        <Kills>0</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+    </Chars>
+    <Wins>0</Wins>
+    <Losses>1</Losses>
+    <Colour_Primary>
+      <r>255</r>
+      <g>0</g>
+      <b>0</b>
+      <a>255</a>
+    </Colour_Primary>
+    <Colour_Secondary>
+      <r>255</r>
+      <g>235</g>
+      <b>4</b>
+      <a>255</a>
+    </Colour_Secondary>
+  </TeamSave>
+  <TeamSave>
+    <Name>Temp Team Name</Name>
+    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Chars>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Hunter</Head>
+        <Arms>Axe</Arms>
+        <Body>Heavy</Body>
+        <Legs>Tread</Legs>
+        <Position>
+          <X>2</X>
+          <Y>3</Y>
+        </Position>
+        <ID>65f674c1-088a-4acf-b02d-0fe27e4b6133</ID>
+        <Kills>0</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>2</X>
+          <Y>2</Y>
+        </Position>
+        <ID>6a31cf08-da93-492e-883f-7e922b7c2a5c</ID>
+        <Kills>1</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Protector</Head>
+        <Arms>Heal_Gun</Arms>
+        <Body>Healer</Body>
+        <Legs>Hover</Legs>
+        <Position>
+          <X>1</X>
+          <Y>3</Y>
+        </Position>
+        <ID>f2395f32-8758-40a7-9127-7b104c114e79</ID>
+        <Kills>0</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>TEMP NAME</Name>
+        <Head>Idiot</Head>
+        <Arms>Sword</Arms>
+        <Body>Light</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>2</Y>
+        </Position>
+        <ID>b2041043-4503-41e5-891d-f80a642f9001</ID>
+        <Kills>0</Kills>
+        <Deaths>1</Deaths>
+        <Matches>1</Matches>
+      </Character_Save>
+    </Chars>
+    <Wins>0</Wins>
+    <Losses>1</Losses>
     <Colour_Primary>
       <r>255</r>
       <g>0</g>
