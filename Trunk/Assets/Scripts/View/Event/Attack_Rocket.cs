@@ -21,7 +21,7 @@ namespace Cub.View.Event
 
             C0.BroadcastMessage("Idle", 1.0F, SendMessageOptions.DontRequireReceiver);
 
-            //Cub.View.NarratorController.DisplayText(Desc, 2.0f);
+            Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Rocket));
 

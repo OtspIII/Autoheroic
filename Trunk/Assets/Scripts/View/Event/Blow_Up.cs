@@ -6,29 +6,60 @@ namespace Cub.View.Event
 {
     public class Blow_Up : Base
     {
+        private const float Timespan = 1.5F;
+
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
 
-            //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
-            //BoxCollider[] BL = C.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
+            foreach (Cube CO in C.transform.FindChild("Body").GetComponentsInChildren<Cube>())
+            {
+                GameObject.Destroy(CO.gameObject);
+            }
+            foreach (Cube CO in C.transform.FindChild("Arms_Left").GetComponentsInChildren<Cube>())
+            {
+                GameObject.Destroy(CO.gameObject);
+            }
+            foreach (Cube CO in C.transform.FindChild("Arms_Right").GetComponentsInChildren<Cube>())
+            {
+                GameObject.Destroy(CO.gameObject);
+            }
+            foreach (Cube CO in C.transform.FindChild("Legs_Left").GetComponentsInChildren<Cube>())
+            {
+                GameObject.Destroy(CO.gameObject);
+            }
+            foreach (Cube CO in C.transform.FindChild("Legs_Right").GetComponentsInChildren<Cube>())
+            {
+                GameObject.Destroy(CO.gameObject);
+            }
 
-            //foreach (Rigidbody R in RL)
-            //{
-            //    R.useGravity = true;
-            //    R.AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 0, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
-            //}
+            /*
+            C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Die");
+            C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Die");
+             * */
 
-            //foreach (BoxCollider B in BL)
-            //{
-            //    B.enabled = true;
-            //}
-            //C.PlaySound(Cub.View.Library.Get_Sound("Scream"));
+            Cube[] CL = C.GetComponentsInChildren<Cube>();
+
+            foreach (Cube CO in CL)
+            {
+                CO.Fall();
+            }
+
+            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Die));
+
+            Cub.View.Indicator.Cross(C.Stat.Position);
+
             Runtime.Remove_Character((Guid)_Data[0]);
 
-            GameObject.Destroy(C.gameObject, 3.0F);
+            Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
-            return 1.5F;
+            GameObject.Destroy(C.gameObject, Timespan);
+
+            return Timespan;
         }
     }
 }

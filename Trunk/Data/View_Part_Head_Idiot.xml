@@ -1262,7 +1262,7 @@
     </Position>
   </Cubon>
   <Cubon>
-    <Colour>Team_Primary</Colour>
+    <Colour>Team_Secondary</Colour>
     <Position>
       <Vector3>
         <x>-3</x>
@@ -1294,8 +1294,11 @@
         <y>1</y>
         <z>3</z>
       </Vector3>
-
-
+    </Position>
+  </Cubon>
+  <Cubon>
+    <Colour>Team_Primary</Colour>
+    <Position>
       <Vector3>
         <x>-2</x>
         <y>4</y>

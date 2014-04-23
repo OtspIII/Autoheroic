@@ -16,6 +16,7 @@ namespace Cub.View
         {
             Dictionary_Character = new Dictionary<Guid, Cub.View.Character>();
             Queue_Eventon = new Queue<Eventon>();
+            Physics.IgnoreLayerCollision(2, 2);
         }
 
         public static Cub.View.Character Add_Character(Cub.Model.Character _Character)

@@ -7,30 +7,23 @@ namespace Cub.View
     {
         private const float Timespan = 2.0F;
 
-        public void Fall(float _After)
-        {
-            Invoke("_Fall", _After);
-        }
-
-        private void _Fall()
+        public void Fall()
         {
             this.gameObject.AddComponent<Rigidbody>();
             this.gameObject.AddComponent<BoxCollider>();
 
             this.transform.parent = null;
 
-            this.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-5F, 5F), 0, UnityEngine.Random.Range(-5F, 5F)), ForceMode.Impulse);
+            this.collider.material = Library.Get_Physic_Material();
 
-            Destroy(this.gameObject, Timespan * 2);
+            this.rigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-2F, 2F), 2F, UnityEngine.Random.Range(-2F, 2F)), ForceMode.Impulse);
+
+            Destroy(this.gameObject, Timespan);
         }
 
         public void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Terrain"))
-            {
-                iTween.ScaleTo(this.gameObject, Vector3.zero, Timespan);
-                Destroy(this.gameObject, Timespan);
-            }
+            iTween.ScaleTo(this.gameObject, Vector3.zero, Timespan);
         }
     }
 }

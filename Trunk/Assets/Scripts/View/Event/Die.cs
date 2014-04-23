@@ -6,41 +6,39 @@ namespace Cub.View.Event
 {
     public class Die : Base
     {
-        private const float Timespan = 5.0F;
+        private const float Timespan = 1.5F;
 
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
 
+            /*
             C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Arms_Left").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Arms_Right").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Legs_Left").GetComponent<Animator>().SetTrigger("Die");
             C.transform.FindChild("Legs_Right").GetComponent<Animator>().SetTrigger("Die");
+             * */
 
             Cube[] CL = C.GetComponentsInChildren<Cube>();
 
             foreach (Cube CO in CL)
             {
-                CO.Fall(UnityEngine.Random.Range(0.0F, Timespan));
+                int Flag = UnityEngine.Random.Range(0, 3);
+
+                if (Flag == 1)
+                {
+                    CO.Fall();
+                }
+                else
+                {
+                    GameObject.Destroy(CO.gameObject);
+                }
             }
 
-            //Rigidbody[] RL = C.gameObject.transform.GetComponentsInChildren<Rigidbody>(true);
-            //BoxCollider[] BL = C.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
-
-            //foreach (Rigidbody R in RL)
-            //{
-            //    R.useGravity = true;
-            //    R.AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 0, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
-            //}
-
-            //foreach (BoxCollider B in BL)
-            //{
-            //    B.enabled = true;
-            //}
-            
             C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Die));
+
             Runtime.Remove_Character((Guid)_Data[0]);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
