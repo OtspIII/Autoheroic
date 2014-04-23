@@ -21,6 +21,7 @@ namespace Cub.View
         public Cub.Model.Team Team { get; set; }
         public int MHP { get; set; }
         public int HP { get; set; }
+        public int Value { get; set; }
         public Cub.Position2 Position { get; set; }
 
         public Part_Head Head { get; set; }
@@ -40,7 +41,8 @@ namespace Cub.View
             this.Part = new Character_Part();
         }
 
-        public void Initialize_Stat(Guid _ID, string n, int _MHP, int _HP, Position2 _Position, Cub.Model.Team _Team, Part_Head _Head, Part_Body _Body, Part_Arms _Arms, Part_Legs _Legs)
+        public void Initialize_Stat(Guid _ID, string n, int _MHP, int _HP, Position2 _Position, Cub.Model.Team _Team, 
+            Part_Head _Head, Part_Body _Body, Part_Arms _Arms, Part_Legs _Legs, int _Value)
         {
             this.Stat.ID = _ID;
             this.Stat.Name = n;
@@ -48,6 +50,7 @@ namespace Cub.View
             this.Stat.HP = _HP;
             this.Stat.Position = _Position;
             this.Stat.Team = _Team;
+            this.Stat.Value = _Value;
 
             this.Stat.Head = _Head;
             this.Stat.Body = _Body;

@@ -156,7 +156,7 @@ namespace Cub.Model
             {
                 //hitLevel tells you if this was from a normal attack or a crit. Maybe crits make an animation or something.
                 events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",
-                    new List<object> { ID, Amount }));
+                    new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP }));
             }
             return false;
         }
@@ -165,7 +165,8 @@ namespace Cub.Model
         {
             Amount = Mathf.Min(Amount, Info.MHP - Stat.HP);
             this.Stat.HP = Mathf.Min(this.Stat.HP + Amount,this.Info.MHP);
-            events.Add(new View.Eventon(Event.Be_Healed, Name + " [" + Amount + " Heal]", new List<object> { ID, Amount }));
+            events.Add(new View.Eventon(Event.Be_Healed, Name + " [" + Amount + " Heal]", 
+                new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP }));
         }
 
         public List<Cub.View.Eventon> Go()
@@ -361,10 +362,14 @@ namespace Cub.Model
         public string FindColorName()
         {
             string r = this.Name;
-            string color = "FF0000";
-            if (Cub.Model.Main.List_Team[0] != Stat.Team)
-                color = "00FF00";
-            return "[" + color + "]" + r + "[-]";
+            //string color = "FF0000";
+            //if (Cub.Model.Main.List_Team[0] != Stat.Team)
+            //    color = "00FF00";
+            //string color = c.r.ToString("X2") + c.g.ToString("X2") + c.b.ToString("X2");
+            //string color = Color.cyan.ToString();
+            Color32 color = Stat.Team.Colour_Primary;
+            string c = color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2");
+            return "[" + c + "]" + r + "[-]";
         }
     }
 

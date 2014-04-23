@@ -19,10 +19,11 @@ public class PlayerHealthController : MonoBehaviour
 
     }
 
-    public void Setup(Cub.View.Character who)
+    public void Setup(Cub.View.Character who, Cub.Model.Team t)
     {
         Who = who;
-        FG.SetDimensions(50, 10);
+        //FG.color = t.Colour_Primary;
+        FG.SetDimensions(45, 10);
         Name.text = who.Stat.Name;
     }
 }

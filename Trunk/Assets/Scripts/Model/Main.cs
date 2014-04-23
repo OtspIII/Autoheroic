@@ -110,8 +110,8 @@ namespace Cub.Model
             List<Team> winningTeams = new List<Team>();
             foreach (Team team in List_Team)
             {
-                if (team.Return_List_Character().Count > 0)
-                    team.AddScore("Survival", 50);
+                //if (team.Return_List_Character().Count > 0)
+                //    team.AddScore("Survival", 50);
                 int score = team.Score;
                 Debug.Log("### " + team.Name + " ### (" + team.TotalValue + " Total Value)");
                 foreach (Score st in team.ScoreThings)

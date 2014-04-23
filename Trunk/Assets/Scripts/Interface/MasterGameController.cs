@@ -77,8 +77,8 @@ public class MasterGameController : MonoBehaviour
         Letters = new List<string> {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
             "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","_",""};
     }
-    
-    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -226,7 +226,8 @@ public class MasterGameController : MonoBehaviour
     public void EditTeam(Cub.Model.TeamSave team, Cub.Interface.TeamPickerManager picker)
     {
         picker.gameObject.SetActive(false);
-        if (picker.PlayerOne) {
+        if (picker.PlayerOne)
+        {
             LeftEditor.Setup(team);
             LeftEditor.gameObject.SetActive(true);
             LeftEditor.CurrentlyActive = true;
@@ -298,8 +299,13 @@ public class MasterGameController : MonoBehaviour
             LeftCEditor.Clear();
         if (RightCEditor.gameObject.activeSelf)
             RightCEditor.Clear();
+        if (GSC.gameObject.activeSelf)
+            GSC.Clear();
+        if (SCM.gameObject.activeSelf)
+            SCM.Clear();
         foreach (GameObject tile in Blocks)
             tile.transform.position += new Vector3(0, 20, 0);
+        ResetCamera();
         Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
     }
 }
