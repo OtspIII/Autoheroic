@@ -5,7 +5,7 @@ namespace Cub.View
 {
     public class Cube : MonoBehaviour
     {
-        private const float Timespan = 4.0F;
+        private const float Timespan = 2.0F;
 
         public void Fall()
         {
@@ -20,7 +20,6 @@ namespace Cub.View
 
             Destroy(this.gameObject, Timespan);
         }
-
 
         public void OnCollisionEnter(Collision collision)
         {
