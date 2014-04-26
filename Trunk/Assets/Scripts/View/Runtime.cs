@@ -11,6 +11,7 @@ namespace Cub.View
         private static Queue<Eventon> Queue_Eventon { get; set; }
 
         public GameplayScreenController GSC = null;
+        public static GameplayScreenController GSCStatic = null;
 
         public void Awake()
         {
@@ -19,13 +20,19 @@ namespace Cub.View
             Physics.IgnoreLayerCollision(2, 2);
         }
 
+        public static void AddGSC(GameplayScreenController gsc)
+        {
+            GSCStatic = gsc;
+        }
+
         public static Cub.View.Character Add_Character(Cub.Model.Character _Character)
         {
             GameObject GO = GameObject.Instantiate(Cub.View.Library.Get_Character(), _Character.Stat.Position.ToVector3(), Quaternion.identity) as GameObject;
 
             Cub.View.Character C = GO.GetComponent<Cub.View.Character>();
 
-            C.Initialize_Stat(_Character.ID, _Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position, _Character.Stat.Team, _Character.Info.Head, _Character.Info.Body, _Character.Info.Arms, _Character.Info.Legs);
+            C.Initialize_Stat(_Character.ID, _Character.Name,_Character.Info.MHP, _Character.Stat.HP, _Character.Stat.Position, _Character.Stat.Team,
+                _Character.Info.Head, _Character.Info.Body, _Character.Info.Arms, _Character.Info.Legs,_Character.Info.Value);
             C.Initialize_Part();
 
             Dictionary_Character[_Character.ID] = C;

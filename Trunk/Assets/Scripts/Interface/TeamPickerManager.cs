@@ -68,18 +68,21 @@ namespace Cub.Interface
                 {
                     Clicking = true;
                     GM.MainMenu.gameObject.SetActive(true);
-                    GM.LeftPicker.transform.localPosition =
-                        new Vector3(-300, transform.localPosition.y, transform.localPosition.z);
-                    GM.RightPicker.transform.localPosition =
-                        new Vector3(300, transform.localPosition.y, transform.localPosition.z);
-                    foreach (GameObject tile in GM.Blocks)
-                        tile.transform.position += new Vector3(0, 20, 0);
-                    GM.LeftPicker.CurrentlyActive = false;
-                    GM.RightPicker.CurrentlyActive = false;
+                    GM.ClearAll();
                 }
             }
             else
                 Clicking = false;
+        }
+
+        public void Clear()
+        {
+            GM.LeftPicker.transform.localPosition =
+                        new Vector3(-300, transform.localPosition.y, transform.localPosition.z);
+            GM.RightPicker.transform.localPosition =
+                new Vector3(300, transform.localPosition.y, transform.localPosition.z);
+            GM.LeftPicker.CurrentlyActive = false;
+            GM.RightPicker.CurrentlyActive = false;
         }
 
         void MarkTeamButtons()

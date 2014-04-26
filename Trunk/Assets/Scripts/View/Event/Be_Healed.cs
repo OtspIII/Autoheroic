@@ -223,6 +223,11 @@ namespace Cub.View.Event
 
             C.BroadcastMessage("Idle", Timespan, SendMessageOptions.DontRequireReceiver);
 
+            int hp = (int)_Data[2];
+            int mhp = (int)_Data[3];
+
+            Cub.View.Runtime.GSCStatic.SetHealth(C.Stat.ID, hp, mhp);
+
             return Timespan;
         }
     }

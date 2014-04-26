@@ -105,18 +105,8 @@ public class CharacterEditorManager : OptionsListController
         {
             MyTEditor.gameObject.SetActive(true);
             MyTEditor.TurnOn();
-            WhoSave.Head = IHead.E;
-            WhoSave.Body = IBody.E;
-            WhoSave.Arms = IArms.E;
-            WhoSave.Legs = ILegs.E;
-            Who.Stat.Head = IHead.E;
-            Who.Stat.Body = IBody.E;
-            Who.Stat.Arms = IArms.E;
-            Who.Stat.Legs = ILegs.E;
-            Who.Delete_Part();
+            Clear();
             Who.Initialize_Part();
-            gameObject.SetActive(false);
-            PersonalCamera.SetActive(false);
         }
         else if (Mathf.Abs(GetInput("Namer")) > 0.5f)
         {
@@ -128,6 +118,21 @@ public class CharacterEditorManager : OptionsListController
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    public void Clear()
+    {
+        WhoSave.Head = IHead.E;
+        WhoSave.Body = IBody.E;
+        WhoSave.Arms = IArms.E;
+        WhoSave.Legs = ILegs.E;
+        Who.Stat.Head = IHead.E;
+        Who.Stat.Body = IBody.E;
+        Who.Stat.Arms = IArms.E;
+        Who.Stat.Legs = ILegs.E;
+        Who.Delete_Part();
+        gameObject.SetActive(false);
+        PersonalCamera.SetActive(false);
     }
 
 

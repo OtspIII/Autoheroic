@@ -10,18 +10,28 @@ public class GameplayScreenController : MonoBehaviour
     //public ScoreCardManager Scm;
     public MasterGameController GM;
     public DescriptionManager Desc;
-    Cub.Model.Team TeamOne = null;
-    Cub.Model.Team TeamTwo = null;
+    public Cub.Model.Team TeamOne = null;
+    public Cub.Model.Team TeamTwo = null;
     public Cub.View.Runtime RT;
     bool RTStarted = false;
     //Cub.Position2 StageSize;
     public bool CurrentlyActive = false;
+
+    public UITexture LeftScore;
+    int T1Score;
+    public UITexture RightScore;
+    int T2Score;
+    public GameObject PHCType;
+    public UIGrid T1Grid;
+    public Dictionary<System.Guid, PlayerHealthController> PHCs;
+    public UIGrid T2Grid;
 
     // Use this for initialization
     void Start()
     {
         //StageSize = new Cub.Position2(10, 10);
         RT.GSC = this;
+        Cub.View.Runtime.AddGSC(this);
         //Tpc = (GameplayTeamPickerController)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("GameplayTeamPickerController"));
         //Scm = (ScoreCardManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("ScoreCardManager"));
         //Desc = (DescriptionManager)GameObject.Find("UI Root").GetComponentInChildren(System.Type.GetType("DescriptionManager"));
@@ -108,8 +118,11 @@ public class GameplayScreenController : MonoBehaviour
 
     public void StartGame(Cub.Model.Team T1, Cub.Model.Team T2)
     {
+        RTStarted = false;
         TeamOne = T1;
         TeamTwo = T2;
+        T1Score = 0;
+        T2Score = 0;
         if (TeamOne.Colour_Primary.r == TeamTwo.Colour_Primary.r &&
             TeamOne.Colour_Primary.g == TeamTwo.Colour_Primary.g && TeamOne.Colour_Primary.b == TeamTwo.Colour_Primary.b)
         {
@@ -124,15 +137,28 @@ public class GameplayScreenController : MonoBehaviour
         //TeamTwo.Colour_Secondary = Color.blue;
         //TeamOne.MakeUnique();
         //TeamTwo.MakeUnique();
+        foreach (Transform t in T1Grid.transform)
+            Destroy(t.gameObject);
+        foreach (Transform t in T2Grid.transform)
+            Destroy(t.gameObject);
+
+        PHCs = new Dictionary<System.Guid, PlayerHealthController>();
         foreach (Cub.Model.Character c in TeamOne.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, true);
-            Cub.View.Runtime.Add_Character(c);
+            Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
+            PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
+                PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
+            phc.Setup(ch,TeamOne);
+            PHCs.Add(ch.Stat.ID,phc);
+            phc.gameObject.transform.parent = T1Grid.gameObject.transform;
+            phc.transform.localScale = new Vector3(1, 1, 1);
         }
+        T1Grid.repositionNow = true;
         foreach (Cub.Model.Character c in TeamTwo.List_Character)
         {
             c.Stat.Position = TranslateStartPosition(c.Stat.Position, false);
-            Cub.View.Runtime.Add_Character(c);
+            Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
 
             Cub.View.Character view = Cub.View.Runtime.Get_Character(c.ID);
 
@@ -140,11 +166,52 @@ public class GameplayScreenController : MonoBehaviour
             rot.y = 180;
             view.gameObject.transform.rotation = rot;
 
+            PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
+                PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
+            phc.Setup(ch,TeamTwo);
+            PHCs.Add(ch.Stat.ID, phc);
+            phc.gameObject.transform.parent = T2Grid.gameObject.transform;
+            phc.transform.localScale = new Vector3(1, 1, 1);
         }
+        T2Grid.repositionNow = true;
         Cub.Model.Main.Initialization(TeamOne, TeamTwo);
         //SwitchModes(GameMode.Gameplay);
         CurrentlyActive = true;
         Desc.gameObject.SetActive(false);
+    }
+
+    public void SetHealth(System.Guid id, int health, int maxHealth)
+    {
+        PlayerHealthController p = PHCs[id];
+        int width = 45 * health / maxHealth;
+        if (width <= 0)
+        {
+            width = 45;
+            p.FG.color = Color.gray;
+        }
+        p.FG.SetDimensions(width, 10);
+    }
+
+    public void SetScore(bool teamOne, int bonus)
+    {
+        UITexture text;
+        int score;
+        if (teamOne)
+        {
+            text = LeftScore;
+            T1Score += bonus;
+            score = T1Score;
+        }
+        else
+        {
+            text = RightScore;
+            T2Score += bonus;
+            score = T2Score;
+        }
+        if (!text.gameObject.activeSelf)
+            text.gameObject.SetActive(true);
+        int ht = 150 * score / 400;
+        text.SetDimensions(5, ht);
     }
 
     public void EndGame()
@@ -152,6 +219,14 @@ public class GameplayScreenController : MonoBehaviour
         //SwitchModes(GameMode.Postgame);
         GM.TurnOnScoreCard(TeamOne, TeamTwo);
         Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
+    }
+
+    public void Clear()
+    {
+        ClearMap();
+        LeftScore.gameObject.SetActive(false);
+        RightScore.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void ClearMap()
