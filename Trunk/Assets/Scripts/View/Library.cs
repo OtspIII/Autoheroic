@@ -24,6 +24,8 @@ namespace Cub.View
         private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Left { get; set; }
         private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Right { get; set; }
 
+        private static Dictionary<int, Cubon> Dictionary_Damage { get; set; }
+
         private static Material Dictionary_Material { get; set; }
         private static PhysicMaterial Dictionary_Physic_Material { get; set; }
 
@@ -134,6 +136,17 @@ namespace Cub.View
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Hover, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Hover.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Humanoid, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Humanoid.xml") as List<Cub.View.Cubon>);
                 Dictionary_Part_Legs_Right.Add(Part_Legs.Tread, Cub.Tool.Xml.Deserialize(typeof(List<Cub.View.Cubon>), "Data/View_Part_Legs_Right_Tread.xml") as List<Cub.View.Cubon>);
+
+                Dictionary_Damage = new Dictionary<int, Cubon>();
+                Dictionary_Damage.Add(1, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_1.xml") as Cubon);
+                Dictionary_Damage.Add(2, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_2.xml") as Cubon);
+                Dictionary_Damage.Add(3, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_3.xml") as Cubon);
+                Dictionary_Damage.Add(4, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_4.xml") as Cubon);
+                Dictionary_Damage.Add(5, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_5.xml") as Cubon);
+                Dictionary_Damage.Add(6, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_6.xml") as Cubon);
+                Dictionary_Damage.Add(7, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_7.xml") as Cubon);
+                Dictionary_Damage.Add(8, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_8.xml") as Cubon);
+                Dictionary_Damage.Add(9, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_9.xml") as Cubon);
 
                 Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
                 Dictionary_Sound.Add(Sound.Attack_Melee, Resources.Load<AudioClip>("Sounds/Attack_Melee"));
@@ -284,6 +297,11 @@ namespace Cub.View
         public static PhysicMaterial Get_Physic_Material()
         {
             return Dictionary_Physic_Material;
+        }
+
+        public static Cubon Get_Damage(int _Damage)
+        {
+            return Dictionary_Damage[_Damage];
         }
     }
 }

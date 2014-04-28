@@ -69,6 +69,11 @@ namespace Cub.Scene
                 Cub.View.Library.Initialization();
                 Start();
             }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {                
+                Cub.View.Damage.Create(8, Cub.View.Runtime.Get_Character(new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)).gameObject);
+            }
         }
     }
 }

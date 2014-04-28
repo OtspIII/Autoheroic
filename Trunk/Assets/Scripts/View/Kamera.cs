@@ -10,7 +10,7 @@ namespace Cub.View
         private static List<Vector3> _Path_Rotation { get; set; }
         private static float _Path_Timespan { get; set; }
 
-        private static GameObject _Camera { get; set; }
+        public static GameObject _Camera { get; set; }
 
         public void Start()
         {

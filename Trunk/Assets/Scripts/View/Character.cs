@@ -114,8 +114,7 @@ namespace Cub.View
             Dictionary_Material[Colour.Silver].color = new Color(0.88F, 0.88F, 0.88F, 1F);
             Dictionary_Material[Colour.Team_Primary].color = Stat.Team.Colour_Primary;
             Dictionary_Material[Colour.Team_Secondary].color = Stat.Team.Colour_Secondary;
-
-
+            
             foreach (Cubon C in Part.Head)
             {
                 foreach (Vector3 P in C.Position)
