@@ -13,6 +13,8 @@ namespace Cub.View.Event
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
+            Cub.Attack_Result AR = (Attack_Result)_Data[2];
+
             C0.transform.LookAt(new Vector3(C1.transform.position.x, 0, C1.transform.position.z));
 
             C0.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Attack_Range");
@@ -25,14 +27,44 @@ namespace Cub.View.Event
             C0.BroadcastMessage("Idle", Timespan + 0.5F, SendMessageOptions.DontRequireReceiver);
 
             GameObject B = UnityEngine.Object.Instantiate(Library.Get_Bullet()) as GameObject;
-
-            B.GetComponent<TrailRenderer>().material.color = Color.yellow;
-
             B.transform.position = C0.transform.FindChild("Arms_Right").position;
+            switch (AR)
+            {
+                case Attack_Result.Hit:
+                    {
+                        Material M = new Material(Library.Get_Material());
+                        M.color = new Color(3F, 3F, 3F);
+                        B.GetComponent<TrailRenderer>().material = M;
+                        iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
+                        GameObject.Destroy(B, Timespan + 0.5F);
+                        break;
+                    }
+                case Attack_Result.Crit:
+                    {
+                        Material M = new Material(Library.Get_Material());
+                        M.color = new Color(255F, 0F, 0F);
+                        B.GetComponent<TrailRenderer>().material = M;
+                        iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
+                        GameObject.Destroy(B, Timespan + 0.5F);
+                        break;
+                    }
+                case Attack_Result.Miss:
+                    {
+                        Material M = new Material(Library.Get_Material());
+                        M.color = new Color(2F, 2F, 2F);
+                        B.GetComponent<TrailRenderer>().material = M;
+                        
+                        B.transform.LookAt(C1.transform);
 
-            iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
+                        B.AddComponent<Rigidbody>();                        
+                        B.rigidbody.useGravity = true;
+                        B.rigidbody.AddRelativeForce(new Vector3(0, 0, 5F), ForceMode.Impulse);
 
-            GameObject.Destroy(B, Timespan + 0.5F);
+                        GameObject.Destroy(B, Timespan + 1.5F);
+
+                        break;
+                    }
+            }
 
             Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 

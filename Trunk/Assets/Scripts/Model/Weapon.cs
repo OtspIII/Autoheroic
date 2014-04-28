@@ -45,8 +45,8 @@ namespace Cub.Model
                 dam = CritDam;
             Debug.Log("Attack: " + who.Name + " > " + target.Name + " ["
                 + MissChance.ToString() + "/" + CritChance.ToString() + "/" + roll.ToString() + "/" + result + "/" + dam.ToString() + "]");
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(), 
-                new List<object>(){ who.ID, target.ID,result,dam }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Range, who.FindColorName() + " vs. " + target.FindColorName(),
+                new List<object>() { who.ID, target.ID, result, dam }));
             if (dam > 0)
                 target.Damage(dam, who, r, result);
             return r;
