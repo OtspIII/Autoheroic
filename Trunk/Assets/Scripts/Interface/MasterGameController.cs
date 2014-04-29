@@ -122,6 +122,7 @@ public class MasterGameController : MonoBehaviour
                 }
                 if (!keepGoing)
                 {
+                    Cub.View.Kamera.Walk();
                     Timer = TimerMax = 1;
                     LeftPicker.gameObject.SetActive(true);
                     RightPicker.gameObject.SetActive(true);
