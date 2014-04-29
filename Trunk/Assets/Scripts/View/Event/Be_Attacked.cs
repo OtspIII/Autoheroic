@@ -12,6 +12,7 @@ namespace Cub.View.Event
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
+            int Amount = (int)_Data[1];
 
             C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Be_Attacked");
             C.transform.FindChild("Body").GetComponent<Animator>().SetTrigger("Be_Attacked");
@@ -24,10 +25,12 @@ namespace Cub.View.Event
 
             Cube[] CO = C.gameObject.transform.GetComponentsInChildren<Cube>();
 
-            for (int i = 0; i < Falling_Number; i++)
+            for (int i = 0; i < Falling_Number * Amount; i++)
             {
                 CO[UnityEngine.Random.Range(0, CO.Length)].Fall();
             }
+
+            Cub.View.Damage.Create(Amount, C.gameObject);
 
             //Cub.View.Kamera.Shake();
             C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
