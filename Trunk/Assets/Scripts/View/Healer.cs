@@ -5,7 +5,7 @@ namespace Cub.View
 {
     public class Healer : MonoBehaviour
     {
-        private const float Timespan = 2F;
+        public const float Timespan = 1F;
         private GameObject G { get; set; }
 
         public void Pump(GameObject GO)

@@ -18,7 +18,7 @@ namespace Cub.Model.Weapons
         {
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             Debug.Log("Attack: " + who.Name + " > " + target.Name);
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Harm, who.FindColorName() + " vs. " + target.FindColorName(),
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Heal_Harm, who.FindColorName() + " vs. " + target.FindColorName(),
                 new List<object>() { who.ID, target.ID }));
             target.Damage(HitDam, who, r, Attack_Result.Hit);
             return r;
