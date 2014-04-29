@@ -52,6 +52,9 @@ public class MasterGameController : MonoBehaviour
     public List<Color32> Colors;
     public List<string> Letters;
 
+    public GameObject PickerInstructionsLeft;
+    public GameObject PickerInstructionsRight;
+
     // Use this for initialization
     void Start()
     {
@@ -70,6 +73,8 @@ public class MasterGameController : MonoBehaviour
         RightCEditor.gameObject.SetActive(false);
         LeftNameEditor.gameObject.SetActive(false);
         RightNameEditor.gameObject.SetActive(false);
+        PickerInstructionsLeft.SetActive(false);
+        PickerInstructionsRight.SetActive(false);
         SCM.gameObject.SetActive(false);
         Application.targetFrameRate = 60;
         CameraWhere = MainCamera.transform.position;
@@ -137,6 +142,8 @@ public class MasterGameController : MonoBehaviour
                     new Vector3(x, LeftPicker.transform.localPosition.y, LeftPicker.transform.localPosition.z);
                 if (Timer <= 0)
                 {
+                    PickerInstructionsLeft.SetActive(true);
+                    PickerInstructionsRight.SetActive(true);
                     SetStage(MasterStage.Waiting);
                     LeftPicker.CurrentlyActive = true;
                     RightPicker.CurrentlyActive = true;
