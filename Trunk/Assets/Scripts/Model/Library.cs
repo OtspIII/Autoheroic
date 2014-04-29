@@ -24,6 +24,10 @@ namespace Cub.Model
         private static Dictionary<Cub.Part_Legs, Cub.Model.BPLegs> Dictionary_Legs { get; set; }
         private static Dictionary<Cub.Part_Arms, Cub.Model.Weapon> Dictionary_Weapons { get; set; }
 
+        private static List<string> Adjectives { get; set; }
+        private static List<string> Names { get; set; }
+        private static List<string> Animals { get; set; }
+
         public static Cub.Terrain[][] Stage_Terrain { get; set; }
         //public static Cub.Class[][] Stage_Unit { get; set; }
 
@@ -149,8 +153,29 @@ namespace Cub.Model
 
                 //Cub.Model.Library.Stage_Unit = Cub.Tool.Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
 
+                Adjectives = new List<string> { "Angry", "Happy", "Dirty", "Weird", "Fat", "Slim", "King", "Shin", "Super", "Ultra", "Little",
+                    "Big", "Dead", "Old", "Young", "Fast", "Unusual", "Anonymous", "Internet", "Blue", "Slow", "Cool", "Pleasant", "Sexy",
+                    "Naughty", "Nice", "Hairy", "Clumsy", "Magic"};
+                Names = new List<string> { "Harry", "Josh", "Joe", "Adam", "Jake", "Ethan", "Bill", "Mike", "Alex", "Nick", "Sam", "Dan", "Ryan",
+                    "Eric", "Luke", "Justin", "Kevin", "Andrew", "Sebastian", "Ben", "James", "Charles",
+                    "Anna", "Lis", "Olivia", "Emily", "Chloe", "Sophia", "Mia", "Ava", "Lily", "Zoe", "Madison", "Leah", "Sarah", "Rachel", "Maryam",
+                    "Mary", "Jen", "Susan", "Dorothy"};
+                Animals = new List<string> { "Whales", "Dolphins", "Squids", "Monkeys", "Dogs", "Worms", "Lobsters", "Wolves", "Bears", "Grizzlies",
+                    "Snails", "Tigers", "Lions", "Dragons", "Apes", "Griffins", "Squirrels", "Huskies", "Bobcats", "Cats", "Raptors", "Sparrows", 
+                    "Crows", "Owls", "Hawks", "Eagles", "Emus", "Horses", "Cows", "Sheep", "Goats", "Hippos", "Elephants", "Phoenixes", "Gazelles"};
+
                 Trigger = false;
             }
+        }
+
+        public static string CharacterName()
+        {
+            return Adjectives[UnityEngine.Random.Range(0, Adjectives.Count)] + " " + Names[UnityEngine.Random.Range(0, Names.Count)];
+        }
+
+        public static string TeamName()
+        {
+            return Adjectives[UnityEngine.Random.Range(0, Adjectives.Count)] + " " + Animals[UnityEngine.Random.Range(0, Animals.Count)];
         }
 
         public static Cub.Model.BPHead Get_Head(Cub.Part_Head head)

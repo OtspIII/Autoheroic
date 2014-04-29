@@ -10,6 +10,8 @@ namespace Cub.View.Event
 
         public override float Process(List<object> _Data, string Desc)
         {
+            float time = Timespan;
+
             Cub.View.Character C0 = Runtime.Get_Character((Guid)_Data[0]);
             Cub.View.Character C1 = Runtime.Get_Character((Guid)_Data[1]);
 
@@ -62,6 +64,8 @@ namespace Cub.View.Event
 
                         GameObject.Destroy(B, Timespan + 1.5F);
 
+                        time = 1.5f;
+
                         break;
                     }
             }
@@ -72,7 +76,7 @@ namespace Cub.View.Event
 
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Range));
 
-            return Timespan;
+            return time;
         }
     }
 }

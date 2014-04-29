@@ -152,7 +152,7 @@ namespace Cub.Interface
             }
             else
             {
-                Model.TeamSave t = new Model.TeamSave("Temp Team Name", "Temp Owner Name");
+                Model.TeamSave t = new Model.TeamSave(Cub.Model.Library.TeamName(), "");
                 GM.Teams.Add(t);
                 MarkTeamButtons();
                 int slide = GM.Teams.IndexOf(t) - GM.Teams.IndexOf(SelectedTeam);
