@@ -99,7 +99,7 @@ namespace Cub
         Attack_Rocket,
         Attack_Snipe,
         Attack_Heal,
-        Attack_Harm,
+        Attack_Heal_Harm,
         Be_Healed,
         Be_Attacked,
         Blow_Up
