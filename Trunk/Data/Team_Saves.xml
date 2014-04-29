@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeamSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TeamSave>
-    <Name>CAD</Name>
-    <Owner_Name> A </Owner_Name>
+    <Name>Angry Goats</Name>
+    <Owner_Name />
     <Chars>
       <Character_Save>
-        <Name>A</Name>
-        <Head>Protector</Head>
-        <Arms>Sniper_Rifle</Arms>
-        <Body>Light</Body>
+        <Name>Hairy Eric</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
+          <X>2</X>
           <Y>3</Y>
         </Position>
-        <ID>283026ab-40d3-45d4-ab15-5a193b0b9bb0</ID>
-        <Kills>13</Kills>
-        <Deaths>23</Deaths>
-        <Matches>29</Matches>
+        <ID>5552db55-dcaa-49cd-ba13-e85a153f5d60</ID>
+        <Kills>0</Kills>
+        <Deaths>4</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>A</Name>
-        <Head>Protector</Head>
+        <Name>Magic Adam</Name>
+        <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
@@ -29,243 +29,93 @@
           <X>1</X>
           <Y>2</Y>
         </Position>
-        <ID>91e8d20a-a94c-49b3-a4a9-ea4945cbd420</ID>
-        <Kills>25</Kills>
-        <Deaths>16</Deaths>
-        <Matches>29</Matches>
+        <ID>bdab0737-6944-4620-ac7b-f77c76346461</ID>
+        <Kills>3</Kills>
+        <Deaths>3</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>A</Name>
+        <Name>Pleasant Ethan</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
-        <Body>Heavy</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>2</Y>
-        </Position>
-        <ID>58d4e366-d2a0-44f1-ab70-a442c6ebb75f</ID>
-        <Kills>28</Kills>
-        <Deaths>20</Deaths>
-        <Matches>29</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>Pistol</Arms>
-        <Body>Heavy</Body>
+        <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
           <X>1</X>
           <Y>4</Y>
         </Position>
-        <ID>a030516f-c73e-42a4-b152-7adc759c9dd0</ID>
-        <Kills>8</Kills>
-        <Deaths>16</Deaths>
-        <Matches>21</Matches>
+        <ID>f80aeb13-ee12-463a-8cb5-f29f4ddf54d9</ID>
+        <Kills>3</Kills>
+        <Deaths>3</Deaths>
+        <Matches>4</Matches>
+      </Character_Save>
+      <Character_Save>
+        <Name>Young Adam</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
+        <Position>
+          <X>1</X>
+          <Y>5</Y>
+        </Position>
+        <ID>0e7d7d1c-3093-42b2-9b40-6b649cce4f3d</ID>
+        <Kills>0</Kills>
+        <Deaths>4</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
     </Chars>
-    <Wins>13</Wins>
-    <Losses>15</Losses>
+    <Wins>1</Wins>
+    <Losses>3</Losses>
     <Colour_Primary>
-      <r>255</r>
-      <g>255</g>
-      <b>0</b>
-      <a>0</a>
-    </Colour_Primary>
-    <Colour_Secondary>
       <r>255</r>
       <g>0</g>
       <b>0</b>
-      <a>0</a>
+      <a>255</a>
+    </Colour_Primary>
+    <Colour_Secondary>
+      <r>255</r>
+      <g>235</g>
+      <b>4</b>
+      <a>255</a>
     </Colour_Secondary>
   </TeamSave>
   <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
+    <Name>Shin Wolves</Name>
+    <Owner_Name />
     <Chars>
       <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Sniper_Rifle</Arms>
-        <Body>Light</Body>
-        <Legs>Tread</Legs>
+        <Name>Big Anna</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
         <Position>
-          <X>0</X>
+          <X>2</X>
           <Y>3</Y>
         </Position>
-        <ID>7836fe79-9d53-453c-9d52-8460aba74083</ID>
-        <Kills>7</Kills>
-        <Deaths>5</Deaths>
-        <Matches>11</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Sniper_Rifle</Arms>
-        <Body>Light</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>0</X>
-          <Y>4</Y>
-        </Position>
-        <ID>17b15883-3c28-4e3a-98db-d81ceb30c09b</ID>
+        <ID>b0ba85f9-1d3d-4b9f-bd24-d06a1ef6e1ec</ID>
         <Kills>4</Kills>
-        <Deaths>3</Deaths>
-        <Matches>11</Matches>
+        <Deaths>1</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Sniper_Rifle</Arms>
-        <Body>Light</Body>
-        <Legs>Tread</Legs>
+        <Name>Blue Zoe</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
+        <Legs>Humanoid</Legs>
         <Position>
-          <X>0</X>
+          <X>2</X>
           <Y>1</Y>
         </Position>
-        <ID>a71fe68d-0592-423c-8622-ea43772a021a</ID>
-        <Kills>8</Kills>
-        <Deaths>8</Deaths>
-        <Matches>11</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>RPG</Arms>
-        <Body>Light</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>0</X>
-          <Y>5</Y>
-        </Position>
-        <ID>f268f53a-4af9-4aec-9051-7ca99cf02c47</ID>
-        <Kills>6</Kills>
-        <Deaths>6</Deaths>
-        <Matches>11</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>5</Y>
-        </Position>
-        <ID>228b6a74-e32e-4494-92b6-6fee436196d6</ID>
-        <Kills>13</Kills>
-        <Deaths>6</Deaths>
-        <Matches>11</Matches>
-      </Character_Save>
-    </Chars>
-    <Wins>9</Wins>
-    <Losses>2</Losses>
-    <Colour_Primary>
-      <r>0</r>
-      <g>0</g>
-      <b>255</b>
-      <a>0</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>RPG</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>3</Y>
-        </Position>
-        <ID>f055cd0e-f81f-40e5-add8-1372ed2ee5bc</ID>
-        <Kills>14</Kills>
-        <Deaths>13</Deaths>
-        <Matches>22</Matches>
-      </Character_Save>
-    </Chars>
-    <Wins>11</Wins>
-    <Losses>11</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>Sniper_Rifle</Arms>
-        <Body>Light</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>2</X>
-          <Y>2</Y>
-        </Position>
-        <ID>7e417cd9-352e-42d2-a67d-6fbfca37e81a</ID>
+        <ID>3d4dfbdd-bc34-4bb6-8ba2-3f500edf39f5</ID>
         <Kills>5</Kills>
-        <Deaths>6</Deaths>
-        <Matches>11</Matches>
-      </Character_Save>
-    </Chars>
-    <Wins>6</Wins>
-    <Losses>8</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>Axe</Arms>
-        <Body>Heavy</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>2</X>
-          <Y>3</Y>
-        </Position>
-        <ID>65f674c1-088a-4acf-b02d-0fe27e4b6133</ID>
-        <Kills>0</Kills>
         <Deaths>1</Deaths>
-        <Matches>1</Matches>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>TEMP NAME</Name>
+        <Name>Slim Ethan</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
@@ -274,43 +124,28 @@
           <X>2</X>
           <Y>2</Y>
         </Position>
-        <ID>6a31cf08-da93-492e-883f-7e922b7c2a5c</ID>
-        <Kills>1</Kills>
-        <Deaths>1</Deaths>
-        <Matches>1</Matches>
+        <ID>8d25c39a-6bd5-4468-9ab3-fffb462c3361</ID>
+        <Kills>2</Kills>
+        <Deaths>3</Deaths>
+        <Matches>4</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Protector</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>1</X>
-          <Y>3</Y>
-        </Position>
-        <ID>f2395f32-8758-40a7-9127-7b104c114e79</ID>
-        <Kills>0</Kills>
-        <Deaths>1</Deaths>
-        <Matches>1</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Idiot</Head>
-        <Arms>Sword</Arms>
-        <Body>Light</Body>
+        <Name>Old Sarah</Name>
+        <Head>Soldier</Head>
+        <Arms>Rifle</Arms>
+        <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>1</X>
-          <Y>2</Y>
+          <X>2</X>
+          <Y>4</Y>
         </Position>
-        <ID>b2041043-4503-41e5-891d-f80a642f9001</ID>
-        <Kills>0</Kills>
+        <ID>e7435325-f145-4f5a-802d-ee1bcc60d5a6</ID>
+        <Kills>3</Kills>
         <Deaths>1</Deaths>
-        <Matches>1</Matches>
+        <Matches>4</Matches>
       </Character_Save>
     </Chars>
-    <Wins>0</Wins>
+    <Wins>3</Wins>
     <Losses>1</Losses>
     <Colour_Primary>
       <r>255</r>
@@ -323,147 +158,6 @@
       <g>235</g>
       <b>4</b>
       <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars />
-    <Wins>0</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars />
-    <Wins>0</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars />
-    <Wins>0</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars />
-    <Wins>0</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
-  <TeamSave>
-    <Name>Temp Team Name</Name>
-    <Owner_Name>Temp Owner Name</Owner_Name>
-    <Chars>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>RPG</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>2</X>
-          <Y>3</Y>
-        </Position>
-        <ID>cf13f2e2-b4f7-4494-84e2-216a8764a1d6</ID>
-        <Kills>0</Kills>
-        <Deaths>1</Deaths>
-        <Matches>1</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Soldier</Head>
-        <Arms>Axe</Arms>
-        <Body>Healer</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>2</X>
-          <Y>0</Y>
-        </Position>
-        <ID>f724e9eb-90ce-47e8-818e-bdbc4a39da79</ID>
-        <Kills>2</Kills>
-        <Deaths>1</Deaths>
-        <Matches>1</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>TEMP NAME</Name>
-        <Head>Hunter</Head>
-        <Arms>RPG</Arms>
-        <Body>Heavy</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>1</X>
-          <Y>2</Y>
-        </Position>
-        <ID>a367c007-ea10-47c5-bd93-c26479eb4b42</ID>
-        <Kills>3</Kills>
-        <Deaths>0</Deaths>
-        <Matches>1</Matches>
-      </Character_Save>
-    </Chars>
-    <Wins>2</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>255</b>
-      <a>0</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>0</r>
-      <g>255</g>
-      <b>255</b>
-      <a>0</a>
     </Colour_Secondary>
   </TeamSave>
 </ArrayOfTeamSave>

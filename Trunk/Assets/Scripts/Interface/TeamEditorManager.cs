@@ -466,7 +466,7 @@ public class TeamEditorManager : MonoBehaviour
             {
                 where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
             }
-            Character_Save cs = new Character_Save("TEMP NAME", Cub.Part_Head.Soldier, Cub.Part_Arms.Rifle, Cub.Part_Body.Medium,
+            Character_Save cs = new Character_Save(Cub.Model.Library.CharacterName(), Cub.Part_Head.Soldier, Cub.Part_Arms.Rifle, Cub.Part_Body.Medium,
                 Cub.Part_Legs.Humanoid, where.X, where.Y);
             Team.Add_Character(cs);
             Cub.Model.Character ch = new Character(cs);
