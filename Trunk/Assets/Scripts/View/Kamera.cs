@@ -38,10 +38,20 @@ namespace Cub.View
             iTween.RotateTo(_Camera, iTween.Hash("rotation", _Rotation, "time", _Timespan, "easetype", iTween.EaseType.linear));
         }
 
-        public static void Restore(float _Timespan)
+        public static void Walk()
         {
-            iTween.MoveTo(_Camera, iTween.Hash("position", new Vector3(7.5F, 8F, -5.6F), "time", _Timespan, "easetype", iTween.EaseType.linear));
-            iTween.RotateTo(_Camera, iTween.Hash("rotation", new Vector3(40F, -20F, 0F), "time", _Timespan, "easetype", iTween.EaseType.linear));
+            iTween.MoveTo(_Camera, iTween.Hash("path", new Vector3[] { new Vector3(-6, 8, -6), new Vector3(14, 8, -6) }, "time", 180F, "easetype", iTween.EaseType.linear, "looktarget", new Vector3(5F, -0.5F, 3F), "looptype", iTween.LoopType.pingPong));
+        }
+
+        public static void Hoop(Vector3 _Target, float _Timespan)
+        {
+            iTween.LookTo(_Camera, _Target, _Timespan);
+            //iTween.MoveTo(_Camera, new Vector3(-6, 8, -6), _Timespan);
+        }
+
+        public static void Restore()
+        {
+            iTween.MoveTo(_Camera, iTween.Hash("position", new Vector3(-6, 8, -6), "time", 0.5F, "looktarget", new Vector3(5F, -0.5F, 3F)));
         }
     }
 }

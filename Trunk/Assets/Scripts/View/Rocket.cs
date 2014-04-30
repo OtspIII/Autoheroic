@@ -9,6 +9,8 @@ namespace Cub.View
 
         public void Pump(Vector3 Target)
         {
+            iTween.Stop(Cub.View.Kamera._Camera);
+
             this.transform.LookAt(this.transform.position + new Vector3(0, 10, 0));
 
             iTween.MoveTo(this.gameObject, iTween.Hash("position", this.transform.position + new Vector3(0, 10, 0), "time", Cub.View.Event.Attack_Rocket.Timespan / 2, "easetype", iTween.EaseType.linear));
@@ -23,11 +25,13 @@ namespace Cub.View
         {
             this.transform.LookAt(T);
 
+            iTween.Stop(Cub.View.Kamera._Camera);
+
             iTween.MoveTo(this.gameObject, iTween.Hash("position", T, "time", Cub.View.Event.Attack_Rocket.Timespan / 2, "easetype", iTween.EaseType.linear));
 
             Invoke("Splash", Cub.View.Event.Attack_Rocket.Timespan / 2);
             //Kamera.Move(T + new Vector3(0, 3, 0), new Vector3(90, 0, 0), Cub.View.Event.Attack_Rocket.Timespan / 2);
-            Kamera.Restore(Cub.View.Event.Attack_Rocket.Timespan / 2);
+            Kamera.Hoop(T, Cub.View.Event.Attack_Rocket.Timespan / 2);
         }
 
         public void Splash()
@@ -40,8 +44,17 @@ namespace Cub.View
             Instantiate(Library.Get_Explosion(), V + Vector3.left, Quaternion.identity);
             Instantiate(Library.Get_Explosion(), V + Vector3.right, Quaternion.identity);
 
+            iTween.Stop(Cub.View.Kamera._Camera);
+            Kamera.Restore();
+
+            Invoke("Final", 0.5F);
+        }
+
+        public void Final()
+        {
+            Kamera.Walk();
+
             Destroy(this.gameObject);
-            //Kamera.Restore(Cub.View.Event.Attack_Rocket.Timespan / 2);
         }
     }
 }
