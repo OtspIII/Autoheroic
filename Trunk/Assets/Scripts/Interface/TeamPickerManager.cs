@@ -12,6 +12,7 @@ namespace Cub.Interface
         int TeamsOffset = 0;
         public GameObject UpMarker;
         public GameObject DownMarker;
+        public GameObject MyInstructions;
 
         //CharacterEditorManager MyCEditor;
         //TeamEditorManager MyTEditor;
@@ -83,6 +84,7 @@ namespace Cub.Interface
                 new Vector3(300, transform.localPosition.y, transform.localPosition.z);
             GM.LeftPicker.CurrentlyActive = false;
             GM.RightPicker.CurrentlyActive = false;
+            MyInstructions.SetActive(false);
         }
 
         void MarkTeamButtons()
@@ -103,7 +105,7 @@ namespace Cub.Interface
                 UpMarker.SetActive(true);
             else
                 UpMarker.SetActive(false);
-            if (TeamsOffset + Options.Count - 2 < Mathf.Max(6, GM.Teams.Count - 1))
+            if (TeamsOffset + Options.Count - 2 < Mathf.Max(3, GM.Teams.Count - 1))
                 DownMarker.SetActive(true);
             else
                 DownMarker.SetActive(false);
@@ -120,7 +122,7 @@ namespace Cub.Interface
             else if (current >= Options.Count)
             {
                 TeamsOffset++;
-                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(6, GM.Teams.Count))
+                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(3, GM.Teams.Count))
                 {
                     TeamsOffset--;
                 }
@@ -149,6 +151,7 @@ namespace Cub.Interface
                 //((UISprite)SelectMarker.GetComponent("UISprite")).color = new Color(0.05f, 0.9f, 0.05f, 0.8f);
                 //Chosen = true;
                 GM.EditTeam(SelectedTeam, this);
+                MyInstructions.SetActive(false);
             }
             else
             {
@@ -159,6 +162,7 @@ namespace Cub.Interface
                 for (int n = slide; n > 0;n--)
                     ChangeSelection(1);
                 GM.EditTeam(t, this);
+                MyInstructions.SetActive(false);
             }
         }
 
