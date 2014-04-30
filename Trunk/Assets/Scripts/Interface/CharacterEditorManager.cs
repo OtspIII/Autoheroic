@@ -14,6 +14,8 @@ public class CharacterEditorManager : OptionsListController
     //List<Cub.Model.BPBody> Bodies;
     //List<Cub.Model.BPArms> Arms;
     //List<Cub.Model.BPLegs> Legs;
+    Color32 GrayedOut = new Color(0.1f, 0.1f, 0.1f, 1);
+
     Cub.Model.BPHead Head;
     Cub.Model.BPBody Body;
     Cub.Model.BPArms Arms;
@@ -33,22 +35,35 @@ public class CharacterEditorManager : OptionsListController
     Cub.Model.TeamSave Team;
 
     public UILabel Name;
-    public UITexture CostBG;
-    public UITexture CostHead;
-    public UITexture CostArms;
-    public UITexture CostBody;
-    public UITexture CostLegs;
+    //public UITexture CostBG;
+    //public UITexture CostHead;
+    //public UITexture CostArms;
+    //public UITexture CostBody;
+    //public UITexture CostLegs;
     public UILabel CostText;
-    public UILabel HeadPts;
-    public UILabel ArmsPts;
-    public UILabel BodyPts;
-    public UILabel LegsPts;
-    public UITexture HealthFG;
-    public UITexture SpeedFG;
-    public UITexture DamageFG;
-    public UITexture RangeFG;
-    public UILabel SpecialDesc;
+    //public UILabel HeadPts;
+    //public UILabel ArmsPts;
+    //public UILabel BodyPts;
+    //public UILabel LegsPts;
+    //public UITexture HealthFG;
+    //public UITexture SpeedFG;
+    //public UITexture DamageFG;
+    //public UITexture RangeFG;
+    //public UILabel SpecialDesc;
     public UILabel AIDesc;
+    public UILabel WeaponDesc;
+    public UILabel ArmorDesc;
+    public UILabel LegsDesc;
+
+    public UILabel DamageDesc;
+    public List<UI2DSprite> DamageIcons;
+    public UILabel RangeDesc;
+    public List<UI2DSprite> RangeIcons;
+    public UILabel HealthDesc;
+    public List<UI2DSprite> HealthIcons;
+    public UILabel SpeedDesc;
+    public List<UI2DSprite> SpeedIcons;
+
     public UILabel PtsLeft;
 
     public UILabel CurrentName;
@@ -154,7 +169,7 @@ public class CharacterEditorManager : OptionsListController
         if (!PlayerOne)
             offset = -2;
         PersonalCamera.transform.position =
-            new Vector3(VChar.transform.position.x + offset, VChar.transform.position.y + 1.2f, VChar.transform.position.z + 0.7f);
+            new Vector3(VChar.transform.position.x + offset, VChar.transform.position.y - 0.8f, VChar.transform.position.z + 0.7f);
         CurrentlyActive = true;
         OnSelectChange();
         //Heads = Cub.Model.Library.List_Heads();
@@ -191,27 +206,92 @@ public class CharacterEditorManager : OptionsListController
     void WriteDescriptions()
     {
         Name.text = WhoSave.Name;
-        int costWidth = 100 * WhoSave.Head_Part.Cost / MaxCost;
-        CostHead.SetDimensions(costWidth, 10);
-        costWidth += 100 * WhoSave.Arms_Part.Cost / MaxCost;
-        CostArms.SetDimensions(costWidth, 10);
-        costWidth += 100 * WhoSave.Body_Part.Cost / MaxCost;
-        CostBody.SetDimensions(costWidth, 10);
-        costWidth += 100 * WhoSave.Legs_Part.Cost / MaxCost;
-        CostLegs.SetDimensions(costWidth, 10);
-        CostText.text = WhoSave.Value.ToString();
-        HeadPts.text = WhoSave.Head_Part.Cost.ToString();
-        ArmsPts.text = WhoSave.Arms_Part.Cost.ToString();
-        BodyPts.text = WhoSave.Body_Part.Cost.ToString();
-        LegsPts.text = WhoSave.Legs_Part.Cost.ToString();
-        costWidth = 100 * WhoSave.Body_Part.Health / 4;
-        HealthFG.SetDimensions(costWidth, 10);
-        costWidth = 100 * WhoSave.Legs_Part.Speed / 6;
-        SpeedFG.SetDimensions(costWidth, 10);
-        costWidth = 100 * WhoSave.Weapon.HitDam / 4;
-        DamageFG.SetDimensions(costWidth, 10);
-        costWidth = 100 * WhoSave.Weapon.Range / 6;
-        RangeFG.SetDimensions(costWidth, 10);
+        CostText.text = "Cost: " + WhoSave.Value.ToString();
+        //int costWidth = 100 * WhoSave.Head_Part.Cost / MaxCost;
+        //CostHead.SetDimensions(costWidth, 10);
+        //costWidth += 100 * WhoSave.Arms_Part.Cost / MaxCost;
+        //CostArms.SetDimensions(costWidth, 10);
+        //costWidth += 100 * WhoSave.Body_Part.Cost / MaxCost;
+        //CostBody.SetDimensions(costWidth, 10);
+        //costWidth += 100 * WhoSave.Legs_Part.Cost / MaxCost;
+        //CostLegs.SetDimensions(costWidth, 10);
+        //CostText.text = WhoSave.Value.ToString();
+        //HeadPts.text = WhoSave.Head_Part.Cost.ToString();
+        //ArmsPts.text = WhoSave.Arms_Part.Cost.ToString();
+        //BodyPts.text = WhoSave.Body_Part.Cost.ToString();
+        //LegsPts.text = WhoSave.Legs_Part.Cost.ToString();
+        //int costWidth = 100 * WhoSave.Body_Part.Health / 4;
+        //HealthFG.SetDimensions(costWidth, 10);
+        //costWidth = 100 * WhoSave.Legs_Part.Speed / 6;
+        //SpeedFG.SetDimensions(costWidth, 10);
+        //costWidth = 100 * WhoSave.Weapon.HitDam / 4;
+        //DamageFG.SetDimensions(costWidth, 10);
+        //costWidth = 100 * WhoSave.Weapon.Range / 6;
+        //RangeFG.SetDimensions(costWidth, 10);
+        AIDesc.text = WhoSave.Head_Part.Name + " AI";
+        WeaponDesc.text = WhoSave.Arms_Part.Name;
+        ArmorDesc.text = WhoSave.Body_Part.Name;
+        LegsDesc.text = WhoSave.Legs_Part.Name;
+
+        //string dmg = "DAM: ";
+        //for (int n = 0; n < WhoSave.Weapon.HitDam; n++)
+        //    dmg += "*";
+        //DamageDesc.text = dmg;
+        int num = 0;
+        foreach (UI2DSprite sp in DamageIcons)
+        {
+            if (num < WhoSave.Weapon.HitDam)
+                sp.color = Color.white;
+            else
+                sp.color = GrayedOut;
+            num++;
+        }
+
+        num = 0;
+        foreach (UI2DSprite sp in RangeIcons)
+        {
+            if (num < WhoSave.Weapon.Range)
+                sp.color = Color.white;
+            else
+                sp.color = GrayedOut;
+            num += 2;
+        }
+
+        num = 1;
+        foreach (UI2DSprite sp in HealthIcons)
+        {
+            if (num < WhoSave.Body_Part.Health)
+                sp.color = Color.white;
+            else
+                sp.color = GrayedOut;
+            num++;
+        }
+
+        num = 1;
+        foreach (UI2DSprite sp in SpeedIcons)
+        {
+            if (num < WhoSave.Legs_Part.Speed)
+                sp.color = Color.white;
+            else
+                sp.color = GrayedOut;
+            num++;
+        }
+
+        //string rng = "RNG: ";
+        //for (int n = 0; n < WhoSave.Weapon.Range; n++)
+        //    rng += "*";
+        //RangeDesc.text = rng;
+
+        //string hp = "HP: ";
+        //for (int n = 0; n < WhoSave.Body_Part.Health; n++)
+        //    hp += "*";
+        //HealthDesc.text = hp;
+
+        //string spd = "SPD: ";
+        //for (int n = 0; n < WhoSave.Legs_Part.Speed; n++)
+        //    spd += "*";
+        //SpeedDesc.text = spd;
+        
         string spDesc = "Special: ";
         bool comma = false;
         if (WhoSave.Head_Part.SpDescription != "")
@@ -239,7 +319,7 @@ public class CharacterEditorManager : OptionsListController
                 spDesc += ", ";
             spDesc += WhoSave.Legs_Part.SpDescription;
         }
-        SpecialDesc.text = spDesc;
+        //SpecialDesc.text = spDesc;
 
         if (Selected.Option == MenuOptions.Head)
         {
@@ -261,7 +341,7 @@ public class CharacterEditorManager : OptionsListController
             CurrentName.text = WhoSave.Legs_Part.Name;
             CurrentDesc.text = WhoSave.Legs_Part.Description;
         }
-        AIDesc.text = WhoSave.Head_Part.AIDesc;
+        //AIDesc.text = WhoSave.Head_Part.AIDesc;
         
         
         int TotalPts = Cub.Model.Library.PointCap;

@@ -153,7 +153,7 @@ namespace Cub.Model
 
                 //Cub.Model.Library.Stage_Unit = Cub.Tool.Xml.Deserialize(typeof(Cub.Class[][]), "Data/Stage_Unit.xml") as Cub.Class[][];
 
-                Adjectives = new List<string> { "Angry", "Happy", "Dirty", "Weird", "Fat", "Slim", "King", "Shin", "Super", "Ultra", "Little",
+                Adjectives = new List<string> { "Angry", "Happy", "Dirty", "Weird", "Chubby", "Slim", "King", "Shin", "Super", "Ultra", "Little",
                     "Big", "Dead", "Old", "Young", "Fast", "Unusual", "Anonymous", "Internet", "Blue", "Slow", "Cool", "Pleasant", "Sexy",
                     "Naughty", "Nice", "Hairy", "Clumsy", "Magic"};
                 Names = new List<string> { "Harry", "Josh", "Joe", "Adam", "Jake", "Ethan", "Bill", "Mike", "Alex", "Nick", "Sam", "Dan", "Ryan",
