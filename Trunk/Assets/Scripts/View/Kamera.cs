@@ -6,9 +6,9 @@ namespace Cub.View
 {
     public class Kamera : MonoBehaviour
     {
-        private static List<Vector3> _Path_Position { get; set; }
-        private static List<Vector3> _Path_Rotation { get; set; }
-        private static float _Path_Timespan { get; set; }
+        private static bool _Lock;
+
+        private static GameObject _Lock_Target;
 
         public static GameObject _Camera { get; set; }
 
@@ -19,39 +19,33 @@ namespace Cub.View
             //Kamera._Camera.transform.rotation = Quaternion.Euler(30, 225, 0);
         }
 
+        public void Update()
+        {
+            if (!_Lock)
+            {
+                Kamera._Camera.transform.LookAt(new Vector3(4F, -0.5F, 2.5F));
+            }
+            else
+            {
+                Kamera._Camera.transform.LookAt(_Lock_Target.transform);
+            }
+        }
+
         public static void Shake()
         {
-            iTween.ShakePosition(_Camera, new Vector3(0.2F, 0.2F, 0.2F), 0.2F);
+            iTween.ShakePosition(_Camera, new Vector3(0.3F, 0.3F, 0.3F), 0.2F);
         }
 
-        public static void Follow(GameObject GO)
+        public static void Unlock()
         {
-            _Camera.transform.parent = GO.transform;
-
-            _Camera.transform.localPosition = new Vector3(30, 100, 30);
-            _Camera.transform.localRotation = Quaternion.Euler(60, 225, 0);
+            _Lock = false;
+            iTween.MoveTo(_Camera, iTween.Hash("path", new Vector3[] { new Vector3(-2, 8, -6), new Vector3(10, 8, -6) }, "time", 180F, "easetype", iTween.EaseType.linear, "looptype", iTween.LoopType.pingPong));
         }
 
-        public static void Move(Vector3 _Position, Vector3 _Rotation, float _Timespan)
+        public static void Lock(GameObject _Target)
         {
-            iTween.MoveTo(_Camera, iTween.Hash("position", _Position, "time", _Timespan, "easetype", iTween.EaseType.linear));
-            iTween.RotateTo(_Camera, iTween.Hash("rotation", _Rotation, "time", _Timespan, "easetype", iTween.EaseType.linear));
-        }
-
-        public static void Walk()
-        {
-            iTween.MoveTo(_Camera, iTween.Hash("path", new Vector3[] { new Vector3(-6, 8, -6), new Vector3(14, 8, -6) }, "time", 180F, "easetype", iTween.EaseType.linear, "looktarget", new Vector3(5F, -0.5F, 3F), "looptype", iTween.LoopType.pingPong));
-        }
-
-        public static void Hoop(Vector3 _Target, float _Timespan)
-        {
-            iTween.LookTo(_Camera, _Target, _Timespan);
-            //iTween.MoveTo(_Camera, new Vector3(-6, 8, -6), _Timespan);
-        }
-
-        public static void Restore()
-        {
-            iTween.MoveTo(_Camera, iTween.Hash("position", new Vector3(-6, 8, -6), "time", 0.5F, "looktarget", new Vector3(5F, -0.5F, 3F)));
+            _Lock = true;
+            _Lock_Target = _Target;
         }
     }
 }

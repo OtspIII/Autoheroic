@@ -18,7 +18,7 @@ namespace Cub.View
             this.T = Target;
 
             Invoke("Drop", Cub.View.Event.Attack_Rocket.Timespan / 2);
-            Kamera.Move(this.transform.position + new Vector3(3, 10, 0), new Vector3(0, -90, 0), Cub.View.Event.Attack_Rocket.Timespan / 2);
+            Kamera.Lock(this.gameObject);
         }
 
         public void Drop()
@@ -31,7 +31,6 @@ namespace Cub.View
 
             Invoke("Splash", Cub.View.Event.Attack_Rocket.Timespan / 2);
             //Kamera.Move(T + new Vector3(0, 3, 0), new Vector3(90, 0, 0), Cub.View.Event.Attack_Rocket.Timespan / 2);
-            Kamera.Hoop(T, Cub.View.Event.Attack_Rocket.Timespan / 2);
         }
 
         public void Splash()
@@ -45,14 +44,7 @@ namespace Cub.View
             Instantiate(Library.Get_Explosion(), V + Vector3.right, Quaternion.identity);
 
             iTween.Stop(Cub.View.Kamera._Camera);
-            Kamera.Restore();
-
-            Invoke("Final", 0.5F);
-        }
-
-        public void Final()
-        {
-            Kamera.Walk();
+            Kamera.Unlock();
 
             Destroy(this.gameObject);
         }
