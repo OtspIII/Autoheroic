@@ -15,24 +15,9 @@
           <Y>3</Y>
         </Position>
         <ID>5552db55-dcaa-49cd-ba13-e85a153f5d60</ID>
-        <Kills>0</Kills>
-        <Deaths>5</Deaths>
-        <Matches>5</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Magic Adam</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Tread</Legs>
-        <Position>
-          <X>1</X>
-          <Y>2</Y>
-        </Position>
-        <ID>bdab0737-6944-4620-ac7b-f77c76346461</ID>
-        <Kills>4</Kills>
-        <Deaths>3</Deaths>
-        <Matches>5</Matches>
+        <Kills>2</Kills>
+        <Deaths>7</Deaths>
+        <Matches>7</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Pleasant Ethan</Name>
@@ -45,84 +30,9 @@
           <Y>4</Y>
         </Position>
         <ID>f80aeb13-ee12-463a-8cb5-f29f4ddf54d9</ID>
-        <Kills>4</Kills>
-        <Deaths>4</Deaths>
-        <Matches>5</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Young Adam</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>5</Y>
-        </Position>
-        <ID>0e7d7d1c-3093-42b2-9b40-6b649cce4f3d</ID>
-        <Kills>2</Kills>
-        <Deaths>4</Deaths>
-        <Matches>5</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>King Charles</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>5</Y>
-        </Position>
-        <ID>483bb3f2-adb2-4fce-9e9d-5ab83a5f5251</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Chubby Adam</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>1</Y>
-        </Position>
-        <ID>495163fc-b15e-495e-a7c8-4f5c2c97d15b</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>King Justin</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>0</Y>
-        </Position>
-        <ID>d557abed-0459-4434-9810-b5547ca56b28</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Slow Emily</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>2</X>
-          <Y>1</Y>
-        </Position>
-        <ID>5459563e-12a5-4ba9-9e47-cd41be365394</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
+        <Kills>5</Kills>
+        <Deaths>6</Deaths>
+        <Matches>7</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Cool Anna</Name>
@@ -135,24 +45,9 @@
           <Y>4</Y>
         </Position>
         <ID>0b6f530a-7799-4c95-9363-fd1d77403c02</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Nice Joe</Name>
-        <Head>Soldier</Head>
-        <Arms>Heal_Gun</Arms>
-        <Body>Medium</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>2</X>
-          <Y>5</Y>
-        </Position>
-        <ID>c04974af-60de-4276-b49d-948d04705da2</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
+        <Kills>4</Kills>
+        <Deaths>1</Deaths>
+        <Matches>2</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Weird Mary</Name>
@@ -166,117 +61,12 @@
         </Position>
         <ID>2a751e72-e79a-4680-81c7-c473f9e09725</ID>
         <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Cool Emily</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>2</Y>
-        </Position>
-        <ID>84fadef5-0240-419f-a364-c7dd1b677774</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Slow Lis</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>3</Y>
-        </Position>
-        <ID>d587a549-20d4-4579-be19-14e48fcbd6bf</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Little James</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>4</Y>
-        </Position>
-        <ID>73a1a057-c4a3-460f-9480-0969ef98bfe7</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Naughty Ava</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>3</Y>
-        </Position>
-        <ID>859fd78f-35ff-43b3-845c-5eb4ebdcb732</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Shin Justin</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>1</X>
-          <Y>0</Y>
-        </Position>
-        <ID>d126bec6-d6d3-42cc-9ce1-75e87c10c9f9</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Magic Lily</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Hover</Legs>
-        <Position>
-          <X>0</X>
-          <Y>0</Y>
-        </Position>
-        <ID>96ee2df0-a8a9-4e12-ad9f-13442ccc70b4</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
-      </Character_Save>
-      <Character_Save>
-        <Name>Nice Mary</Name>
-        <Head>Soldier</Head>
-        <Arms>Rifle</Arms>
-        <Body>Medium</Body>
-        <Legs>Humanoid</Legs>
-        <Position>
-          <X>0</X>
-          <Y>1</Y>
-        </Position>
-        <ID>894472e9-3990-4e57-9dc9-4a5854ed8cdb</ID>
-        <Kills>0</Kills>
-        <Deaths>0</Deaths>
-        <Matches>0</Matches>
+        <Deaths>2</Deaths>
+        <Matches>2</Matches>
       </Character_Save>
     </Chars>
-    <Wins>2</Wins>
-    <Losses>3</Losses>
+    <Wins>3</Wins>
+    <Losses>4</Losses>
     <Colour_Primary>
       <r>255</r>
       <g>0</g>
