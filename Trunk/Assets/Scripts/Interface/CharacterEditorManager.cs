@@ -26,7 +26,7 @@ public class CharacterEditorManager : OptionsListController
     Cub.Model.BPArms IArms;
     Cub.Model.BPLegs ILegs;
 
-    int MaxCost = 140;
+    //int MaxCost = 140;
 
     float HoriTimer;
 
@@ -68,6 +68,7 @@ public class CharacterEditorManager : OptionsListController
 
     public UILabel CurrentName;
     public UILabel CurrentDesc;
+    public UILabel CurrentCost;
     //public UILabel Cost;
     //public UILabel AI;
     //public UILabel Weapon;
@@ -323,23 +324,27 @@ public class CharacterEditorManager : OptionsListController
 
         if (Selected.Option == MenuOptions.Head)
         {
-            CurrentName.text = WhoSave.Head_Part.Name;
+            CurrentName.text = WhoSave.Head_Part.Name + " AI";
             CurrentDesc.text = WhoSave.Head_Part.Description;
+            CurrentCost.text = "Cost: " + WhoSave.Head_Part.Cost;
         }
         else if (Selected.Option == MenuOptions.Arms)
         {
             CurrentName.text = WhoSave.Arms_Part.Name;
             CurrentDesc.text = WhoSave.Arms_Part.Description;
+            CurrentCost.text = "Cost: " + WhoSave.Arms_Part.Cost;
         }
         else if (Selected.Option == MenuOptions.Body)
         {
             CurrentName.text = WhoSave.Body_Part.Name;
             CurrentDesc.text = WhoSave.Body_Part.Description;
+            CurrentCost.text = "Cost: " + WhoSave.Body_Part.Cost;
         }
         else if (Selected.Option == MenuOptions.Legs)
         {
             CurrentName.text = WhoSave.Legs_Part.Name;
             CurrentDesc.text = WhoSave.Legs_Part.Description;
+            CurrentCost.text = "Cost: " + WhoSave.Legs_Part.Cost;
         }
         //AIDesc.text = WhoSave.Head_Part.AIDesc;
         

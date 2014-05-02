@@ -80,7 +80,7 @@ namespace Cub.Model
                 Dictionary_Weapons.Add(Part_Arms.Axe, new Model.Weapon(1, 1, 2, 3, 5));
                 Dictionary_Weapons.Add(Part_Arms.Sniper_Rifle, new Model.Weapon(6, 3, 2, 1, 5));
                 Dictionary_Weapons.Add(Part_Arms.Pistol, new Model.Weapon(3, 3, 2, 1, 3));
-                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapons.RPG(4, 2, 3, 2, 1));
+                Dictionary_Weapons.Add(Part_Arms.RPG, new Model.Weapons.RPG(4, 2, 3, 1, 2));
                 Dictionary_Weapons.Add(Part_Arms.Heal_Gun, new Model.Weapons.Heal_Gun(3, 1));
 
                 Dictionary_Bodies = new Dictionary<Part_Body, Model.BPBody>();
@@ -98,11 +98,11 @@ namespace Cub.Model
                     Part_Body.Healer, new List<Special_Effects> { Cub.Special_Effects.Autoheal }, "Heal Every Turn"));
 
                 Dictionary_Legs = new Dictionary<Part_Legs, Model.BPLegs>();
-                Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.BPLegs("Humanoid",
+                Dictionary_Legs.Add(Part_Legs.Humanoid, new Model.BPLegs("Humanoid Legs",
                     "Humanoid legs. Like what you have, but metal.", 3, 25, Part_Legs.Humanoid));
                 Dictionary_Legs.Add(Part_Legs.Tread, new Model.BPLegs("Tank Treads",
                     "Tank tread legs that, while fashionable, lack in speed.", 2, 15, Part_Legs.Tread));
-                Dictionary_Legs.Add(Part_Legs.Hover, new Model.BPLegs("Hover",
+                Dictionary_Legs.Add(Part_Legs.Hover, new Model.BPLegs("Hover Legs",
                     "A hover-engine that allows for rapid movement.", 4, 35, Part_Legs.Hover));
 
                 Dictionary_Condition = new Dictionary<Cub.Condition, Cub.Model.Condition.Base>();

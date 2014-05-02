@@ -23,7 +23,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         Who = who;
         //FG.color = t.Colour_Primary;
-        FG.SetDimensions(45, 10);
+        FG.SetDimensions(60, 10);
         Name.text = who.Stat.Name;
     }
 }

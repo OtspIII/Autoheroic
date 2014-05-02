@@ -131,10 +131,10 @@ public class GameplayScreenController : MonoBehaviour
             TeamTwo.Colour_Secondary = p;
         }
 
-        //TeamOne.Colour_Primary = Color.red;
-        //TeamOne.Colour_Secondary = Color.yellow;
-        //TeamTwo.Colour_Primary = Color.green;
-        //TeamTwo.Colour_Secondary = Color.blue;
+        TeamOne.Colour_Primary = Color.red;
+        TeamOne.Colour_Secondary = Color.yellow;
+        TeamTwo.Colour_Primary = Color.green;
+        TeamTwo.Colour_Secondary = Color.blue;
         //TeamOne.MakeUnique();
         //TeamTwo.MakeUnique();
         foreach (Transform t in T1Grid.transform)
@@ -149,8 +149,8 @@ public class GameplayScreenController : MonoBehaviour
             Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
             PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
                 PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
-            phc.Setup(ch,TeamOne);
-            PHCs.Add(ch.Stat.ID,phc);
+            phc.Setup(ch, TeamOne);
+            PHCs.Add(ch.Stat.ID, phc);
             phc.gameObject.transform.parent = T1Grid.gameObject.transform;
             phc.transform.localScale = new Vector3(1, 1, 1);
         }
@@ -168,7 +168,7 @@ public class GameplayScreenController : MonoBehaviour
 
             PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
                 PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
-            phc.Setup(ch,TeamTwo);
+            phc.Setup(ch, TeamTwo);
             PHCs.Add(ch.Stat.ID, phc);
             phc.gameObject.transform.parent = T2Grid.gameObject.transform;
             phc.transform.localScale = new Vector3(1, 1, 1);

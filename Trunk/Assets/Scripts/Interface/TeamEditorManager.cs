@@ -46,16 +46,16 @@ public class TeamEditorManager : MonoBehaviour
     public Texture Red;
     public UILabel TeamName;
     public UILabel OwnerName;
-    public UILabel WinNum;
-    public UILabel LossNum;
-    public UILabel WinPerc;
-    public UITexture WRBack;
-    public UITexture WRFront;
+    //public UILabel WinNum;
+    //public UILabel LossNum;
+    //public UILabel WinPerc;
+    //public UITexture WRBack;
+    //public UITexture WRFront;
     public UILabel PtsLeft;
     public UITexture PtsBack;
     public UITexture PtsFront;
-    public UISprite PrimaryColor;
-    public UISprite SecondaryColor;
+    //public UISprite PrimaryColor;
+    //public UISprite SecondaryColor;
 
 
     // Use this for initialization
@@ -185,6 +185,7 @@ public class TeamEditorManager : MonoBehaviour
                 {
                     MyPicker.gameObject.SetActive(true);
                     MyPicker.Clicking = true;
+                    MyPicker.MyInstructions.SetActive(true);
                     Clear();
                     Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
                 }
@@ -302,9 +303,17 @@ public class TeamEditorManager : MonoBehaviour
         Team = team;
         SquareMarker.SetActive(true);
         if (PlayerOne)
+        {
             SelectRange = new Rect(0, 0, GM.PlacementSize - 1, GM.yMapSize);
+            Team.Colour_Primary = Color.red;
+            Team.Colour_Secondary = Color.yellow;
+        }
         else
+        {
             SelectRange = new Rect(GM.xMapSize - GM.PlacementSize + 1, 0, GM.PlacementSize - 1, GM.yMapSize);
+            Team.Colour_Primary = Color.green;
+            Team.Colour_Secondary = Color.blue;
+        }
         SelectedSquare = new Cub.Position2((int)SelectRange.x, (int)SelectRange.y);
         //SquareMarkers = new List<GameObject>();
         MoveSelector();
@@ -327,15 +336,15 @@ public class TeamEditorManager : MonoBehaviour
     {
         TeamName.text = Team.Name;
         OwnerName.text = Team.Owner_Name;
-        float wins = Team.Wins;
-        float losses = Team.Losses;
-        WinNum.text = wins.ToString();
-        LossNum.text = losses.ToString();
-        float perc = 100;
-        if (wins + losses != 0)
-            perc = 100.0f * wins / (losses + wins);
-        WinPerc.text = Mathf.RoundToInt(perc).ToString() + "%";
-        WRFront.SetDimensions(Mathf.RoundToInt(perc * 150 / 100), 10);
+        //float wins = Team.Wins;
+        //float losses = Team.Losses;
+        //WinNum.text = wins.ToString();
+        //LossNum.text = losses.ToString();
+        //float perc = 100;
+        //if (wins + losses != 0)
+        //    perc = 100.0f * wins / (losses + wins);
+        //WinPerc.text = Mathf.RoundToInt(perc).ToString() + "%";
+        //WRFront.SetDimensions(Mathf.RoundToInt(perc * 150 / 100), 10);
         int TotalPts = Cub.Model.Library.PointCap;
         int Spent = Team.TotalValue;
         PtsLeft.text = (TotalPts - Spent).ToString() + "pts";
@@ -352,8 +361,8 @@ public class TeamEditorManager : MonoBehaviour
             ReadyButton.color = Color.white;
         }
         Ready = false;
-        PrimaryColor.color = new Color(Team.Colour_Primary.r, Team.Colour_Primary.g, Team.Colour_Primary.b);
-        SecondaryColor.color = new Color(Team.Colour_Secondary.r, Team.Colour_Secondary.g, Team.Colour_Secondary.b);
+        //PrimaryColor.color = new Color(Team.Colour_Primary.r, Team.Colour_Primary.g, Team.Colour_Primary.b);
+        //SecondaryColor.color = new Color(Team.Colour_Secondary.r, Team.Colour_Secondary.g, Team.Colour_Secondary.b);
     }
 
     Cub.View.Character AddCharacter(Cub.Model.Character c)

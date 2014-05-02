@@ -239,12 +239,14 @@ public class MasterGameController : MonoBehaviour
             LeftEditor.Setup(team);
             LeftEditor.gameObject.SetActive(true);
             LeftEditor.CurrentlyActive = true;
+            LeftPicker.MyInstructions.SetActive(false);
         }
         else
         {
             RightEditor.Setup(team);
             RightEditor.gameObject.SetActive(true);
             RightEditor.CurrentlyActive = true;
+            RightPicker.MyInstructions.SetActive(false);
         }
 
 
@@ -295,9 +297,9 @@ public class MasterGameController : MonoBehaviour
 
     public void ClearAll()
     {
-        if (LeftPicker.CurrentlyActive)
+        if (LeftPicker.gameObject.activeSelf)
             LeftPicker.Clear();
-        if (RightPicker.CurrentlyActive)
+        if (RightPicker.gameObject.activeSelf)
             RightPicker.Clear();
         if (LeftEditor.gameObject.activeSelf)
             LeftEditor.Clear();
