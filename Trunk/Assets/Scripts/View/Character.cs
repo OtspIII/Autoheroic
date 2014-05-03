@@ -217,6 +217,7 @@ namespace Cub.View
                     {
                         GO_Legs_Left.GetComponent<Animator>().SetTrigger("Hover");
                         GO_Legs_Right.GetComponent<Animator>().SetTrigger("Hover");
+                        this.gameObject.transform.FindChild("PS_Hover").gameObject.SetActive(true);
                         break;
                     }
             }
