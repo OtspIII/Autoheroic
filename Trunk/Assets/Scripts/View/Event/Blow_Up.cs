@@ -60,10 +60,10 @@ namespace Cub.View.Event
             GameObject.Destroy(C.gameObject, Timespan);
 
             Cub.View.Runtime.GSCStatic.SetHealth(C.Stat.ID, 0, 4);
-            bool teamOne = false;
-            if (C.Stat.Team != Cub.View.Runtime.GSCStatic.TeamOne)
-                teamOne = true;
-            Cub.View.Runtime.GSCStatic.SetScore(teamOne, C.Stat.Value);
+            //bool teamOne = false;
+            //if (C.Stat.Team != Cub.View.Runtime.GSCStatic.TeamOne)
+            //    teamOne = true;
+            //Cub.View.Runtime.GSCStatic.SetScore(teamOne, C.Stat.Value);
 
             return Timespan;
         }

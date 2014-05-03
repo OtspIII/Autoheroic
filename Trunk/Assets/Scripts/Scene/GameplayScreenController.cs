@@ -18,8 +18,10 @@ public class GameplayScreenController : MonoBehaviour
     public bool CurrentlyActive = false;
 
     public UITexture LeftScore;
+    public UILabel LeftScoreNum;
     int T1Score;
     public UITexture RightScore;
+    public UILabel RightScoreNum;
     int T2Score;
     public GameObject PHCType;
     public UIGrid T1Grid;
@@ -149,7 +151,7 @@ public class GameplayScreenController : MonoBehaviour
             Cub.View.Character ch = Cub.View.Runtime.Add_Character(c);
             PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
                 PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
-            phc.Setup(ch, TeamOne);
+            phc.Setup(ch, TeamOne, true, this);
             PHCs.Add(ch.Stat.ID, phc);
             phc.gameObject.transform.parent = T1Grid.gameObject.transform;
             phc.transform.localScale = new Vector3(1, 1, 1);
@@ -168,7 +170,7 @@ public class GameplayScreenController : MonoBehaviour
 
             PlayerHealthController phc = (PlayerHealthController)((GameObject)Instantiate(
                 PHCType, Vector3.zero, Quaternion.identity)).GetComponent("PlayerHealthController");
-            phc.Setup(ch, TeamTwo);
+            phc.Setup(ch, TeamTwo,false,this);
             PHCs.Add(ch.Stat.ID, phc);
             phc.gameObject.transform.parent = T2Grid.gameObject.transform;
             phc.transform.localScale = new Vector3(1, 1, 1);
@@ -183,28 +185,25 @@ public class GameplayScreenController : MonoBehaviour
     public void SetHealth(System.Guid id, int health, int maxHealth)
     {
         PlayerHealthController p = PHCs[id];
-        int width = 45 * health / maxHealth;
-        if (width <= 0)
-        {
-            width = 45;
-            p.FG.color = Color.gray;
-        }
-        p.FG.SetDimensions(width, 10);
+        p.SetHealth(health, maxHealth);
     }
 
     public void SetScore(bool teamOne, int bonus)
     {
         UITexture text;
+        UILabel lab;
         int score;
         if (teamOne)
         {
             text = LeftScore;
+            lab = LeftScoreNum;
             T1Score += bonus;
             score = T1Score;
         }
         else
         {
             text = RightScore;
+            lab = RightScoreNum;
             T2Score += bonus;
             score = T2Score;
         }
@@ -212,6 +211,7 @@ public class GameplayScreenController : MonoBehaviour
             text.gameObject.SetActive(true);
         int ht = 150 * score / 400;
         text.SetDimensions(5, ht);
+        lab.text = score.ToString();
     }
 
     public void EndGame()
