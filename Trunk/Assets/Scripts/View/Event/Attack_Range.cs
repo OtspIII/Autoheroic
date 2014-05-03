@@ -70,7 +70,7 @@ namespace Cub.View.Event
                     }
             }
 
-            Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
+            //Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
