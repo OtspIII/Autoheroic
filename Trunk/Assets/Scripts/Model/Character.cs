@@ -156,7 +156,7 @@ namespace Cub.Model
             {
                 //hitLevel tells you if this was from a normal attack or a crit. Maybe crits make an animation or something.
                 events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",
-                    new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP }));
+                    new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP, hitLevel }));
             }
             return false;
         }

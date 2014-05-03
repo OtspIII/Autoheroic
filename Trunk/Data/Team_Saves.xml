@@ -15,9 +15,9 @@
           <Y>3</Y>
         </Position>
         <ID>5552db55-dcaa-49cd-ba13-e85a153f5d60</ID>
-        <Kills>5</Kills>
-        <Deaths>10</Deaths>
-        <Matches>12</Matches>
+        <Kills>7</Kills>
+        <Deaths>11</Deaths>
+        <Matches>14</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Pleasant Ethan</Name>
@@ -30,9 +30,9 @@
           <Y>4</Y>
         </Position>
         <ID>f80aeb13-ee12-463a-8cb5-f29f4ddf54d9</ID>
-        <Kills>7</Kills>
-        <Deaths>9</Deaths>
-        <Matches>12</Matches>
+        <Kills>8</Kills>
+        <Deaths>11</Deaths>
+        <Matches>14</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Cool Anna</Name>
@@ -45,9 +45,9 @@
           <Y>4</Y>
         </Position>
         <ID>0b6f530a-7799-4c95-9363-fd1d77403c02</ID>
-        <Kills>10</Kills>
-        <Deaths>4</Deaths>
-        <Matches>7</Matches>
+        <Kills>11</Kills>
+        <Deaths>6</Deaths>
+        <Matches>9</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Weird Mary</Name>
@@ -60,13 +60,13 @@
           <Y>2</Y>
         </Position>
         <ID>2a751e72-e79a-4680-81c7-c473f9e09725</ID>
-        <Kills>3</Kills>
-        <Deaths>7</Deaths>
-        <Matches>7</Matches>
+        <Kills>5</Kills>
+        <Deaths>8</Deaths>
+        <Matches>9</Matches>
       </Character_Save>
     </Chars>
-    <Wins>6</Wins>
-    <Losses>6</Losses>
+    <Wins>7</Wins>
+    <Losses>7</Losses>
     <Colour_Primary>
       <r>255</r>
       <g>0</g>

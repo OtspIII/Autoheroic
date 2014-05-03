@@ -12,6 +12,7 @@ namespace Cub.View.Event
         public override float Process(List<object> _Data, string Desc)
         {
             Cub.View.Character C = Runtime.Get_Character((Guid)_Data[0]);
+            Attack_Result AR = (Attack_Result)_Data[4];
             int Amount = (int)_Data[1];
 
             C.transform.FindChild("Head").GetComponent<Animator>().SetTrigger("Be_Attacked");
@@ -33,7 +34,26 @@ namespace Cub.View.Event
             Cub.View.Damage.Create(Amount, C.gameObject);
 
             //Cub.View.Kamera.Shake();
-            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
+            switch (AR)
+            {
+                case Attack_Result.Hit:
+                    {
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
+                        break;
+                    }
+                case Attack_Result.Miss:
+                    {
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt)); //Here!
+                        break;
+                    }
+                case Attack_Result.Crit:
+                    {
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
+                        break;
+                    }
+            }
+
+            
 
             int hp = (int)_Data[2];
             int mhp = (int)_Data[3];
