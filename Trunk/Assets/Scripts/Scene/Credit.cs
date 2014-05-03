@@ -43,6 +43,23 @@ namespace Cub.Scene
 
             Cub.View.Runtime.Get_Character(new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)).gameObject.transform.Rotate(new Vector3(0, 20, 0));
             Cub.View.Runtime.Get_Character(new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1)).gameObject.transform.Rotate(new Vector3(0, -20, 0));
+
+            Sha();
+        }
+
+        public void Sha()
+        {
+            foreach (Cub.View.Cube CO in GameObject.Find("Name_Misha").GetComponentsInChildren<Cub.View.Cube>())
+            {
+                iTween.ShakeScale(CO.gameObject, new Vector3(0.8F, 0.8F, 0.8F), 1.0F);
+            }
+
+            foreach (Cub.View.Cube CO in GameObject.Find("Name_CJ").GetComponentsInChildren<Cub.View.Cube>())
+            {
+                iTween.ShakeScale(CO.gameObject, new Vector3(0.8F, 0.8F, 0.8F), 1.0F);
+            }
+
+            Invoke("Sha", 1.5F);
         }
     }
 }
