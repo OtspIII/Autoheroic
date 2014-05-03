@@ -72,6 +72,22 @@ namespace Cub.Interface
                     GM.ClearAll();
                 }
             }
+            else if (GetInput("Move") > 0.8f)
+            {
+                if (!Clicking)
+                {
+                    Clicking = true;
+                    AddTeam();
+                }
+            }
+            else if (GetInput("Delete") > 0.8f)
+            {
+                if (!Clicking)
+                {
+                    Clicking = true;
+                    DeleteTeam();
+                }
+            }
             else
                 Clicking = false;
         }
@@ -89,7 +105,7 @@ namespace Cub.Interface
 
         void MarkTeamButtons()
         {
-            int n = -1 + TeamsOffset;
+            int n = 0 + TeamsOffset;
             foreach (MenuChoiceController choice in Options)
             {
                 TeamButtonController tbc = (TeamButtonController)choice;
@@ -105,7 +121,7 @@ namespace Cub.Interface
                 UpMarker.SetActive(true);
             else
                 UpMarker.SetActive(false);
-            if (TeamsOffset + Options.Count - 2 < Mathf.Max(3, GM.Teams.Count - 1))
+            if (TeamsOffset + Options.Count - 1 < Mathf.Max(3, GM.Teams.Count - 1))
                 DownMarker.SetActive(true);
             else
                 DownMarker.SetActive(false);
@@ -115,14 +131,14 @@ namespace Cub.Interface
         {
             int current = Options.IndexOf(Selected);
             current += n;
-            if (TeamsOffset == 0 && current < Options.Count && current > GM.Teams.Count)
+            if (TeamsOffset == 0 && current < Options.Count && current >= GM.Teams.Count)
             {
-                current = GM.Teams.Count;
+                current = GM.Teams.Count - 1;
             }
             else if (current >= Options.Count)
             {
                 TeamsOffset++;
-                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(3, GM.Teams.Count))
+                if (TeamsOffset + Options.Count - 1 >= Mathf.Max(3, GM.Teams.Count))
                 {
                     TeamsOffset--;
                 }
@@ -155,15 +171,31 @@ namespace Cub.Interface
             }
             else
             {
-                Model.TeamSave t = new Model.TeamSave(Cub.Model.Library.TeamName(), "");
-                GM.Teams.Add(t);
-                MarkTeamButtons();
-                int slide = GM.Teams.IndexOf(t) - GM.Teams.IndexOf(SelectedTeam);
-                for (int n = slide; n > 0;n--)
-                    ChangeSelection(1);
-                GM.EditTeam(t, this);
-                MyInstructions.SetActive(false);
+                AddTeam();
             }
+        }
+
+        public void AddTeam()
+        {
+            Model.TeamSave t = new Model.TeamSave(Cub.Model.Library.TeamName(), "");
+            GM.Teams.Add(t);
+            MarkTeamButtons();
+            int slide = GM.Teams.IndexOf(t) - GM.Teams.IndexOf(SelectedTeam);
+            for (int n = slide; n > 0; n--)
+                ChangeSelection(1);
+            GM.EditTeam(t, this);
+            MyInstructions.SetActive(false);
+        }
+
+        public void DeleteTeam()
+        {
+            GM.Teams.Remove(SelectedTeam);
+            
+            if (TeamsOffset > 0)
+                TeamsOffset--;
+            else
+                ChangeSelection(-1);
+            MarkTeamButtons();
         }
 
         protected override void OnSelectChange()
