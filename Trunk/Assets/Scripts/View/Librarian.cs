@@ -4,7 +4,7 @@ using System.Collections;
 public class Librarian : MonoBehaviour
 {
     public Material Material;
-    public PhysicMaterial PhysicMaterial;
+    public PhysicMaterial Physic_Material;
 
     public GameObject Prefab_Cube;
     public GameObject Prefab_Character;
@@ -18,17 +18,25 @@ public class Librarian : MonoBehaviour
     public GameObject Prefab_Terrain_Desert;
     public GameObject Prefab_Terrain_Grass;
 
+    public AudioClip Sound_Blade;
+    public AudioClip Sound_Button_Cancel;
+    public AudioClip Sound_Button_Confirm;
+    public AudioClip Sound_Button_Start;
     public AudioClip Sound_Die;
+    public AudioClip Sound_Drip;
     public AudioClip Sound_Explosion;
-    public AudioClip Sound_Attack_Melee;
-    public AudioClip Sound_Attack_Range;
-    public AudioClip Sound_Attack_Snipe;
-    public AudioClip Sound_Attack_Heal;
-    public AudioClip Sound_Attack_Rocket;
+    public AudioClip Sound_Gun_Crit;
+    public AudioClip Sound_Gun_Hit;
+    public AudioClip Sound_Gun_Miss;
+    public AudioClip Sound_Heal;
     public AudioClip Sound_Move_Humanoid;
     public AudioClip Sound_Move_Tread;
-    public AudioClip Sound_Move_Hover;    
-    public AudioClip Sound_Hurt;
+    public AudioClip Sound_Move_Hover;
+    public AudioClip Sound_Rocket;
+    public AudioClip Sound_Scream_Crit;
+    public AudioClip Sound_Scream_Hit;
+    public AudioClip Sound_Scream_Miss;
+    public AudioClip Sound_Snipe;
 
     // Use this for initialization
     /*

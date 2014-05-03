@@ -38,22 +38,22 @@ namespace Cub.View.Event
             {
                 case Attack_Result.Hit:
                     {
-                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Scream_Hit));
+                        Debug.Log("FDSA");
                         break;
                     }
                 case Attack_Result.Miss:
                     {
-                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt)); //Here!
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Scream_Crit));
+                        Debug.Log("FDSA");
                         break;
                     }
                 case Attack_Result.Crit:
                     {
-                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Hurt));
+                        C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Scream_Miss));
                         break;
                     }
-            }
-
-            
+            }            
 
             int hp = (int)_Data[2];
             int mhp = (int)_Data[3];

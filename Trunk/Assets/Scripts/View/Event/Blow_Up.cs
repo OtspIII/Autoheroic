@@ -49,7 +49,7 @@ namespace Cub.View.Event
                 CO.Fall();
             }
 
-            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Die));
+            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Explosion));
 
             Cub.View.Indicator.Cross(C.Stat.Position);
 
@@ -60,10 +60,10 @@ namespace Cub.View.Event
             GameObject.Destroy(C.gameObject, Timespan);
 
             Cub.View.Runtime.GSCStatic.SetHealth(C.Stat.ID, 0, 4);
-            //bool teamOne = false;
-            //if (C.Stat.Team != Cub.View.Runtime.GSCStatic.TeamOne)
-            //    teamOne = true;
-            //Cub.View.Runtime.GSCStatic.SetScore(teamOne, C.Stat.Value);
+            bool teamOne = false;
+            if (C.Stat.Team != Cub.View.Runtime.GSCStatic.TeamOne)
+                teamOne = true;
+            Cub.View.Runtime.GSCStatic.SetScore(teamOne, C.Stat.Value);
 
             return Timespan;
         }

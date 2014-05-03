@@ -6,7 +6,7 @@ namespace Cub.View.Event
 {
     public class Attack_Range : Base
     {
-        private const float Timespan = 0.1F;
+        private const float Timespan = 0.5F;
 
         public override float Process(List<object> _Data, string Desc)
         {
@@ -39,6 +39,7 @@ namespace Cub.View.Event
                         B.GetComponent<TrailRenderer>().material = M;
                         iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
                         GameObject.Destroy(B, Timespan + 0.5F);
+                        C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Gun_Hit));
                         break;
                     }
                 case Attack_Result.Crit:
@@ -48,6 +49,7 @@ namespace Cub.View.Event
                         B.GetComponent<TrailRenderer>().material = M;
                         iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
                         GameObject.Destroy(B, Timespan + 0.5F);
+                        C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Gun_Crit));
                         break;
                     }
                 case Attack_Result.Miss:
@@ -62,6 +64,8 @@ namespace Cub.View.Event
                         B.rigidbody.useGravity = true;
                         B.rigidbody.AddRelativeForce(new Vector3(0, 0, 5F), ForceMode.Impulse);
 
+                        C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Gun_Miss));
+
                         GameObject.Destroy(B, Timespan + 1.5F);
 
                         time = 1.5f;
@@ -73,8 +77,6 @@ namespace Cub.View.Event
             //Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
-
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Range));
 
             return time;
         }
