@@ -177,16 +177,24 @@ namespace Cub
     public enum Sound
     {
         Die,
-        Attack_Range,
-        Attack_Rocket,
-        Attack_Snipe,
-        Attack_Heal,
-        Attack_Melee,
+        Gun_Hit,
+        Gun_Crit,
+        Gun_Miss,
+        Rocket,
+        Snipe,
+        Heal,
+        Blade,
         Move_Humanoid,
         Move_Tread,
         Move_Hover,
         Explosion,
-        Hurt
+        Scream_Hit,
+        Scream_Crit,
+        Scream_Miss,
+        Drip,
+        Button_Confirm,
+        Button_Cancel,
+        Button_Start
     }
 
     public struct Position2

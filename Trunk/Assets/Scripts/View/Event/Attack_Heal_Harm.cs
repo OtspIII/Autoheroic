@@ -33,7 +33,7 @@ namespace Cub.View.Event
             }
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan + 0.5F);
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Heal));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Heal));
 
             return Timespan + Cub.View.Healer.Timespan;
         }

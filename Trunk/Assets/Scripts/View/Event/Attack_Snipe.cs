@@ -32,7 +32,7 @@ namespace Cub.View.Event
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Snipe));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Snipe));
 
             Cub.View.Indicator.Generate(C0.Stat.Position, C1.Stat.Position);
 

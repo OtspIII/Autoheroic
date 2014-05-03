@@ -23,7 +23,7 @@ namespace Cub.View.Event
 
             Cub.View.NarratorController.DisplayText(Desc, 2.0f);
 
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Rocket));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Rocket));
 
             Cub.View.Indicator.Cross(new Position2((int)impact.x, (int)impact.y));
 

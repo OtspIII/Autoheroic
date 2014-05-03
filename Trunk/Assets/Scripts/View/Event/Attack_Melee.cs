@@ -26,7 +26,7 @@ namespace Cub.View.Event
 
             Cub.View.NarratorController.DisplayText(Desc, Timespan);
 
-            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Attack_Melee));
+            C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Blade));
 
             return Timespan - 1.5F;
         }

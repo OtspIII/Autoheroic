@@ -49,7 +49,7 @@ namespace Cub.View.Event
                 CO.Fall();
             }
 
-            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Die));
+            C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Explosion));
 
             Cub.View.Indicator.Cross(C.Stat.Position);
 

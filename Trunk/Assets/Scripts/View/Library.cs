@@ -150,17 +150,25 @@ namespace Cub.View
                 Dictionary_Damage.Add(9, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_9.xml") as Cubon);
 
                 Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
-                Dictionary_Sound.Add(Sound.Attack_Melee, Resources.Load<AudioClip>("Sounds/Attack_Melee"));
-                Dictionary_Sound.Add(Sound.Attack_Range, Resources.Load<AudioClip>("Sounds/Attack_Range"));
-                Dictionary_Sound.Add(Sound.Attack_Snipe, Resources.Load<AudioClip>("Sounds/Attack_Snipe"));
-                Dictionary_Sound.Add(Sound.Attack_Heal, Resources.Load<AudioClip>("Sounds/Attack_Heal"));
-                Dictionary_Sound.Add(Sound.Attack_Rocket, Resources.Load<AudioClip>("Sounds/Attack_Rocket"));
-                Dictionary_Sound.Add(Sound.Move_Hover, Resources.Load<AudioClip>("Sounds/Move_Hover"));
-                Dictionary_Sound.Add(Sound.Move_Tread, Resources.Load<AudioClip>("Sounds/Move_Tread"));
-                Dictionary_Sound.Add(Sound.Move_Humanoid, Resources.Load<AudioClip>("Sounds/Move_Humanoid"));
+                Dictionary_Sound.Add(Sound.Blade, Resources.Load<AudioClip>("Sounds/Blade"));
+                Dictionary_Sound.Add(Sound.Button_Cancel, Resources.Load<AudioClip>("Sounds/Button_Cancel"));
+                Dictionary_Sound.Add(Sound.Button_Confirm, Resources.Load<AudioClip>("Sounds/Button_Confirm"));
+                Dictionary_Sound.Add(Sound.Button_Start, Resources.Load<AudioClip>("Sounds/Button_Start"));
                 Dictionary_Sound.Add(Sound.Die, Resources.Load<AudioClip>("Sounds/Die"));
-                Dictionary_Sound.Add(Sound.Hurt, Resources.Load<AudioClip>("Sounds/Hurt"));
+                Dictionary_Sound.Add(Sound.Drip, Resources.Load<AudioClip>("Sounds/Drip"));
                 Dictionary_Sound.Add(Sound.Explosion, Resources.Load<AudioClip>("Sounds/Explosion"));
+                Dictionary_Sound.Add(Sound.Gun_Crit, Resources.Load<AudioClip>("Sounds/Gun_Crit"));
+                Dictionary_Sound.Add(Sound.Gun_Hit, Resources.Load<AudioClip>("Sounds/Gun_Hit"));
+                Dictionary_Sound.Add(Sound.Gun_Miss, Resources.Load<AudioClip>("Sounds/Gun_Miss"));
+                Dictionary_Sound.Add(Sound.Heal, Resources.Load<AudioClip>("Sounds/Heal"));
+                Dictionary_Sound.Add(Sound.Move_Hover, Resources.Load<AudioClip>("Sounds/Move_Hover"));
+                Dictionary_Sound.Add(Sound.Move_Humanoid, Resources.Load<AudioClip>("Sounds/Move_Humanoid"));
+                Dictionary_Sound.Add(Sound.Move_Tread, Resources.Load<AudioClip>("Sounds/Move_Tread"));
+                Dictionary_Sound.Add(Sound.Rocket, Resources.Load<AudioClip>("Sounds/Rocket"));
+                Dictionary_Sound.Add(Sound.Scream_Crit, Resources.Load<AudioClip>("Sounds/Scream_Crit"));
+                Dictionary_Sound.Add(Sound.Scream_Hit, Resources.Load<AudioClip>("Sounds/Scream_Hit"));
+                Dictionary_Sound.Add(Sound.Scream_Miss, Resources.Load<AudioClip>("Sounds/Scream_Miss"));
+                Dictionary_Sound.Add(Sound.Snipe, Resources.Load<AudioClip>("Sounds/Snipe"));
 
                 Dictionary_Terrain = new Dictionary<Terrain, GameObject>();
                 Dictionary_Terrain.Add(Cub.Terrain.Desert, Resources.Load<GameObject>("Prefabs/Terrains/Desert"));
