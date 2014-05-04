@@ -61,6 +61,7 @@ namespace Cub.Interface
                 {
                     Clicking = true;
                     Click();
+                    //GM.PlaySound(MenuSound.Click);
                 }
             }
             else if (GetInput("Escape") > 0.8f)

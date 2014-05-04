@@ -41,6 +41,7 @@ public class CharacterEditorManager : OptionsListController
     //public UITexture CostBody;
     //public UITexture CostLegs;
     public UILabel CostText;
+    public UILabel RemainingPointsText;
     //public UILabel HeadPts;
     //public UILabel ArmsPts;
     //public UILabel BodyPts;
@@ -59,10 +60,16 @@ public class CharacterEditorManager : OptionsListController
     public List<UI2DSprite> DamageIcons;
     public UILabel RangeDesc;
     public List<UI2DSprite> RangeIcons;
+    public UILabel CritDesc;
+    public List<UI2DSprite> CritIcons;
     public UILabel HealthDesc;
     public List<UI2DSprite> HealthIcons;
     public UILabel SpeedDesc;
     public List<UI2DSprite> SpeedIcons;
+    public UILabel HeadSpecial;
+    public UILabel WeaponSpecial;
+    public UILabel BodySpecial;
+    public UILabel LegsSpecial;
 
     public UILabel PtsLeft;
 
@@ -99,8 +106,25 @@ public class CharacterEditorManager : OptionsListController
         }
     }
 
-    protected override void MoreUpdate()
+    void Update()
     {
+        if (!CurrentlyActive)
+            return;
+        if (Timer > 0)
+            Timer -= Time.deltaTime;
+
+        if (GetInput("Vertical") > 0.1f && Timer <= 0)
+        {
+            ChangeSelection(-1);
+            Timer = SelectTimer;
+        }
+        else if (GetInput("Vertical") < -0.1f && Timer <= 0)
+        {
+            ChangeSelection(1);
+            Timer = SelectTimer;
+        }
+        else if (Timer > 0 && Mathf.Abs(GetInput("Vertical")) < 0.1f)
+            Timer = 0;
         if (HoriTimer > 0)
             HoriTimer -= Time.deltaTime;
 
@@ -116,24 +140,45 @@ public class CharacterEditorManager : OptionsListController
         }
         else if (HoriTimer > 0 && Mathf.Abs(GetInput("Horizontal")) < 0.1f)
             HoriTimer = 0;
-
-        if (GetInput("Escape") > 0.8f)
-        {
-            MyTEditor.gameObject.SetActive(true);
-            MyTEditor.TurnOn();
-            Clear();
-            Who.Initialize_Part();
-        }
-        else if (Mathf.Abs(GetInput("Namer")) > 0.5f)
+        if (GetInput("Click") > 0.5f)
         {
             if (!Clicking)
             {
                 Clicking = true;
-                MyTextEditor.gameObject.SetActive(true);
-                MyTextEditor.SetupCharacter(this, WhoSave);
-                gameObject.SetActive(false);
+                Click();
             }
         }
+        else if (GetInput("Escape") > 0.8f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                MyTEditor.gameObject.SetActive(true);
+                MyTEditor.TurnOn();
+                Clear();
+                Who.Initialize_Part();
+            }
+        }
+        else if (GetInput("Move") > 0.8f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                NameUpdate(Cub.Model.Library.CharacterName());
+            }
+        }
+        else
+            Clicking = false;
+        //else if (Mathf.Abs(GetInput("Namer")) > 0.5f)
+        //{
+        //    if (!Clicking)
+        //    {
+        //        Clicking = true;
+        //        MyTextEditor.gameObject.SetActive(true);
+        //        MyTextEditor.SetupCharacter(this, WhoSave);
+        //        gameObject.SetActive(false);
+        //    }
+        //}
     }
 
     public void Clear()
@@ -208,6 +253,12 @@ public class CharacterEditorManager : OptionsListController
     {
         Name.text = WhoSave.Name;
         CostText.text = "Cost: " + WhoSave.Value.ToString();
+        int freePts = Cub.Model.Library.PointCap - Team.TotalValue;
+        RemainingPointsText.text = "Remaining: " + freePts.ToString();
+        if (freePts >= 0)
+            RemainingPointsText.color = Color.white;
+        else
+            RemainingPointsText.color = Color.red;
         //int costWidth = 100 * WhoSave.Head_Part.Cost / MaxCost;
         //CostHead.SetDimensions(costWidth, 10);
         //costWidth += 100 * WhoSave.Arms_Part.Cost / MaxCost;
@@ -257,6 +308,15 @@ public class CharacterEditorManager : OptionsListController
                 sp.color = GrayedOut;
             num += 2;
         }
+        num = 0;
+        foreach (UI2DSprite sp in CritIcons)
+        {
+            if (num < WhoSave.Weapon.CritDam - WhoSave.Weapon.HitDam)
+                sp.color = Color.white;
+            else
+                sp.color = GrayedOut;
+            num += 1;
+        }
 
         num = 1;
         foreach (UI2DSprite sp in HealthIcons)
@@ -277,6 +337,11 @@ public class CharacterEditorManager : OptionsListController
                 sp.color = GrayedOut;
             num++;
         }
+
+        HeadSpecial.text = WhoSave.Head_Part.SpDescription;
+        WeaponSpecial.text = WhoSave.Arms_Part.SpDescription;
+        BodySpecial.text = WhoSave.Body_Part.SpDescription;
+        LegsSpecial.text = WhoSave.Legs_Part.SpDescription;
 
         //string rng = "RNG: ";
         //for (int n = 0; n < WhoSave.Weapon.Range; n++)

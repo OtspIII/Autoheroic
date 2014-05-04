@@ -12,6 +12,7 @@ namespace Cub.Model.Weapons
         {
             Range = range;
             HitDam = dam;
+            CritDam = dam;
         }
 
         public override List<View.Eventon> Make_Attack(Character who, Character target, int roll)

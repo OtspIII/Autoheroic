@@ -225,52 +225,52 @@ public class TeamEditorManager : MonoBehaviour
                 }
             }
         }
-        else if (GetInput("Color") > 0.5f)
-        {
-            if (!Clicking)
-            {
-                Clicking = true;
-                int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Primary));
-                index++;
-                if (index >= GM.Colors.Count)
-                    index = 0;
-                Team.Colour_Primary = GM.Colors[index];
-                Refresh();
-            }
-        }
-        else if (GetInput("Color") < -0.5f)
-        {
-            if (!Clicking)
-            {
-                Clicking = true;
-                int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Secondary));
-                index++;
-                if (index >= GM.Colors.Count)
-                    index = 0;
-                Team.Colour_Secondary = GM.Colors[index];
-                Refresh();
-            }
-        }
-        else if (GetInput("Namer") < -0.5f)
-        {
-            if (!Clicking)
-            {
-                Clicking = true;
-                MyTextEditor.gameObject.SetActive(true);
-                MyTextEditor.SetupTeam(this, Team);
-                gameObject.SetActive(false);
-            }
-        }
-        else if (GetInput("Namer") > 0.5f)
-        {
-            if (!Clicking)
-            {
-                Clicking = true;
-                MyTextEditor.gameObject.SetActive(true);
-                MyTextEditor.SetupOwner(this, Team);
-                gameObject.SetActive(false);
-            }
-        }
+        //else if (GetInput("Color") > 0.5f)
+        //{
+        //    if (!Clicking)
+        //    {
+        //        Clicking = true;
+        //        int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Primary));
+        //        index++;
+        //        if (index >= GM.Colors.Count)
+        //            index = 0;
+        //        Team.Colour_Primary = GM.Colors[index];
+        //        Refresh();
+        //    }
+        //}
+        //else if (GetInput("Color") < -0.5f)
+        //{
+        //    if (!Clicking)
+        //    {
+        //        Clicking = true;
+        //        int index = Mathf.Max(0, GM.Colors.IndexOf(Team.Colour_Secondary));
+        //        index++;
+        //        if (index >= GM.Colors.Count)
+        //            index = 0;
+        //        Team.Colour_Secondary = GM.Colors[index];
+        //        Refresh();
+        //    }
+        //}
+        //else if (GetInput("Namer") < -0.5f)
+        //{
+        //    if (!Clicking)
+        //    {
+        //        Clicking = true;
+        //        MyTextEditor.gameObject.SetActive(true);
+        //        MyTextEditor.SetupTeam(this, Team);
+        //        gameObject.SetActive(false);
+        //    }
+        //}
+        //else if (GetInput("Namer") > 0.5f)
+        //{
+        //    if (!Clicking)
+        //    {
+        //        Clicking = true;
+        //        MyTextEditor.gameObject.SetActive(true);
+        //        MyTextEditor.SetupOwner(this, Team);
+        //        gameObject.SetActive(false);
+        //    }
+        //}
         else
             Clicking = false;
     }

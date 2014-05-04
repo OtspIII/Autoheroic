@@ -55,6 +55,9 @@ public class MasterGameController : MonoBehaviour
     public GameObject PickerInstructionsLeft;
     public GameObject PickerInstructionsRight;
 
+    public AudioClip ClickSound;
+    public AudioClip ErrorSound;
+
     // Use this for initialization
     void Start()
     {
@@ -318,6 +321,23 @@ public class MasterGameController : MonoBehaviour
         ResetCamera();
         Cub.Tool.Xml.Serialize(Teams, "Data/Team_Saves.xml");
     }
+
+    public void PlaySound(MenuSound ms)
+    {
+        AudioClip s = null;
+        switch (ms)
+        {
+            case MenuSound.Click:
+                s = ClickSound;
+                break;
+
+            case MenuSound.Error:
+                s = ErrorSound;
+                break;
+        }
+        if (s != null)
+            audio.PlayOneShot(s);
+    }
 }
 
 public enum MasterStage
@@ -326,4 +346,10 @@ public enum MasterStage
     CameraMoving,
     BlockBuilding,
     TeamPickersSlideIn
+}
+
+public enum MenuSound
+{
+    Click,
+    Error
 }
