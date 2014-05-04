@@ -52,7 +52,7 @@ namespace Cub.Scene
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Crit, 0 }));
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", false,new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Crit, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(0, 3), 0, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 1 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Healed, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1) }));
@@ -61,7 +61,7 @@ namespace Cub.Scene
 
             if (Input.GetKeyDown(KeyCode.T))
             {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Hit, 0 }));
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", false, new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Hit, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(0, 3), 0, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 1 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Healed, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1) }));
@@ -70,7 +70,7 @@ namespace Cub.Scene
 
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Miss, 0 }));
+                Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Range, "", false, new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), Attack_Result.Miss, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Attack_Rocket, "", new List<object>() { new Guid(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), new Vector2(0, 3), 0, 0 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Attacked, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1), 1 }));
                 //Cub.View.Runtime.Add_Eventon(new View.Eventon(Event.Be_Healed, "", new List<object>() { new Guid(2, 4, 1, 1, 5, 1, 1, 7, 3, 1, 1) }));

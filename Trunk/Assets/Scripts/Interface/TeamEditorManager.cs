@@ -336,8 +336,8 @@ public class TeamEditorManager : MonoBehaviour
         else
         {
             SelectRange = new Rect(GM.xMapSize - GM.PlacementSize + 1, 0, GM.PlacementSize - 1, GM.yMapSize);
-            Team.Colour_Primary = Color.green;
-            Team.Colour_Secondary = Color.blue;
+            Team.Colour_Primary = Color.blue;
+            Team.Colour_Secondary = Color.green;
         }
         SelectedSquare = new Cub.Position2((int)SelectRange.x, (int)SelectRange.y);
         //SquareMarkers = new List<GameObject>();

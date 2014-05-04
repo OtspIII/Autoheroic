@@ -42,7 +42,7 @@ namespace Cub.Model.Weapons
             Debug.Log("Attack: " + who.Name + " > " + target.Name + " ["
                 + MissChance.ToString() + "/" + CritChance.ToString() + "/" + roll.ToString() + "/" + result + "/" + dam.ToString() + "]");
             r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " vs. " + target.FindColorName(),
-                new List<object>() { who.ID, where }));
+                true,new List<object>() { who.ID, where }));
             r.AddRange(SplashDamage(where, Attack_Result.Crit,who));
             foreach (Vector2 d in dirs)
                 r.AddRange(SplashDamage(where + d, Attack_Result.Hit, who));

@@ -16,7 +16,7 @@ namespace Cub.Model
         private static Dictionary<Cub.Action, Cub.Model.Action.Base> Dictionary_Action { get; set; }
         private static Dictionary<string, Cub.Condition> Condition_Strings { get; set; }
         private static Dictionary<string, Cub.Action> Action_Strings { get; set; }
-        private static Dictionary<Cub.Class, Cub.Model.Character_Info> Dictionary_Class_Info { get; set; }
+        //private static Dictionary<Cub.Class, Cub.Model.Character_Info> Dictionary_Class_Info { get; set; }
 
         private static Dictionary<Cub.Part_Head, Cub.Model.BPHead> Dictionary_Heads { get; set; }
         private static Dictionary<Cub.Part_Arms, Cub.Model.BPArms> Dictionary_Arms { get; set; }
@@ -35,14 +35,14 @@ namespace Cub.Model
         {
             if (Trigger)
             {
-                Dictionary_Class_Info = new Dictionary<Cub.Class, Cub.Model.Character_Info>();
-                Dictionary_Class_Info[Class.None] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_None.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Soldier.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Knight.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Rocket.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Sniper.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Jerk.xml") as Cub.Model.Character_Info;
-                Dictionary_Class_Info[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Medic.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info = new Dictionary<Cub.Class, Cub.Model.Character_Info>();
+                //Dictionary_Class_Info[Class.None] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_None.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Soldier] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Soldier.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Knight] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Knight.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Rocket] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Rocket.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Sniper] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Sniper.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Jerk] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Jerk.xml") as Cub.Model.Character_Info;
+                //Dictionary_Class_Info[Class.Medic] = Cub.Tool.Xml.Deserialize(typeof(Cub.Model.Character_Info), "Data/Character_Info_Medic.xml") as Cub.Model.Character_Info;
 
                 Dictionary_Heads = new Dictionary<Part_Head, Model.BPHead>();
                 Dictionary_Heads.Add(Cub.Part_Head.Soldier, new Model.BPHead("Soldier",
@@ -110,17 +110,17 @@ namespace Cub.Model
                 Dictionary_Condition[Cub.Condition.Adjacent_2] = new Cub.Model.Condition.Adjacent_2();
                 Dictionary_Condition[Cub.Condition.Almost_Dead] = new Cub.Model.Condition.Almost_Dead();
                 Dictionary_Condition[Cub.Condition.Is_Hurt] = new Cub.Model.Condition.Is_Hurt();
-                Dictionary_Condition[Cub.Condition.I_Am_Alone] = new Cub.Model.Condition.I_Am_Alone();
-                Dictionary_Condition[Cub.Condition.They_Are_Alone] = new Cub.Model.Condition.They_Are_Alone();
+                //Dictionary_Condition[Cub.Condition.I_Am_Alone] = new Cub.Model.Condition.I_Am_Alone();
+                //Dictionary_Condition[Cub.Condition.They_Are_Alone] = new Cub.Model.Condition.They_Are_Alone();
                 Dictionary_Condition[Cub.Condition.Closest] = new Cub.Model.Condition.Closest();
 
                 Dictionary_Action = new Dictionary<Cub.Action, Cub.Model.Action.Base>();
                 Dictionary_Action[Cub.Action.Attack] = new Cub.Model.Action.Attack();
                 Dictionary_Action[Cub.Action.Explore] = new Cub.Model.Action.Explore();
                 Dictionary_Action[Cub.Action.Charge] = new Cub.Model.Action.Charge();
-                Dictionary_Action[Cub.Action.Missile] = new Cub.Model.Action.Missile();
+                //Dictionary_Action[Cub.Action.Missile] = new Cub.Model.Action.Missile();
                 Dictionary_Action[Cub.Action.Heal] = new Cub.Model.Action.Heal();
-                Dictionary_Action[Cub.Action.Snipe] = new Cub.Model.Action.Snipe();
+                //Dictionary_Action[Cub.Action.Snipe] = new Cub.Model.Action.Snipe();
                 Dictionary_Action[Cub.Action.Follow_Ally] = new Cub.Model.Action.Follow_Ally();
                 Dictionary_Action[Cub.Action.Follow_Enemy] = new Cub.Model.Action.Follow_Enemy();
 
@@ -290,26 +290,26 @@ namespace Cub.Model
                 return null;
         }
 
-        public static Cub.Model.Character_Info Get_Character_Info(Cub.Class _Class)
-        {
-            if (Dictionary_Class_Info.ContainsKey(_Class))
-                return Dictionary_Class_Info[_Class];
-            else
-                return null;
-        }
+        //public static Cub.Model.Character_Info Get_Character_Info(Cub.Class _Class)
+        //{
+        //    if (Dictionary_Class_Info.ContainsKey(_Class))
+        //        return Dictionary_Class_Info[_Class];
+        //    else
+        //        return null;
+        //}
 
-        public static List<Cub.Model.Action.Base> List_Actions()
-        {
-            return List_Actions(Cub.Class.None);
-        }
-        public static List<Cub.Model.Action.Base> List_Actions(Cub.Class c)
-        {
-            List<Cub.Model.Action.Base> r = new List<Action.Base>();
-            foreach (Cub.Model.Action.Base act in Dictionary_Action.Values)
-                if (!act.SpecialAbility || Get_Character_Info(c).List_Special_Ability.Contains(act.ActionType))
-                    r.Add(act);
-            return r;
-        }
+        //public static List<Cub.Model.Action.Base> List_Actions()
+        //{
+        //    return List_Actions(Cub.Class.None);
+        //}
+        //public static List<Cub.Model.Action.Base> List_Actions(Cub.Class c)
+        //{
+        //    List<Cub.Model.Action.Base> r = new List<Action.Base>();
+        //    foreach (Cub.Model.Action.Base act in Dictionary_Action.Values)
+        //        if (!act.SpecialAbility || Get_Character_Info(c).List_Special_Ability.Contains(act.ActionType))
+        //            r.Add(act);
+        //    return r;
+        //}
 
         public static List<Cub.Model.Condition.Base> List_Conditions()
         {
@@ -324,13 +324,13 @@ namespace Cub.Model
             return r;
         }
 
-        public static List<Cub.Model.Character_Info> List_Classes()
-        {
-            List<Cub.Model.Character_Info> r = new List<Cub.Model.Character_Info>();
-            foreach (Cub.Model.Character_Info cls in Dictionary_Class_Info.Values)
-                r.Add(cls);
-            return r;
-        }
+        //public static List<Cub.Model.Character_Info> List_Classes()
+        //{
+        //    List<Cub.Model.Character_Info> r = new List<Cub.Model.Character_Info>();
+        //    foreach (Cub.Model.Character_Info cls in Dictionary_Class_Info.Values)
+        //        r.Add(cls);
+        //    return r;
+        //}
 
         public static Cub.Action String_Action(string str)
         {

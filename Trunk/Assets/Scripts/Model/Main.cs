@@ -121,7 +121,7 @@ namespace Cub.Model
             Debug.Log("Game Over: Turn " + Turn.ToString());
             if (TimeOut)
             {
-                events.Add(new View.Eventon(Event.Time_Out, "Time Out!", new List<object>()));
+                events.Add(new View.Eventon(Event.Time_Out, "Time Out!", false,new List<object>()));
                 Debug.Log("Game Times Out");
             }
             int highScore = -999999999;
@@ -166,7 +166,7 @@ namespace Cub.Model
                     else
                         losers.Add(c.ID);
                 }
-            events.Add(new View.Eventon(Event.Win, "Game Over!", new List<object>{winners,losers}));
+            events.Add(new View.Eventon(Event.Win, "Game Over!",false, new List<object>{winners,losers}));
             
         }
 

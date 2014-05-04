@@ -26,7 +26,9 @@ public class GameplayScreenController : MonoBehaviour
     public GameObject PHCType;
     public UIGrid T1Grid;
     public Dictionary<System.Guid, PlayerHealthController> PHCs;
+    PlayerHealthController CurrentCharacter = null;
     public UIGrid T2Grid;
+    //public GameObject CurrentPlayerMarker;
 
     // Use this for initialization
     void Start()
@@ -135,8 +137,8 @@ public class GameplayScreenController : MonoBehaviour
 
         TeamOne.Colour_Primary = Color.red;
         TeamOne.Colour_Secondary = Color.yellow;
-        TeamTwo.Colour_Primary = Color.green;
-        TeamTwo.Colour_Secondary = Color.blue;
+        TeamTwo.Colour_Primary = Color.blue;
+        TeamTwo.Colour_Secondary = Color.green;
         //TeamOne.MakeUnique();
         //TeamTwo.MakeUnique();
         foreach (Transform t in T1Grid.transform)
@@ -214,9 +216,48 @@ public class GameplayScreenController : MonoBehaviour
         lab.text = score.ToString();
     }
 
+    public void SetCurrentCharacter(Cub.View.Eventon e)
+    {
+        //CurrentPlayerMarker.transform.parent = gameObject.transform;
+        //CurrentPlayerMarker.transform.localPosition = new Vector3(-500, -500, 0);
+        if (!e.MainAction || !(e.Data[0] is System.Guid))
+            return;
+        System.Guid who = (System.Guid)e.Data[0];
+        //Debug.Log(who + " / " + PHCs[who]);
+        if (PHCs.ContainsKey(who) && PHCs[who] != null)
+        {
+            if (CurrentCharacter != null)
+            {
+                Vector3 oldWhere = CurrentCharacter.transform.localPosition;
+                oldWhere.x = 0;
+                CurrentCharacter.transform.localPosition = oldWhere;
+            }
+            CurrentCharacter = PHCs[who];
+            //CurrentPlayerMarker.transform.parent = PHCs[who].transform;
+            //Vector3 where = Vector3.zero;
+            float offset = 10;
+            //if (PHCs[who].TeamOne)
+            //    where.x += 35;
+            //else
+            //    where.x -= 35;
+            if (!CurrentCharacter.TeamOne)
+                offset *= -1;
+            //CurrentPlayerMarker.transform.localPosition = where;
+            Vector3 where = CurrentCharacter.transform.localPosition;
+            where.x = offset;
+            CurrentCharacter.transform.localPosition = where;
+        }
+    }
+
     public void EndGame()
     {
         //SwitchModes(GameMode.Postgame);
+        Vector3 where = CurrentCharacter.transform.localPosition;
+        where.x = 0;
+        CurrentCharacter.transform.localPosition = where;
+        CurrentCharacter = null;
+        //CurrentPlayerMarker.transform.parent = gameObject.transform;
+        //CurrentPlayerMarker.transform.position = new Vector3(-500, -500, 0);
         GM.TurnOnScoreCard(TeamOne, TeamTwo);
         Cub.Tool.Xml.Serialize(GM.Teams, "Data/Team_Saves.xml");
     }
@@ -224,6 +265,13 @@ public class GameplayScreenController : MonoBehaviour
     public void Clear()
     {
         ClearMap();
+        //CurrentPlayerMarker.transform.parent = gameObject.transform;
+        //CurrentPlayerMarker.transform.position = new Vector3(-500, -500, 0);
+        foreach (System.Guid g in PHCs.Keys)
+        {
+            Destroy(PHCs[g].gameObject);
+        }
+        PHCs.Clear();
         LeftScore.gameObject.SetActive(false);
         RightScore.gameObject.SetActive(false);
         gameObject.SetActive(false);

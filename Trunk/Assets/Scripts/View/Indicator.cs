@@ -50,7 +50,7 @@ namespace Cub.View
 
         public void Start()
         {
-            Debug.Log("FDSA");
+            //Debug.Log("FDSA");
             iTween.ScaleTo(this.gameObject, new Vector3(0.5F, 0.1F, 0.5F), 0.5F);
             Invoke("End", 1.0F);
         }

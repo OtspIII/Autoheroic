@@ -86,7 +86,7 @@ namespace Cub.View
                 Eventon E = Queue_Eventon.Dequeue();
 
                 float Delay = Cub.View.Library.Get_Event(E.Type).Process(E.Data, E.Description);
-
+                GSC.SetCurrentCharacter(E);
                 Invoke("Run_Eventon", Delay);
             }
             else

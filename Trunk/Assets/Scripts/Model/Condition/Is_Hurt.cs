@@ -7,7 +7,7 @@ namespace Cub.Model.Condition
 {
     public class Is_Hurt : Base
     {
-        protected Class TypeOfUnit;
+        //protected Class TypeOfUnit;
 
         public Is_Hurt()
         {

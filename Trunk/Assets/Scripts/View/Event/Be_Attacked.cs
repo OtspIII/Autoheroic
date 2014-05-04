@@ -39,13 +39,13 @@ namespace Cub.View.Event
                 case Attack_Result.Hit:
                     {
                         C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Scream_Hit));
-                        Debug.Log("FDSA");
+                        //Debug.Log("FDSA");
                         break;
                     }
                 case Attack_Result.Miss:
                     {
                         C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Scream_Crit));
-                        Debug.Log("FDSA");
+                        //Debug.Log("FDSA");
                         break;
                     }
                 case Attack_Result.Crit:

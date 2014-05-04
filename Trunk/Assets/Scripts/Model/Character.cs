@@ -138,12 +138,12 @@ namespace Cub.Model
                             guy.Damage(2, this, events, Cub.Attack_Result.Hit);
                     Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
                     Debug.Log("Blow Up: " + this.Name);
-                    events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(), new List<object> { ID }));
+                    events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(),false, new List<object> { ID }));
                 }
                 else
                 {
                     Debug.Log("Die: " + this.Name);
-                    events.Add(new View.Eventon(Event.Die, "R.I.P. " + FindColorName(), new List<object> { ID }));
+                    events.Add(new View.Eventon(Event.Die, "R.I.P. " + FindColorName(), false,new List<object> { ID }));
                     Info.Save.Deaths++;
                     source.Info.Save.Kills++;
                 }
@@ -155,7 +155,7 @@ namespace Cub.Model
             else
             {
                 //hitLevel tells you if this was from a normal attack or a crit. Maybe crits make an animation or something.
-                events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",
+                events.Add(new View.Eventon(Event.Be_Attacked, Name + " <" + Amount.ToString() + " Damage>",false,
                     new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP, hitLevel }));
             }
             return false;
@@ -165,7 +165,7 @@ namespace Cub.Model
         {
             Amount = Mathf.Min(Amount, Info.MHP - Stat.HP);
             this.Stat.HP = Mathf.Min(this.Stat.HP + Amount,this.Info.MHP);
-            events.Add(new View.Eventon(Event.Be_Healed, Name + " [" + Amount + " Heal]", 
+            events.Add(new View.Eventon(Event.Be_Healed, Name + " [" + Amount + " Heal]", false,
                 new List<object> { ID, Amount, this.Stat.HP, this.Info.MHP }));
         }
 
@@ -332,12 +332,12 @@ namespace Cub.Model
                     case Cub.Action.Heal:
                         med.Add(new Tactic(Cub.Condition.Is_Hurt, Cub.Action.Heal));
                         break;
-                    case Cub.Action.Missile:
-                        vhigh.Add(new Tactic(Cub.Condition.Adjacent_2, Cub.Action.Missile));
-                        break;
-                    case Cub.Action.Snipe:
-                        AddTactic(vhigh, Cub.Action.Snipe, Cub.Condition.None);
-                        break;
+                        //case Cub.Action.Missile:
+                        //    vhigh.Add(new Tactic(Cub.Condition.Adjacent_2, Cub.Action.Missile));
+                        //    break;
+                        //case Cub.Action.Snipe:
+                        //    AddTactic(vhigh, Cub.Action.Snipe, Cub.Condition.None);
+                        //    break;
                 }
             }
             r.AddRange(vhigh);

@@ -18,12 +18,14 @@ namespace Cub.View
         public Cub.Event Type;
         public string Description;
         public List<object> Data;
+        public bool MainAction;
 
-        public Eventon(Cub.Event type, string desc, List<object> data)
+        public Eventon(Cub.Event type, string desc, bool ma, List<object> data)
         {
             Type = type;
             Description = desc;
             Data = data;
+            MainAction = ma;
         }
 
     }

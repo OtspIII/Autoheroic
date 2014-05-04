@@ -61,7 +61,8 @@ namespace Cub.Model.Action
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++)
             {
-                r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Charging " + target.FindColorName(), new List<object>() { who.ID, path[n].X, path[n].Y }));
+                r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Charging " + target.FindColorName(),
+                    true,new List<object>() { who.ID, path[n].X, path[n].Y }));
             }
             if (Cub.Tool.Pathfinder.Distance(who.Stat.Position, target.Stat.Position) <= who.Info.Range)
                 r.AddRange(Library.Get_Action(Cub.Action.Attack).Body(who, new List<object> { target }));

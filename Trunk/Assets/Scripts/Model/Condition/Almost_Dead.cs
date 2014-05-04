@@ -7,7 +7,7 @@ namespace Cub.Model.Condition
 {
     public class Almost_Dead : Base
     {
-        protected Class TypeOfUnit;
+        //protected Class TypeOfUnit;
 
         public Almost_Dead()
         {

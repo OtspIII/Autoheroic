@@ -6,9 +6,13 @@ namespace Cub.View
     public class Cube : MonoBehaviour
     {
         private const float Timespan = 2.0F;
+        private bool falling = false;
 
         public void Fall()
         {
+            if (falling)
+                return;
+            falling = true;
             this.gameObject.AddComponent<Rigidbody>();
             this.gameObject.AddComponent<BoxCollider>();
 

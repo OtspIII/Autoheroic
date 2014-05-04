@@ -25,8 +25,8 @@ namespace Cub.Model.Action
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             
             Debug.Log("Missile: " + who.Name + " > " + who.Name);
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Rocket, who.FindColorName() + " <MISSILE> " + who.FindColorName(),
-                new List<object>() { who.ID, who.Stat.Position.ToVector2() }));
+            r.Add(new Cub.View.Eventon(Cub.Event.Blow_Up, who.FindColorName() + " <SELF DESTRUCT> " + who.FindColorName(),
+                true,new List<object>() { who.ID, who.Stat.Position.ToVector2() }));
             foreach (Character guy in Main.AllCharacters())
                 if (guy != who && Cub.Tool.Pathfinder.Distance(who.Stat.Position, guy.Stat.Position) <= 1.5f)
                     guy.Damage(Damage, who,r,Cub.Attack_Result.Hit);

@@ -57,8 +57,8 @@ namespace Cub
         Attack,
         Charge,
         Heal,
-        Missile,
-        Snipe,
+        //Missile,
+        //Snipe,
         Follow_Ally,
         Follow_Enemy,
         Blow_Up
@@ -76,16 +76,16 @@ namespace Cub
         Desert
     }
 
-    public enum Class
-    {
-        None,
-        Knight,
-        Soldier,
-        Rocket,
-        Jerk, //WTF IS A JERK?!
-        Sniper,
-        Medic
-    }
+    //public enum Class
+    //{
+    //    None,
+    //    Knight,
+    //    Soldier,
+    //    Rocket,
+    //    Jerk, //WTF IS A JERK?!
+    //    Sniper,
+    //    Medic
+    //}
 
     public enum Event
     {

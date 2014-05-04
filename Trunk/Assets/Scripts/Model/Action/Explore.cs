@@ -68,7 +68,8 @@ namespace Cub.Model.Action
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
             for (int n = 0; n <= TravelDistance; n++)
             {
-                r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Exploring", new List<object>() { who.ID, path[n].X, path[n].Y }));
+                r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Exploring", true,
+                    new List<object>() { who.ID, path[n].X, path[n].Y }));
             }
             return r;
         }

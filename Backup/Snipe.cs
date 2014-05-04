@@ -5,20 +5,20 @@ using UnityEngine;
 
 namespace Cub.Model.Action
 {
-    class Heal : Cub.Model.Action.Base
+    class Snipe : Cub.Model.Action.Base
     {
         public override int Turn_Casting { get { return 0; } }
         public override int Turn_Cooldown { get { return 2; } }
 
-        public int Range = 3;
-        public int HealAmt = 1;
+        public int Range = 6;
+        public int Damage = 8;
 
-        public Heal()
+        public Snipe()
         {
-            Name = "Heal";
-            Description = "I will heal an ally for 1HP";
+            Name = "Snipe";
+            Description = "I will snipe the first enemy I see within 6 squares for 8 damage";
             SpecialAbility = true;
-            ActionType = Cub.Action.Heal;
+            ActionType = Cub.Action.Snipe;
             ValidConditions.Add(Cub.ConditionGenre.Generic);
             ValidConditions.Add(Cub.ConditionGenre.Character);
         }
@@ -28,10 +28,10 @@ namespace Cub.Model.Action
             if (who.ExhaustedActions.Contains(ActionType)) return null;
             List<object> data = new List<object>();
             bool anyone = false;
-            foreach (Character friend in who.Stat.Team.Return_List_Character())
-                if (Cub.Tool.Pathfinder.Distance(who.Stat.Position, friend.Stat.Position) <= Range)
+            foreach (Character enemy in who.FindEnemies())
+                if (Cub.Tool.Pathfinder.Distance(who.Stat.Position, enemy.Stat.Position) <= Range)
                 {
-                    data.Add(friend);
+                    data.Add(enemy);
                     anyone = true;
                 }
             if (!anyone)
@@ -49,10 +49,10 @@ namespace Cub.Model.Action
             else
                 target = (data[UnityEngine.Random.Range(0, data.Count)] as Cub.Model.Character);
             who.Stat.Cooldown += this.Turn_Cooldown;
-            Debug.Log("Heal: " + who.Name + " > " + target.Name);
-            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Heal, who.FindColorName() + " <HEAL> " + target.FindColorName(),
-                true, new List<object>() { who.ID, target.ID }));
-            target.Heal(HealAmt, who, r);
+            who.ExhaustedActions.Add(ActionType);
+            Debug.Log("Snipe: " + who.Name + " > " + target.Name);
+            r.Add(new Cub.View.Eventon(Cub.Event.Attack_Snipe, who.FindColorName() + " <SNIPE> " + target.FindColorName(), new List<object>() { who.ID, target.ID }));
+            target.Damage(Damage, who, r,Cub.Attack_Result.Hit);
             return r;
         }
     }

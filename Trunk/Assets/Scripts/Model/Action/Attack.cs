@@ -54,7 +54,7 @@ namespace Cub.Model.Action
             int BestRoll = -1;
             for (int n = 1 + Mathf.Abs(Adv - Dis); n > 0; n--)
             {
-                Debug.Log("Test");
+                //Debug.Log("Test");
                 int roll = UnityEngine.Random.Range(0,10);
                 if (BestRoll == -1 || (RerollsGood && roll > BestRoll) || (!RerollsGood && roll < BestRoll))
                     BestRoll = roll;
