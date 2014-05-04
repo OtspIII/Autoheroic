@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTeamSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TeamSave>
-    <Name>Angry Goats</Name>
+    <Name>Hairy Griffins</Name>
     <Owner_Name />
     <Chars>
       <Character_Save>
@@ -50,13 +50,13 @@
         <Matches>18</Matches>
       </Character_Save>
       <Character_Save>
-        <Name>Dead Eric</Name>
+        <Name>Angry Emily</Name>
         <Head>Soldier</Head>
         <Arms>Rifle</Arms>
         <Body>Medium</Body>
         <Legs>Humanoid</Legs>
         <Position>
-          <X>2</X>
+          <X>0</X>
           <Y>2</Y>
         </Position>
         <ID>2a751e72-e79a-4680-81c7-c473f9e09725</ID>

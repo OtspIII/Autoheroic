@@ -40,7 +40,7 @@ public class TeamEditorManager : MonoBehaviour
 
     Cub.Interface.TeamPickerManager MyPicker;
     //CharacterEditorManager MyCEditor;
-    TextInputController MyTextEditor;
+    //TextInputController MyTextEditor;
 
     public Texture Green;
     public Texture Red;
@@ -66,13 +66,13 @@ public class TeamEditorManager : MonoBehaviour
         {
             MyPicker = GM.LeftPicker;
             //MyCEditor = GM.LeftCEditor;
-            MyTextEditor = GM.LeftNameEditor;
+            //MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
             MyPicker = GM.RightPicker;
             //MyCEditor = GM.RightCEditor;
-            MyTextEditor = GM.RightNameEditor;
+            //MyTextEditor = GM.RightNameEditor;
         }
     }
 
@@ -122,7 +122,14 @@ public class TeamEditorManager : MonoBehaviour
             if (!Clicking)
             {
                 Clicking = true;
-                Click();
+                if (MovingCharacter)
+                {
+                    MoveCharacter();
+                }
+                else
+                {
+                    Click();
+                }
             }
         }
         else if (GetInput("Ready") > 0.5f)
@@ -201,19 +208,7 @@ public class TeamEditorManager : MonoBehaviour
                 {
                     if (MovingCharacter)
                     {
-                        MovingCharacter = false;
-                        SquareMarker.renderer.material.color = Color.red;
-                        Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
-                        Current_Char.Stat.Position = where;
-                        Dictionary_CharPos.Add(where, Current_CharSave.ID);
-                        if (!PlayerOne)
-                        {
-                            where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
-                        }
-                        Current_CharSave.Position = where;
-                        Dictionary_CharPos.Remove(OldPos);
-                        OldPos = new Cub.Position2(999, 999);
-                        OldVec = Vector3.zero;
+                        MoveCharacter();
                     }
                     else
                     {
@@ -223,6 +218,16 @@ public class TeamEditorManager : MonoBehaviour
                         OldVec = Current_Char.gameObject.transform.position;
                     }
                 }
+            }
+        }
+        else if (GetInput("Namer") > 0.8f)
+        {
+            if (!Clicking)
+            {
+                Clicking = true;
+                Team.Name = Cub.Model.Library.TeamName();
+                FakeTeam.Name = Team.Name;
+                TeamName.text = Team.Name;
             }
         }
         //else if (GetInput("Color") > 0.5f)
@@ -273,6 +278,26 @@ public class TeamEditorManager : MonoBehaviour
         //}
         else
             Clicking = false;
+    }
+
+    public void MoveCharacter()
+    {
+        MovingCharacter = false;
+        SquareMarker.renderer.material.color = Color.red;
+        Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
+        if (where != Current_Char.Stat.Position)
+        {
+            Current_Char.Stat.Position = where;
+            Dictionary_CharPos.Add(where, Current_CharSave.ID);
+            if (!PlayerOne)
+            {
+                where = new Cub.Position2(GM.xMapSize - where.X, GM.yMapSize - where.Y);
+            }
+            Current_CharSave.Position = where;
+            Dictionary_CharPos.Remove(OldPos);
+        }
+        OldPos = new Cub.Position2(999, 999);
+        OldVec = Vector3.zero;
     }
 
     public void Clear()
@@ -414,22 +439,26 @@ public class TeamEditorManager : MonoBehaviour
         {
             if (move.X > 0)
             {
-                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)) && 
+                    !(x == Current_Char.Stat.Position.X && y == Current_Char.Stat.Position.Y))
                     x++;
             }
             else if (move.X < 0)
             {
-                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)) &&
+                    !(x == Current_Char.Stat.Position.X && y == Current_Char.Stat.Position.Y))
                     x--;
             }
             if (move.Y > 0)
             {
-                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)) &&
+                    !(x == Current_Char.Stat.Position.X && y == Current_Char.Stat.Position.Y))
                     y++;
             }
             else if (move.Y < 0)
             {
-                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)))
+                while (Dictionary_CharPos.ContainsKey(new Cub.Position2(x, y)) &&
+                    !(x == Current_Char.Stat.Position.X && y == Current_Char.Stat.Position.Y))
                     y--;
             }
             if (x < (int)(SelectRange.x) || x > (int)(SelectRange.x + SelectRange.width) ||

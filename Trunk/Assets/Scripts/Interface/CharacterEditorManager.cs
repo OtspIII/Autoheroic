@@ -88,7 +88,7 @@ public class CharacterEditorManager : OptionsListController
 
     //Cub.Interface.TeamPickerManager MyPicker;
     TeamEditorManager MyTEditor;
-    TextInputController MyTextEditor;
+    //TextInputController MyTextEditor;
 
     void Start()
     {
@@ -96,13 +96,13 @@ public class CharacterEditorManager : OptionsListController
         {
             //MyPicker = GM.LeftPicker;
             MyTEditor = GM.LeftEditor;
-            MyTextEditor = GM.LeftNameEditor;
+            //MyTextEditor = GM.LeftNameEditor;
         }
         else
         {
             //MyPicker = GM.RightPicker;
             MyTEditor = GM.RightEditor;
-            MyTextEditor = GM.RightNameEditor;
+            //MyTextEditor = GM.RightNameEditor;
         }
     }
 
@@ -159,7 +159,7 @@ public class CharacterEditorManager : OptionsListController
                 Who.Initialize_Part();
             }
         }
-        else if (GetInput("Move") > 0.8f)
+        else if (GetInput("Namer") > 0.8f)
         {
             if (!Clicking)
             {
