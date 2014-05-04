@@ -48,22 +48,40 @@ namespace Cub.Model
                 TimeOut = true;
                 GameEnds(GEL);
             }
+            else if (!GameStillRunning())
+                GameEnds(GEL);
             return GEL;
         }
 
         private static List<Character> GenerateTurnOrder()
         {
             List<Character> r = new List<Character>();
-            List<Character> temp = new List<Character>();
-            foreach (Team t in List_Team)
-                foreach (Character c in t.List_Character)
-                    temp.Add(c);
-            while (temp.Count > 0)
+            int n = 0;
+            bool keepGoing = true;
+            while (keepGoing)
             {
-                Character c = temp[UnityEngine.Random.Range(0, temp.Count)];
-                temp.Remove(c);
-                r.Add(c);
+                keepGoing = false;
+                foreach (Team t in List_Team)
+                {
+                    if (t.List_Character.Count <= n)
+                        continue;
+                    Character who = t.List_Character[n];
+                    r.Add(who);
+                    keepGoing = true;
+                }
+                n++;
             }
+            
+            //List<Character> temp = new List<Character>();
+            //foreach (Team t in List_Team)
+            //    foreach (Character c in t.List_Character)
+            //        temp.Add(c);
+            //while (temp.Count > 0)
+            //{
+            //    Character c = temp[UnityEngine.Random.Range(0, temp.Count)];
+            //    temp.Remove(c);
+            //    r.Add(c);
+            //}
             return r;
         }
 
@@ -73,10 +91,10 @@ namespace Cub.Model
             foreach (Team team in List_Team)
             {
                 team.Remove_Character(C);
-                if (team.Return_List_Character().Count == 0)
-                {
-                    GameEnds(events);
-                }
+                //if (team.Return_List_Character().Count == 0)
+                //{
+                //    GameEnds(events);
+                //}
             }
         }
 
