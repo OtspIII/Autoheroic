@@ -39,6 +39,8 @@ public class MasterGameController : MonoBehaviour
     public CharacterEditorManager RightCEditor;
     public TextInputController LeftNameEditor;
     public TextInputController RightNameEditor;
+    public ConfirmerController LeftConfirm;
+    public ConfirmerController RightConfirm;
 
     Vector3 CameraWhere;
     Quaternion CameraRot;
@@ -78,6 +80,8 @@ public class MasterGameController : MonoBehaviour
         RightNameEditor.gameObject.SetActive(false);
         PickerInstructionsLeft.SetActive(false);
         PickerInstructionsRight.SetActive(false);
+        LeftConfirm.gameObject.SetActive(false);
+        RightConfirm.gameObject.SetActive(false);
         SCM.gameObject.SetActive(false);
         Application.targetFrameRate = 60;
         CameraWhere = MainCamera.transform.position;

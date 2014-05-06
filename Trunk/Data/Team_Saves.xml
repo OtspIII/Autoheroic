@@ -15,9 +15,9 @@
           <Y>4</Y>
         </Position>
         <ID>f80aeb13-ee12-463a-8cb5-f29f4ddf54d9</ID>
-        <Kills>27</Kills>
-        <Deaths>30</Deaths>
-        <Matches>38</Matches>
+        <Kills>28</Kills>
+        <Deaths>31</Deaths>
+        <Matches>39</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Cool Anna</Name>
@@ -31,8 +31,8 @@
         </Position>
         <ID>0b6f530a-7799-4c95-9363-fd1d77403c02</ID>
         <Kills>27</Kills>
-        <Deaths>20</Deaths>
-        <Matches>33</Matches>
+        <Deaths>21</Deaths>
+        <Matches>34</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Angry Emily</Name>
@@ -45,9 +45,9 @@
           <Y>2</Y>
         </Position>
         <ID>2a751e72-e79a-4680-81c7-c473f9e09725</ID>
-        <Kills>13</Kills>
+        <Kills>15</Kills>
         <Deaths>26</Deaths>
-        <Matches>33</Matches>
+        <Matches>34</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Old Zoe</Name>
@@ -60,12 +60,12 @@
           <Y>5</Y>
         </Position>
         <ID>b09c793e-51e9-4249-8df4-ea549d42f942</ID>
-        <Kills>2</Kills>
-        <Deaths>0</Deaths>
-        <Matches>1</Matches>
+        <Kills>3</Kills>
+        <Deaths>1</Deaths>
+        <Matches>2</Matches>
       </Character_Save>
     </Chars>
-    <Wins>17</Wins>
+    <Wins>18</Wins>
     <Losses>21</Losses>
     <Colour_Primary>
       <r>255</r>
@@ -95,9 +95,9 @@
           <Y>3</Y>
         </Position>
         <ID>b0ba85f9-1d3d-4b9f-bd24-d06a1ef6e1ec</ID>
-        <Kills>33</Kills>
-        <Deaths>21</Deaths>
-        <Matches>38</Matches>
+        <Kills>34</Kills>
+        <Deaths>22</Deaths>
+        <Matches>39</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Blue Zoe</Name>
@@ -111,8 +111,8 @@
         </Position>
         <ID>3d4dfbdd-bc34-4bb6-8ba2-3f500edf39f5</ID>
         <Kills>14</Kills>
-        <Deaths>32</Deaths>
-        <Matches>38</Matches>
+        <Deaths>33</Deaths>
+        <Matches>39</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Slim Ethan</Name>
@@ -126,8 +126,8 @@
         </Position>
         <ID>8d25c39a-6bd5-4468-9ab3-fffb462c3361</ID>
         <Kills>23</Kills>
-        <Deaths>30</Deaths>
-        <Matches>38</Matches>
+        <Deaths>31</Deaths>
+        <Matches>39</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Internet Alex</Name>
@@ -140,23 +140,23 @@
           <Y>4</Y>
         </Position>
         <ID>8b144d49-672c-4499-85cc-6ebc1f061203</ID>
-        <Kills>30</Kills>
-        <Deaths>17</Deaths>
-        <Matches>30</Matches>
+        <Kills>32</Kills>
+        <Deaths>18</Deaths>
+        <Matches>31</Matches>
       </Character_Save>
     </Chars>
     <Wins>21</Wins>
-    <Losses>17</Losses>
+    <Losses>18</Losses>
     <Colour_Primary>
-      <r>255</r>
+      <r>0</r>
       <g>0</g>
-      <b>0</b>
+      <b>255</b>
       <a>255</a>
     </Colour_Primary>
     <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
+      <r>0</r>
+      <g>255</g>
+      <b>0</b>
       <a>255</a>
     </Colour_Secondary>
   </TeamSave>
