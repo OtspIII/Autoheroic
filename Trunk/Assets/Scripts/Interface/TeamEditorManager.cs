@@ -148,6 +148,8 @@ public class TeamEditorManager : MonoBehaviour
                     ReadyButton.color = Color.green;
                     GM.CheckMatchReady();
                 }
+                else
+                    GM.PlaySound(MenuSound.Error);
             }
         }
         else if (GetInput("Delete") > 0.5f)
@@ -225,9 +227,7 @@ public class TeamEditorManager : MonoBehaviour
             if (!Clicking)
             {
                 Clicking = true;
-                Team.Name = Cub.Model.Library.TeamName();
-                FakeTeam.Name = Team.Name;
-                TeamName.text = Team.Name;
+                TeamNameUpdate(Cub.Model.Library.TeamName());
             }
         }
         //else if (GetInput("Color") > 0.5f)
@@ -303,6 +303,8 @@ public class TeamEditorManager : MonoBehaviour
     public void Clear()
     {
         ClearMarkers();
+        MovingCharacter = false;
+        SquareMarker.renderer.material.color = Color.red;
         gameObject.SetActive(false);
     }
 
@@ -377,7 +379,8 @@ public class TeamEditorManager : MonoBehaviour
         if (Spent > TotalPts)
         {
             PtsFront.mainTexture = Red;
-            ReadyButton.color = Color.red;
+            ReadyButton.color = new Color(1, 88.0f / 255.0f, 88.0f / 255.0f);
+            //ReadyButton.color = Color.red;
 
         }
         else
@@ -499,6 +502,11 @@ public class TeamEditorManager : MonoBehaviour
     {
         if (Current_CharSave == null)
         {
+            if (Cub.Model.Library.PointCap < Team.TotalValue)
+            {
+                GM.PlaySound(MenuSound.Error);
+                return;
+            }
             Cub.Position2 where = new Cub.Position2((int)SquareMarker.transform.position.x, (int)SquareMarker.transform.position.z);
             if (!PlayerOne)
             {
@@ -543,6 +551,8 @@ public class TeamEditorManager : MonoBehaviour
         Team.Name = name;
         FakeTeam.Name = name;
         TeamName.text = name;
+        GM.LeftPicker.MarkTeamButtons();
+        GM.RightPicker.MarkTeamButtons();
     }
 
     public void OwnerNameUpdate(string name)
@@ -550,5 +560,7 @@ public class TeamEditorManager : MonoBehaviour
         Team.Owner_Name = name;
         FakeTeam.Owner_Name = name;
         OwnerName.text = name;
+        GM.LeftPicker.MarkTeamButtons();
+        GM.RightPicker.MarkTeamButtons();
     }
 }

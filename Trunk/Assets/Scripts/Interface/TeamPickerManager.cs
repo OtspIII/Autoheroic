@@ -104,7 +104,7 @@ namespace Cub.Interface
             MyInstructions.SetActive(false);
         }
 
-        void MarkTeamButtons()
+        public void MarkTeamButtons()
         {
             int n = 0 + TeamsOffset;
             foreach (MenuChoiceController choice in Options)
@@ -132,18 +132,19 @@ namespace Cub.Interface
         {
             int current = Options.IndexOf(Selected);
             current += n;
-            if (TeamsOffset == 0 && current < Options.Count && current >= GM.Teams.Count)
+            if (TeamsOffset == 0 && current < Options.Count && current > GM.Teams.Count)
             {
-                current = GM.Teams.Count - 1;
+                current = GM.Teams.Count;
             }
             else if (current >= Options.Count)
             {
                 TeamsOffset++;
-                if (TeamsOffset + Options.Count - 1 >= Mathf.Max(3, GM.Teams.Count))
+                if (TeamsOffset + Options.Count - 2 >= Mathf.Max(3, GM.Teams.Count))
                 {
                     TeamsOffset--;
                 }
-                MarkTeamButtons();
+                GM.LeftPicker.MarkTeamButtons();
+                GM.RightPicker.MarkTeamButtons();
                 current = Options.Count - 1;
             }
             else if (current < 0)
@@ -151,7 +152,8 @@ namespace Cub.Interface
                 TeamsOffset--;
                 if (TeamsOffset < 0)
                     TeamsOffset = 0;
-                MarkTeamButtons();
+                GM.LeftPicker.MarkTeamButtons();
+                GM.RightPicker.MarkTeamButtons();
                 current = 0;
             }
             //-15,-7
@@ -163,7 +165,7 @@ namespace Cub.Interface
 
         protected override void Click()
         {
-            if (!((TeamButtonController)Selected).Adder)
+            if (((TeamButtonController)Selected).Team != null)
             {
                 //((UISprite)SelectMarker.GetComponent("UISprite")).color = new Color(0.05f, 0.9f, 0.05f, 0.8f);
                 //Chosen = true;
@@ -180,7 +182,8 @@ namespace Cub.Interface
         {
             Model.TeamSave t = new Model.TeamSave(Cub.Model.Library.TeamName(), "");
             GM.Teams.Add(t);
-            MarkTeamButtons();
+            GM.LeftPicker.MarkTeamButtons();
+            GM.RightPicker.MarkTeamButtons();
             int slide = GM.Teams.IndexOf(t) - GM.Teams.IndexOf(SelectedTeam);
             for (int n = slide; n > 0; n--)
                 ChangeSelection(1);
@@ -196,7 +199,8 @@ namespace Cub.Interface
                 TeamsOffset--;
             else
                 ChangeSelection(-1);
-            MarkTeamButtons();
+            GM.LeftPicker.MarkTeamButtons();
+            GM.RightPicker.MarkTeamButtons();
         }
 
         protected override void OnSelectChange()

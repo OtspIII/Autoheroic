@@ -176,7 +176,7 @@ public class MasterGameController : MonoBehaviour
 
     public void GotoCreditsScreen()
     {
-        MainMenu.gameObject.SetActive(false);
+        Application.LoadLevel(1);
     }
 
     void CameraToPoint(Vector3 where, float time)

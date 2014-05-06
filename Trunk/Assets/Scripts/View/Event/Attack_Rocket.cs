@@ -25,7 +25,7 @@ namespace Cub.View.Event
 
             C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Rocket));
 
-            Cub.View.Indicator.Cross(new Position2((int)impact.x, (int)impact.y));
+            //Cub.View.Indicator.Cross(new Position2((int)impact.x, (int)impact.y));
 
             return Timespan;
         }

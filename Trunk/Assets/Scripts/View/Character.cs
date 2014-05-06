@@ -260,5 +260,15 @@ namespace Cub.View
             audio.PlayOneShot(sound);
             return sound;
         }
+
+        public void Explode()
+        {
+            Vector3 V = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+            Instantiate(Library.Get_Explosion(), V, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.forward, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.back, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.left, Quaternion.identity);
+            Instantiate(Library.Get_Explosion(), V + Vector3.right, Quaternion.identity);
+        }
     }
 }
