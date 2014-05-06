@@ -32,7 +32,7 @@ public class CharacterEditorManager : OptionsListController
 
     Cub.View.Character Who;
     Cub.Model.Character_Save WhoSave;
-    Cub.Model.TeamSave Team;
+    public Cub.Model.TeamSave Team { get; set; } 
 
     public UILabel Name;
     //public UITexture CostBG;

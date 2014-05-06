@@ -47,13 +47,18 @@ namespace Cub.Model.Action
             List<Cub.Position2> path = Cub.Tool.Pathfinder.findPath(who.Stat.Position, target.Stat.Position, who.Info.Blockable);
             int TravelDistance = Math.Min(who.Info.Speed,path.Count) - 1;
             if (TravelDistance < 0) return new List<View.Eventon>();
-            who.SetLocation(path[TravelDistance]);
+            
             Debug.Log("Follow: " + who.Name + " >" + path[TravelDistance].ToString());
             List<Cub.View.Eventon> r = new List<Cub.View.Eventon>();
+            Cub.Position2 where = who.Stat.Position;
             for (int n = 0; n <= TravelDistance; n++){
                 r.Add(new Cub.View.Eventon(Cub.Event.Move, who.FindColorName() + ": Following " + target.FindColorName(),
                     true, new List<object>() { who.ID, path[n].X, path[n].Y }));
+                where = path[n];
+                if (Cub.Tool.Pathfinder.Distance(path[n], target.Stat.Position) <= who.Info.Range)
+                    break;
             }
+                who.SetLocation(where);
             return r;
         }
     }
