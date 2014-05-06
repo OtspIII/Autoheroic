@@ -76,6 +76,8 @@ public class TeamEditorManager : MonoBehaviour
             //MyCEditor = GM.RightCEditor;
             //MyTextEditor = GM.RightNameEditor;
         }
+        LockedMessage.SetActive(false);
+        Locked = false;
     }
 
     // Update is called once per frame
@@ -83,6 +85,7 @@ public class TeamEditorManager : MonoBehaviour
     {
         if (!CurrentlyActive)
             return;
+        CheckLock();
         if (VertTimer > 0)
             VertTimer -= Time.deltaTime;
         if (HoriTimer > 0)
@@ -119,7 +122,7 @@ public class TeamEditorManager : MonoBehaviour
         if (Move.X != 0 || Move.Y != 0)
             SlideSelector(Move);
 
-        if (GetInput("Click") > 0.5f)
+        if (GetInput("Click") > 0.5f && !Locked)
         {
             if (!Clicking)
             {
@@ -154,7 +157,7 @@ public class TeamEditorManager : MonoBehaviour
                     GM.PlaySound(MenuSound.Error);
             }
         }
-        else if (GetInput("Delete") > 0.5f)
+        else if (GetInput("Delete") > 0.5f && !Locked)
         {
             if (!Clicking)
             {
@@ -203,7 +206,7 @@ public class TeamEditorManager : MonoBehaviour
 
             }
         }
-        else if (GetInput("Move") > 0.5f)
+        else if (GetInput("Move") > 0.5f && !Locked)
         {
             if (!Clicking)
             {
@@ -224,7 +227,7 @@ public class TeamEditorManager : MonoBehaviour
                 }
             }
         }
-        else if (GetInput("Namer") > 0.8f)
+        else if (GetInput("Namer") > 0.8f && !Locked)
         {
             if (!Clicking)
             {
@@ -280,6 +283,34 @@ public class TeamEditorManager : MonoBehaviour
         //}
         else
             Clicking = false;
+    }
+
+    public void CheckLock()
+    {
+        TeamEditorManager other = GM.RightEditor;
+        CharacterEditorManager oC = GM.RightCEditor;
+        if (!PlayerOne){
+            other = GM.LeftEditor;
+            oC = GM.LeftCEditor;
+        }
+            
+
+        if (Locked)
+        {
+            if ((!other.gameObject.activeSelf || other.Team != Team) && (!oC.gameObject.activeSelf || oC.Team != Team))
+            {
+                Locked = false;
+                LockedMessage.SetActive(false);
+            }
+        }
+        else
+        {
+            if ((other.gameObject.activeSelf && other.Team == Team && !other.Locked) || (oC.gameObject.activeSelf && oC.Team == Team))
+            {
+                Locked = true;
+                LockedMessage.SetActive(true);
+            }
+        }
     }
 
     public void MoveCharacter()
@@ -359,6 +390,7 @@ public class TeamEditorManager : MonoBehaviour
         Refresh();
         Clicking = true;
         Ready = false;
+        CheckLock();
     }
 
     public void Refresh()
