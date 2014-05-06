@@ -70,6 +70,7 @@ namespace Cub.Interface
                 {
                     Clicking = true;
                     GM.MainMenu.gameObject.SetActive(true);
+                    Cub.View.Alphabet.Box.SetActive(true);
                     GM.ClearAll();
                 }
             }

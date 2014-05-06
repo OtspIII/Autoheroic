@@ -164,6 +164,7 @@ public class MasterGameController : MonoBehaviour
     public void GotoFightScreen()
     {
         MainMenu.gameObject.SetActive(false);
+        Cub.View.Alphabet.Box.SetActive(false);
         LeftPicker.Setup();
         RightPicker.Setup();
         //CameraToPoint(new Vector3(-2, 3, -2),1);
