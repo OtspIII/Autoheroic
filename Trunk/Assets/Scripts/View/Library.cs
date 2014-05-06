@@ -148,6 +148,7 @@ namespace Cub.View
                 Dictionary_Damage.Add(7, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_7.xml") as Cubon);
                 Dictionary_Damage.Add(8, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_8.xml") as Cubon);
                 Dictionary_Damage.Add(9, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_9.xml") as Cubon);
+                Dictionary_Damage.Add(99, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_99.xml") as Cubon);
 
                 Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
                 Dictionary_Sound.Add(Sound.Blade, Resources.Load<AudioClip>("Sounds/Blade"));
