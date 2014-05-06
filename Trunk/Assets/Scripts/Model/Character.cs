@@ -133,20 +133,20 @@ namespace Cub.Model
             {
                 if (Info.Effects.Contains(Special_Effects.Explode_On_Death))
                 {
+                    events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(), false, new List<object> { ID }));
                     foreach (Character guy in Main.AllCharacters())
                         if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
                             guy.Damage(2, this, events, Cub.Attack_Result.Hit);
-                    Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
+                    //Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
                     Debug.Log("Blow Up: " + this.Name);
-                    events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(),false, new List<object> { ID }));
                 }
                 else
                 {
                     Debug.Log("Die: " + this.Name);
                     events.Add(new View.Eventon(Event.Die, "R.I.P. " + FindColorName(), false,new List<object> { ID }));
-                    Info.Save.Deaths++;
-                    source.Info.Save.Kills++;
                 }
+                Info.Save.Deaths++;
+                source.Info.Save.Kills++;
                 if (source.Stat.Team != Stat.Team)
                     source.Stat.Team.AddScore("Kills", Value);
                 Main.Dispose(this, events);

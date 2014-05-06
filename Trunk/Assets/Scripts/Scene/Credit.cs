@@ -47,6 +47,12 @@ namespace Cub.Scene
             Sha();
         }
 
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                Application.LoadLevel(0);
+        }
+
         public void Sha()
         {
             foreach (Cub.View.Cube CO in GameObject.Find("Name_Misha").GetComponentsInChildren<Cub.View.Cube>())

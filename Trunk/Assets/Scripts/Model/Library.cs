@@ -85,16 +85,16 @@ namespace Cub.Model
 
                 Dictionary_Bodies = new Dictionary<Part_Body, Model.BPBody>();
                 Dictionary_Bodies.Add(Part_Body.Medium, new Model.BPBody("Medium Armor",
-                    "The basic armored torso.", 3, 25, Part_Body.Medium));
+                    "The basic armored torso.", 4, 25, Part_Body.Medium));
                 Dictionary_Bodies.Add(Part_Body.Light, new Model.BPBody("Light Armor",
-                    "A cheaply made body that lacks protection.", 2, 15, Part_Body.Light));
+                    "A cheaply made body that lacks protection.", 2, 10, Part_Body.Light));
                 Dictionary_Bodies.Add(Part_Body.Heavy, new Model.BPBody("Heavy Armor",
-                    "Armor made from heavy materials that is hard to damage.", 4, 35, Part_Body.Heavy));
+                    "Armor made from heavy materials that is hard to damage.", 5, 35, Part_Body.Heavy));
                 Dictionary_Bodies.Add(Part_Body.Bomber, new Model.BPBody("Bomber Chest",
-                    "A bunch of explosives stuffed in a tin can. Explodes when destroyed.", 2, 25,
+                    "A bunch of explosives stuffed in a tin can. Explodes when destroyed.", 3, 25,
                     Part_Body.Bomber, new List<Special_Effects> { Cub.Special_Effects.Explode_On_Death }, "Explode on Death"));
                 Dictionary_Bodies.Add(Part_Body.Healer, new Model.BPBody("Self-Repairing Core",
-                    "Medium armor that repairs itself automatically ever round.", 3, 40,
+                    "Medium armor that repairs itself automatically ever round.", 4, 35,
                     Part_Body.Healer, new List<Special_Effects> { Cub.Special_Effects.Autoheal }, "Heal Every Turn"));
 
                 Dictionary_Legs = new Dictionary<Part_Legs, Model.BPLegs>();
