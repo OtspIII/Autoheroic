@@ -136,7 +136,7 @@ namespace Cub.Model
                     events.Add(new View.Eventon(Event.Blow_Up, "Blow Up " + FindColorName(), false, new List<object> { ID }));
                     foreach (Character guy in Main.AllCharacters())
                         if (guy != this && Cub.Tool.Pathfinder.Distance(Stat.Position, guy.Stat.Position) <= 1.5f)
-                            guy.Damage(2, this, events, Cub.Attack_Result.Hit);
+                            guy.Damage(2, source, events, Cub.Attack_Result.Hit);
                     //Cub.Model.Library.Get_Action(Cub.Action.Blow_Up).Body(this, new List<object>());
                     Debug.Log("Blow Up: " + this.Name);
                 }
@@ -197,7 +197,7 @@ namespace Cub.Model
         {
             if (Info.Effects.Contains(Special_Effects.Autoheal))
             {
-                if (Stat.HP < Info.MHP)
+                if (Stat.HP < Info.MHP && Stat.HP > 0)
                     Heal(1, this, events);
             }
             return events;
