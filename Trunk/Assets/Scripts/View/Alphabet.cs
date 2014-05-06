@@ -5,13 +5,24 @@ namespace Cub.View
 {
     public static class Alphabet
     {
-        private const float Timespan = 1F;
+        public static GameObject Box { get; set; }
+        private static bool _Box = false;
 
         public static GameObject Create(string _Sentence, Vector3 _Position, Vector3 _Rotation, Vector3 _Scale, Material _Material)
         {
+            if (_Box == false)
+            {
+                Box = new GameObject();
+                Box.transform.position = Vector3.zero;
+                Box.transform.rotation = Quaternion.Euler(Vector3.zero);
+                Box.transform.localScale = new Vector3(1, 1, 1);
+                _Box = true;
+            }
+
             GameObject GO = new GameObject();
-            GO.transform.position = _Position;
-            GO.transform.rotation = Quaternion.Euler(_Rotation);
+            GO.transform.parent = Box.transform;
+            GO.transform.localPosition = _Position;
+            GO.transform.localRotation = Quaternion.Euler(_Rotation);
             GO.transform.localScale = _Scale;
 
             Vector3 _Pointer = Vector3.zero;
