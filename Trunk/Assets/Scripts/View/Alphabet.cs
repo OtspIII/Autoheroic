@@ -7,7 +7,7 @@ namespace Cub.View
     {
         private const float Timespan = 1F;
 
-        public static void Create(string _Sentence, Vector3 _Position, Vector3 _Rotation, Vector3 _Scale, Material _Material)
+        public static GameObject Create(string _Sentence, Vector3 _Position, Vector3 _Rotation, Vector3 _Scale, Material _Material)
         {
             GameObject GO = new GameObject();
             GO.transform.position = _Position;
@@ -21,9 +21,10 @@ namespace Cub.View
                 Cubon _Cubon = Library.Get_Alphabet(_C);
 
                 GameObject _GO = new GameObject();
-                _GO.transform.position = _Position + _Pointer;
-                _GO.transform.rotation = Quaternion.identity;
                 _GO.transform.parent = GO.transform;
+                _GO.transform.localPosition = _Pointer;
+                _GO.transform.localRotation = Quaternion.identity;
+                _GO.transform.localScale = new Vector3(1, 1, 1);
 
                 foreach (Vector3 V in _Cubon.Position)
                 {
@@ -38,6 +39,8 @@ namespace Cub.View
 
                 _Pointer -= new Vector3(4, 0, 0);
             }
+
+            return GO;
         }
     }
 }
