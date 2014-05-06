@@ -152,6 +152,7 @@ namespace Cub.View
                 Dictionary_Damage.Add(99, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_99.xml") as Cubon);
 
                 Dictionary_Alphabet = new Dictionary<char, Cubon>();
+                Dictionary_Alphabet.Add(' ', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_.xml") as Cubon);
                 Dictionary_Alphabet.Add('A', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_A.xml") as Cubon);
                 Dictionary_Alphabet.Add('B', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_B.xml") as Cubon);
                 Dictionary_Alphabet.Add('C', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_C.xml") as Cubon);

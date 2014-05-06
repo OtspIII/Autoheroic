@@ -7,33 +7,35 @@ namespace Cub.View
     {
         private const float Timespan = 1F;
 
-        public static void Create(char _Char, Vector3 _Position, Vector3 _Rotation, Material _Material)
+        public static void Create(string _Sentence, Vector3 _Position, Vector3 _Rotation, Vector3 _Scale, Material _Material)
         {
-            Cubon _Cubon = Library.Get_Alphabet(_Char);
+            GameObject GO = new GameObject();
+            GO.transform.position = _Position;
+            GO.transform.rotation = Quaternion.Euler(_Rotation);
+            GO.transform.localScale = _Scale;
 
-            GameObject _GO = new GameObject();
-            _GO.transform.position = _Position;
-            _GO.transform.rotation = Quaternion.Euler(_Rotation);
-
-            foreach (Vector3 V in _Cubon.Position)
-            {
-                GameObject _Cube = UnityEngine.GameObject.Instantiate(Library.Get_Cube()) as GameObject;
-                _Cube.renderer.material = _Material;
-
-                _Cube.transform.parent = _GO.transform;
-                _Cube.transform.localPosition = V;
-                _Cube.transform.localRotation = Quaternion.identity;
-                _Cube.transform.localScale = new Vector3(0.9F, 0.9F, 0.9F);
-            }
-        }
-
-        public static void Create(string _Sentence, Vector3 _Position, Vector3 _Rotation, Material _Material)
-        {
-            Vector3 _Pointer = _Position;
+            Vector3 _Pointer = Vector3.zero;
 
             foreach (char _C in _Sentence)
             {
-                Create(_C, _Pointer, _Rotation, _Material);
+                Cubon _Cubon = Library.Get_Alphabet(_C);
+
+                GameObject _GO = new GameObject();
+                _GO.transform.position = _Position + _Pointer;
+                _GO.transform.rotation = Quaternion.identity;
+                _GO.transform.parent = GO.transform;
+
+                foreach (Vector3 V in _Cubon.Position)
+                {
+                    GameObject _Cube = UnityEngine.GameObject.Instantiate(Library.Get_Cube()) as GameObject;
+                    _Cube.renderer.material = _Material;
+
+                    _Cube.transform.parent = _GO.transform;
+                    _Cube.transform.localPosition = V;
+                    _Cube.transform.localRotation = Quaternion.identity;
+                    _Cube.transform.localScale = new Vector3(0.9F, 0.9F, 0.9F);
+                }
+
                 _Pointer -= new Vector3(4, 0, 0);
             }
         }
