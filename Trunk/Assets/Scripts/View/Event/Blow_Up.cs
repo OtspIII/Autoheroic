@@ -51,7 +51,7 @@ namespace Cub.View.Event
 
             C.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Explosion));
 
-            Cub.View.Indicator.Cross(C.Stat.Position);
+            //Cub.View.Indicator.Cross(C.Stat.Position);
 
             Runtime.Remove_Character((Guid)_Data[0]);
 
