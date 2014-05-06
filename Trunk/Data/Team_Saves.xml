@@ -160,23 +160,4 @@
       <a>255</a>
     </Colour_Secondary>
   </TeamSave>
-  <TeamSave>
-    <Name>Super Crows</Name>
-    <Owner_Name />
-    <Chars />
-    <Wins>0</Wins>
-    <Losses>0</Losses>
-    <Colour_Primary>
-      <r>255</r>
-      <g>0</g>
-      <b>0</b>
-      <a>255</a>
-    </Colour_Primary>
-    <Colour_Secondary>
-      <r>255</r>
-      <g>235</g>
-      <b>4</b>
-      <a>255</a>
-    </Colour_Secondary>
-  </TeamSave>
 </ArrayOfTeamSave>

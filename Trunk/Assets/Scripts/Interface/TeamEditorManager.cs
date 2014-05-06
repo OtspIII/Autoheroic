@@ -227,9 +227,7 @@ public class TeamEditorManager : MonoBehaviour
             if (!Clicking)
             {
                 Clicking = true;
-                Team.Name = Cub.Model.Library.TeamName();
-                FakeTeam.Name = Team.Name;
-                TeamName.text = Team.Name;
+                TeamNameUpdate(Cub.Model.Library.TeamName());
             }
         }
         //else if (GetInput("Color") > 0.5f)
@@ -553,6 +551,8 @@ public class TeamEditorManager : MonoBehaviour
         Team.Name = name;
         FakeTeam.Name = name;
         TeamName.text = name;
+        GM.LeftPicker.MarkTeamButtons();
+        GM.RightPicker.MarkTeamButtons();
     }
 
     public void OwnerNameUpdate(string name)
@@ -560,5 +560,7 @@ public class TeamEditorManager : MonoBehaviour
         Team.Owner_Name = name;
         FakeTeam.Owner_Name = name;
         OwnerName.text = name;
+        GM.LeftPicker.MarkTeamButtons();
+        GM.RightPicker.MarkTeamButtons();
     }
 }
