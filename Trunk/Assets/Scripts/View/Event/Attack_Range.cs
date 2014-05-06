@@ -50,6 +50,7 @@ namespace Cub.View.Event
                         iTween.MoveTo(B, iTween.Hash("position", C1.transform.position, "time", Timespan, "easetype", iTween.EaseType.linear));
                         GameObject.Destroy(B, Timespan + 0.5F);
                         C0.PlaySound(Cub.View.Library.Get_Sound(Cub.Sound.Gun_Crit));
+                        Cub.View.Damage.Create(99, C0.gameObject);
                         break;
                     }
                 case Attack_Result.Miss:
