@@ -95,9 +95,9 @@
           <Y>3</Y>
         </Position>
         <ID>b0ba85f9-1d3d-4b9f-bd24-d06a1ef6e1ec</ID>
-        <Kills>31</Kills>
-        <Deaths>18</Deaths>
-        <Matches>34</Matches>
+        <Kills>34</Kills>
+        <Deaths>20</Deaths>
+        <Matches>36</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Blue Zoe</Name>
@@ -111,8 +111,8 @@
         </Position>
         <ID>3d4dfbdd-bc34-4bb6-8ba2-3f500edf39f5</ID>
         <Kills>12</Kills>
-        <Deaths>28</Deaths>
-        <Matches>34</Matches>
+        <Deaths>30</Deaths>
+        <Matches>36</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Slim Ethan</Name>
@@ -126,8 +126,8 @@
         </Position>
         <ID>8d25c39a-6bd5-4468-9ab3-fffb462c3361</ID>
         <Kills>21</Kills>
-        <Deaths>26</Deaths>
-        <Matches>34</Matches>
+        <Deaths>28</Deaths>
+        <Matches>36</Matches>
       </Character_Save>
       <Character_Save>
         <Name>Internet Alex</Name>
@@ -140,13 +140,13 @@
           <Y>4</Y>
         </Position>
         <ID>8b144d49-672c-4499-85cc-6ebc1f061203</ID>
-        <Kills>25</Kills>
-        <Deaths>14</Deaths>
-        <Matches>26</Matches>
+        <Kills>29</Kills>
+        <Deaths>15</Deaths>
+        <Matches>28</Matches>
       </Character_Save>
     </Chars>
-    <Wins>19</Wins>
-    <Losses>15</Losses>
+    <Wins>20</Wins>
+    <Losses>16</Losses>
     <Colour_Primary>
       <r>0</r>
       <g>0</g>

@@ -40,6 +40,7 @@ namespace Cub.Scene
 
             Cub.View.Runtime.Add_Character(C1);
 
+            Cub.View.Alphabet.Create("ABCDEFGHIJKLMNOPQRSTUVWXYZ", new Vector3(0, 0, 2), new Vector3(0, 0, 0), Cub.View.Library.Get_Material());
 
             /*
             List<Cub.View.Cubon> C = new List<View.Cubon>();

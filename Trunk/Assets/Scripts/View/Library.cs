@@ -25,6 +25,7 @@ namespace Cub.View
         private static Dictionary<Part_Legs, List<Cub.View.Cubon>> Dictionary_Part_Legs_Right { get; set; }
 
         private static Dictionary<int, Cubon> Dictionary_Damage { get; set; }
+        private static Dictionary<char, Cubon> Dictionary_Alphabet { get; set; }
 
         private static Material Dictionary_Material { get; set; }
         private static PhysicMaterial Dictionary_Physic_Material { get; set; }
@@ -149,6 +150,34 @@ namespace Cub.View
                 Dictionary_Damage.Add(8, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_8.xml") as Cubon);
                 Dictionary_Damage.Add(9, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_9.xml") as Cubon);
                 Dictionary_Damage.Add(99, Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Damage_99.xml") as Cubon);
+
+                Dictionary_Alphabet = new Dictionary<char, Cubon>();
+                Dictionary_Alphabet.Add('A', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_A.xml") as Cubon);
+                Dictionary_Alphabet.Add('B', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_B.xml") as Cubon);
+                Dictionary_Alphabet.Add('C', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_C.xml") as Cubon);
+                Dictionary_Alphabet.Add('D', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_D.xml") as Cubon);
+                Dictionary_Alphabet.Add('E', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_E.xml") as Cubon);
+                Dictionary_Alphabet.Add('F', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_F.xml") as Cubon);
+                Dictionary_Alphabet.Add('G', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_G.xml") as Cubon);
+                Dictionary_Alphabet.Add('H', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_H.xml") as Cubon);
+                Dictionary_Alphabet.Add('I', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_I.xml") as Cubon);
+                Dictionary_Alphabet.Add('J', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_J.xml") as Cubon);
+                Dictionary_Alphabet.Add('K', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_K.xml") as Cubon);
+                Dictionary_Alphabet.Add('L', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_L.xml") as Cubon);
+                Dictionary_Alphabet.Add('M', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_M.xml") as Cubon);
+                Dictionary_Alphabet.Add('N', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_N.xml") as Cubon);
+                Dictionary_Alphabet.Add('O', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_O.xml") as Cubon);
+                Dictionary_Alphabet.Add('P', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_P.xml") as Cubon);
+                Dictionary_Alphabet.Add('Q', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_Q.xml") as Cubon);
+                Dictionary_Alphabet.Add('R', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_R.xml") as Cubon);
+                Dictionary_Alphabet.Add('S', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_S.xml") as Cubon);
+                Dictionary_Alphabet.Add('T', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_T.xml") as Cubon);
+                Dictionary_Alphabet.Add('U', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_U.xml") as Cubon);
+                Dictionary_Alphabet.Add('V', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_V.xml") as Cubon);
+                Dictionary_Alphabet.Add('W', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_W.xml") as Cubon);
+                Dictionary_Alphabet.Add('X', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_X.xml") as Cubon);
+                Dictionary_Alphabet.Add('Y', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_Y.xml") as Cubon);
+                Dictionary_Alphabet.Add('Z', Cub.Tool.Xml.Deserialize(typeof(Cubon), "Data/View_Alphabet_Z.xml") as Cubon);
 
                 Dictionary_Sound = new Dictionary<Cub.Sound, AudioClip>();
                 Dictionary_Sound.Add(Sound.Blade, Resources.Load<AudioClip>("Sounds/Blade"));
@@ -312,6 +341,11 @@ namespace Cub.View
         public static Cubon Get_Damage(int _Damage)
         {
             return Dictionary_Damage[_Damage];
+        }
+
+        public static Cubon Get_Alphabet(char _Char)
+        {
+            return Dictionary_Alphabet[_Char];
         }
     }
 }
