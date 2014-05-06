@@ -56,6 +56,8 @@ public class TeamEditorManager : MonoBehaviour
     public UITexture PtsFront;
     //public UISprite PrimaryColor;
     //public UISprite SecondaryColor;
+    public GameObject LockedMessage;
+    public bool Locked { get; set; }
 
 
     // Use this for initialization
